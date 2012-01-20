@@ -1,0 +1,23 @@
+﻿#lightbox-mask
+{
+    position: absolute;
+    z-index: 9000;
+    background: #000000;
+    display: none;
+}
+#lightbox-boxes .lightbox-window
+{
+    position: absolute;
+    width: 1020px;
+    z-index: 9999;
+    background-color: #FFFFFF;
+    display: none;
+    padding-bottom: 10px;
+    padding-top: 5px;
+    border: 1px solid #CCCCCC;
+}
+#lightbox-boxes #lightbox-dialog
+{
+    /*width:150px;  
+    height:100px;*/
+}

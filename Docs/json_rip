@@ -1,0 +1,27 @@
+rankno
+									productid
+									course
+									courseReleaseDate
+									isactive
+									tier1Percent
+									tier2Percent
+									otl_earning
+									cd_sales
+									cd_rate
+									cd_earning
+									total
+									prevAccountBalance
+									currAccountBalance
+									remainingAdvBalance
+									currMonthPayment
+									advPayment
+									totalEarningsToDate
+									usagePercent
+									revenuePercent
+									checkNumber
+									totalView
+									OTLRoyalties
+									OTLRoyaltiesDeke
+									OTLRoyaltiesDekeSecondary
+									RoyaltiesDekeOther
+									currMonthEarnings
