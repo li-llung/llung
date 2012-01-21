@@ -30,6 +30,11 @@ function framework()
 			truncate: function(input, limit) { var s = input, l = limit; return s && s.length > l ? s.substring(0, l) + '&hellip;' : s; },
 			escapeStringForJson: function(input) { return input.replace(/\\/g, '\\\\').replace(/"/g, '\\"'); }
 		};
+		var compare = {
+			operator: function(a, b) { return a === b ? 0 : (a > b ? 1 : -1); },
+			lowerCaseOperator: function(a, b) { if (typeof a === 'string' && typeof b === 'string') return (a.toLowerCase() === b.toLowerCase() ? 0 : (a.toLowerCase() > b.toLowerCase() ? 1 : -1)); else return compare.operator(a, b); },
+			array: function(a, b) { return a.length === 0 && b.length > 0 ? -1 : a.length > 0 && b.length === 0 ? 1 : a.length === 0 && b.length === 0 ? 0 : compare.operator(a[0], b[0]); }
+		};	
 		var clean = function(what){			
 			decimal = decimal || ".";
 			var regex = new RegExp("[^0-9-" + decimal + "]", ["g"]),
@@ -197,32 +202,10 @@ function framework()
 				/*End Public*/
 				/*Start Private*/
 				var sort = function(array, direction){
-					if(direction=="up"){
-						array.sort(function(a, b) {							
-							alert('a' + a);							
-							alert('b' + b);
-							if (a === undefined || b === undefined)
-								return 0;
-							var i =0;
-							for (i=0;i<=array.length;i++){
-								if (isNaN(a)){
-									alert('nan ' + a);
-									return a;
-								}else{
-									alert('is ' + a);
-									return clean(a);
-								}
-							}
-							return 0;
-						});
+					if(direction=="up"){						
+						array.sort(function(a,b) { return parseFloat(a.course) - parseFloat(b.course) } );
 					}else{
-						array.reverse(function(a,b) {
-							if (isNaN(a)){
-								return a;
-							}else{
-								return clean(a);
-							}
-						});
+						array.sort(function(a,b) { return parseFloat(b.course) - parseFloat(a.course) } );
 					}
 					render();
 				}
@@ -231,7 +214,7 @@ function framework()
 					
 					var items;					
 					var i=0;
-					for (i=0;i<=header_count;i++)
+					for (i=0;i<=(header_count-1);i++)
 					{
 					    items+="<td>{"+i+"}</td>";
 					}					
