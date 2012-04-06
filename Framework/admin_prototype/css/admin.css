@@ -1,0 +1,287 @@
+BODY{
+  margin:0px;
+  font-size: 12px;
+  color: #000000;
+  font-family: Arial;
+}
+img{
+	border: 0;
+}
+#container{
+	width: 100%;
+	margin: 0px auto;
+}
+#header{
+	position: relative;
+	display: block;
+}
+#logo{
+	background-color: #ffba00;
+	border-top: 4px solid #000000;
+	height: 45px;
+	display: block;
+	padding: 0 20%;
+}
+#nav{
+	background-color: #e5e5e5;
+	height: 34px;
+	display: block;
+	padding: 0 20%;
+}
+#sub_nav{
+	background-color: #ffffff;
+	height: 34px;
+	display: block;
+	padding: 2px 20%;
+}
+#sub_nav img, #breadcrumbs img{
+	vertical-align: middle;
+}
+#sub_nav a{
+	color: #000000;
+	line-height: 34px;
+	font-size: 12px;
+	text-decoration: none;
+	padding-left: 20px;
+	font-weight: bold;
+}
+#breadcrumbs{
+	background-color: #ededed;
+	height: 24px;
+	display: block;
+	padding: 0 20%;
+	border-top: 2px solid #e5e5e5;
+}
+#breadcrumbs a{
+	color: #3f84be;
+	line-height: 24px;
+	font-size: 10px;
+	text-decoration: none;
+	font-weight: bold;
+	position: relative;
+	left: -70px;
+	background-color: #ededed;
+}
+#logout{
+	position: absolute;
+	right: 20%;
+	top: 15px;
+}
+#content{
+	padding: 0 20%;
+	display: block;
+}
+#xfer_tool{
+}
+.xfer_header{
+	clear: both;
+	margin-bottom: 25px;
+}
+.xfer_header h1{
+
+}
+.xfer_header p{
+
+}
+.results{
+	display: none;
+}
+.caution_header{
+	color: #ff0000;
+	font-size: 16px;
+	font-weight: bold;
+}
+.caution{
+	color: #ff0000;
+}
+.xfer_content{
+	width: 100%;
+	clear: both;
+}
+#panel_1{
+	border-right: 1px solid #cccccc;
+}
+.result_row{
+	display: block;
+	background-color: #cccccc;
+	padding: 10px;
+	margin-top: 15px;
+}
+.results_box_message{
+	text-align: center;
+	font-weight: bold;
+	padding: 10px 0px 0px 0px;
+}
+.xfer_content_panel{
+	width: 405px;
+	float: left;
+	padding: 10px;
+	min-height: 250px;
+}
+.xfer_content_panel input{
+
+}
+.xfer_footer{
+	clear: both;
+	margin-top: 75px;
+}
+.xfer_header ul{
+	margin: 0px;
+	padding: 0px;
+	list-style-type: none;
+}
+.xfer_header ul li{
+	margin: 0px;
+	padding: 0px;
+	margin-right: 15px;
+}
+.xfer_footer p{
+
+}
+.xfer_footer input {
+
+}
+#submit{
+
+}
+div.courseDetails {
+	border-collapse: collapse;
+	float: left;
+	margin-bottom: 15px;
+	width: 320px;
+}
+div.content div#rightDiv div.courseDetails table.imagesHeader {
+	margin-bottom: -5px;
+	margin-top: -5px;
+	width: 387px;
+}
+div.content div.courseDetails table {
+	border-collapse: collapse;
+	margin: 0;
+	width: 350px;
+}
+div.content table {
+	margin-left: 0;
+}
+div.content div.courseDetails table.imagesDetails {
+	height: 484px;
+	width: 390px;
+}
+div.content div.courseDetails table {
+	border-collapse: collapse;
+	margin: 0;
+	width: 350px;
+}
+div.content table td {
+	vertical-align: top;
+}
+div.content div.courseDetails table.imagesDetails tr td {
+	vertical-align: top;
+}
+div.content .imagesDetails td {
+	border: 1px solid #CCCCCC;
+	padding: 5px;
+}
+div.content div.courseDetails table tr td img {
+	width: 50px;
+	height: 50px;
+}
+div.content div.courseDetails table tr td input, div.content div.courseDetails table tr td img {
+	vertical-align: middle;
+}
+div.content div.courseDetails table tr td span{
+	white-space: nowrap;
+	font-size: 14px;
+	font-weight: bold;
+}
+.thumbnail_box{
+	width: 50px;
+}
+.uploader{
+	display: none;
+}
+.remove{
+	display: none;
+}
+.upload_box{
+	width: 250px;
+}
+.even{
+	background-color: #e7e7e7;
+}
+/*Start Overlay*/
+.overlay_holder
+{
+  display: none;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  z-index: 2005;
+  background-color: transparent;
+  margin-bottom: 30px;
+}
+#overlay{
+  width: 722px;
+}
+#modal_bg{
+  display: none;
+  width: 1px;
+  height: 1px;
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  z-index: 2002;
+  display: block;
+  background-color: #000000;
+}
+.modal_bg{
+  display: none;
+  width: 1px;
+  height: 1px;
+  position: fixed;
+  left: 0px;
+  top: 0px;
+    z-index: 2002;
+    display: block;
+    background-color: #000000;
+}
+#overlay_bar{
+  height: 27px;
+  width: 100%;
+  display: block;
+}
+#overlay_bar h5{
+  color: #ffffff;
+  margin: 0px;
+  padding: 7px 0px 0px 10px;
+}
+.overlay_close{
+  position:  absolute;
+  right: -5px;
+  top: 15px;
+  z-index: 2007;
+}
+.overlay_content{
+  padding: 30px;
+}
+#overlay_content{
+  
+}
+#overlay_content h1, #overlay_content h3{
+  margin: 5px 0px 15px 0px;
+  padding: 0px 0px 0px 0px;
+  color: #333333;
+}
+#overlay_content{
+  
+}
+#overlay_content{
+  
+}
+.overlay_content .inputs{
+  width: 260px;
+}
+.full{
+  width: 100%;
+}
+/*End Overlay*/

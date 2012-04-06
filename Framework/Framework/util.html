@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<title>New document</title>
+	<meta name="generator" content="TSW WebCoder 2010" />
+	<script type="text/javascript" src="jquery-1.7.1.min.js"></script>
+	<script type="text/javascript" src="framework.js"></script>
+	<link rel="stylesheet" href="framework.css" type="text/css" media="screen" />
+</head>
+<body>
+<script type="text/javascript">
+function ldc_new(){
+	var my_name = '';
+	this.upper = function(name){
+		//alert(name);
+		my_name = name.toUpperCase();
+		//alert(my_name);
+	}
+	return my_name; 
+}
+function stringFormat() {
+	var a = arguments;
+	if (a.length == 0) return null; 
+	var i = a[0]; 
+	for (var b = 1, cnt = a.length; b < cnt; b++) 
+	i = i.replace(RegExp("\\{" + (b - 1) + "\\}", "gi"), a[b]); 
+	return i; 
+}
+String.prototype.format = function () {
+  var args = arguments;
+  return this.replace(/\{(\d+)\}/g, function (m, n) { return args[n]; });
+};
+ldc_new.prototype.upper = function (name) {
+	my_name = name.toUpperCase();
+	alert(my_name);
+};
+String.prototype.upper = function (el) {
+  $(el).css('text-transform', 'uppercase');
+};
+String.prototype.lower = function (el) {
+  $(el).css('text-transform', 'lowercase');
+};
+String.prototype.changecase = function (el) {
+  //alert($(el).css('text-transform'));
+  if($(el).css('text-transform')=='lowercase' || $(el).css('text-transform')=='normal'){
+  	$(el).css('text-transform', 'uppercase');	
+  }else{
+  	$(el).css('text-transform', 'lowercase');
+  }  
+};
+Number.prototype.double = function () {
+  var answer = (this * 2);
+  return answer;
+};
+</script>	
+<script type="text/javascript">	
+	var my_format = new ldc_new();
+	//alert(my_format.upper('test'));
+	var format = new stringFormat();
+	jQuery(document).ready(function()
+	{
+		//alert(format.contructor);
+		my_format.upper('test');
+		$(".uppercase").click(function(){
+			$(this).toString().upper(this);
+		});
+		$(".lowercase").click(function(){
+			$(this).toString().lower(this);
+		});
+		$(".changecase").click(function(){
+			$(this).toString().changecase(this);
+		});
+	 //reply = prompt('Enter a number ' , '');
+	 //alert(typeof(reply));
+	 //var ans = Number(reply).double();
+	 //alert('Doubled its ' + ans);
+	 //alert(stringFormat('showing {0}-{1} of {2} and {3} , more {4}', 1, 2, 3, "<strong>4</strong>", 5));
+	 //alert('showing {0}-{1} of {2} and {3} , more {4}'.format(6, 7, 8, "<strong>9</strong>", 10));
+	});
+</script>
+<a href="#nogo" class="changecase">change Me</a>
+<a href="#nogo" class="changecase">change Me</a>
+<a href="#nogo" class="changecase">change Me</a>
+<a href="#nogo" class="changecase">change Me</a>
+<a href="#nogo" class="uppercase">uppercase Me</a>
+<a href="#nogo" class="lowercase">lowercase Me</a>
+</body>
+</html>

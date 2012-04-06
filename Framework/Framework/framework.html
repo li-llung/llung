@@ -60,36 +60,46 @@
 <br /><br /><br />
 <a href="javascript: ldc.yell('h3');">yell at the h3</a> | <a href="javascript: ldc.shh('h3');">shh at the h3</a> | <a href="javascript: ldc.asyouwere('h3');">as you were</a> | <a href="http://www.google.com" rel="external">google in new window</a>
 -->
+<!--Basic Example-->
+<!--To use core components with default attributes no script tags are needed to be added to the page.-->
+
+<!--Complex Example-->
+<!--Complex examples are used to overwrite default values or create multiple instances of something on a page.-->
 <script type="text/javascript">
-     jQuery(document).ready(function()
-     {
-          //ldc.yell('h2,h4,.test');
-          var new_defaults = {
-               widgets: {
-                    'slider' : {
-                         'width' : '300px',
-                         'height' : '300px',
-                         'speed' : '5000'
-                    },
-                    'overlay' : {
-                         'width' : '300px',
-                         'height' : '300px',
-                         'class' : 'overlay'
-                    },
-                    'toggles' : {
-                         'header' : 'h3',
-                         'element' : '.toggle',
-                         'multiple' : true
-                    }
-               },
-               vars: {
-                    'servervar1' : 'servervarvalue1',
-                    'servervar2' : 'servervarvalue2',
-                    'servervar3' : 'servervarvalue3'
-               }
-          }
-          ldc.init(new_defaults);
-     });
+	jQuery(document).ready(function()
+	{
+		//ldc.yell('h2,h4,.test');		  
+		var options = {
+			widgets: {
+				/*Widgets are external files that are loaded in and configured on a needed basis. You will need to add a script tag above with the widget.*/
+				'slider' : {
+					'width' : '300px',
+					'height' : '300px',
+					'speed' : '5000'
+				}
+			},
+			core: {
+				/*Core overrides only , if nothing is specified all core will be loaded with default values*/
+				'overlay' : {
+					'width' : '300px',
+					'height' : '300px',
+					'class' : 'overlay'
+				}
+				'toggles' : {
+					'header' : 'h3',
+					'element' : '.toggle',
+					'multiple' : true
+				}
+			},
+			vars: {
+				/*Server variables can be passed in to use as you wish. */
+				'servervar1' : 'servervarvalue1',
+				'servervar2' : 'servervarvalue2',
+				'servervar3' : 'servervarvalue3'
+			}
+		}
+		ldc.init(options);
+	});
 </script>
 </body>
 </html>

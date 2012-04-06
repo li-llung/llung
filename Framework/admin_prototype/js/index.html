@@ -1,0 +1,13 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<body>
+	<div id="os"></div>
+	<div id="browser"></div>
+	<script src="./jquery-1.3.2.js"></script>
+	<script src="./jquery.client.js"></script>
+	<script>
+		$('#os').html("Your browser is running on: <b>" + $.client.os + "</b>");
+		$('#browser').html("Your browser is: <b>" + $.client.browser + "</b>");
+	</script>
+</body>
+</html>

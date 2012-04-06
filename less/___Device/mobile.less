@@ -1,0 +1,48 @@
+@import "../____Brand/variables.less";
+@import "../____Brand/brand.less";
+@import "reset.css";
+
+/**********************************/
+/*     MOBILE-SPECIFIC CSS        */
+/**********************************/
+
+html {
+	-webkit-text-size-adjust:none;
+	min-width: 320px;
+}
+
+body {
+	width: 100%;
+	.text(@default_font_size, @default_font_family, @txt_med_grey);
+	line-height: @default_line_height;
+	background-color: @light;
+	margin: @auto;
+}
+
+a {
+	color: @link_color;
+	text-decoration: none;
+}
+
+.clear {
+	clear: both;
+	display: block;
+	overflow: hidden;
+	visibility: hidden;
+	width: 0;
+	height: 0;
+}
+
+.ar {
+	text-align: right;
+}
+.notap {
+	-webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+}
+
+.blackText{color: @dark;}
+.boldText{font-weight:bold;}
+.none{
+	padding: 0px;
+	margin: 0px;
+}
