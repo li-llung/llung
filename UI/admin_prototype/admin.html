@@ -1,0 +1,52 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+    "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <title>lynda.com admin</title>
+  <link href="css/admin.css" type="text/css" rel="stylesheet" />
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+  <script type="text/javascript" src="js/admin.js"></script>
+</head>
+<body>
+<div id="container">
+	<div id="header">
+		<div id="logo"><img src="images/admin_logo.jpg" alt="" /></div>
+		<div id="nav"><img src="images/admin_nav.jpg" alt="" /></div>
+		<div id="sub_nav"><img src="images/admin_sub_nav.jpg" alt="" /> <a href="javscript: void(0)">Transfer History</a></div>	
+		<div id="breadcrumbs"><img src="images/admin_breadcrumbs.jpg" alt="" /> <a href="javscript: void(0)">transfer account history</a></div>
+		<div id="logout"><img src="images/admin_log-out.jpg" alt="" /></div>
+	</div>
+	<div id="content">
+		<div id="xfer_tool">
+			<div class="xfer_header">
+				<h1>Transfer Account History</h1>
+				<!--<p><span class="caution_header">CAUTION:</span> This functionality should old be used by our small team of technical leads with written approval, since it is irreversible.</p>-->
+				<p><span class="caution_header">CAUTION: This is irreversible.</span></p>
+				<ul>
+					<li><input type="checkbox" class="checks" value="Course and movie history" name="course_movie_history" id="course_movie_history" /> Course and movie history</li>
+					<li><input type="checkbox" class="checks" value="Certificates of completion" name="certificates_queue_list_bookmarks" id="certificates" /> Certificates of completion</li>
+					<li><input type="checkbox" class="checks" value="Queue list and bookmarks" name="certificates_queue_list_bookmarks" id="queue_list_bookmarks" /> Queue list and bookmarks</li>
+					<li><input type="checkbox" class="checks" value="Username and password" name="username_password" id="username_password" /> Username and password*</li>
+				</ul>				
+			</div>
+			<div class="xfer_content">
+				<div class="xfer_content_panel" id="panel_1">
+					<span>from source user ID: <input type="text" name="panel_1_input" value="" class="numbers" /></span> <span id="panel_1_results" class="results"></span>
+					<div class="results_box_message" id="panel_1_message"></div>
+					<div class="results_box"></div>
+				</div>
+				<div class="xfer_content_panel" id="panel_2">
+					<span>to target user ID: <input type="text" name="panel_2_input" value="" class="numbers" /></span> <span id="panel_2_results" class="results"></span>	
+					<div class="results_box_message" id="panel_2_message"></div>
+					<div class="results_box"></div>		
+				</div>				
+			</div>
+			<div class="xfer_footer">
+				<br /><p>*trasferring will append '_DO_NOT_USE' to the username of the source account.</p>
+				<p><input type="submit" value="transfer" name="submit" id="submit" disabled="disabled" /></p>
+			</div>		
+		</div>
+	</div>
+</div>
+</body>
+</html>

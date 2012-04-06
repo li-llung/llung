@@ -1,0 +1,140 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<title>New document</title>
+	<script type="text/javascript" src="ui/scripts/jquery.js"></script>
+</head>
+<body>
+<script type="text/javascript">	
+	jQuery(document).ready(function()	
+	{
+		var arr = [
+			{name:"Zack", friends:{count:50}},
+			{name:"Alex", friends:{count:80}},
+			{name:"Mike", friends:{count:30}}
+		];
+		var homes = [{
+		   "h_id": "3",
+		   "city": "Dallas",
+		   "state": "TX",
+		   "zip": "75201",
+		   "price": "162500"
+		}, {
+		   "h_id": "4",
+		   "city": "Bevery Hills",
+		   "state": "CA",
+		   "zip": "90210",
+		   "price": "319250"
+		}, {
+		   "h_id": "5",
+		   "city": "New York",
+		   "state": "NY",
+		   "zip": "00010",
+		   "price": "962500"
+		}];
+		var sort_by = function(field, reverse, primer){
+		
+		   var key = function (x) {return primer ? primer(x[field]) : x[field]};
+		
+		   return function (a,b) {
+		       var A = key(a), B = key(b);
+		       return (A < B ? -1 : (A > B ? 1 : 0)) * [1,-1][+!!reverse];                 
+		   }
+		}
+		function sortJsonArrayByProp(objArray, prop){
+		    if (arguments.length<2){
+		        throw new Error("sortJsonArrayByProp requires 2 arguments");
+		    }
+		    if (objArray && objArray.constructor===Array){
+		        var propPath = (prop.constructor===Array) ? prop : prop.split(".");
+		        objArray.sort(function(a,b){
+		            for (var p in propPath){
+		                if (a[propPath[p]] && b[propPath[p]]){
+		                    a = a[propPath[p]];
+		                    b = b[propPath[p]];
+		                }
+		            }
+		            // convert numeric strings to integers
+		            a = a.toString().match(/^\d+$/) ? +a : a;
+		            b = b.toString().match(/^\d+$/) ? +b : b;
+		            return ( (a < b) ? -1 : ((a > b) ? 1 : 0) );
+		        });
+		    }
+		}
+		//alert(sortJsonArrayByProp(arr, "name"));
+		//alert(sortJsonArrayByProp(arr, "friends.count"));
+		//alert(sortJsonArrayByProp(arr, ["friends","count"]));
+		// Now you can sort by any field at will...
+				
+		// Sort by price high to low
+		//alert(homes.sort(sort_by('price', true, parseInt)));
+		
+		// Sort by city, case-insensitive, A-Z
+		//alert(homes.sort(sort_by('city', false, function(a){return a.toUpperCase()})));
+
+		
+		function clean(what){
+			var regex = new RegExp("[^0-9]", ["g"]),
+			cleaned = parseFloat(
+				("" + what)
+				.replace(/\((.*)\)/, "-$1") // replace bracketed values with negatives
+				.replace(regex, '')         // strip out any cruft
+			);
+			return cleaned;
+		}
+		var myarray=[25, 8, 7, 41, 250, 300, 3.14, 0.25];
+		var mystringarray=["a","c","e","b","f","d"];
+		var mymoneyarray=["$3.14","$3.18","$3.19","$3.17","$3.16","$3.15"];
+		var mypercentarray=["0%","2%","4%","5%","3%","1%"];
+		function sort(direction){
+			if(direction== "up"){
+				myarray.sort(function(a,b){return a - b}) //numeric	
+				mystringarray.sort() //strings
+				mymoneyarray.sort(function(a,b){return clean(a) - clean(b)}) //$ or %
+				mypercentarray.sort(function(a,b){return clean(a) - clean(b)})//$ or %
+			}else{
+				myarray.sort(function(a,b){return b - a}) //numeric 
+				mystringarray.reverse() //strings
+				mymoneyarray.sort(function(a,b){return clean(b) - clean(a)})//$ or %
+				mypercentarray.sort(function(a,b){return clean(b) - clean(a)})//$ or %
+			}
+			return mystringarray;
+		}
+		//alert(sort('up'));
+		//alert(sort('down'));
+	});
+</script>
+<script type="text/javascript">
+    var arr = [
+      { "ID": 135, "Name": "Fargo Chan", "Address": "34, Baker Street" },
+      { "ID": 432, "Name": "Aaron Luke", "Address": "BLDG 1, J Street" },
+      { "ID": 252, "Name": "Dilip Singh", "Address": "Hotel J, SE" }
+    ];
+
+      // Before Sorting
+      document.write("<b>Before Sorting </b><br/>");         
+      for (var n = 0; n < arr.length; n++) {
+          document.write(arr[n].ID + ' ' + arr[n].Name + '<br>');
+      }
+
+    // ascending order
+    function SortByID(x,y) {
+      return x.ID - y.ID; 
+    }
+
+
+    function SortByName(x,y) {
+      return ((x.Name == y.Name) ? 0 : ((x.Name > y.Name) ? 1 : -1 ));
+    }
+
+    // Call Sort By Name
+    arr.sort(SortByID);
+
+    document.write("<br/><b>After Sorting </b> <br/>");   
+    for(var n=0;n<arr.length;n++){
+      document.write(arr[n].ID + ' ' + arr[n].Name + '<br>');
+    }
+
+</script>
+</body>
+</html>
