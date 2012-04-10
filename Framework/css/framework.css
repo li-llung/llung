@@ -131,3 +131,94 @@ p{
 	background-image: url('images/ap_icon_success.png');
 	background-repeat: no-repeat;	
 }
+.content{
+	padding: 30px;
+}
+.content img{
+	width: 160px;
+	height: auto;
+}
+/*Start Overlay*/
+.overlay_holder
+{
+	display: none;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+    z-index: 2005;
+	background-color: white;
+	margin-bottom: 30px;
+}
+/*#overlay{
+	width: 722px;
+}*/
+#modal_bg{
+	display: none;
+	width: 1px;
+	height: 1px;
+	position: fixed;
+	left: 0px;
+	top: 0px;
+    z-index: 2002;
+    display: block;
+    background-color: #000000;
+}
+.modal_bg{
+	display: none;
+	width: 1px;
+	height: 1px;
+	position: fixed;
+	left: 0px;
+	top: 0px;
+    z-index: 2002;
+    display: block;
+    background-color: #000000;
+}
+#overlay_bar{
+	/*height: 27px;*/
+	width: 100%;
+	display: block;
+}
+#overlay_bar h5{
+	color: #ffffff;
+	margin: 0px;
+	padding: 7px 0px 0px 10px;
+}
+.overlay_image_close{
+	position:  absolute;
+	right: -5px;
+	top: -5px;
+	z-index: 2007;
+}
+.overlay_close{
+	position:  absolute;
+	right: 12px;
+	top: 12px;
+	z-index: 2007;
+}
+.overlay_content{
+	padding: 30px;
+}
+#overlay_content{
+	
+}
+#overlay_content h1, #overlay_content h3{
+	margin: 3px 0px 17px 0px;
+	padding: 0px 0px 0px 0px;
+	color: #333333;
+	font-size: 15px;
+	line-height: 17px;
+}
+#overlay_content{
+	
+}
+#overlay_content{
+	
+}
+.overlay_content .inputs{
+	width: 260px;
+}
+.full{
+	width: 100%;
+}
+/*End Overlay*/
