@@ -135,8 +135,8 @@ p{
 	padding: 30px;
 }
 .content img{
-	width: 160px;
-	height: auto;
+	width: auto;
+	height: 120px;
 }
 /*Start Overlay*/
 .overlay_holder
@@ -186,8 +186,8 @@ p{
 }
 .overlay_image_close{
 	position:  absolute;
-	right: -5px;
-	top: -5px;
+	right: 7px;
+	top: 7px;
 	z-index: 2007;
 }
 .overlay_close{
