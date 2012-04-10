@@ -7,6 +7,7 @@ jQuery(document).ready(function()
 function framework()
 {         
 	/*Start Global Variables*/	
+	
 	/*End Global Variables*/
 		
 	/*Start Global Functions*/
