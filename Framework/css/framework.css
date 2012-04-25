@@ -58,6 +58,9 @@ h1, h2, h3, h4, h5, h6{
 	margin-bottom: 18px;
 	font-family: "Trebuchet MS";
 }
+a{
+	color: #FF0000;
+}
 h1{
 	font-size: 20px;
 }
@@ -220,5 +223,10 @@ p{
 }
 .full{
 	width: 100%;
+}
+#overlay_frame{
+	overflow: hidden;
+	width: 1px;
+	height: 1px;
 }
 /*End Overlay*/

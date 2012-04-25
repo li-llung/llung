@@ -5,25 +5,39 @@
 	<meta name="generator" content="TSW WebCoder 2010" />
 	<script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
 	<script type="text/javascript" src="js/framework.js"></script>
+	<!--<script type="text/javascript" src="js/core.js"></script>-->
 	<link rel="stylesheet" href="css/framework.css" type="text/css" media="screen" />
 </head>
 <body>
 <div class="content">
 <!--Basic Example-->
 <!--To use core components with default attributes no script tags are needed to be added to the page.-->
-<a href="#nogo" class="image_overlay" lang="overlay" title="Penguins"><img src="images/sample/Penguins.jpg" width="640" height="480" /></a><a href="#nogo" class="image_overlay" lang="overlay" title="Koala"><img src="images/sample/Koala.jpg" width="640" height="480" /></a><a href="#nogo" class="image_overlay" lang="overlay" title="Lighthouse"><img src="images/sample/Lighthouse.jpg" width="640" height="480" /></a><a href="#nogo" class="image_overlay" lang="overlay" title="Splinter Cell"><img src="images/sample/avatar.png" width="110" height="106" /></a><a href="#nogo" class="image_overlay" lang="overlay" title=""><img src="images/sample/test.png" width="480" height="800" /></a><a href="#nogo" class="image_overlay" lang="overlay" title=""><img src="images/sample/test2.png" width="640" height="960" /></a><br /><br />
+<a href="#nogo" class="image_overlay" lang="image" title="Penguins"><img src="images/sample/Penguins.jpg" /></a>
+<a href="#nogo" class="image_overlay" lang="image" title="Koala"><img src="images/sample/Koala.jpg" /></a>
+<a href="#nogo" class="image_overlay" lang="image" title="Lighthouse"><img src="images/sample/Lighthouse.jpg" /></a>
+<a href="#nogo" class="image_overlay" lang="image" title="Splinter Cell"><img src="images/sample/avatar.png" /></a>
+<a href="#nogo" class="image_overlay" lang="image" title=""><img src="images/sample/test.png" /></a>
+<a href="#nogo" class="image_overlay" lang="image" title=""><img src="images/sample/test2.png" /></a>
+<a href="#nogo" class="image_overlay" lang="image" title="Splinter Cell"><img src="images/sample/chevrolet-camaro-concept-picture.jpg" /></a>
+<a href="#nogo" class="image_overlay" lang="image" title="Splinter Cell"><img src="images/sample/chevy_camaro_2010.jpg" /></a>
+<a href="#nogo" class="image_overlay" lang="image" title="Splinter Cell"><img src="images/sample/ford-f-150-svt-raptor.jpg" /></a>
+<a href="#nogo" class="image_overlay" lang="image" title="Splinter Cell"><img src="http://ldcssintegration.s3-website-us-east-1.amazonaws.com/course/79043/79043-16x9.jpg"></a>
+<br /><br />
 <!--Complex Example-->
 <!--Complex examples are used to overwrite default values or create multiple instances of something on a page.-->
-<a href="#nogo" class="overlay" lang="overlay" title="show me the money">show me the money</a>
+<a href="#nogo" class="image_overlay" lang="overlay" title="show me the money">show me the money</a>
+<a href="#nogo" class="image_overlay" lang="meh" title="">meh</a>
 </div>
-<div id="overlay" class="overlay_holder"><div id="overlay_content" class="overlay_content">test overlay</div></div>
-<script type="text/javascript" src="js/slider.js"></script>
+<div id="overlay" class="overlay_holder"><div class="overlay_content">
+	<p>Tenderloin pork chop drumstick tail pork belly venison. Turkey brisket chuck pork belly, spare ribs sausage ribeye shankle pork loin cow strip steak pork biltong. Biltong rump capicola, tenderloin prosciutto drumstick jowl ribeye turkey venison bacon salami. Brisket short ribs turkey capicola, bresaola shoulder rump shank hamburger meatloaf beef. Pancetta hamburger t-bone, bresaola shank corned beef chicken brisket leberkas filet mignon frankfurter.</p>
+
+	<p>Sausage flank drumstick bresaola. Pork bacon frankfurter cow brisket. Shank tail salami fatback. Bacon strip steak ribeye corned beef, sausage boudin capicola meatloaf t-bone. Shoulder pork chop ball tip, biltong prosciutto hamburger speck meatball spare ribs pork belly chicken pork t-bone beef ribs. Leberkas hamburger prosciutto meatloaf, beef ribs kielbasa chuck.</p>
+</div></div>
+
+<div id="meh" class="overlay_holder"><div class="overlay_content"><h1>MEH!!</h1><p>Sausage flank drumstick bresaola. Pork bacon frankfurter cow brisket. Shank tail salami fatback. Bacon strip steak ribeye corned beef, sausage boudin capicola meatloaf t-bone. Shoulder pork chop ball tip, biltong prosciutto hamburger speck meatball spare ribs pork belly chicken pork t-bone beef ribs. Leberkas hamburger prosciutto meatloaf, beef ribs kielbasa chuck.</p></div></div>
+<div id="image_overlay" class="overlay_holder"></div>
+<!--<script type="text/javascript" src="js/slider.js"></script>-->
 <script type="text/javascript">
-				/*'overlay' : {
-                	width: 410,
-                	auto_scroll: true,
-            		rounded: '7px'
-				},*/
 	jQuery(document).ready(function()
 	{
 		ldc.init({

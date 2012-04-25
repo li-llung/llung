@@ -18,8 +18,8 @@ function framework()
 		}
 		this.show = function (e, src, width, height, title, center, content, rounded, type) {
 			if(type=="image"){
-				if ($("#overlay_content").length > 0) {
-					$("#overlay_content").remove();
+				if ($("#overlay_image_content").length > 0) {
+					$("#overlay_image_content").remove();
 				}
 			}		
 			if ($("#modal_bg").length > 0) {
@@ -49,7 +49,7 @@ function framework()
 					id: "overlay_bar",
 					html: '<a href="#nogo" class="overlay_image_close"><img src="images/btn_close_22x22_black.png" alt=""/></a>'
 				}).prependTo("#" + e);
-				$('<div id="overlay_content" class="overlay_content"><img src="'+src+'" width="'+width+'" alt="" /></div>').insertAfter('#overlay_bar');
+				$('<div id="overlay_image_content" class="overlay_content"><img src="'+src+'" width="'+width+'" alt="" /></div>').insertAfter('#overlay_bar');
 				$(".overlay_image_close, #modal_bg").click(function () {
 					$(".main_overlay").fadeOut();
 					$("#" + e).fadeOut();
@@ -88,7 +88,11 @@ function framework()
 		}
 		this.overlay = function(options){
 			var od = options.core.overlay;		
-			var set_defaults = function (od) {
+			var set_defaults = function (od) {				
+				if(!$('#overlay_frame').length){
+					$('#overlay_frame').remove();
+				}
+				$('<div id="overlay_frame"></div>').appendTo("body");
 				var config = {
 					master_overlay_debug:          od.debug == undefined ? false : od.debug,
 				    master_overlay_width:          od.width == undefined ? '700' : od.width,
@@ -109,17 +113,25 @@ function framework()
 				    master_overlay_type:           od.type == undefined ? 'html' : od.type,
 				    master_overlay_src:            od.src == undefined ? '' : od.src	
 				}				
+				var i = 1;
 				var watcher = function () {
 					$(config.master_overlay_class).each(function () {
+						if(config.master_overlay_type =="image"){
+							$(this).find("img").clone().appendTo("#overlay_frame").attr('id','image_od_' + i);
+						}
+						$(this).attr('id', 'od_' + i);
 						$(this).click(function () {
-							config.master_overlay_element = $(this).attr('lang');
-							if(config.master_overlay_type =="image"){
-								config.master_overlay_src  = $(this).find('img').attr('src')
-								ldc.show(config.master_overlay_element, config.master_overlay_src, $(this).find('img').attr('width'), $(this).find('img').attr('height'), $(this).attr('title'), config.master_center, config.master_overlay_content, config.master_overlay_rounded, 'image');	
-							}else{				
-								ldc.show(config.master_overlay_element, config.master_overlay_src, config.master_overlay_width, config.master_overlay_height, $(this).attr('title'), config.master_center, config.master_overlay_content, config.master_overlay_rounded, 'html');					
+							config.master_overlay_element = $(this).attr('lang');							
+							if(config.master_overlay_element == "image"){
+								config.master_overlay_src  = $(this).find('img').attr('src');
+								ldc.show("image_overlay", config.master_overlay_src, $("#image_" + $(this).attr('id')).width(), $("#image_" + $(this).attr('id')).height(), $(this).attr('title'), config.master_center, config.master_overlay_content, config.master_overlay_rounded, 'image');
+							}else if(config.master_overlay_element == "overlay"){
+								ldc.show("overlay", config.master_overlay_src, config.master_overlay_width, config.master_overlay_height, $(this).attr('title'), config.master_center, config.master_overlay_content, config.master_overlay_rounded, 'html');
+							}else{
+								ldc.show(config.master_overlay_element, config.master_overlay_src, config.master_overlay_width, config.master_overlay_height, $(this).attr('title'), config.master_center, config.master_overlay_content, config.master_overlay_rounded, 'html');								
 							}
-						})
+						});
+						i++;
 					});
 					$(".overlay_close").click(function () {
 						$(".main_overlay").fadeOut();
