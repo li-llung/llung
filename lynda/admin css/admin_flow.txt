@@ -1,0 +1,86 @@
+Login/Logout
+Forgot Password
+CS
+    Search
+        Customer Detail
+            Upgrade to LyndaPro
+            Comp Extention
+            Customer Contacted via
+            Order Details
+            
+    New Account
+        Step 1
+        Step 2
+    New Quote
+    Training
+    Abuse
+Production
+    Courses	
+        Details			
+        Add			
+        Edit			
+        Authors			
+        Table of Contents			
+        Exercise Files			
+        Categories			
+        Related Training			
+        Replication			
+        Captions			
+        Utilities			
+        Royalty Models			
+        Cache Manager	
+    Authors	
+    Categories	
+    Cache Manager	
+    Course FAQs 
+Content
+    Course Feedback
+Marketing     	
+    Promos	
+    Add Promo	
+    More Keys	
+    Download Keys	
+    User Group	
+    Segmentation Tool	
+    Vanity URLs
+Finance
+    Royalties
+    Reports		
+        Enter Payment			
+        Enter Checks			
+        Third Party Royalties			
+        Monthly Statements			
+        Royalty Calculations Report			
+        Royalties to Author Portal
+    Refund	
+    MUDVD	
+    Sales Periods	
+    Events 
+CMS
+    CMS Tool	
+    FAQ	
+    Jobs	
+    New Features	
+    Press Releases	
+    Testimonials	
+    Alerts	
+    Newsletters	
+    Categories Content	
+    Author Handbook	
+    Author Greetings	
+    SEO 
+Admin
+    Users	
+    Add Users
+    Groups	
+    Add Groups 
+Reports
+    Financial	
+    Content	
+    Royalty	
+    Marketing	
+    Sales	
+    Customer Service	
+    Product Usage	
+    E-sign	
+    Admin 

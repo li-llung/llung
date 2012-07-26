@@ -10,23 +10,27 @@
 </head>
 <body>
 <div class="content">
+<h1>Overlay</h1>
 <!--Basic Example-->
 <!--To use core components with default attributes no script tags are needed to be added to the page.-->
-<a href="#nogo" class="image_overlay" lang="image" title="Penguins"><img src="images/sample/Penguins.jpg" /></a>
-<a href="#nogo" class="image_overlay" lang="image" title="Koala"><img src="images/sample/Koala.jpg" /></a>
-<a href="#nogo" class="image_overlay" lang="image" title="Lighthouse"><img src="images/sample/Lighthouse.jpg" /></a>
-<a href="#nogo" class="image_overlay" lang="image" title="Splinter Cell"><img src="images/sample/avatar.png" /></a>
-<a href="#nogo" class="image_overlay" lang="image" title=""><img src="images/sample/test.png" /></a>
-<a href="#nogo" class="image_overlay" lang="image" title=""><img src="images/sample/test2.png" /></a>
-<a href="#nogo" class="image_overlay" lang="image" title="Splinter Cell"><img src="images/sample/chevrolet-camaro-concept-picture.jpg" /></a>
-<a href="#nogo" class="image_overlay" lang="image" title="Splinter Cell"><img src="images/sample/chevy_camaro_2010.jpg" /></a>
-<a href="#nogo" class="image_overlay" lang="image" title="Splinter Cell"><img src="images/sample/ford-f-150-svt-raptor.jpg" /></a>
-<a href="#nogo" class="image_overlay" lang="image" title="Splinter Cell"><img src="http://ldcssintegration.s3-website-us-east-1.amazonaws.com/course/79043/79043-16x9.jpg"></a>
+<a href="javascript: void(0);" class="overlay" lang="image" title="Penguins"><img src="images/sample/Penguins.jpg" /></a>
+<a href="javascript: void(0);" class="overlay" lang="image" title="Koala"><img src="images/sample/Koala.jpg" /></a>
+<a href="javascript: void(0);" class="overlay" lang="image" title="Lighthouse"><img src="images/sample/Lighthouse.jpg" /></a>
+<a href="javascript: void(0);" class="overlay" lang="image" title="Splinter Cell"><img src="images/sample/avatar.png" /></a>
+<a href="javascript: void(0);" class="overlay" lang="image" title=""><img src="images/sample/test.png" /></a>
+<a href="javascript: void(0);" class="overlay" lang="image" title=""><img src="images/sample/test2.png" /></a>
+<a href="javascript: void(0);" class="overlay" lang="image" title="Splinter Cell"><img src="images/sample/chevrolet-camaro-concept-picture.jpg" /></a>
+<a href="javascript: void(0);" class="overlay" lang="image" title="Splinter Cell"><img src="images/sample/chevy_camaro_2010.jpg" /></a>
+<a href="javascript: void(0);" class="overlay" lang="image" title="Splinter Cell"><img src="images/sample/ford-f-150-svt-raptor.jpg" /></a>
+<a href="javascript: void(0);" class="overlay" lang="image" title="Splinter Cell"><img src="http://ldcssintegration.s3-website-us-east-1.amazonaws.com/course/79043/79043-16x9.jpg"></a>
+<a href="javascript: void(0);" class="overlay" lang="image" title=""><img src="images/sample/too_wide.jpg"></a>
+<a href="javascript: void(0);" class="overlay" lang="image" title=""><img src="images/sample/too_tall.jpg"></a>
 <br /><br />
 <!--Complex Example-->
 <!--Complex examples are used to overwrite default values or create multiple instances of something on a page.-->
-<a href="#nogo" class="image_overlay" lang="overlay" title="show me the money">show me the money</a>
-<a href="#nogo" class="image_overlay" lang="meh" title="">meh</a>
+<a href="javascript: void(0);" class="overlay" lang="overlay" title="show me the money">show me the money</a> | 
+<a href="javascript: void(0);" class="overlay" lang="meh" title="">meh</a> | 
+<a href="javascript: void(0);" onclick="ldc.showoverlay('meat')" title="">called from external file</a>
 </div>
 <div id="overlay" class="overlay_holder"><div class="overlay_content">
 	<p>Tenderloin pork chop drumstick tail pork belly venison. Turkey brisket chuck pork belly, spare ribs sausage ribeye shankle pork loin cow strip steak pork biltong. Biltong rump capicola, tenderloin prosciutto drumstick jowl ribeye turkey venison bacon salami. Brisket short ribs turkey capicola, bresaola shoulder rump shank hamburger meatloaf beef. Pancetta hamburger t-bone, bresaola shank corned beef chicken brisket leberkas filet mignon frankfurter.</p>
@@ -35,21 +39,27 @@
 </div></div>
 
 <div id="meh" class="overlay_holder"><div class="overlay_content"><h1>MEH!!</h1><p>Sausage flank drumstick bresaola. Pork bacon frankfurter cow brisket. Shank tail salami fatback. Bacon strip steak ribeye corned beef, sausage boudin capicola meatloaf t-bone. Shoulder pork chop ball tip, biltong prosciutto hamburger speck meatball spare ribs pork belly chicken pork t-bone beef ribs. Leberkas hamburger prosciutto meatloaf, beef ribs kielbasa chuck.</p></div></div>
-<div id="image_overlay" class="overlay_holder"></div>
+<div id="overlay" class="overlay_holder"></div>
+
+<div id="meat" class="overlay_holder"><div class="overlay_content"><h1>MEAT!!</h1><p>Sausage flank drumstick bresaola. Pork bacon frankfurter cow brisket. Shank tail salami fatback. Bacon strip steak ribeye corned beef, sausage boudin capicola meatloaf t-bone. Shoulder pork chop ball tip, biltong prosciutto hamburger speck meatball spare ribs pork belly chicken pork t-bone beef ribs. Leberkas hamburger prosciutto meatloaf, beef ribs kielbasa chuck.</p></div></div>
+<div id="overlay" class="overlay_holder"></div>
 <!--<script type="text/javascript" src="js/slider.js"></script>-->
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 <script type="text/javascript">
+    //<![CDATA[
 	jQuery(document).ready(function()
 	{
 		ldc.init({
 			core: {
 				'overlay' : {
                 	type: 'image',
-					overlay_class: '.image_overlay',
+					overlay_class: '.overlay',
             		rounded: '7px'
 				}
 			}
 		});
 	});
+    //]]>
 </script>
 </body>
 </html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<title>New document</title>
+	<link type="text/css" href="Frameworks/css/ui-lightness/jquery-ui-1.8.21.custom.css" rel="stylesheet" />
+	<script type="text/javascript" src="Frameworks/js/jquery-1.7.2.min.js"></script>
+	<script type="text/javascript" src="Frameworks/js/jquery-ui-1.8.21.custom.min.js"></script>
+	<style type="text/css">
+	BODY{
+		margin: 0px;
+	}
+	ol{
+		margin: 0px;
+		text-indent: 0px;
+		padding: 0px;
+		list-style-type: none;
+	}
+	LI:before { 
+		content: counter(counter) " ";
+		color: #585858; 
+		margin-right: 30px;
+    	display: inline-block;
+    	text-align: right;
+    	width: 20px;
+
+    	/* For IE 7 */
+		zoom: 1;
+		*display: inline;
+	}
+	li{
+		border-bottom: 1px solid #cccccc;
+		padding: 10px 10px 20px 10px;
+	 	counter-increment: counter;
+	 	position: relative;
+	}
+	a{
+		color: #0E628C;
+    	font-size: 15px;
+    	line-height: 17px;
+    	text-decoration: none;
+	}
+	a:hover{
+		text-decoration: underline;
+	}
+	</style>
+</head>
+<body>	
+<ol>
+	<li><a href="#">Course A</a></li>
+	<li><a href="#">Course B</a></li>
+	<li><a href="#">Course C</a></li>
+	<li><a href="#">Course D</a></li>
+	<li><a href="#">Course E</a></li>
+	<li><a href="#">Course F</a></li>
+	<li><a href="#">Course G</a></li>
+	<li><a href="#">Course H</a></li>
+	<li><a href="#">Course I</a></li>
+	<li><a href="#">Course J</a></li>
+	<li><a href="#">Course K</a></li>
+	<li><a href="#">Course L</a></li>
+	<li><a href="#">Course M</a></li>
+</ol>
+<script type="text/javascript">
+$(function() {
+	$( "ol" ).sortable();
+	$( "ol" ).disableSelection();
+});
+</script>
+</body>
+</html>

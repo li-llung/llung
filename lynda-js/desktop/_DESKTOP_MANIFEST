@@ -1,0 +1,9 @@
+@import '../_BRAND_MANIFEST'
+
+Components/jquery-1.7.2.jsdropdown.js
+Components/jquery-1.7.2.jsmodal.js
+Components/jquery-1.7.2.jsmodal.less
+Components/jquery-1.7.2.jstabbed-pod.js
+Components/jquery-1.7.2.jstabbed-pod.less
+Components/jquery-1.7.2.jsJWPlayer/jwplayer.min.js
+Components/jquery-1.7.2.jsvideo.js

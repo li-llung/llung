@@ -1,0 +1,55 @@
+-------------Before-----------------
+36 requests
+340.9 KB
+1.01s (onload: 1.03s)
+-------------After-------------------
+33 requests
+400.4 KB
+3.5s (onload: 3.52s)
+
+33 requests
+385.8 KB	
+1.15s (onload: 1.16s)
+
+33 requests
+385.8 KB	
+1.15s (onload: 1.16s)
+
+32 requests
+385.6 KB	
+1.19s (onload: 1.22s)
+
+29 requests
+282.3 KB	
+991ms (onload: 1.02s)
+
+28 requests
+240.4 KB	
+834ms (onload: 849ms)
+
+
+
+-------------------------local welcome----------------------------------------------
+24 requests			
+268.3 KB	
+802ms (onload: 858ms)
+
+24 requests			
+268.3 KB	
+750ms (onload: 738ms)
+
+24 requests			
+268.3 KB	
+710ms (onload: 686ms)
+-------------------------integration welcome----------------------------------------------
+32 requests			
+406.3 KB	
+977ms (onload: 1.01s)
+
+32 requests			
+406.3 KB	
+1.03s (onload: 1.07s)
+
+32 requests			
+406.3 KB	
+1.04s (onload: 1.07s)

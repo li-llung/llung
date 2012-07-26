@@ -1,0 +1,1 @@
+$(document).ready(function(){$('[class*="lynda-"]').each(function(){var elem_class = $(this).attr('class');switch(true){default:window.console.log('A non-lynda component was almost initialized from class: ' + $(this).attr('class')); }})});

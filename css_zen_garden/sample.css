@@ -1,0 +1,559 @@
+/* css Zen Garden default style v1.02 */
+/* css released under Creative Commons License - http://creativecommons.org/licenses/by-nc-sa/1.0/  */
+
+/* This file based on 'Tranquille' by Dave Shea */
+/* You may use this file as a foundation for any new work, but you may find it easier to start from scratch. */
+/* Not all elements are defined in this file, so you'll most likely want to refer to the xhtml as well. */
+
+/* Your images should be linked as if the CSS file sits in the same folder as the images. ie. no paths. */
+
+/**Reset**/
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/*End reset*/
+
+/*Colors
+Vitamin C - orange
+FF9900
+
+route 66 - dark grey
+424242
+
+steady grey - light grey
+E9E9E9
+
+BC - medium grey
+BCBCBC
+
+Gamebookers Blue - blue
+3299BB*/
+
+html {
+}
+body { 
+	background-color: #424242;
+}
+p {
+	margin-bottom: 15px;
+}
+span { 
+}
+div { 
+}
+h1 {
+	color: #3299BB;
+	font-size: 17px;
+	font-family: Verdana;
+	margin-bottom: 15px;
+}
+h2 { 
+	color: #3299BB;
+	font-size: 17px;
+	font-family: Verdana;
+	margin-bottom: 15px;
+}
+h3 { 
+	color: #3299BB;
+	font-size: 17px;
+	font-family: Verdana;
+	margin-bottom: 15px;
+}
+h1 span{ 
+}
+h2 span{ 
+}
+h3 span{ 
+}
+ul { 
+}
+ul li { 
+}
+a:link { 
+	color: #FF9900;
+}
+a:visited { 
+	color: #FF9900;
+}
+a:hover, a:active { 
+}
+acronym {
+}
+#css-zen-garden{
+
+}
+.p1{
+	
+}
+.p2{
+	
+}
+.p3{
+	
+}
+.p4{
+	
+}
+.p5{
+	
+}
+.accesskey{
+
+}
+#container{
+	padding: 15px;
+}
+	#intro{
+		
+	}
+		#pageHeader{
+			display: block;
+			clear: both;
+			background-color: #000000;
+			position: relative;
+			padding: 15px;
+			border-top-left-radius: 20px;
+			border-top-right-radius: 20px;
+		}
+			#pageHeader h1{
+				color: #FF9900;
+			}
+			#pageHeader h1 span{
+				
+			}
+			#pageHeader h2{
+				position: absolute;
+				top: 0px;
+				right: 12px;
+				line-height: 45px;
+				color: #FF9900;
+			}
+			#pageHeader h2 span{
+				
+			}
+			#pageHeader h2 span acronym{
+				
+			}
+		#quickSummary{
+			color: #E9E9E9;
+			padding: 15px;
+		}
+			#quickSummary p{
+				
+			}
+			#quickSummary p span{
+				
+			}
+			#quickSummary p acronym{
+				
+			}
+			#quickSummary p.p1{
+				
+			}
+			#quickSummary p.p2{
+				
+			}
+			#quickSummary a{
+				
+			}
+			#quickSummary a:hover{
+				
+			}
+		#preamble{
+			width: 18%;
+			float: left;
+			background-color: #ffffff;
+			border-radius: 20px;
+			color: #424242;
+			padding: 10px;
+			margin-right: 15px;
+		}
+			#preamble h3{
+				
+			}
+			#preamble h3 span{
+				
+			}
+			#preamble p{
+				
+			}
+			#preamble p span{
+				
+			}
+			#preamble p acronym{
+				
+			}
+			#preamble p.p1{
+				
+			}
+			#preamble p.p2{
+				
+			}
+			#preamble p.p3{
+				
+			}
+			#preamble a{
+				
+			}
+			#preamble a:hover{
+				
+			}
+	#supportingText{
+
+	}
+		#explanation{
+			width: 18%;
+			float: left;
+			background-color: #ffffff;
+			border-radius: 20px;
+			color: #424242;
+			padding: 10px;
+			margin-right: 15px;
+		}
+			#explanation h3{
+				
+			}
+			#explanation h3 span{
+				
+			}
+			#explanation p{
+				
+			}
+			#explanation p span{
+				
+			}
+			#explanation p acronym{
+				
+			}
+			#explanation p.p1{
+				
+			}
+			#explanation p.p2{
+				
+			}
+			#explanation a{
+				
+			}
+			#explanation a:hover{
+				
+			}
+		#participation{
+			width: 18%;
+			float: left;
+			background-color: #ffffff;
+			border-radius: 20px;
+			color: #424242;
+			padding: 10px;
+			margin-right: 15px;
+		}
+			#participation h3{
+				
+			}
+			#participation h3 span{
+				
+			}
+			#participation p{
+				
+			}
+			#participation p span{
+				
+			}
+			#participation p acronym{
+				
+			}
+			#participation p.p1{
+				
+			}
+			#participation p.p2{
+				
+			}
+			#participation p.p3{
+				
+			}
+			#participation a{
+				
+			}
+			#participation a:hover{
+				
+			}
+		#benefits{
+			width: 18%;
+			float: left;
+			background-color: #ffffff;
+			border-radius: 20px;
+			color: #424242;
+			padding: 10px;
+			margin-right: 15px;
+		}
+			#benefits h3{
+				
+			}
+			#benefits h3 span{
+				
+			}
+			#benefits p{
+				
+			}
+			#benefits p span{
+				
+			}
+			#benefits p acronym{
+				
+			}
+			#benefits p.p1{
+				
+			}
+			#benefits a{
+				
+			}
+			#benefits a:hover{
+				
+			}
+		#requirements{
+			width: 18%;
+			float: left;
+			background-color: #ffffff;
+			border-radius: 20px;
+			color: #424242;
+			padding: 10px;
+			clear: right;
+		}
+			#requirements h3{
+				
+			}
+			#requirements h3 span{
+				
+			}
+			#requirements p{
+				
+			}
+			#requirements p span{
+				
+			}
+			#requirements p acronym{
+				
+			}
+			#requirements p.p1{
+				
+			}
+			#requirements p.p2{
+				
+			}
+			#requirements p.p3{
+				
+			}
+			#requirements p.p4{
+				
+			}
+			#requirements p.p5{
+				
+			}
+			#requirements a{
+				
+			}
+			#requirements a:hover{
+				
+			}
+		#footer{
+			clear: both;
+			display: block;
+			padding: 15px;
+			background-color: #000000;
+			position: relative;
+			top: 20px;
+			border-radius: 20px;
+		}
+			#footer a{
+				
+			}
+			#footer a:hover{
+				
+			}
+	#linkList{
+		position: relative;
+		top: 30px;
+	}
+		#linkList2{
+		}
+			#lselect{
+				width: 30%;
+				float: left;
+				margin-right: 15px;
+				margin-left: 15px;
+				padding-bottom: 30px;
+			}
+				#lselect h3.select{
+
+				}
+				#lselect h3.select span{
+
+				}
+				#lselect ul{
+
+				}
+				#lselect li{
+
+				}
+				#lselect a{
+
+				}
+				#lselect a:hover{
+
+				}
+				#lselect a.c{
+
+				}
+				#lselect a.c:hover{
+
+				}
+			#larchives{
+				width: 30%;
+				float: left;
+				margin-right: 15px;
+			}
+				#larchives h3.archives{
+
+				}
+				#larchives h3.archives span{
+
+				}
+				#larchives ul{
+
+				}
+				#larchives li{
+
+				}
+				#larchives span{
+
+				}
+				#larchives span.accesskey{
+
+				}
+				#larchives a{
+
+				}
+				#larchives a:hover{
+
+				}
+				#larchives a.c{
+
+				}
+				#larchives a.c:hover{
+
+				}
+			#lresources{
+				width: 30%;
+				float: left;
+				margin-right: 15px;
+			}
+				#lresources h3.resources{
+
+				}
+				#lresources h3.resources span{
+
+				}
+				#lresources ul{
+
+				}
+				#lresources li{
+
+				}
+				#lresources span{
+
+				}
+				#lresources acronym{
+
+				}
+				#lresources a{
+
+				}
+				#lresources a:hover{
+
+				}
+				#lresources a.c{
+
+				}
+				#lresources a.c:hover{
+
+				}
+
+#extraDiv1{
+	
+}
+#extraDiv2{
+	
+}
+#extraDiv3{
+	
+}
+#extraDiv4{
+	
+}
+#extraDiv5{
+	
+}
+#extraDiv6{
+	
+}
+#extraDiv1 span{
+	
+}
+#extraDiv2 span{
+	
+}
+#extraDiv3 span{
+	
+}
+#extraDiv4 span{
+	
+}
+#extraDiv5 span{
+	
+}
+#extraDiv6 span{
+	
+}

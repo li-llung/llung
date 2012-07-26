@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<title>Tell a Friend Concept</title>
+	<style type="text/css">
+		BODY{
+			background-color: #1e1e1e;
+			color: #e7e7e7;
+			font-family: Arial;
+		}
+		a{
+			color: #0F67A1;
+		}
+		#preview{
+			width: 565px;
+			/*height: 100px;*/
+			background-color: #666666;
+			color: #e7e7e7;
+			padding: 10px;
+			font-size: 12px;
+		}
+		#preview_div{
+			padding: 8px 0px;
+		}
+	</style>
+</head>
+<body id="mainBG">
+	Personalized Message:<br />
+	<textarea id="message" cols="80" rows="10"></textarea><br /><br />
+	Preview:<br />
+	<div id="preview">
+	From:  no-reply@lynda.com<br />
+	Reply to:  {{Member Email_Address}}<br />
+	Subject:  {{Member_Name}} invites you to try lynda.com<br /><br />
+	
+	Dear {{Firstname}},<br /><br />
+	
+	<div id="preview_holder"><div id="preview_div">[Personal Message Here]</div><br /></div>
+	
+	{{Member_Name}} has invited you to check out lynda.com; an online training site with thousands of video tutorials on hundreds of software titles. With courses on Photoshop, Dreamweaver, Excel, PowerPoint, AutoCAD, and many more, lynda.com has software training can help you reach your creative and career goals with comprehensive, straightforward software training and inspirational documentaries.<br /><br />
+	 
+	Visit lynda.com to learn more: Read what our other members are saying about us, and sample thousands of lynda.com training tutorials for free before subscribing.<br /><br />
+		
+	[learn more] <br /><br />
+	
+	Sincerely,<br />
+	the lynda.com team
+	</div>
+	<script type="text/javascript" src="http://playground.creativelifesense.com/cdn/js/jquery/jquery-1.4.1.min.js"></script>
+	<script type="text/javascript">
+		jQuery(document).ready(function() {
+			alert('Width: ' +  window.innerWidth + ' Height: ' + window.innerHeight);
+			$('#message').keyup(function() {
+  				//alert('You changed the messages to ' + $('#message').val());
+  				if($('#preview_div').html()==""){
+  					$('#preview_div').text('');
+  				}else{
+  					$('#preview_div').text($('#message').val());
+  				}  				
+			});
+ 		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,153 @@
+----------Sections----------------------------------------------------------------------------------------------------
+login/forgot password
+cs
+production
+content
+marketing
+finance
+cms
+admin
+reports
+
+----------Modules-----------------------------------------------------------------------------------------------------
+navigation
+header
+sub tab navigation
+sub sub tab navigation
+breadcrumbs
+
+headers (h1,h2,h3,h4,h5)
+
+tables
+non header tables
+border table (with internal borders)
+
+non border box
+border boxes
+legend box
+pagination box
+
+pills
+buttons
+
+expand/collapse
+
+list
+-----------Final Colors-----------------------------------------------------------------------------------------------
+Yellow: ffba02
+Black: 000000
+White: fff
+Grey: 333 , 666, 585858
+
+
+-----------Text Color------------------23-----------------------------------------------------------------------------
+color: #000000;
+color: #3f84a6;
+color: #7C2001;
+color: #ff0000;
+color: #996600;
+color: #333333;
+color: #3e3e3e;
+color: #4C4C4C;
+color: #585858;
+color: #5b5b5b;
+color: #58595B;
+color: #5a5a5a;	
+color: #606966;
+color: #666666;
+color: #6c6c6c;
+color: #7f99a5;
+color: #777777;
+color: #808080;
+color: #8c8b8b;
+color: #979797;
+color: #999999;
+color: #cccccc;
+color: #ffffff;
+
+-----------BG Color------------------26-----------------------------------------------------------------------------
+background: #f0e089;
+background-color:#F0E089;
+background: #f8d940;
+background-color: #F8D940;
+background-color: #FFBA00;
+background-color: #f0e089;
+background-color: #9FD69F; /*green*/
+background-color: #EBAFAF; /*red*/
+background-color: #ff0000;
+background: #e5e5e5;
+background-color: #000000;
+background-color: #757575;
+background-color: #cccccc;
+background-color: #d6e5e8;
+background-color: #dfdfdf;
+background-color: #ededed;
+background-color: #eeeeee;
+background-color: #eFeFeF;
+background-color: #f2f2f2;
+background-color: #FFF8DC;
+background-color: #faebd7;
+background-color: #c0c0c0;
+background-color: #fffaaa;
+background-color:#ffffcc;
+background: #f2f2f2;
+background: #ffffff;
+
+-----------Fonts------------------13-----------------------------------------------------------------------------
+font: bold 13px/14px arial, sans-serif;
+font: normal 12px/20px Verdana, Arial, sans-serif;
+font: normal 15px Lucida Grande Bold;
+font-family: "Trebuchet MS" ,Verdana,Arial,Helvetica,sans-serif;
+font-family: Century Gothic Bold, Lucida Console Grande, Lucida Grande;
+font-family: Century Gothic, Lucida Grande;
+font-family: Lucida Grande Bold, Lucida Grande;
+font-family: Lucida Grande Bold;
+font-family: Lucida Grande, verdana, arial;
+font-family: Lucida Grande;
+font-family: Trebuchet MS;
+font-family: Verdana,Arial,Helvetica,sans-serif;
+font-family: Verdana;
+
+-----------Borders--------------------12-----------------------------------------------------------------------------
+border: 1px solid #000000;		
+border-bottom: 1px dashed #2bb8ff;	
+border: 1px solid #7f9db9;	
+border: 1px solid #777777;	
+border: 1px solid #999999;	
+border: 1px solid #CCCCCC;	
+border: 1px solid #dbdbdb;		
+border: 1px solid #d7d7d7;			
+border: 1px solid #e5e5e5;	
+border: 1px solid #F3F3F3;		
+border: 1px solid #ffffff !important;			
+border: 3px solid #FFBA00;	
+
+--------------Font sizes--------------------------------------17-------------------------------------------------------
+font-size: 1px;		
+font-size: 9px;		
+font-size: 10px;		
+font-size: 10px; *font-size:9px;	
+font-size: 11px;	
+font-size: 12px;	
+font-size: 13px;
+font-size: 14px;		
+font-size: 15px;		
+font-size: 16px;	
+font-size: 17px;		
+font-size: 18px;
+font-size: 24px;			
+font-size: 1em;		
+font-size: XX-Small;
+font-size: 9pt;		
+
+-------------------Line Height------------------------------10-------------------------------------------------------
+line-height: 1px;	
+line-height: 9px;				
+line-height: 16px;		
+line-height: 17px;		
+line-height: 18px;
+line-height: 30px;	
+line-height: normal;	
+line-height: 1.3em;				
+line-height: 1.5em;		
+line-height: 2em;			

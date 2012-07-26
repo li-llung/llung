@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<title>Chrome Concept</title>
+	<style type="text/css">
+		BODY{
+			margin: 0px;
+		}
+		.modal_bg{
+			width: 100%;
+			height: 100%;
+			/*background-color: #000000;*/
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			z-index: 10;
+		}
+		.video_box{
+			width: 960px;
+			text-align: center;
+			margin: 0px auto;
+			overflow: hidden;
+			margin-top: 30px;
+		}
+		.modal_bg a{
+			background-color: #000000;
+			display: block;
+			text-align: right;
+			color: #ffffff;
+			text-decoration: underline;
+			padding: 3px;
+		}
+		h3{
+			clear: both;
+		}
+	</style>
+</head>
+<body id="mainBG">
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" charset="utf-8">
+	function close_vid(){
+		$('.modal_bg').remove();
+		$('.video_box').remove();
+	}
+	function open_vid(vidid) {
+		wh = 555;
+		$('<div class="modal_bg"><div class="video_box"><a onClick="close_vid()">close</a><iframe src="http://www.lynda.com/home/VideoPlayer.aspx?lpk4=' + vidid  + '" width="960" height="'+wh+'" scrolling="no" frameborder="0"></iframe></div></div>').appendTo('body');	
+		return false;
+	}
+	$(document).ready(function() {
+		//alert('test');	
+		$(".popper").click(function() {		
+			open_vid(this.id);
+		});		
+	});
+	function popper(vidid) {
+		wh = 555;
+	   	if (navigator.appVersion.indexOf('WebKit') > 0 && navigator.appVersion.indexOf("Win")!=-1){
+	   		wh=575;
+	   	}else if(navigator.appVersion.indexOf('Chrome') > 0){
+	   		wh=605;
+	   	}
+	   	//alert(navigator.appVersion);
+		window.open('http://www.lynda.com/home/VideoPlayer.aspx?lpk4=' + vidid + '','vidplayer','titlebar=no,statusbar=no,menubar=no,resizable=no,scrollbars=no,location=no,toolbar=no,height=' + wh + ',width=960');
+		//http://www.lynda.com/home/VideoPlayer.aspx?lpk4=' + vidid + '
+		return false;
+	}
+</script>
+<br />
+<h3>Overlay</h3>
+<div style="width: 700px;margin: 12px 0;padding: 0;">
+	<a href="#nogo" class="popper" id="57"><img style="border: 0;float: left;margin: 0;" src="http://files2.lynda.com/files/lol_ui/images/philosophy_trailer_216x121.jpg" alt="philosophy" /></a>
+	<a href="#nogo" class="popper" id="58"><img style="border: 0; float: left; margin: 0 0 0 26px;" src="http://files2.lynda.com/files/lol_ui/images/culture_trailer_216x121.jpg" alt="culture" /></a>
+	<a href="#nogo" class="popper" id="59"><img style="border: 0;float: left;margin: 0 0 0 26px;" src="http://files2.lynda.com/files/lol_ui/images/community_trailer_216x121.jpg" alt="community" /></a>
+</div>
+<h3><br />Window.open</h3>
+<div style="width: 700px;margin: 12px 0;padding: 0;">
+	<a href="#nogo" onclick="popper(57)"><img style="border: 0;float: left;margin: 0;" src="http://files2.lynda.com/files/lol_ui/images/philosophy_trailer_216x121.jpg" alt="philosophy" /></a>
+	<a href="#nogo" onclick="popper(58)"><img style="border: 0; float: left; margin: 0 0 0 26px;" src="http://files2.lynda.com/files/lol_ui/images/culture_trailer_216x121.jpg" alt="culture" /></a>
+	<a href="#nogo" onclick="popper(59)"><img style="border: 0;float: left;margin: 0 0 0 26px;" src="http://files2.lynda.com/files/lol_ui/images/community_trailer_216x121.jpg" alt="community" /></a>
+</div>
+<!--
+<iframe src="http://www.lynda.com/home/VideoPlayer.aspx?lpk4=57" width="960" height="555" style="overflow: hidden;" frameborder="0" scrolling="no"></iframe>
+
+<div style="width: 700px;margin: 12px 0;padding: 0;">
+	<a href="http://www.lynda.com/home/VideoPlayer.aspx?lpk4=57" target="vidplayer" onclick="popper(57)"><img style="border: 0;float: left;margin: 0;" src="http://files2.lynda.com/files/lol_ui/images/philosophy_trailer_216x121.jpg" alt="philosophy" /></a>
+	<a href="http://www.lynda.com/home/VideoPlayer.aspx?lpk4=58" target="vidplayer" onclick="popper(58)"><img style="border: 0; float: left; margin: 0 0 0 26px;" src="http://files2.lynda.com/files/lol_ui/images/culture_trailer_216x121.jpg" alt="culture" /></a>
+	<a href="http://www.lynda.com/home/VideoPlayer.aspx?lpk4=59" target="vidplayer" onclick="popper(59)"><img style="border: 0;float: left;margin: 0 0 0 26px;" src="http://files2.lynda.com/files/lol_ui/images/community_trailer_216x121.jpg" alt="community" /></a>
+</div>
+-->
+</body>
+</html>

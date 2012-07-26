@@ -1,0 +1,360 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<title>lynda.com template builder</title>
+	<link rel="stylesheet" href="http:/www.lynda.com/ui/ui/styles/reset.css" type="text/css" charset="utf-8" />
+	<style type="text/css">
+		BODY{
+			margin: 0px 0px 0px 0px;
+			background-color: #000000;
+			color: #000000;
+			font-size: 12px;
+			font-family: Verdana;
+		}
+		/********************START LOGO*********************/
+		#logo {
+			width: 165px; 
+			text-indent:-9999px;
+			float: left;
+		}
+		#logo a { display: block;height: 30px; }
+		#logo a:hover { 
+			/*border-right: 1px solid white;*/
+			position: relative;
+			z-index: 200;
+			background: url(http:/www.lynda.com/ui/images/logo-hover.gif) no-repeat top left;
+			width: 165px;
+			height: 34px;
+		}
+		/********************END LOGO*********************/
+		#container{
+			width: 100%;
+			text-align: center;
+			float: none;
+			clear: both;
+		}
+		#bar{
+		    background-color: #FFBA00;
+    		height: 34px;
+    		width: 100%;
+			position: absolute;
+			left: 0px;
+			top: 34px;
+			z-index: 11;
+		}
+		#main_body{
+			width: 100%;	
+			margin: 0px auto;
+			float: none;
+			clear: both;
+			position: relative;
+			z-index: 10;
+			background-color: #ffffff;
+		}
+		#header{
+			width: 960px;	
+			height: 34px;
+			float: none;
+			clear: both;
+			margin: 0px auto 0px auto;
+		}
+		#inner_header{
+			background-image: url('http://dev.landonlung.com/images/lynda/site_header.gif');
+			background-repeat: no-repeat;
+			width: 960px;	
+			height: 34px;
+			margin: 0px auto 0px auto;
+			position: relative;
+		}
+		#main_content{
+			width: 960px;	
+			float: none;
+			clear: both;
+			min-height: 500px;
+			margin: 0px auto 0px auto;
+			padding: 102px 0px 34px 0px; 
+			text-align: left;
+		}
+		#footer{
+			width: 100%;	
+			height: 100%;
+			float: none;
+			clear: both;
+			background-color: #000000;
+		}
+		#inner_footer{
+			width: 960px;
+			margin: 20px auto 0px auto;
+			color: #cccccc;
+			text-align: left;
+		}
+		.template_item{
+			width: 450px;
+			margin: 0px 30px 20px 0px;
+			float: left;
+		}
+		#main_content .template_item p{
+			margin: 10px 0px 0px 0px;
+			padding: 0px;
+		}
+		.clear{
+			clear: both;
+			float: none;
+		}
+		#template_box{
+			clear: both;
+		}
+		h1{
+			font-family: 'Trebuchet MS', Verdana, sans-serif;
+			font-weight: bold;
+			font-size: 17px;
+			padding: 0;
+			color: #000000 !important;
+		}
+		h2{
+			font-family: 'Trebuchet MS', Verdana, sans-serif;
+			font-weight: bold;
+			font-size: 15px;
+			padding: 0;
+			margin: 10px 0px 0px 0px;
+			color: #000000 !important;
+		}
+		#main_content p{
+			margin: 0px 0px 20px 0px;
+			padding: 0px;
+		}
+		#nav{
+			/*padding-left: 165px;*/
+			float: left;
+		}
+		a { color: #0E628C; text-decoration:none; }
+		a:hover{text-decoration:underline; cursor:pointer}
+		a:focus {
+			outline: none;
+		}
+		.sub{
+			display: none;
+			background-color: #000000;
+			position: absolute;
+			top: 68px;
+			left: 0px;
+			z-index: 100;
+			min-width: 150px;
+		}
+		.sub ul{
+			list-style-type: none;
+			margin: 0px;
+			padding: 0px;
+			text-align: left;
+		}
+		.sub li{
+			display: block;
+		}
+		.sub a{
+			color: #cccccc;
+			text-align: left;
+			display: block;
+			padding: 10px;
+		}
+		.sub a:hover{
+			color: #ffffff;
+			background-color: #333;
+		}
+		/********************START Global Nav Styling *********************/
+		#nav ul{
+			list-style-type: none;	
+			margin: 0px;
+		}
+		#nav li{
+			list-style-type: none;
+			float: left;
+			position: relative; /* important for sub-menus */
+		}
+		#nav li a{
+			text-transform: lowercase;
+		}
+		#nav li a:hover{
+			text-decoration: underline;
+		}
+		#nav li.last{
+			border: 0;
+		}
+		#nav li.first{
+			border-left: 1px solid #b3b3b3;
+		}
+		#nav li div.hidden { display: none; }
+		/********************END Global Nav Styling *********************/
+		/********************START Main Links *********************/
+		.main-links{
+			/*padding-left: 165px;*/
+		}
+		.main-links li{
+			height:34px;
+			margin-top: 0px;
+			border-right: 1px solid #b3b3b3;
+			list-style-image: none;
+			list-style-position: outside;
+			list-style-type: none;
+			margin: 0px;
+			padding: 0px;
+		}
+		.main-links li.with-sub-menu:hover {
+			border-bottom: 1px solid #333;
+			border-left: 1px solid #ffffff; 
+			margin-left: -1px;
+			border-right: 1px solid #ffffff;
+			background-color: #333;
+		}
+		.main-links li.first:hover {
+			border-bottom: 1px solid #333;
+			border-left: 1px solid #ffffff; 
+			margin-left: 0px;
+			border-right: 1px solid #ffffff;
+			background-color: #333;
+		}
+		.main-links li a{
+			color: #ffffff;
+			text-decoration: none;
+			font-size: 14px;
+			font-weight: 400;
+			line-height: 34px; 
+			background-color: transparent;
+			background-image: url("http:/www.lynda.com/ui/images/carrot_arrow_22x6-ffffff-onblack.gif");
+			background-position: 100% 15px;
+			background-repeat: no-repeat;
+			padding: 8px 22px 9px 10px;
+			white-space: nowrap;
+		}
+		.main-links li a:hover{
+			background-image: url("http:/www.lynda.com/ui/images/carrot_arrow_22x6-ffffff-onblack.gif");
+			background-repeat: no-repeat;
+			background-position: 100% 15px;
+			color: #ffffff;
+			background-color: #333;
+			text-decoration: none;	
+		}
+		.main-links li:hover a{
+			background-image: url("http:/www.lynda.com/ui/images/carrot_arrow_22x6-ffffff-onblack.gif");
+			background-repeat: no-repeat;
+			background-position: 100% 15px;
+			color: #ffffff;
+			background-color: #333;
+		}
+		.main-links li:hover a:hover{
+			background-image: url("http:/www.lynda.com/ui/images/carrot_arrow_22x6-ffffff-onblack.gif");
+			background-repeat: no-repeat;
+			background-position: 100% 15px;
+			color: #ffffff;
+			text-decoration: none;
+			background-color: #333;
+		}
+	</style>
+</head>
+<body>
+<div id="container">
+	<div id="bar">
+		<div id="header">
+			<div id="inner_header">
+				<div id="logo"><a href="http://www.lynda.com">lynda.com</a></div>
+				<div id="nav">
+					<ul class="main-links">
+						<li class="with-sub-menu first"><a href="#nogo" id="monthly">Monthly</a></li>
+						<li class="with-sub-menu"><a href="#nogo" id="subscriber">Subscriber</a></li>
+						<li><a href="#nogo" id="resller">Reseller</a></li>
+						<li class="with-sub-menu"><a href="#nogo" id="sales">Sales</a></li>
+						<li class="with-sub-menu"><a href="#nogo" id="course_trailers">Trailers</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="main_body">	
+		<div id="main_content">
+			<h1>Template Builder: </h1>
+			<p>What are we building?</p>
+			<!--Simple-->
+			<div id="template_box">
+				<div class="template_item">
+					<h2><input type="radio" name="template_builder" id="subscriber_announcement" value="subscriber_announcement" /> <label for="subscriber_announcement">Subscriber Announcement</label></h2><label for="subscriber_announcement">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed mauris vel justo blandit lacinia nec nec ante. In a pharetra lectus. In hendrerit viverra gravida. Etiam est magna, euismod faucibus tempor sodales, aliquet sed dui. Morbi sit amet metus massa, quis aliquam erat. Pellentesque dictum ullamcorper neque sed tincidunt.</label>
+				</div>			
+				<div class="template_item">
+					<h2><input type="radio" name="template_builder" id="reseller_announcement" value="reseller_announcement" /> <label for="reseller_announcement">Reseller Announcement</label></h2>
+					<label for="reseller_announcement">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed mauris vel justo blandit lacinia nec nec ante. In a pharetra lectus. In hendrerit viverra gravida. Etiam est magna, euismod faucibus tempor sodales, aliquet sed dui. Morbi sit amet metus massa, quis aliquam erat. Pellentesque dictum ullamcorper neque sed tincidunt.</label>
+				</div>			
+				<div class="template_item">
+					<h2><input type="radio" name="template_builder" id="monthly_newsletter" value="monthly_newsletter" /> <label for="monthly_newsletter">Monthly Newsletter</label></h2>
+					<label for="monthly_newsletter">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed mauris vel justo blandit lacinia nec nec ante. In a pharetra lectus. In hendrerit viverra gravida. Etiam est magna, euismod faucibus tempor sodales, aliquet sed dui. Morbi sit amet metus massa, quis aliquam erat. Pellentesque dictum ullamcorper neque sed tincidunt.</label>
+				</div>			
+				<div class="template_item">
+					<h2><input type="radio" name="template_builder" id="sales_email" value="sales_email" /> <label for="sales_email">Sales Email</label></h2>
+					<label for="sales_email">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed mauris vel justo blandit lacinia nec nec ante. In a pharetra lectus. In hendrerit viverra gravida. Etiam est magna, euismod faucibus tempor sodales, aliquet sed dui. Morbi sit amet metus massa, quis aliquam erat. Pellentesque dictum ullamcorper neque sed tincidunt.</label>
+				</div>			
+				<div class="template_item">
+					<h2><input type="radio" name="template_builder" id="trailers" value="trailers" /> <label for="trailers">Trailers</label></h2>
+					<label for="trailers">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed mauris vel justo blandit lacinia nec nec ante. In a pharetra lectus. In hendrerit viverra gravida. Etiam est magna, euismod faucibus tempor sodales, aliquet sed dui. Morbi sit amet metus massa, quis aliquam erat. Pellentesque dictum ullamcorper neque sed tincidunt.</label>
+				</div>
+				<div class="clear">&nbsp;</div>
+			</div>
+			<p><input type="submit" name="submit" value="Build" /></p>
+			<!--Simple-->
+			<div class="clear">&nbsp;</div>
+		</div>
+	</div>
+	<div id="footer">
+		<div id="inner_footer">
+			<p>Copyright &copy; 1995-2011 lynda.com, Inc. All rights reserved.</p>
+		</div>
+	</div>
+	<div class="sub" id="sub_subscriber">
+		<ul>
+			<li><a href="#nogo">Build</a></li>
+			<li><a href="#nogo">Build with Upsell</a></li>
+			<li><a href="#nogo">Sample</a></li>
+		</ul>
+	</div>
+	<div class="sub" id="sub_reseller">
+		<ul>
+			<li><a href="#nogo">Build</a></li>
+		</ul>
+	</div>
+	<div class="sub" id="sub_monthly">
+		<ul>
+			<li><a href="#nogo">Build</a></li>
+			<li><a href="#nogo">Build with Upsell</a></li>
+			<li><a href="#nogo">Sample</a></li>
+		</ul>
+	</div>
+	<div class="sub" id="sub_sales">
+		<ul>
+			<li><a href="#nogo">Build</a></li>
+		</ul>
+	</div>
+	<div class="sub" id="sub_course_trailers">
+		<ul>
+			<li><a href="#nogo">for generator</a></li>
+			<li><a href="#nogo">titles</a></li>
+			<li><a href="#nogo">titles (comma seperated)</a></li>
+			<li><a href="#nogo">list</a></li>
+		</ul>
+	</div>
+</div>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$('.main-links a').each(function(index,elem) {
+		var sub_id = $(this).attr("id");
+		$(this).mouseenter(function() {		
+			$('.sub').each(function() {
+			   $(this).hide();
+			});
+			$("#sub_" + sub_id).show();
+			$("#sub_" + sub_id).css('left',$(this).offset().left);
+		});
+		$("#sub_" + sub_id).mouseleave(function() {	
+			$("#sub_" + sub_id).hide();
+		});
+	});
+});
+</script>
+</body>
+</html>

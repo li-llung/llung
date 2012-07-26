@@ -1,0 +1,59 @@
+@import "../___Device/mobile.less";
+
+/**********************************/
+/*     FORM-SPECIFIC CSS      */
+/**********************************/
+
+/* START FORMS*/
+.userinput {
+	padding-top: 1px;
+	padding-bottom: 1px;
+	background-color: @bkgrd_color_lt;
+}
+label {
+	color: @header_color;
+	margin: 8px 0 0 0;
+}
+.radchk {
+	line-height: 20px;
+}
+.radchk label
+{
+	color: @dark;
+	cursor: pointer;
+}
+span.data {
+	/* used to be #231f00 */
+	color: @dark;
+	padding-left: 10px;
+}
+label.highlight {
+	color: @error_txt_color;
+}
+label.rightlabel {
+	vertical-align: top;
+}
+label.stronglabel {
+	color: @dark;
+}
+input[type=text], input[type=password], textarea, select {
+	.text(@default_font_size, @default_font_family, @dark);
+	font-weight: bold;
+	line-height: 19px;
+	width:248px;
+	margin: 1px 0 6px 0;
+	padding: 1px 4px;
+}
+select {
+	width: 260px;
+}
+textarea {
+	height: 57px;
+}
+input[type="radio"] {
+	vertical-align: bottom;
+}
+input[type="checkbox"] {
+	margin: 0 4px 0 0;
+}
+/* END FORMS*/

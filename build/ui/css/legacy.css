@@ -1,0 +1,95 @@
+BODY{
+	background-color: #000000;
+	font-family: Arial;
+	font-size: 12px;
+}
+a{
+	color: inherit; text-decoration: underline !important;
+}
+h3 a, li a {
+	text-decoration: underline;
+}
+a:hover{
+	text-decoration:underline !important;
+	color:#000 !important;
+}
+td{
+	vertical-align: top;
+}
+textarea{
+	width: 300px;
+	height: 150px;
+}
+.full{
+	width: 100%;
+}
+#email_holder{
+	text-align: center;
+	margin-top: 60px;
+}
+#email_list{
+	background-color: #000000;
+	margin: 0px auto;
+	width: 640px;
+	border: 10px solid #FFBA00;
+	border-width: 10px 0px 10px 0px;
+	padding: 15px 0px;
+}
+#email_list td.yellow{
+	color: #FFBA00 !important;
+}
+h1, h2, h3, h4, h5{
+	color: #FFBA00 !important;
+}
+h4{
+	margin: 15px 0px 0px 0px;
+	padding: 0px;
+}
+h1 img{
+	vertical-align: middle;
+}
+#email_list a{
+	color: #ffffff !important;
+	text-decoration: underline !important;
+}
+#email_list p{
+	color: #ffffff !important;
+	font-size: 11px;
+}
+#email_list select{
+	color: #000000 !important;
+	font-size: 11px;
+}
+#email_list a:hover{
+	color: #FFBA00 !important;
+	text-decoration: underline !important;
+}
+#email_list table{
+	margin: 0px auto;
+	padding: 0px 0px 0px 0px;
+	border: 1px solid #FFBA00;
+	border-width: 1px 0px 1px 0px;
+}
+#email_list table table{
+	border-width: 0px 0px 0px 0px;
+}
+#email_list table tr{
+
+}
+#email_list table tr td{
+	color: #ffffff !important;
+	text-align: right;
+	padding: 0px 5px;
+}
+#result{
+	background-color: #1e1e1e;
+	border: 1px solid #666666;
+	padding: 10px;
+	color: #ffffff;
+}
+#result a{
+	color: #ffffff;
+}
+#result a:hover{
+	color: #d4d4d4;
+}

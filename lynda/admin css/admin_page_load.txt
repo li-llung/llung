@@ -1,0 +1,14 @@
+New
+30 requests  |  16.53KB transferred  |  278ms (onload: 334ms, DOMContentLoaded: 209ms)
+30 requests  |  209.14KB transferred  |  317ms (onload: 380ms, DOMContentLoaded: 231ms)
+30 requests  |  163.17KB transferred  |  329ms (onload: 386ms, DOMContentLoaded: 245ms)
+30 requests  |  16.53KB transferred  |  271ms (onload: 328ms, DOMContentLoaded: 191ms)
+30 requests  |  16.53KB transferred  |  298ms (onload: 354ms, DOMContentLoaded: 228ms)
+
+Old
+33 requests  |  237.03KB transferred  |  613ms (onload: 565ms, DOMContentLoaded: 562ms)
+33 requests  |  59.06KB transferred  |  590ms (onload: 543ms, DOMContentLoaded: 540ms)
+33 requests  |  58.95KB transferred  |  582ms (onload: 539ms, DOMContentLoaded: 537ms)
+33 requests  |  58.83KB transferred  |  585ms (onload: 544ms, DOMContentLoaded: 541ms)
+33 requests  |  576.26KB transferred  |  1.76s (onload: 1.70s, DOMContentLoaded: 1.70s)
+33 requests  |  127.67KB transferred  |  669ms (onload: 615ms, DOMContentLoaded: 614ms)

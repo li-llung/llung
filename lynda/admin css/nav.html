@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Search</title>
+    <link rel="Stylesheet" type="text/css" href="nav.css" />
+</head>
+<body>
+    <div class="admin_header">
+        <div class="inner_header">
+            <div class="logo"><span class="logo_type"><strong>lynda</strong>.com</span> <span>admin&mdash;</span>development</div>
+            <div class="login">
+                <!--<div onkeypress="javascript:return WebForm_FireDefaultButton(event, 'ctl00_UcHeaderAdminLogin1_ImageButton1')" defaultfocus="txtUsername" id="ctl00_UcHeaderAdminLogin1_pnlLogin">
+                    <table cellspacing="0" cellpadding="0" class="adminLogin" id="ctl00_UcHeaderAdminLogin1_tableNotLogged">
+                        <tbody><tr>
+                            <td>
+                                user name:</td>
+                            <td class="admininput">
+                                <input type="text" id="ctl00_UcHeaderAdminLogin1_txtUsername" name="ctl00$UcHeaderAdminLogin1$txtUsername">
+                            </td>
+                            <td class="admininput">
+                                <input type="image" style="border-width:0px;margin-top: 0px;" alt="Login" src="ui/images/btn_login.png" class="submit" tabindex="1" id="ctl00_UcHeaderAdminLogin1_ImageButton1" name="ctl00$UcHeaderAdminLogin1$ImageButton1">
+                             </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                password:</td>
+                            <td class="admininput">
+                                <input type="password" autocomplete="off" id="ctl00_UcHeaderAdminLogin1_txtPassword" name="ctl00$UcHeaderAdminLogin1$txtPassword">
+                            </td>
+                            <td>
+                                <a href="javascript:__doPostBack('ctl00$UcHeaderAdminLogin1$lbForgotPassword','')" id="ctl00_UcHeaderAdminLogin1_lbForgotPassword">Forgot password?</a>
+                            </td>
+                        </tr>
+                    </tbody></table>
+                    <input type="hidden" id="ctl00_UcHeaderAdminLogin1_HiddenField1" name="ctl00$UcHeaderAdminLogin1$HiddenField1">
+                </div>-->
+                <div id="ctl00_UcHeaderAdminLogin1_divLogged" class="loggedIn">
+                    <table>
+                        <tr>
+                            <td><a href="/Admin/ChangePassword.aspx">Landon Lung</a><br /></td>
+                            <td><div class="spacerHeadLogo5"></div></td>
+                            <td><div class="lyndaDelimiter">|</div></td>
+                            <td><div class="spacerHeadLogo5"></div></td>
+                            <td><input type="image" name="ctl00$UcHeaderAdminLogin1$btnLogOut" id="ctl00_UcHeaderAdminLogin1_btnLogOut" tabindex="3" class="btnLogOut" src="ui/images/btn_logout.png" style="border-width:0px;" /></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="clear">&nbsp;</div>
+        </div>
+    </div>
+    <!--<table cellspacing="0" cellpadding="0" border="0" class="bandaInfo">
+        <tbody>
+            <tr>
+                <td>
+                    <span style="text-decoration:none;" id="ctl00_SiteMapPath1"><a href="#ctl00_SiteMapPath1_SkipLink"><img width="0" height="0" style="border-width:0px;" src="/WebResource.axd?d=psn7d4lNNJ12szH5XJXGlbJHPQOh2lJkLVVTI_VTYrxFwyy_gd1kGchlNdTmOnhqmpL_ydlp_5hUUICgSdP4p7qBz2s1&amp;t=634604137351482412" alt="Skip Navigation Links"></a><a id="ctl00_SiteMapPath1_SkipLink"></a></span>
+                    <span class="bandaInfoSpacer1"></span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div>        
+        <div class="content">
+            <h1>
+                <span id="ctl00_cphMain_Label1">You have not been given access rights to this page. If you consider this to be an error, please contact System Administrator.</span>
+            </h1>
+        </div>
+    </div>-->
+    <div>
+        <div class="bandaMeniu">
+            <table id="ctl00_UcAjaxMenu1_tableForMenu" cellpadding="0" cellspacing="0" class="adminMenu">
+                <tr>
+                    <td><div id="ctl00_UcAjaxMenu1_Panel1">
+                        <a id="ctl00_UcAjaxMenu1_LinkButtonForMenu1" class="selectedMenu" url="~/CS/Search.aspx" href="javascript:__doPostBack('ctl00$UcAjaxMenu1$LinkButtonForMenu1','')">CS</a>
+                    </div></td>
+                    <td><div id="ctl00_UcAjaxMenu1_Panel2">
+                        <a id="ctl00_UcAjaxMenu1_LinkButtonForMenu2" url="~/Production/Courses/CourseList.aspx" href="javascript:__doPostBack('ctl00$UcAjaxMenu1$LinkButtonForMenu2','')">Production</a>
+                    </div></td>
+                    <td><div id="ctl00_UcAjaxMenu1_Panel3">
+                        <a id="ctl00_UcAjaxMenu1_LinkButtonForMenu3" url="~/Content/CourseFeedback/SearchFeedback.aspx" href="javascript:__doPostBack('ctl00$UcAjaxMenu1$LinkButtonForMenu3','')">Content</a>
+                    </div></td>
+                    <td><div id="ctl00_UcAjaxMenu1_Panel4">
+                        <a id="ctl00_UcAjaxMenu1_LinkButtonForMenu4" url="~/Marketing/PromoList.aspx" href="javascript:__doPostBack('ctl00$UcAjaxMenu1$LinkButtonForMenu4','')">Marketing</a>
+                    </div></td>
+                    <td><div id="ctl00_UcAjaxMenu1_Panel5">
+                        <a id="ctl00_UcAjaxMenu1_LinkButtonForMenu5" url="~/Finance/ReportsSearch.aspx" href="javascript:__doPostBack('ctl00$UcAjaxMenu1$LinkButtonForMenu5','')">Finance</a>
+                    </div></td>
+                    <td><div id="ctl00_UcAjaxMenu1_Panel6">
+                        <a id="ctl00_UcAjaxMenu1_LinkButtonForMenu6" url="~/CMS/Default.aspx" href="javascript:__doPostBack('ctl00$UcAjaxMenu1$LinkButtonForMenu6','')">CMS</a>
+                    </div></td>
+                    <td><div id="ctl00_UcAjaxMenu1_Panel7">
+                        <a id="ctl00_UcAjaxMenu1_LinkButtonForMenu7" url="~/Admin/ListAdminUsers.aspx" href="javascript:__doPostBack('ctl00$UcAjaxMenu1$LinkButtonForMenu7','')">Admin</a>
+                    </div></td>
+                    <td><div id="ctl00_UcAjaxMenu1_Panel8">
+                        <a id="ctl00_UcAjaxMenu1_LinkButtonForMenu8" url="~/Reports/FinancialReports.aspx" href="javascript:__doPostBack('ctl00$UcAjaxMenu1$LinkButtonForMenu8','')">Reports</a>
+                    </div></td>
+                </tr>
+            </table>
+        </div>
+        <div id="divForSubmenuLyndaAdmin" class="divSubMenu">
+            <table id="ctl00_UcAjaxMenu1_tableForSubMenu" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td class="spacer">
+                                </td>
+                    <td><div id="ctl00_UcAjaxMenu1_Panel100" class="selected">
+                        <a id="ctl00_UcAjaxMenu1_LinkButtonForMenu100" url="~/CS/Search.aspx" href="javascript:__doPostBack('ctl00$UcAjaxMenu1$LinkButtonForMenu100','')">Search</a>
+                    </div></td>
+                    <td><div id="ctl00_UcAjaxMenu1_Panel101">
+                        <a id="ctl00_UcAjaxMenu1_LinkButtonForMenu101" url="~/CS/NewAccount.aspx" href="javascript:__doPostBack('ctl00$UcAjaxMenu1$LinkButtonForMenu101','')">New Account</a>
+                    </div></td>
+                    <td><div id="ctl00_UcAjaxMenu1_Panel102">
+                        <a id="ctl00_UcAjaxMenu1_LinkButtonForMenu102" url="~/CS/SelectPersona.aspx" href="javascript:__doPostBack('ctl00$UcAjaxMenu1$LinkButtonForMenu102','')">New Quote</a>
+                    </div></td>
+                    <td><div id="ctl00_UcAjaxMenu1_Panel103">
+                        <a id="ctl00_UcAjaxMenu1_LinkButtonForMenu103" url="~/CS/Training.aspx" href="javascript:__doPostBack('ctl00$UcAjaxMenu1$LinkButtonForMenu103','')">Training</a>
+                    </div></td>
+                    <td><div id="ctl00_UcAjaxMenu1_Panel104">
+                        <a id="ctl00_UcAjaxMenu1_LinkButtonForMenu104" url="~/CS/Abuse/ApproveBlacklistDomain.aspx" href="javascript:__doPostBack('ctl00$UcAjaxMenu1$LinkButtonForMenu104','')">Abuse</a>
+                    </div></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <table cellpadding="0" cellspacing="0" border="0" class="bandaInfo">
+        <tr>
+            <td>
+                <span id="ctl00_SiteMapPath1" style="text-decoration:none;"><a href="#ctl00_SiteMapPath1_SkipLink"><img alt="Skip Navigation Links" height="0" width="0" src="/WebResource.axd?d=psn7d4lNNJ12szH5XJXGlbJHPQOh2lJkLVVTI_VTYrxFwyy_gd1kGchlNdTmOnhqmpL_ydlp_5hUUICgSdP4p7qBz2s1&amp;t=634604137351482412" style="border-width:0px;" /></a><span><a title="lynda admin" class="bandaInfoContent1" href="/Default.aspx" style="text-decoration:none;">lynda admin</a></span><span class="bandaInfoSeparator">&gt;</span><span><a title="Admin Customer Service" class="bandaInfoContent2" href="/CS/Default.aspx" style="text-decoration:none;">cs</a></span><span class="bandaInfoSeparator">&gt;</span><span class="bandaInfoContent3" style="text-decoration:none;">search results</span><a id="ctl00_SiteMapPath1_SkipLink"></a></span>
+                <span class="bandaInfoSpacer1"></span>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

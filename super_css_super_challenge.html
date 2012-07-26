@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Super CSS Super Challenge</title>
+		<style type="text/css">
+			HTML, BODY{margin: 0px;background-color: #938272;height: 100%;}
+			ul{
+				margin: 148px auto 0px auto;
+				list-style-type: none;
+				padding: 0px 0px 0px 0px;
+				background-color: #cb9e5d;
+				height: 500px;
+			}
+			ul li{
+				width: 200px;		
+				float: left;
+				background-color: #626166;	
+				position: relative;
+				z-index: 12;
+				height: 60px;
+				-moz-border-radius-topleft: 21px;
+				border-top-left-radius: 21px;
+				-moz-border-radius-topright: 21px;
+				border-top-right-radius: 21px;
+				border-bottom: 10px solid #cb9e5d;
+				margin-top: -60px;		
+				left: 33%;
+			}
+			ul li:before{
+				content: ' ';
+				-moz-border-radius-bottomright: 14px;
+				border-bottom-right-radius: 14px;
+				border-width: 0 5px 0px 0;
+				box-shadow: 10px 0px 0 #626166;
+				position: absolute;
+				left: -21px;
+				bottom: 0px;
+				width: 21px;
+				height: 21px;
+				z-index: 99;
+			}
+			ul li:after{
+				content: ' ';
+				-moz-border-radius-bottomleft: 14px;
+				border-bottom-left-radius: 14px;	
+				border-width: 0 0 0px 5px;
+				box-shadow: -10px 0px 0 #626166;
+				position: absolute;
+				right: -21px;
+				bottom: 0px;
+				width: 21px;
+				height: 21px;
+				z-index: 99;
+			}
+			ul li:hover{
+				background-color: #cb9e5d;
+				z-index: 50;
+			}
+			ul li:hover:before{
+				box-shadow: 12px 0px 0 #cb9e5d;
+			}
+			ul li:hover:after{
+				box-shadow: -12px 0px 0 #cb9e5d;
+			}
+			ul li a{
+				display: block;
+				text-align: center;
+				line-height: 21px;
+				padding: 20px 0px 20px 0px;
+				color: #ffffff;
+				font-size: 15px;
+				text-decoration: none;
+				border-bottom: 100px solid #cb9e5d;
+			}
+			ul li a:hover{
+				text-decoration: none;				
+			}
+		</style>
+	</head>
+	<body>
+		<ul>
+			<li><a href="#">One</a></li>
+			<li><a href="#">Two</a></li>
+			<li><a href="#">Three</a></li>
+		</ul>
+	</body>
+</html> 
