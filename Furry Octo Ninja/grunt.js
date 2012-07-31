@@ -32,8 +32,8 @@ module.exports = function(grunt) {
       files: ['grunt.js', 'src/**/*.js', 'test/**/*.js']
     },
     watch: {
-      files: ['<config:lint.files>', 'src/**/*.js'],
-      tasks: 'lint concat min'
+      files: ['<config:lint.files>', 'src/**/*.js', 'css/**/*.less', 'css/**/*.css'],
+      tasks: 'lint concat min less'
     },
     jshint: {
       options: {
@@ -54,10 +54,20 @@ module.exports = function(grunt) {
         jQuery: true
       }
     },
-    uglify: {}
+    uglify: {}, 
+    less: {
+      all: {
+        src: 'css/**/*.less',
+        dest: 'css/framework.min.css',
+        options: {
+            compress: true
+        }
+      }
+    }
   });
 
   // Default task.
-  grunt.registerTask('default', 'lint concat min');
+  grunt.loadNpmTasks('grunt-less');
+  grunt.registerTask('default', 'lint concat min less');
   grunt.registerTask('reload', 'default connect watch:reload');
 };

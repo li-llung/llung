@@ -25,4 +25,5 @@ ldc.overlay = function(){
 		});				
 	};
 };
+var overlay = new ldc.overlay();
 ldc.init('overlay');

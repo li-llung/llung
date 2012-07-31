@@ -1,0 +1,233 @@
+/**********************Start Reset****************************/
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, centerusertest
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/**********************End Reset****************************/
+body {
+	font-size: 12px;
+	line-height: 18px;
+	font-family: Verdana;
+	margin: 20px;
+}
+h1, h2, h3, h4, h5, h6{
+	font-weight: bold;
+	margin-bottom: 18px;
+	font-family: "Trebuchet MS";
+}
+a{
+	color: #FF0000;
+}
+h1{
+	font-size: 20px;
+}
+h2{
+	font-size: 18px;
+}
+h3{
+	font-size: 16px;
+}
+h4{
+	font-size: 15px;
+}
+h5{
+	font-size: 14px;
+}
+h6{
+	font-size: 12px;
+}
+p{
+	margin-bottom: 10px;
+}
+.editible{
+	border: 1px solid #000000;
+	margin: 10px;
+	padding: 10px;
+	width: 500px;
+}
+.editible li{
+	position: relative;
+	display: block;
+	padding: 8px;
+}
+.edit{
+	position: absolute;
+	top: 8px;
+	right: 8px;
+}
+.edit_row{
+	background-color: #cccccc;
+	height: 100px;
+}
+.edit_row_highlight{
+	background-color: #cccccc;	
+}
+.form input{
+	float: left;
+}
+.form table td{
+	text-align: right;
+	padding: 6px;
+}
+.form table td + td{
+	text-align: left;
+}
+.inline{
+	margin-left: 7px;
+	min-width: 17px;	
+	height: 17px;
+	line-height: 17px;
+	font-size: 11px;
+	color: #585858;
+	text-indent: 22px;
+	float: left;
+	display: none;
+}
+.inline_error{
+	background-image: url('images/ap_icon_error.png');
+	background-repeat: no-repeat;
+}
+.inline_success{
+	background-image: url('images/ap_icon_success.png');
+	background-repeat: no-repeat;	
+}
+.content{
+	padding: 30px;
+}
+.content img{
+	width: auto;
+	height: 120px;
+}
+/*Start Overlay*/
+.overlay_holder
+{
+	display: none;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+    z-index: 2005;
+	background-color: white;
+	margin-bottom: 30px;
+}
+/*#overlay{
+	width: 722px;
+}*/
+#modal_bg{
+	display: none;
+	width: 1px;
+	height: 1px;
+	position: fixed;
+	left: 0px;
+	top: 0px;
+    z-index: 2002;
+    display: block;
+    background-color: #000000;
+}
+.modal_bg{
+	display: none;
+	width: 1px;
+	height: 1px;
+	position: fixed;
+	left: 0px;
+	top: 0px;
+    z-index: 2002;
+    display: block;
+    background-color: #000000;
+}
+#overlay_bar{
+	/*height: 27px;*/
+	width: 100%;
+	display: block;
+}
+#overlay_bar h5{
+	color: #ffffff;
+	margin: 0px;
+	padding: 7px 0px 0px 10px;
+}
+.overlay_image_close{
+	position:  absolute;
+	right: 7px;
+	top: 7px;
+	z-index: 2007;
+}
+.overlay_close{
+	position:  absolute;
+	right: 12px;
+	top: 12px;
+	z-index: 2007;
+}
+.overlay_content{
+	padding: 30px;
+}
+#overlay_content{
+	
+}
+#overlay_content h1, #overlay_content h3{
+	margin: 3px 0px 17px 0px;
+	padding: 0px 0px 0px 0px;
+	color: #333333;
+	font-size: 15px;
+	line-height: 17px;
+}
+#overlay_content{
+	
+}
+#overlay_content{
+	
+}
+.overlay_content .inputs{
+	width: 260px;
+}
+.full{
+	width: 100%;
+}
+#overlay_frame{
+	overflow: hidden;
+	width: 1px;
+	height: 1px;
+}
+/*End Overlay*/

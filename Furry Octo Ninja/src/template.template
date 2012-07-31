@@ -1,0 +1,7 @@
+ldc.template = function(){
+	var template = this;
+	this.params = {
+	};
+};
+var template = new ldc.template();
+ldc.init('template');
