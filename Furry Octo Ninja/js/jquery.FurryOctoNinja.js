@@ -9,12 +9,20 @@ function Core(){
 	this.init = function(widget_name){
 		//alert('widgets');
 		var widget = new this[widget_name]();
-		if(widget.params.autostart === true){
+
+		for(var i in widget.params)
+		{
+			if(widget.params[i] === true){
+				widget[i]();
+			}
+			//this[params[i]]();
+		}
+		/*if(widget.params.autostart === true){
 			widget.autostart();
 		}
 		if(widget.params.watch === true){
 			widget.watch();
-		}
+		}*/
 		//alert('over');
 	};
 	this.util  = function(){
@@ -57,7 +65,7 @@ ldc.slider = function(){
 	var slider = this;
 	this.params = {
 		'autostart': true,
-		'watch': true
+		'watch': false
 	};
 	this.autostart = function(){
 		//alert('hi from slider');

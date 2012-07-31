@@ -2,7 +2,7 @@ ldc.slider = function(){
 	var slider = this;
 	this.params = {
 		'autostart': true,
-		'watch': true
+		'watch': false
 	};
 	this.autostart = function(){
 		//alert('hi from slider');
