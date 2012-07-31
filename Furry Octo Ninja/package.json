@@ -1,0 +1,29 @@
+{
+  "name": "jquery.FurryOctoNinja",
+  "title": "jQuery Furryoctoninja",
+  "description": "Framework",
+  "version": "0.1.0",
+  "homepage": "https://github.com/llung/FurryOctoNinja",
+  "author": {},
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/llung/FurryOctoNinja.git"
+  },
+  "bugs": {
+    "url": "https://github.com/llung/FurryOctoNinja/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/llung/FurryOctoNinja/blob/master/LICENSE-MIT"
+    },
+    {
+      "type": "GPL",
+      "url": "https://github.com/llung/FurryOctoNinja/blob/master/LICENSE-GPL"
+    }
+  ],
+  "dependencies": {
+    "jquery": "~1.5"
+  },
+  "keywords": []
+}

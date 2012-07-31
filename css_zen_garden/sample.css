@@ -77,6 +77,8 @@ html {
 }
 body { 
 	background-color: #424242;
+	background-image: url('bamboo.jpg');
+	background-repeat: no-repeat;
 }
 p {
 	margin-bottom: 15px;
@@ -87,13 +89,13 @@ div {
 }
 h1 {
 	color: #3299BB;
-	font-size: 17px;
+	font-size: 32px;
 	font-family: Verdana;
 	margin-bottom: 15px;
 }
 h2 { 
 	color: #3299BB;
-	font-size: 17px;
+	font-size: 24px;
 	font-family: Verdana;
 	margin-bottom: 15px;
 }
@@ -153,7 +155,7 @@ acronym {
 		#pageHeader{
 			display: block;
 			clear: both;
-			background-color: #000000;
+			/*background-color: #000000;*/
 			position: relative;
 			padding: 15px;
 			border-top-left-radius: 20px;
@@ -211,6 +213,7 @@ acronym {
 			color: #424242;
 			padding: 10px;
 			margin-right: 15px;
+			opacity: 0.60;
 		}
 			#preamble h3{
 				
@@ -253,6 +256,7 @@ acronym {
 			color: #424242;
 			padding: 10px;
 			margin-right: 15px;
+			opacity: 0.60;
 		}
 			#explanation h3{
 				
@@ -289,6 +293,7 @@ acronym {
 			color: #424242;
 			padding: 10px;
 			margin-right: 15px;
+			opacity: 0.60;
 		}
 			#participation h3{
 				
@@ -328,6 +333,7 @@ acronym {
 			color: #424242;
 			padding: 10px;
 			margin-right: 15px;
+			opacity: 0.60;
 		}
 			#benefits h3{
 				
@@ -361,6 +367,7 @@ acronym {
 			color: #424242;
 			padding: 10px;
 			clear: right;
+			opacity: 0.60;
 		}
 			#requirements h3{
 				
@@ -402,7 +409,7 @@ acronym {
 			clear: both;
 			display: block;
 			padding: 15px;
-			background-color: #000000;
+			/*background-color: #000000;*/
 			position: relative;
 			top: 20px;
 			border-radius: 20px;
