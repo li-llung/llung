@@ -1,4 +1,4 @@
-/*! jQuery Furryoctoninja - v0.1.0 - 2012-07-31
+/*! jQuery Furryoctoninja - v0.1.0 - 2012-08-03
 * https://github.com/llung/FurryOctoNinja
 * Copyright (c) 2012 ; Licensed MIT, GPL */
 

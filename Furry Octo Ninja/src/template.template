@@ -1,6 +1,6 @@
 ldc.template = function(){
 	var template = this;
-	this.params = {
+	template.params = {
 	};
 };
 var template = new ldc.template();
