@@ -207,10 +207,12 @@ div.wider{
   font-family: "Verdana","Geneva",sans-serif;
   font-size: 10px;
   padding: 0;
-  position: fixed;
   right: 100px;
   width: 105px;
   z-index: 100;
+  position: fixed;
+  /*position: absolute;
+  height: 25px;*/
 }
 .back_to_top a
 {
