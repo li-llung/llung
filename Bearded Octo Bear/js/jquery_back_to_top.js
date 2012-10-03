@@ -38,8 +38,13 @@
                     jQuery(o.selector).remove();
                 }
                 if(o.start){
-                    $('<div class="'+o.css_class+'"><a>'+o.text+'</a></div>').fadeTo("fast", o.faded).hide().appendTo("body");
-                    $('<div id="top"><a href="javascript: void(0)"></a></div>').prependTo("body");
+                    $("<div/>", {
+                        class: o.css_class,
+                        html: '<a>'+o.text+'</a>'
+                    }).fadeTo("fast", o.faded).hide().appendTo("body");
+                    $("<a/>", {
+                        id: "top"
+                    }).prependTo('body');
                     $(window).bind('scroll resize', function () {
                         if($(window).scrollTop() > o.threshold){
                             $(o.selector).fadeIn();
