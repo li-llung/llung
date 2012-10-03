@@ -146,28 +146,13 @@ p{
 {
 	display: none;
 	position: absolute;
-	left: 0px;
-	top: 0px;
     z-index: 2005;
 	background-color: white;
-	margin-bottom: 30px;
-}
-/*#overlay{
-	width: 722px;
-}*/
-#modal_bg{
-	display: none;
-	width: 1px;
-	height: 1px;
-	position: fixed;
-	left: 0px;
-	top: 0px;
-    z-index: 2002;
-    display: block;
-    background-color: #000000;
+	padding: 30px;
+	width: 500px;
+	height: 500px;
 }
 .modal_bg{
-	display: none;
 	width: 1px;
 	height: 1px;
 	position: fixed;
@@ -177,25 +162,9 @@ p{
     display: block;
     background-color: #000000;
 }
-#overlay_bar{
-	/*height: 27px;*/
+.overlay_bar{
 	width: 100%;
 	display: block;
-}
-#overlay_bar h5{
-	color: #ffffff;
-	margin: 0px;
-	padding: 7px 0px 0px 10px;
-}
-.overlay_image_close{
-	position:  absolute;
-	right: 7px;
-	top: 7px;
-	z-index: 2007;
-}
-a.overlay_image_close img{
-    width: auto;
-    height: auto;
 }
 .overlay_close{
 	position:  absolute;
@@ -204,44 +173,55 @@ a.overlay_image_close img{
 	z-index: 2007;
 }
 .overlay_content{
-	padding: 30px;
 	position: relative;
 }
-#overlay_content h1, #overlay_content h3{
-	margin: 3px 0px 17px 0px;
-	padding: 0px 0px 0px 0px;
-	color: #333333;
-	font-size: 15px;
-	line-height: 17px;
-}
-#overlay_content{
-	
-}
-#overlay_content{
-	
-}
-.overlay_content .inputs{
-	width: 260px;
-}
-.full{
-	width: 100%;
-}
-#overlay_frame{
+.overlay_frame{
 	overflow: hidden;
 	width: 1px;
 	height: 1px;
 }
-.image_caption{
+.overlay_caption{
 	position: absolute;
-	bottom: 30px;
-	left: 30px;
+	bottom: 0px;
+	left: 0px;
 	background-color: #000000;
 	height: 20px;
 	font-size: 11px;
 	color: #ffffff;
-	width: 94%;
+	width: 100%;
 	display: block;
 	text-indent: 15px;
 	padding: 8px 0px;
 }
+div.wider{
+	width: 800px;
+	height: 600px;
+}
 /*End Overlay*/
+
+.back_to_top
+{
+  background-color: #0B6998;
+  bottom: 0;
+  color: #FFFFFF;
+  font-family: "Verdana","Geneva",sans-serif;
+  font-size: 10px;
+  padding: 0;
+  position: fixed;
+  right: 100px;
+  width: 105px;
+  z-index: 100;
+}
+.back_to_top a
+{
+  color: #FFFFFF;
+  display: block;
+  padding: 3px 0;
+  text-align: center;
+  text-decoration: none;
+  width: 105px;
+}
+.back_to_top a:hover
+{
+  cursor: pointer;
+}
