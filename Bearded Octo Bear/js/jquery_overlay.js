@@ -38,20 +38,21 @@ $(document).ready(function () {
  * limitations under the License.
  * ========================================================== */
 
- function show_overlay(ov){
-    $(ov).overlay({css_class: $(ov).attr('class'), show: true});
- }
- function close_overlay(ov){
-    $(ov).overlay({close: true});
- }
+function show_overlay(ov){
+    $(ov).show_ov(ov);
+}
+function close_overlay(ov){
+    $(ov).close_ov(ov);
+}
 (function($){
     $.fn.extend({
-        /*show_overlay: function(ov){
+        show_ov: function(ov){
+            //alert($(ov).text());
             $(ov).overlay({css_class: $(ov).attr('class'), show: true});
-        }
-        close_overlay: function(ov){
+        },
+        close_ov: function(ov){
             $(ov).overlay({close: true});
-        }*/
+        },
         overlay: function(options) {
             var defaults = {
                 href: '',
