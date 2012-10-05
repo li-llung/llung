@@ -1,5 +1,5 @@
 (function ($) {
-    var overlay = new overlay();
+    var ldc_overlay = new overlay();
     $(document).ready(function () {
         if ($('#overlay_frame').length) {
             $('#overlay_frame').remove();
@@ -13,16 +13,16 @@
             });
         }
         $('.overlay').on('click', function () {
-            overlay.init($(this));
+            ldc_overlay.init($(this));
             return false;
         });
     });
     $(window).resize(function () {
-        overlay.reposition();
-    })
+        ldc_overlay.reposition();
+    });
     $(window).scroll(function () {
-        overlay.reposition();
-    })
+        ldc_overlay.reposition();
+    });
     function overlay() {
         var fob = this;
         /*Start Public*/
@@ -31,18 +31,18 @@
             var config = {
                 href: ov.attr('href'),
                 css_class: ov.attr('class'),
-                title: (ov.attr('title') != undefined) ? ov.attr('title') : '',
+                title: (ov.attr('title') !== undefined) ? ov.attr('title') : '',
                 type: ov.data('type'),
-                element: (ov.data('element') != undefined) ? ov.data('element') : 'overlay',
-                data_class: (ov.data('class') != undefined) ? ov.data('class') : '',
+                element: (ov.data('element') !== undefined) ? ov.data('element') : 'overlay',
+                data_class: (ov.data('class') !== undefined) ? ov.data('class') : '',
                 call: ov.data('call'),
-                width: (ov.data('width') != undefined) ? ov.data('width') : 'user',
-                height: (ov.data('height') != undefined) ? ov.data('height') : 'user',
-                rounded: (ov.data('rounded') != undefined) ? ov.data('rounded') : '7px'
-            }
+                width: (ov.data('width') !== undefined) ? ov.data('width') : 'user',
+                height: (ov.data('height') !== undefined) ? ov.data('height') : 'user',
+                rounded: (ov.data('rounded') !== undefined) ? ov.data('rounded') : '7px'
+            };
             add_bg();
             add_content(e, config);
-        }
+        };
         fob.reposition = function () {
             if($('.overlay_holder').length){
                 $('.overlay_holder').each(function(){
@@ -50,19 +50,19 @@
                     var overlay_left = (((Number($('body').width()) - Number($(this).width())) / 2));
                     if (is_mobile()) {
                         $("#modal_bg").css("top", $(window).scrollTop());
-                    };
+                    }
                     var overlay_top = (((Number($(window).height()) - Number($(this).height())) / 2));
-                    (overlay_top < 0) ? overlay_top = 50 : overlay_top;
+                    overlay_top = (overlay_top < 0) ? 50 : overlay_top;
                     $(this).css('left', overlay_left);
                     $(this).css('top', overlay_top + $(window).scrollTop());
                 });
             }
-        }
+        };
         /*End Public*/
         /*Start Private*/
         var is_mobile = function(){
             return (navigator.platform == 'iPad' || navigator.platform == 'iPhone' || navigator.platform == 'iPod') ? true : false;
-        }
+        };
         var add_content = function(e, config){
             if ($('#overlay').length) {
                 $('#overlay').remove();
@@ -74,7 +74,7 @@
             var overlay_padding = $("#" + config.element).css('padding');
             $("<div/>", {
                 id: "overlay",
-                class: "overlay_holder " + config.data_class
+                'class': "overlay_holder " + config.data_class
             }).prependTo('body');
             var overlay_height = $("#" + config.element).height();
             var overlay_width = $("#" + config.element).width();
@@ -96,7 +96,7 @@
             }
             $("<div/>", {
                 id: "overlay_bar",
-                class: "overlay_bar",
+                'class': "overlay_bar",
                 html: '<a href="#nogo" class="overlay_close"><img src="images/btn_close_22x22_black.png" alt=""/></a>'
             }).prependTo("#overlay");
             $(".overlay_close, #modal_bg").on(function () {
@@ -112,10 +112,10 @@
                 var width = $("#image_"+ image_id).width();
                 var height = $("#image_"+ image_id).height();
 
-                var total_width = width,
-                    total_height = height,
-                    overlay_top = (((Number($(window).height()) - Number(height)) / 2)),
-                    overlay_left = (((Number($('body').width()) - Number(width)) / 2));
+                total_width = width;
+                total_height = height;
+                overlay_top = (((Number($(window).height()) - Number(height)) / 2));
+                overlay_left = (((Number($('body').width()) - Number(width)) / 2));
 
                 if (width >= ($(document).width()-100)) {
                     total_width = (Number($('body').width()) - 100);
@@ -127,7 +127,7 @@
                     total_width = 'auto';
                 }
                 $('<div id="overlay_image_content" class="overlay_content"><img src="' + src + '" width="' + total_width + '" height="' + total_height + '" alt="'+config.title+'" style="height: ' + total_height + ''+((total_height =="auto") ? '':'px')+';width: ' + total_width + ''+((total_width =="auto")? '':'px')+';" alt="" /></div>').insertAfter('#overlay_bar');
-                if(config.title != ""){
+                if(config.title !== ""){
                     $('<div class="overlay_caption"><h1>'+config.title+'</h1></div>').appendTo('.overlay_content');
                     $('.overlay_caption').fadeTo("slow", 0.60);
                 }
@@ -135,7 +135,7 @@
                 $("#overlay").css('top', overlay_top + $(window).scrollTop());
                 break;
             case 'json':
-                $("#overlay").append('<div class="overlay_content">'+ ((window[config.call].title != "") ? '<h1>'+window[config.call].title+'</h1>': '')+ '' + window[config.call].content + '</div>');
+                $("#overlay").append('<div class="overlay_content">'+ ((window[config.call].title !== "") ? '<h1>'+window[config.call].title+'</h1>': '')+ '' + window[config.call].content + '</div>');
                 show_overlay(overlay_top, overlay_left, total_width, total_height);
                 break;
             case 'file':
@@ -157,12 +157,12 @@
                 });
                 break;
             default:
-                $("#overlay").append('<div class="overlay_content">'+ ((config.title != "") ? '<h1>'+config.title+'</h1>': '')+ '' + $("#"+ config.element).html() + '</div>');
+                $("#overlay").append('<div class="overlay_content">'+ ((config.title !== "") ? '<h1>'+config.title+'</h1>': '')+ '' + $("#"+ config.element).html() + '</div>');
                 show_overlay(overlay_top, overlay_left, total_width, total_height);
             }
             $("#overlay").css({ '-moz-border-radius': config.rounded, '-webkit-border-radius': config.rounded, 'border-radius': config.rounded, '-khtml-border-radius': config.rounded });
             $("#overlay").css({ '-moz-box-shadow': '5px 5px 5px #666666', '-webkit-box-shadow': '5px 5px 5px #666666', 'box-shadow': '5px 5px 5px #666666' });
-        }
+        };
         var add_bg = function(){
             if ($("#modal_bg").length > 0) {
                 $('#modal_bg').remove();
@@ -172,7 +172,7 @@
             }
             $("<div/>", {
                 id: "modal_bg",
-                class: "modal_bg",
+                'class': "modal_bg",
                 css: {
                     'width': $(window).width(),
                     'height': $(window).height()
@@ -181,17 +181,17 @@
             $('#modal_bg').fadeTo('fast', '0.50');
             $('#modal_bg').click(function () {
                 close();
-            })
-        }
+            });
+        };
         var show_overlay = function(overlay_top, overlay_left, total_width, total_height){
             $("#overlay").hide().fadeTo("slow", 1).show().css({ 'left': overlay_left, 'width': total_width, 'height': total_height });
             $("#overlay").css('top', overlay_top + $(window).scrollTop());
             fob.reposition();
-        }
+        };
         var close = function () {
             $("#overlay").fadeOut();
             $('#modal_bg').hide();
-        }
+        };
         /*End Private*/
     }
 })(jQuery);

@@ -3,7 +3,7 @@
 <head>
 	<title>New document</title>
 	<script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
-	<script type="text/javascript" src="js/furry_octo_bear.js"></script>
+	<script type="text/javascript" src="js/jquery_overlay.js"></script>
 	<link rel="stylesheet" href="css/framework.css" type="text/css" media="screen" />
 </head>
 <body>
@@ -36,7 +36,13 @@
 	<a href="funky.txt" class="overlay" data-type="file" title="Content from local text file">Content from local text file</a>
 	<br /><br />	
 	<h1>JSON</h1>
-	<a href="javascript: void(0);" class="overlay" data-type="json" data-call="json_call" title="JSON call">JSON call</a>
+	<a href="javascript: void(0);" class="overlay" data-type="json" data-call="json_call" title="JSON call">JSON call in page</a>
+	<br /><br />	
+	<h1>Initialized on page</h1>
+	<a href="javascript: void(0);" class="ini_on_page" data-element="small_meat" title="Initialized on page" data-width="640" data-height="480">JSON call in page</a>
+	<br /><br />	
+	<h1>Called from JS</h1>
+	<a href="javascript: void(0);" onclick="show_overlay(this)" class="called_from_js" data-element="called_from_js" title="Called from page" data-width="800" data-height="600">show</a>
 </div>
 <div id="meat" class="overlay_holder wider">
 	<p>Tenderloin pork chop drumstick tail pork belly venison. Turkey brisket chuck pork belly, spare ribs sausage ribeye shankle pork loin cow strip steak pork biltong. Biltong rump capicola, tenderloin prosciutto drumstick jowl ribeye turkey venison bacon salami. Brisket short ribs turkey capicola, bresaola shoulder rump shank hamburger meatloaf beef. Pancetta hamburger t-bone, bresaola shank corned beef chicken brisket leberkas filet mignon frankfurter.</p>
@@ -46,6 +52,13 @@
 <div id="test" class="overlay_holder">
 	<p>test some more content</p>
 </div>
+<div id="small_meat" class="overlay_holder">
+	<p>Tenderloin pork chop drumstick tail pork belly venison.</p>
+</div>
+<div id="called_from_js" class="overlay_holder">
+	<p>Called from JS</p>
+	<a href="javascript: void(0);" onclick="close_overlay(this)">hide</a>
+</div>
 <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 <script type="text/javascript">
@@ -54,6 +67,9 @@
 		title: 'yay a json title',
 		content: '<p>Tenderloin pork chop drumstick tail pork belly venison. Turkey brisket chuck pork belly, spare ribs sausage ribeye shankle pork loin cow strip steak pork biltong. Biltong rump capicola, tenderloin prosciutto drumstick jowl ribeye turkey venison bacon salami. Brisket short ribs turkey capicola, bresaola shoulder rump shank hamburger meatloaf beef. Pancetta hamburger t-bone, bresaola shank corned beef chicken brisket leberkas filet mignon frankfurter.</p>'
 	}
+	$(document).ready(function () {
+	    $('body').overlay({css_class: 'ini_on_page'});
+	});
     //]]>
 </script>
 </body>

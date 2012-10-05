@@ -3,7 +3,7 @@ lynda.video=function (container,options)
 	if(options)
 	{
 		
-	}	
+	}
 };
 $(document).ready(function ()
 {
