@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<title>Flying Octo Monkey</title>
+	<script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+	<link rel="stylesheet" href="css/framework.css" type="text/css" media="screen" />
+	
+	<script type="text/javascript" src="js/jquery_overlay.js"></script>
+	<link rel="stylesheet" href="css/overlay.css" type="text/css" media="screen" />
+	
+	<script type="text/javascript" src="js/jquery_back_to_top.js"></script>
+	<link rel="stylesheet" href="css/back_to_top.css" type="text/css" media="screen" />
+</head>
+<body>
+
+<header>
+    <nav>
+        <ul>
+            <li><a href="#header_back_to_top">Back to Top</a></li>
+            <li><a href="#header_overlay">Overlay</a></li>
+        </ul>
+    </nav>
+</header>
+<article>
+    <div class="content">
+        <h1 id="header_back_to_top">Back to Top</h1>
+        <p>Scroll Down.............</p>
+
+        <h1 id="header_overlay">Image Overlay</h1>
+        <a href="javascript: void(0);" class="overlay" data-type="image" title="Penguins"><img src="images/sample/Penguins.jpg" /></a>
+        <a href="javascript: void(0);" class="overlay" data-type="image" title="Koala"><img src="images/sample/Koala.jpg" /></a>
+        <a href="javascript: void(0);" class="overlay" data-type="image" title="Lighthouse"><img src="images/sample/Lighthouse.jpg" /></a>
+        <a href="javascript: void(0);" class="overlay" data-type="image" title="Splinter Cell"><img src="images/sample/avatar.png" /></a>
+        <a href="javascript: void(0);" class="overlay" data-type="image" title=""><img src="images/sample/test.png" /></a>
+        <a href="javascript: void(0);" class="overlay" data-type="image" title=""><img src="images/sample/test2.png" /></a>
+        <a href="javascript: void(0);" class="overlay" data-type="image" title="chevrolet camaro concept"><img src="images/sample/chevrolet-camaro-concept-picture.jpg" /></a>
+        <a href="javascript: void(0);" class="overlay" data-type="image" title="chevy camaro 2010"><img src="images/sample/chevy_camaro_2010.jpg" /></a>
+        <a href="javascript: void(0);" class="overlay" data-type="image" title="ford f-150 svt raptor"><img src="images/sample/ford-f-150-svt-raptor.jpg" /></a>
+        <a href="javascript: void(0);" class="overlay" data-type="image" title="too wide"><img src="images/sample/too_wide.jpg"></a>
+        <a href="javascript: void(0);" class="overlay" data-type="image" title="too tall"><img src="images/sample/too_tall.jpg"></a>
+
+        <a href="javascript: void(0);" class="overlay" data-type="image" title="Southern End of La Rambla, Placa Del Portal De La Pau - Barcelona, Spain"><img src="images/sample/barcelona_court_house.jpg" /></a>
+        <a href="javascript: void(0);" class="overlay" data-type="image" title="Institut Océanographique - Monte Carlo, Monacco"><img src="images/sample/monte_carlo_library.jpg" /></a>
+        <a href="javascript: void(0);" class="overlay" data-type="image" title="La Sangrada Familia - Barcelona, Spain"><img src="images/sample/la_sangrada_familia.jpg" /></a>
+        <br /><br />
+        <h1>Content Overlay</h1>
+        <a href="javascript: void(0);" class="overlay" data-element="meat" title="">Hidden Div on page</a> |
+        <a href="javascript: void(0);" class="overlay" data-element="test" title="" data-width="200" data-height="200">Hidden Div on page 2</a> |
+        <a href="json.txt" class="overlay" data-type="file" title="">Content from local text file</a>
+        <br /><br />
+        <h1>Content Overlay w/Titles</h1>
+        <a href="javascript: void(0);" class="overlay" data-element="meat" title="Hidden Div on page">Hidden Div on page</a> |
+        <a href="javascript: void(0);" class="overlay" data-element="test" title="Hidden Div on page" data-width="200" data-height="200">Hidden Div on page 2</a> |
+        <a href="json.txt" class="overlay" data-type="file" title="Content from local text file">Content from local text file</a>
+        <br /><br />
+        <h1>JSON</h1>
+        <a href="javascript: void(0);" class="overlay" data-type="json" data-call="json_call" title="JSON call">JSON call in page</a>
+        <br /><br />
+        <h1>Initialized on page</h1>
+        <a href="javascript: void(0);" class="ini_on_page" data-element="small_meat" title="Initialized on page" data-width="640" data-height="480">Initialized on page</a>
+        <br /><br />
+        <h1>Called from JS</h1>
+        <a href="javascript: void(0);" onclick="show_overlay(this)" class="called_from_js" data-element="called_from_js" title="Called from page" data-width="800" data-height="600">show</a>
+    </div>
+    <div id="meat" class="overlay_holder wider">
+        <p>Tenderloin pork chop drumstick tail pork belly venison. Turkey brisket chuck pork belly, spare ribs sausage ribeye shankle pork loin cow strip steak pork biltong. Biltong rump capicola, tenderloin prosciutto drumstick jowl ribeye turkey venison bacon salami. Brisket short ribs turkey capicola, bresaola shoulder rump shank hamburger meatloaf beef. Pancetta hamburger t-bone, bresaola shank corned beef chicken brisket leberkas filet mignon frankfurter.</p>
+
+        <p>Sausage flank drumstick bresaola. Pork bacon frankfurter cow brisket. Shank tail salami fatback. Bacon strip steak ribeye corned beef, sausage boudin capicola meatloaf t-bone. Shoulder pork chop ball tip, biltong prosciutto hamburger speck meatball spare ribs pork belly chicken pork t-bone beef ribs. Leberkas hamburger prosciutto meatloaf, beef ribs kielbasa chuck.</p>
+    </div>
+    <div id="test" class="overlay_holder">
+        <p>test some more content</p>
+    </div>
+    <div id="small_meat" class="overlay_holder">
+        <p>Tenderloin pork chop drumstick tail pork belly venison.</p>
+    </div>
+    <div id="called_from_js" class="overlay_holder">
+        <p>Called from JS</p>
+        <a href="javascript: void(0);" onclick="close_overlay(this)">hide</a>
+    </div>
+</article>
+<footer>
+    <p>&copy 2012 lynda.com</p>
+</footer>
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+<script type="text/javascript">
+    //<![CDATA[
+	var json_call = {
+		title: 'yay a json title',
+		content: '<p>Tenderloin pork chop drumstick tail pork belly venison. Turkey brisket chuck pork belly, spare ribs sausage ribeye shankle pork loin cow strip steak pork biltong. Biltong rump capicola, tenderloin prosciutto drumstick jowl ribeye turkey venison bacon salami. Brisket short ribs turkey capicola, bresaola shoulder rump shank hamburger meatloaf beef. Pancetta hamburger t-bone, bresaola shank corned beef chicken brisket leberkas filet mignon frankfurter.</p>'
+	}
+	$(document).ready(function () {
+	    $('body').overlay({css_class: 'ini_on_page'});
+
+	    //$('body').show_ov('.called_from_js');
+	});
+    //]]>
+</script>
+</body>
+</html>

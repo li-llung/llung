@@ -4,6 +4,14 @@
     <content url="file://$MODULE_DIR$" />
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="jQuery-1.7.2" level="application" />
+    <orderEntry type="library" name="jQuery UI-1.8.17" level="application" />
+    <orderEntry type="library" name="ExtJS Core-3.1.0" level="application" />
+    <orderEntry type="library" name="Modernizr-2.5.3" level="application" />
+    <orderEntry type="library" name="Dojo-1.7.2" level="application" />
+    <orderEntry type="library" name="Prototype-1.7.0.0" level="application" />
+    <orderEntry type="library" name="MooTools-1.4.5" level="application" />
+    <orderEntry type="library" name="script.aculo.us-1.9.0" level="application" />
   </component>
 </module>
 

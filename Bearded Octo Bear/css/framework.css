@@ -227,3 +227,10 @@ div.wider{
 {
   cursor: pointer;
 }
+.box{
+	width: 1360px;
+	position: relative;
+	margin: 0 auto;
+	background-color: #f7f7f7;
+	padding: 20px;
+}
