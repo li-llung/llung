@@ -1,5 +1,5 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!DOCTYPE html>
+<html>
 <head>
 	<title>Flying Octo Monkey</title>
 	<script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
@@ -23,25 +23,65 @@
 </header>
 <article>
     <div class="content">
-        <h1 id="header_back_to_top">Back to Top</h1>
+        <h1>lynda.com framework</h1>
+        <p>Bacon ipsum dolor sit amet andouille beef ribs pork loin pork spare ribs hamburger meatloaf prosciutto brisket salami ball tip. Cow drumstick salami brisket tail ham hock. Fatback ham hock ground round swine, shoulder bresaola frankfurter brisket shank pork chop beef ribs bacon chuck ball tip. Flank tongue brisket beef. Ball tip capicola t-bone meatball beef chicken. Bacon strip steak hamburger prosciutto frankfurter, beef shankle meatball pastrami shank pork loin meatloaf.</p>
+
+        <p>Turducken sirloin tail pastrami flank leberkas corned beef jerky sausage bacon pork loin t-bone drumstick. Short loin tail t-bone ball tip tongue filet mignon. Boudin andouille venison, spare ribs filet mignon meatloaf rump kielbasa. Shankle short ribs rump shank, jerky spare ribs frankfurter tri-tip t-bone. Kielbasa filet mignon frankfurter, spare ribs sausage swine meatloaf salami tongue hamburger tail doner.</p>
+
+        <p>&nbsp;</p>
+
+        <h2 id="header_back_to_top">Back to Top <div class="buttons"><a href="css/back_to_top.css"><img src="images/32x32/css_file.png" alt="css file"></a><a href="js/jquery_back_to_top.js"><img src="images/32x32/js_file.png" alt="css file"></a></div></h2>
+
+        <h5>Purpose</h5>
+        <p>Simple back to top plugin. It adds the top reference and the scrolling back to top button for you. By default it auto initializes and starts after the first 100px are scrolled.</p>
+
+        <h5>Examples</h5>
         <p>Scroll Down.............</p>
 
-        <h1 id="header_overlay">Image Overlay</h1>
-        <a href="javascript: void(0);" class="overlay" data-type="image" title="Penguins"><img src="images/sample/Penguins.jpg" /></a>
-        <a href="javascript: void(0);" class="overlay" data-type="image" title="Koala"><img src="images/sample/Koala.jpg" /></a>
-        <a href="javascript: void(0);" class="overlay" data-type="image" title="Lighthouse"><img src="images/sample/Lighthouse.jpg" /></a>
-        <a href="javascript: void(0);" class="overlay" data-type="image" title="Splinter Cell"><img src="images/sample/avatar.png" /></a>
-        <a href="javascript: void(0);" class="overlay" data-type="image" title=""><img src="images/sample/test.png" /></a>
-        <a href="javascript: void(0);" class="overlay" data-type="image" title=""><img src="images/sample/test2.png" /></a>
-        <a href="javascript: void(0);" class="overlay" data-type="image" title="chevrolet camaro concept"><img src="images/sample/chevrolet-camaro-concept-picture.jpg" /></a>
-        <a href="javascript: void(0);" class="overlay" data-type="image" title="chevy camaro 2010"><img src="images/sample/chevy_camaro_2010.jpg" /></a>
-        <a href="javascript: void(0);" class="overlay" data-type="image" title="ford f-150 svt raptor"><img src="images/sample/ford-f-150-svt-raptor.jpg" /></a>
-        <a href="javascript: void(0);" class="overlay" data-type="image" title="too wide"><img src="images/sample/too_wide.jpg"></a>
-        <a href="javascript: void(0);" class="overlay" data-type="image" title="too tall"><img src="images/sample/too_tall.jpg"></a>
+        <h5>Sample Usage</h5>
+        <p>By default this plugin is auto initialized. There is nothing to do but in case you can initialize it the following way.</p>
+        <div class="box">
+<pre><code>&lt;script type="text/javascript"&gt;
+    //&lt;![CDATA[
+    $(document).ready(function () {
+        $("body").back_to_top({text: 'set from page', faded: 0.60, start: true, snapto: '.box', snap_adjust: 120});
+    });
+    //]]&gt;
+&lt;/script&gt;</code></pre>
+        </div>
+        <h5>Options</h5>
+        <ul>
+            <li><span>selector:</span> css selector to find the back to top link (string)</li>
+            <li><span>css_class:</span> css class applied to the back to top div (string)</li>
+            <li><span>speed:</span> speed at which animations happen (fast/slow)</li>
+            <li><span>threshold:</span> scroll after X number of pixels (integer)</li>
+            <li><span>faded:</span> fade the back to top to X , on hover will make it 1.0 and mouse out it will return to X (integer)</li>
+            <li><span>delay:</span> speed at which page scrolls to top (integer)</li>
+            <li><span>text:</span> text for back to top anchor tag (string)</li>
+            <li><span>start:</span> automatically add back to top to the page. (true/false)</li>
+            <li><span>fixed:</span> true if your css is using position fixed, false if using absolute. Absolute is best for webkit devices. (true/false)</li>
+            <li><span>snapto:</span> full css selector for item you want to snap the back to top with. (string)</li>
+            <li><span>snap_adjust:</span> full css selector for item you want to snap the back to top with. (integer)</li>
+        </ul>
 
-        <a href="javascript: void(0);" class="overlay" data-type="image" title="Southern End of La Rambla, Placa Del Portal De La Pau - Barcelona, Spain"><img src="images/sample/barcelona_court_house.jpg" /></a>
-        <a href="javascript: void(0);" class="overlay" data-type="image" title="Institut Océanographique - Monte Carlo, Monacco"><img src="images/sample/monte_carlo_library.jpg" /></a>
-        <a href="javascript: void(0);" class="overlay" data-type="image" title="La Sangrada Familia - Barcelona, Spain"><img src="images/sample/la_sangrada_familia.jpg" /></a>
+        <p>&nbsp;</p>
+
+        <h2 id="header_overlay">Image Overlay <div class="buttons"><a href="css/overlay.css"><img src="images/32x32/css_file.png" alt="css file"></a><a href="js/jquery_overlay.js"><img src="images/32x32/js_file.png" alt="css file"></a></div></h2>
+        <a href="javascript: void(0);" class="overlay" data-type="image" title="Penguins"><img src="images/sample/Penguins.jpg" alt="" /></a>
+        <a href="javascript: void(0);" class="overlay" data-type="image" title="Koala"><img src="images/sample/Koala.jpg" alt="" /></a>
+        <a href="javascript: void(0);" class="overlay" data-type="image" title="Lighthouse"><img src="images/sample/Lighthouse.jpg" alt="" /></a>
+        <a href="javascript: void(0);" class="overlay" data-type="image" title="Splinter Cell"><img src="images/sample/avatar.png" alt="" /></a>
+        <a href="javascript: void(0);" class="overlay" data-type="image" title=""><img src="images/sample/test.png" alt="" /></a>
+        <a href="javascript: void(0);" class="overlay" data-type="image" title=""><img src="images/sample/test2.png" alt="" /></a>
+        <a href="javascript: void(0);" class="overlay" data-type="image" title="chevrolet camaro concept"><img src="images/sample/chevrolet-camaro-concept-picture.jpg" alt="" /></a>
+        <a href="javascript: void(0);" class="overlay" data-type="image" title="chevy camaro 2010"><img src="images/sample/chevy_camaro_2010.jpg" alt="" /></a>
+        <a href="javascript: void(0);" class="overlay" data-type="image" title="ford f-150 svt raptor"><img src="images/sample/ford-f-150-svt-raptor.jpg" alt="" /></a>
+        <a href="javascript: void(0);" class="overlay" data-type="image" title="too wide"><img src="images/sample/too_wide.jpg" alt="" /></a>
+        <a href="javascript: void(0);" class="overlay" data-type="image" title="too tall"><img src="images/sample/too_tall.jpg" alt="" /></a>
+
+        <a href="javascript: void(0);" class="overlay" data-type="image" title="Southern End of La Rambla, Placa Del Portal De La Pau - Barcelona, Spain"><img src="images/sample/barcelona_court_house.jpg" alt="" /></a>
+        <a href="javascript: void(0);" class="overlay" data-type="image" title="Institut Océanographique - Monte Carlo, Monacco"><img src="images/sample/monte_carlo_library.jpg" alt="" /></a>
+        <a href="javascript: void(0);" class="overlay" data-type="image" title="La Sangrada Familia - Barcelona, Spain"><img src="images/sample/la_sangrada_familia.jpg" alt="" /></a>
         <br /><br />
         <h1>Content Overlay</h1>
         <a href="javascript: void(0);" class="overlay" data-element="meat" title="">Hidden Div on page</a> |
@@ -79,10 +119,15 @@
     </div>
 </article>
 <footer>
-    <p>&copy 2012 lynda.com</p>
+    <div class="inside">
+        <p>&copy; 2012 lynda.com</p>
+        <h5>Components</h5>
+        <ul>
+            <li><a href="#header_back_to_top">Back to Top</a></li>
+            <li><a href="#header_overlay">Overlay</a></li>
+        </ul>
+    </div>
 </footer>
-<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 <script type="text/javascript">
     //<![CDATA[
 	var json_call = {

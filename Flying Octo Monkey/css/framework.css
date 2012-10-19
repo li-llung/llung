@@ -64,7 +64,7 @@ a{
 	color: #FF0000;
 }
 h1{
-	font-size: 20px;
+	font-size: 24px;
 }
 h2{
 	font-size: 18px;
@@ -93,13 +93,6 @@ p{
 	width: auto;
 	height: 120px;
 }
-.box{
-	width: 1360px;
-	position: relative;
-	margin: 0 auto;
-	background-color: #f7f7f7;
-	padding: 20px;
-}
 div.wider{
 	width: 800px;
 	height: 600px;
@@ -119,7 +112,7 @@ nav{
     z-index: 1000;
 }
 nav ul{
-    margin: 0px 0px 0px 200px;
+    margin: 0px 0px 0px 160px;
     list-style-type: none;
     padding: 0px;
 }
@@ -145,7 +138,61 @@ nav li a:hover{
 header img{
     margin: 0px auto;
 }
+.buttons{
+    position: absolute;
+    top: 4px;
+    right: 8px;
+}
+h2 .buttons img{
+    width: 32px;
+    height: 32px;
+}
+hr{
+    border: 0;
+    border-top: 2px solid #FFBA00;
+    margin: 10px 0;
+    padding: 0;
+}
+h2{
+    background-color: #000000;
+    color: #FFBA00;
+    padding: 10px;
+    position: relative;
+}
+h5{
+    margin-bottom: 7px;
+    padding-bottom: 0px;
+}
+.box{
+    position: relative;
+    margin: 0 auto;
+    background-color: #f7f7f7;
+    padding: 20px;
+    border: 2px solid #FFBA00;
+    margin-bottom: 15px;
+}
+li span{
+    font-weight: bold;
+    color: #666666;
+}
+.inside{
+    width: 960px;
+    margin: 0px auto;
+}
+footer{
+    color: #ffffff;
+    background-color: #000000;
+    padding-top: 20px;
+    min-height: 200px;
+}
 footer p{
     text-align: center;
+}
+footer li a{
+    text-decoration: none;
+    color: #ffffff;
+}
+footer li a:hover{
+    color: #FFBA00;
 }
 /**********************End Index Page Styles****************************/

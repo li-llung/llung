@@ -20,19 +20,19 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="12" selection-start="745" selection-end="745" vertical-scroll-proportion="-11.115385">
+            <state line="102" column="189" selection-start="8031" selection-end="8031" vertical-scroll-proportion="0.18345323">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="framework.css" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="framework.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/framework.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="150" column="44" selection-start="2859" selection-end="2859" vertical-scroll-proportion="2.1030927">
+            <state line="158" column="15" selection-start="2955" selection-end="2955" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -48,8 +48,8 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/css/framework.css" />
+        <option value="$PROJECT_DIR$/index.html" />
       </list>
     </option>
   </component>
@@ -156,6 +156,13 @@
     </servers>
   </component>
   <component name="RunManager">
+    <configuration default="true" type="JavascriptDebugSession" factoryName="Local">
+      <JSDebuggerConfigurationSettings>
+        <option name="engineId" />
+        <option name="fileUrl" />
+      </JSDebuggerConfigurationSettings>
+      <method />
+    </configuration>
     <list size="0" />
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
@@ -244,16 +251,16 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/index.html">
+    <entry file="file://$PROJECT_DIR$/css/framework.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="12" selection-start="745" selection-end="745" vertical-scroll-proportion="-11.115385">
+        <state line="158" column="15" selection-start="2955" selection-end="2955" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/framework.css">
+    <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="150" column="44" selection-start="2859" selection-end="2859" vertical-scroll-proportion="2.1030927">
+        <state line="102" column="189" selection-start="8031" selection-end="8031" vertical-scroll-proportion="0.18345323">
           <folding />
         </state>
       </provider>
