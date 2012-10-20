@@ -140,7 +140,7 @@ header img{
 }
 .buttons{
     position: absolute;
-    top: 4px;
+    top: 5px;
     right: 8px;
 }
 h2 .buttons img{
@@ -154,21 +154,26 @@ hr{
     padding: 0;
 }
 h2{
-    background-color: #000000;
+    /*background-color: #000000;*/
     color: #FFBA00;
-    padding: 10px;
-    position: relative;
+    padding: 12px;
+    position: absolute;
+    top: -45px;
+    width: 97%;
+    display: block;
+    left: 0px;
 }
 h5{
     margin-bottom: 7px;
-    padding-bottom: 0px;
+    padding-bottom: 5px;
+    border-bottom: 2px solid #FFBA00;
 }
 .box{
     position: relative;
     margin: 0 auto;
     background-color: #f7f7f7;
     padding: 20px;
-    border: 2px solid #FFBA00;
+    border: 2px solid #cccccc;
     margin-bottom: 15px;
 }
 li span{
@@ -178,6 +183,23 @@ li span{
 .inside{
     width: 960px;
     margin: 0px auto;
+}
+.component{
+    margin: 20px 0;
+    background-color: #f7f7f7;
+    padding: 20px;
+    border: 20px solid #000000;
+    border-width: 50px 0px 0px 0px;
+    position: relative;
+
+    -moz-border-radius: 12px;
+    -webkit-border-radius: 12px;
+    border-radius: 12px;
+    -khtml-border-radius: 12px;
+
+    -moz-box-shadow: 3px 3px 5px 6px #ccc;
+    -webkit-box-shadow:3px 3px 5px 6px #ccc;
+    box-shadow: 3px 3px 5px 6px #ccc;
 }
 footer{
     color: #ffffff;
