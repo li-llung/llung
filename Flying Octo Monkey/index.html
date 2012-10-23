@@ -16,6 +16,7 @@
 <header>
     <nav>
         <ul>
+            <li><a href="#template">Template</a></li>
             <li><a href="#header_back_to_top">Back to Top</a></li>
             <li><a href="#header_overlay">Overlay</a></li>
         </ul>
@@ -29,7 +30,32 @@
         <p>Turducken sirloin tail pastrami flank leberkas corned beef jerky sausage bacon pork loin t-bone drumstick. Short loin tail t-bone ball tip tongue filet mignon. Boudin andouille venison, spare ribs filet mignon meatloaf rump kielbasa. Shankle short ribs rump shank, jerky spare ribs frankfurter tri-tip t-bone. Kielbasa filet mignon frankfurter, spare ribs sausage swine meatloaf salami tongue hamburger tail doner.</p>
 
         <div class="component">
-            <h2 id="header_back_to_top">Back to Top <div class="buttons"><a href="css/back_to_top.css"><img src="images/32x32/css_file.png" alt="css file"></a><a href="js/jquery_back_to_top.js"><img src="images/32x32/js_file.png" alt="css file"></a><a href="javascript: void(0);" class="min"><img src="images/minus.png" alt=""></a></div></h2>
+            <h2 id="template">Template
+                <a href="css/back_to_top.css" class="css"><img src="images/32x32/css_file.png" alt="css file"></a>
+                <a href="js/jquery_back_to_top.js" class="js"><img src="images/32x32/js_file.png" alt="css file"></a>
+                <a href="javascript: void(0);" class="min"><img src="images/minus.png" alt=""></a>
+            </h2>
+            <div class="component_content">
+                <h5>Purpose</h5>
+
+                <h5>Examples</h5>
+
+                <h5>Sample Usage</h5>
+                <div class="box">
+<pre><code>&lt;script type="text/javascript"&gt;
+    //&lt;![CDATA[
+    //]]&gt;
+    &lt;/script&gt;</code></pre>
+                </div>
+                <h5>Options</h5>
+            </div>
+        </div>
+        <div class="component">
+            <h2 id="header_back_to_top">Back to Top
+                <a href="css/back_to_top.css" class="css"><img src="images/32x32/css_file.png" alt="css file"></a>
+                <a href="js/jquery_back_to_top.js" class="js"><img src="images/32x32/js_file.png" alt="css file"></a>
+                <a href="javascript: void(0);" class="min"><img src="images/minus.png" alt=""></a>
+            </h2>
             <div class="component_content">
                 <h5>Purpose</h5>
                 <p>Simple back to top plugin. It adds the top reference and the scrolling back to top button for you. By default it auto initializes and starts after the first 100px are scrolled.</p>
@@ -43,11 +69,12 @@
 <pre><code>&lt;script type="text/javascript"&gt;
     //&lt;![CDATA[
         $(document).ready(function () {
-            $("body").back_to_top({text: 'set from page', faded: 0.60, start: true, snapto: '.box', snap_adjust: 120});
+            $("body").back_to_top({text: 'set from page', start: false, snapto: '.box', snap_adjust: 120});
         });
     //]]&gt;
 &lt;/script&gt;</code></pre>
                 </div>
+                <p>This will change the default text of the back to top , tell it not to auto start , snap to .box and indent it 120 from the right of .box.</p>
                 <h5>Options</h5>
                 <ul>
                     <li><span>selector:</span> css selector to find the back to top link (string)</li>
@@ -66,7 +93,11 @@
         </div>
 
         <div class="component">
-            <h2 id="header_overlay">Image Overlay <div class="buttons"><a href="css/overlay.css"><img src="images/32x32/css_file.png" alt="css file"></a><a href="js/jquery_overlay.js"><img src="images/32x32/js_file.png" alt="css file"></a><a href="javascript: void(0);" class="min"><img src="images/minus.png" alt=""></a></div></h2>
+            <h2 id="header_overlay">Image Overlay
+                <a href="css/overlay.css" class="css"><img src="images/32x32/css_file.png" alt="css file"></a>
+                <a href="js/jquery_overlay.js" class="js"><img src="images/32x32/js_file.png" alt="css file"></a>
+                <a href="javascript: void(0);" class="min"><img src="images/minus.png" alt=""></a>
+            </h2>
             <div class="component_content">
                 <a href="javascript: void(0);" class="overlay" data-type="image" title="Penguins"><img src="images/sample/Penguins.jpg" alt="" /></a>
                 <a href="javascript: void(0);" class="overlay" data-type="image" title="Koala"><img src="images/sample/Koala.jpg" alt="" /></a>
@@ -126,17 +157,26 @@
         <p>&copy; 2012 lynda.com</p>
         <h5>Components</h5>
         <ul>
+            <li><a href="#template">Template</a></li>
             <li><a href="#header_back_to_top">Back to Top</a></li>
             <li><a href="#header_overlay">Overlay</a></li>
         </ul>
     </div>
 </footer>
+<!--<div class="side_nav">
+    <ul>
+        <li><a href="#template">- Template</a></li>
+        <li><a href="#header_back_to_top">- Back to Top</a></li>
+        <li><a href="#header_overlay">- Overlay</a></li>
+    </ul>
+</div>-->
 <script type="text/javascript">
     //<![CDATA[
 	var json_call = {
 		title: 'yay a json title',
 		content: '<p>Tenderloin pork chop drumstick tail pork belly venison. Turkey brisket chuck pork belly, spare ribs sausage ribeye shankle pork loin cow strip steak pork biltong. Biltong rump capicola, tenderloin prosciutto drumstick jowl ribeye turkey venison bacon salami. Brisket short ribs turkey capicola, bresaola shoulder rump shank hamburger meatloaf beef. Pancetta hamburger t-bone, bresaola shank corned beef chicken brisket leberkas filet mignon frankfurter.</p>'
 	}
+    var my_top = 100;
 	$(document).ready(function () {
         $('.min').click(function(){
             var item = $(this).parents(".component").find(".component_content");
@@ -150,6 +190,26 @@
         });
 	    $('body').overlay({css_class: 'ini_on_page'});
 
+        $('nav a').each(function(){
+            var item_pos = $($(this).attr('href')).offset();
+            var side_top = my_top;
+            $('<div class="side_nav"><a href="'+$(this).attr('href')+'">'+$(this).text()+'</a></div>').css('top', side_top).animate({
+                left: -($(this).width() - 10)
+            }, 200).appendTo('body');
+            my_top+=100;
+            //alert(my_top);
+        });
+
+        $('.side_nav').on('mouseenter', function(){
+            $(this).animate({
+                left: 0
+            }, 200)
+        });
+        $('.side_nav').on('mouseleave', function(){
+            $(this).animate({
+                left: -($(this).width() - 10)
+            }, 200)
+        });
 	    //$('body').show_ov('.called_from_js');
 	});
     //]]>

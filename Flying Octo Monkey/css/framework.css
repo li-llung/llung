@@ -101,7 +101,10 @@ header{
     background-color: #FFBA00;
     height: 34px;
     width: 100%;
-    margin-top: 34px;
+    border-top: 34px solid #ffffff;
+}
+article{
+    position: relative;
 }
 nav{
     background: url("../images/header.gif") no-repeat scroll center top transparent;
@@ -138,14 +141,28 @@ nav li a:hover{
 header img{
     margin: 0px auto;
 }
-.buttons{
+.js , .css, .min{
     position: absolute;
     top: 5px;
-    right: 8px;
 }
-h2 .buttons img{
+.js img, .css img{
     width: 32px;
     height: 32px;
+}
+.min img{
+    width: 20px;
+    height: 20px;
+    padding-bottom: 13px;
+    padding-left: 8px;
+}
+.js{
+    right: 68px;
+}
+.css{
+    right: 33px;
+}
+.min{
+    right: 8px;
 }
 hr{
     border: 0;
@@ -155,13 +172,14 @@ hr{
 }
 h2{
     /*background-color: #000000;*/
-    color: #FFBA00;
+    color: #ffffff;
     padding: 12px;
     position: absolute;
-    top: -45px;
-    width: 97%;
+    top: -44px;
+    width: 97.5%;
     display: block;
     left: 0px;
+    border-bottom: 2px solid #FFBA00;
 }
 h5{
     margin-bottom: 7px;
@@ -215,6 +233,26 @@ footer li a{
     color: #ffffff;
 }
 footer li a:hover{
+    color: #FFBA00;
+}
+.side_nav{
+    position: fixed;
+    top: 45%;
+    left: 0px;
+    background-color: #000000;
+    padding: 10px;
+    padding-left: 10px;
+    border: 2px solid #FFBA00;
+    border-left: 0px;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.side_nav a{
+    color: #ffffff;
+    text-decoration: none;
+    display: block;
+}
+.side_nav a:hover{
     color: #FFBA00;
 }
 /**********************End Index Page Styles****************************/
