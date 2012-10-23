@@ -20,19 +20,19 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="209" column="44" selection-start="13615" selection-end="13615" vertical-scroll-proportion="-22.923077">
+            <state line="58" column="11" selection-start="2910" selection-end="2910" vertical-scroll-proportion="0.63189447">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="framework.css" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="framework.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/framework.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="238" column="19" selection-start="4364" selection-end="4364" vertical-scroll-proportion="0.513173">
+            <state line="238" column="19" selection-start="4364" selection-end="4364" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -59,8 +59,8 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/css/framework.css" />
+        <option value="$PROJECT_DIR$/index.html" />
       </list>
     </option>
   </component>
@@ -315,13 +315,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="209" column="44" selection-start="13615" selection-end="13615" vertical-scroll-proportion="-22.923077">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/jquery_overlay.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="43" column="28" selection-start="1762" selection-end="1762" vertical-scroll-proportion="0.0">
@@ -333,7 +326,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/css/framework.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="238" column="19" selection-start="4364" selection-end="4364" vertical-scroll-proportion="0.513173">
+        <state line="238" column="19" selection-start="4364" selection-end="4364" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="58" column="11" selection-start="2910" selection-end="2910" vertical-scroll-proportion="0.63189447">
           <folding />
         </state>
       </provider>
