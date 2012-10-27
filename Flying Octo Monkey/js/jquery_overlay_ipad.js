@@ -4,7 +4,7 @@ Start Framework Script
 /* ==========================================================
 * Lynda Overlay Plugin
 * ==========================================================
-* Copyright 1995–2012 lynda.com, Inc. All rights reserved.
+* Copyright 1995ï¿½2012 lynda.com, Inc. All rights reserved.
 *
 * ---------Options:-----------------------------------------
 *
@@ -22,7 +22,7 @@ Start Framework Script
 *  show: Used by show overlay function when javascript is calling the overlay
 *  close: Used by close overlay function when javascript is closing the overlay
 *
-* ---------Useage: (with options)---------------------------
+* ---------Usage: (with options)---------------------------
 $(document).ready(function () {
 $('body').overlay({start: true});
 });

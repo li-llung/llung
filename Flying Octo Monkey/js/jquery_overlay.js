@@ -1,7 +1,10 @@
+/************************************************************
+ Start Framework Script
+ ************************************************************/
 /* ==========================================================
  * Lynda Overlay Plugin
  * ==========================================================
- * Copyright 1995–2012 lynda.com, Inc. All rights reserved.
+ * Copyright 1995�2012 lynda.com, Inc. All rights reserved.
  *
  * ---------Options:-----------------------------------------
  *
@@ -19,12 +22,11 @@
  *  show: Used by show overlay function when javascript is calling the overlay
  *  close: Used by close overlay function when javascript is closing the overlay
  *
- * ---------Useage: (with options)---------------------------
-$(document).ready(function () {
-    $('body').overlay({start: true});
-});
+ * ---------Usage: (with options)---------------------------
+ $(document).ready(function () {
+ $('body').overlay({start: true});
+ });
  * ========================================================== */
-
 function show_overlay(ov){
     $(ov).show_ov(ov);
 }

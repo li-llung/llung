@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/html">
 <head>
 	<title>Flying Octo Monkey</title>
 	<script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
@@ -7,9 +7,12 @@
 	
 	<script type="text/javascript" src="js/jquery_overlay.js"></script>
 	<link rel="stylesheet" href="css/overlay.css" type="text/css" media="screen" />
-	
-	<script type="text/javascript" src="js/jquery_back_to_top.js"></script>
-	<link rel="stylesheet" href="css/back_to_top.css" type="text/css" media="screen" />
+
+    <script type="text/javascript" src="js/jquery_back_to_top.js"></script>
+    <link rel="stylesheet" href="css/back_to_top.css" type="text/css" media="screen" />
+
+    <script type="text/javascript" src="js/jquery_content_slider.js"></script>
+    <link rel="stylesheet" href="css/slider.css" type="text/css" media="screen" />
 </head>
 <body>
 
@@ -19,7 +22,7 @@
             <!--<li><a href="#template">Template</a></li>-->
             <li><a href="#header_back_to_top">Back to Top</a></li>
             <li><a href="#header_overlay">Overlay</a></li>
-            <li><a href="#slider">Slider</a></li>
+            <li><a href="#slider">Content Slider</a></li>
             <li><a href="#buttons">Buttons</a></li>
             <li><a href="#dynamic_content">Dynamic Content</a></li>
             <li><a href="#require">Require</a></li>
@@ -65,13 +68,13 @@
             </h2>
             <div class="component_content">
                 <h5>Purpose</h5>
-                <p>Simple back to top plugin. It adds the top reference and the scrolling back to top button for you. By default it auto initializes and starts after the first 100px are scrolled.</p>
+                <p>Simple back to top plugin. It adds the top reference and the scrolling back to top button for you automagically. By default it auto initializes and appears after the first 100px are scrolled.</p>
 
                 <h5>Examples</h5>
                 <p>Scroll Down.............</p>
 
                 <h5>Sample Usage</h5>
-                <p>By default this plugin is auto initialized. There is nothing to do but in case you can initialize it the following way.</p>
+                <p>By default this plugin is auto initialized. There is nothing to do but in case you need to stop that you can initialize it the following way.</p>
                 <div class="box">
 <pre><code>&lt;script type="text/javascript"&gt;
     //&lt;![CDATA[
@@ -81,20 +84,20 @@
     //]]&gt;
 &lt;/script&gt;</code></pre>
                 </div>
-                <p>This will change the default text of the back to top , tell it not to auto start , snap to .box and indent it 120 from the right of .box.</p>
+                <p>This will change the default text of the back to top to 'set from page' , tell it not to auto start , snap to .box and indent it 120 from the right of .box.</p>
                 <h5>Options</h5>
-                <ul>
-                    <li><span>selector:</span> css selector to find the back to top link (string)</li>
-                    <li><span>css_class:</span> css class applied to the back to top div (string)</li>
-                    <li><span>speed:</span> speed at which animations happen (fast/slow)</li>
-                    <li><span>threshold:</span> scroll after X number of pixels (integer)</li>
-                    <li><span>faded:</span> fade the back to top to X , on hover will make it 1.0 and mouse out it will return to X (integer)</li>
-                    <li><span>delay:</span> speed at which page scrolls to top (integer)</li>
-                    <li><span>text:</span> text for back to top anchor tag (string)</li>
-                    <li><span>start:</span> automatically add back to top to the page. (true/false)</li>
-                    <li><span>fixed:</span> true if your css is using position fixed, false if using absolute. Absolute is best for webkit devices. (true/false)</li>
-                    <li><span>snapto:</span> full css selector for item you want to snap the back to top with. (string)</li>
-                    <li><span>snap_adjust:</span> full css selector for item you want to snap the back to top with. (integer)</li>
+                <ul class="option_list">
+                    <li><span>selector:</span> css selector to find the back to top link <span class="option">(string)</span></li>
+                    <li><span>css_class:</span> css class applied to the back to top div <span class="option">(string)</span></li>
+                    <li><span>speed:</span> speed at which animations happen <span class="option">(fast/slow)</span></li>
+                    <li><span>threshold:</span> scroll after X number of pixels <span class="option">(integer)</span></li>
+                    <li><span>faded:</span> fade the back to top to X , on hover will make it 1.0 and mouse out it will return to X <span class="option">(integer)</span></li>
+                    <li><span>delay:</span> speed at which page scrolls to top <span class="option">(integer)</span></li>
+                    <li><span>text:</span> text for back to top anchor tag <span class="option">(string)</span></li>
+                    <li><span>start:</span> automatically add back to top to the page. <span class="option">(true/false)</span></li>
+                    <li><span>fixed:</span> true if your css is using position fixed, false if using absolute. Absolute is best for webkit devices. <span class="option">(true/false)</span></li>
+                    <li><span>snapto:</span> full css selector for item you want to snap the back to top with. <span class="option">(string)</span></li>
+                    <li><span>snap_adjust:</span> full css selector for item you want to snap the back to top with. <span class="option">(integer)</span></li>
                 </ul>
             </div>
         </div>
@@ -105,7 +108,11 @@
                 <a href="js/jquery_overlay.js" class="js"><img src="images/32x32/js_file.png" alt="css file"></a>
                 <a href="javascript: void(0);" class="min"><img src="images/minus.png" alt=""></a>
             </h2>
-            <div class="component_content">
+            <div class="component_content overlay_images">
+                <h5>Purpose</h5>
+                <p>A easy to implement HTML5 data attribute driven overlay. Can be chained , called as a function, and initialized on the page.</p>
+
+                <h5>Examples</h5>
                 <a href="javascript: void(0);" class="overlay" data-type="image" title="Penguins"><img src="images/sample/Penguins.jpg" alt="" /></a>
                 <a href="javascript: void(0);" class="overlay" data-type="image" title="Koala"><img src="images/sample/Koala.jpg" alt="" /></a>
                 <a href="javascript: void(0);" class="overlay" data-type="image" title="Lighthouse"><img src="images/sample/Lighthouse.jpg" alt="" /></a>
@@ -122,45 +129,276 @@
                 <a href="javascript: void(0);" class="overlay" data-type="image" title="Institut Océanographique - Monte Carlo, Monacco"><img src="images/sample/monte_carlo_library.jpg" alt="" /></a>
                 <a href="javascript: void(0);" class="overlay" data-type="image" title="La Sangrada Familia - Barcelona, Spain"><img src="images/sample/la_sangrada_familia.jpg" alt="" /></a>
                 <br /><br />
-                <h1>Content Overlay</h1>
+                <h3>Content Overlay</h3>
                 <a href="javascript: void(0);" class="overlay" data-element="meat" title="">Hidden Div on page</a> |
                 <a href="javascript: void(0);" class="overlay" data-element="test" title="" data-width="200" data-height="200">Hidden Div on page 2</a> |
                 <a href="json.txt" class="overlay" data-type="file" title="">Content from local text file</a>
                 <br /><br />
-                <h1>Content Overlay w/Titles</h1>
+                <h3>Content Overlay w/Titles</h3>
                 <a href="javascript: void(0);" class="overlay" data-element="meat" title="Hidden Div on page">Hidden Div on page</a> |
                 <a href="javascript: void(0);" class="overlay" data-element="test" title="Hidden Div on page" data-width="200" data-height="200">Hidden Div on page 2</a> |
                 <a href="json.txt" class="overlay" data-type="file" title="Content from local text file">Content from local text file</a>
                 <br /><br />
-                <h1>JSON</h1>
+                <h3>JSON</h3>
                 <a href="javascript: void(0);" class="overlay" data-type="json" data-call="json_call" title="JSON call">JSON call in page</a>
                 <br /><br />
-                <h1>Initialized on page</h1>
+                <h3>Initialized on page</h3>
                 <a href="javascript: void(0);" class="ini_on_page" data-element="small_meat" title="Initialized on page" data-width="640" data-height="480">Initialized on page</a>
                 <br /><br />
-                <h1>Called from JS</h1>
+                <h3>Called from JS</h3>
                 <a href="javascript: void(0);" onclick="show_overlay(this)" class="called_from_js" data-element="called_from_js" title="Called from page" data-width="800" data-height="600">show</a>
+                <br /><br />
+                <h5>Sample Usage</h5>
+                <div class="box">
+<pre><code>&lt;script type="text/javascript"&gt;
+//&lt;![CDATA[
+    $(document).ready(function () {
+        $('body').overlay({start: true});
+    });
+//]]&gt;
+&lt;/script&gt;</code></pre>
+                </div>
+                <h5>Options</h5>
+                <ul class="option_list">
+                    <li><span>href:</span> Used for the Ajax and External calls.<span class="option">(string)</span></li>
+                    <li><span>css_class:</span> Class on the elements that you are wanting to call.<span class="option">(string)</span></li>
+                    <li><span>title:</span> HTML title attribute if passed the title will appear in a h1 tag inside the overlay.<span class="option">(string)</span></li>
+                    <li><span>type:</span> Currently supports Image, JSON, File, External, Default<span class="option">(string)</span></li>
+                    <li><span>element:</span> Name of the hidden element on page you which to show.<span class="option">(string)</span></li>
+                    <li><span>data_class:</span> Class that is applied to the opened overlay.<span class="option">(string)</span></li>
+                    <li><span>call:</span> Name of the JSON object on page you which to page to overlay. (currently just supports title, and content)<span class="option">(string)</span></li>
+                    <li><span>width:</span> Width of overlay<span class="option">(string)</span></li>
+                    <li><span>height:</span> Height of overlay<span class="option">(string)</span></li>
+                    <li><span>rounded:</span> Amount to round the corners of the overlay (CSS3)<span class="option">(string)</span></li>
+                    <li><span>start:</span> auto initialize the overlay?<span class="option">(true/false)</span></li>
+                    <li><span>show:</span> Used by show overlay function when javascript is calling the overlay<span class="option">(true/false)</span></li>
+                    <li><span>close:</span> Used by close overlay function when javascript is closing the overlay<span class="option">(true/false)</span></li>
+                </ul>
             </div>
         </div>
         <div class="component">
-            <h2 id="slider">Slider
+            <h2 id="slider">Content Slider
                 <a href="css/slider.css" class="css"><img src="images/32x32/css_file.png" alt="css file"></a>
                 <a href="js/jquery_slider.js" class="js"><img src="images/32x32/js_file.png" alt="css file"></a>
                 <a href="javascript: void(0);" class="min"><img src="images/minus.png" alt=""></a>
             </h2>
             <div class="component_content">
                 <h5>Purpose</h5>
+                <p>a simple content slider that can got horizontally or vertically.</p>
 
                 <h5>Examples</h5>
+                <div class="slider">
+                    <div class="slide">
+                        <img src="images/sample/chevy_camaro_2010.jpg" alt="" />
+                    </div>
+                    <div class="slide">
+                        <table cellpadding="0" cellspacing="0" border="0">
+                            <tr>
+                                <td>test</td>
+                                <td>some</td>
+                                <td>html</td>
+                                <td>content</td>
+                                <td>here</td>
+                            </tr>
+                            <tr>
+                                <td>test</td>
+                                <td>some</td>
+                                <td>html</td>
+                                <td>content</td>
+                                <td>here</td>
+                            </tr>
+                            <tr>
+                                <td>test</td>
+                                <td>some</td>
+                                <td>html</td>
+                                <td>content</td>
+                                <td>here</td>
+                            </tr>
+                            <tr>
+                                <td>test</td>
+                                <td>some</td>
+                                <td>html</td>
+                                <td>content</td>
+                                <td>here</td>
+                            </tr>
+                            <tr>
+                                <td>test</td>
+                                <td>some</td>
+                                <td>html</td>
+                                <td>content</td>
+                                <td>here</td>
+                            </tr>
+                            <tr>
+                                <td>test</td>
+                                <td>some</td>
+                                <td>html</td>
+                                <td>content</td>
+                                <td>here</td>
+                            </tr>
+                            <tr>
+                                <td>test</td>
+                                <td>some</td>
+                                <td>html</td>
+                                <td>content</td>
+                                <td>here</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="slide">
+                        <img src="images/sample/ford-f-150-svt-raptor.jpg" alt="">
+                    </div>
+                    <div class="slide">
+                        <table cellpadding="0" cellspacing="0" border="0">
+                            <tr>
+                                <td>test</td>
+                                <td>some</td>
+                                <td>html</td>
+                                <td>content</td>
+                                <td>here</td>
+                            </tr>
+                            <tr>
+                                <td>test</td>
+                                <td>some</td>
+                                <td>html</td>
+                                <td>content</td>
+                                <td>here</td>
+                            </tr>
+                            <tr>
+                                <td>test</td>
+                                <td>some</td>
+                                <td>html</td>
+                                <td>content</td>
+                                <td>here</td>
+                            </tr>
+                            <tr>
+                                <td>test</td>
+                                <td>some</td>
+                                <td>html</td>
+                                <td>content</td>
+                                <td>here</td>
+                            </tr>
+                            <tr>
+                                <td>test</td>
+                                <td>some</td>
+                                <td>html</td>
+                                <td>content</td>
+                                <td>here</td>
+                            </tr>
+                            <tr>
+                                <td>test</td>
+                                <td>some</td>
+                                <td>html</td>
+                                <td>content</td>
+                                <td>here</td>
+                            </tr>
+                            <tr>
+                                <td>test</td>
+                                <td>some</td>
+                                <td>html</td>
+                                <td>content</td>
+                                <td>here</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="slide">
+                        <img src="images/sample/chevrolet-camaro-concept-picture.jpg" alt="" />
+                    </div>
+                </div>
+                <div class="slider" data-direction="vertical">
+                    <div class="slide">
+                        <img src="images/sample/chevrolet-camaro-concept-picture.jpg" alt="" />
+                    </div>
+                    <div class="slide">
+                        <img src="images/sample/chevy_camaro_2010.jpg" alt="" />
+                    </div>
+                    <div class="slide">
+                        <img src="images/sample/ford-f-150-svt-raptor.jpg" alt="">
+                    </div>
+                </div>
+                <div class="slider" data-effect="fade">
+                    <div class="slide">
+                        <img src="images/sample/ford-f-150-svt-raptor.jpg" alt="">
+                    </div>
+                    <div class="slide">
+                        <img src="images/sample/chevrolet-camaro-concept-picture.jpg" alt="" />
+                    </div>
+                    <div class="slide">
+                        <img src="images/sample/chevy_camaro_2010.jpg" alt="" />
+                    </div>
+                    <div class="slide">
+                        <table cellpadding="0" cellspacing="0" border="0">
+                            <tr>
+                                <td>test</td>
+                                <td>some</td>
+                                <td>html</td>
+                                <td>content</td>
+                                <td>here</td>
+                            </tr>
+                            <tr>
+                                <td>test</td>
+                                <td>some</td>
+                                <td>html</td>
+                                <td>content</td>
+                                <td>here</td>
+                            </tr>
+                            <tr>
+                                <td>test</td>
+                                <td>some</td>
+                                <td>html</td>
+                                <td>content</td>
+                                <td>here</td>
+                            </tr>
+                            <tr>
+                                <td>test</td>
+                                <td>some</td>
+                                <td>html</td>
+                                <td>content</td>
+                                <td>here</td>
+                            </tr>
+                            <tr>
+                                <td>test</td>
+                                <td>some</td>
+                                <td>html</td>
+                                <td>content</td>
+                                <td>here</td>
+                            </tr>
+                            <tr>
+                                <td>test</td>
+                                <td>some</td>
+                                <td>html</td>
+                                <td>content</td>
+                                <td>here</td>
+                            </tr>
+                            <tr>
+                                <td>test</td>
+                                <td>some</td>
+                                <td>html</td>
+                                <td>content</td>
+                                <td>here</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
 
                 <h5>Sample Usage</h5>
                 <div class="box">
 <pre><code>&lt;script type="text/javascript"&gt;
-    //&lt;![CDATA[
-    //]]&gt;
-    &lt;/script&gt;</code></pre>
+//&lt;![CDATA[
+    $(document).ready(function () {
+        $("body").slider({start: true});
+    });
+//]]&gt;
+&lt;/script&gt;</code></pre>
                 </div>
                 <h5>Options</h5>
+                <ul class="option_list">
+                    <li><span>delay:</span> time it takes in between slide changes <span class="option">(integer)</span></li>
+                    <li><span>start:</span> auto start <span class="option">(true/false)</span></li>
+                    <li><span>direction:</span> direction of slider <span class="option">(horizontal/vertical)</span></li>
+                    <li><span>effect:</span> effect slider has when changing slides <span class="option">(fade/tween)</span></li>
+                    <li><span>selector:</span> a css selector that is the main class on your slider, Example: '.slider' <span class="option">(css selector)</span></li>
+                    <li><span>anchor:</span> overrides the default name of the slider anchor. <span class="option">(string)</span></li>
+                </ul>
             </div>
         </div>
         <div class="component">
@@ -177,9 +415,9 @@
                 <h5>Sample Usage</h5>
                 <div class="box">
 <pre><code>&lt;script type="text/javascript"&gt;
-    //&lt;![CDATA[
-    //]]&gt;
-    &lt;/script&gt;</code></pre>
+//&lt;![CDATA[
+//]]&gt;
+&lt;/script&gt;</code></pre>
                 </div>
                 <h5>Options</h5>
             </div>
@@ -198,9 +436,9 @@
                 <h5>Sample Usage</h5>
                 <div class="box">
 <pre><code>&lt;script type="text/javascript"&gt;
-    //&lt;![CDATA[
-    //]]&gt;
-    &lt;/script&gt;</code></pre>
+//&lt;![CDATA[
+//]]&gt;
+&lt;/script&gt;</code></pre>
                 </div>
                 <h5>Options</h5>
             </div>
@@ -219,9 +457,9 @@
                 <h5>Sample Usage</h5>
                 <div class="box">
 <pre><code>&lt;script type="text/javascript"&gt;
-    //&lt;![CDATA[
-    //]]&gt;
-    &lt;/script&gt;</code></pre>
+//&lt;![CDATA[
+//]]&gt;
+&lt;/script&gt;</code></pre>
                 </div>
                 <h5>Options</h5>
             </div>
@@ -240,9 +478,9 @@
                 <h5>Sample Usage</h5>
                 <div class="box">
 <pre><code>&lt;script type="text/javascript"&gt;
-    //&lt;![CDATA[
-    //]]&gt;
-    &lt;/script&gt;</code></pre>
+//&lt;![CDATA[
+//]]&gt;
+&lt;/script&gt;</code></pre>
                 </div>
                 <h5>Options</h5>
             </div>
@@ -269,9 +507,13 @@
         <p>&copy; 2012 lynda.com</p>
         <h5>Components</h5>
         <ul>
-            <li><a href="#template">Template</a></li>
             <li><a href="#header_back_to_top">Back to Top</a></li>
             <li><a href="#header_overlay">Overlay</a></li>
+            <li><a href="#slider">Content Slider</a></li>
+            <li><a href="#buttons">Buttons</a></li>
+            <li><a href="#dynamic_content">Dynamic Content</a></li>
+            <li><a href="#require">Require</a></li>
+            <li><a href="#validate">Validate</a></li>
         </ul>
     </div>
 </footer>
@@ -306,7 +548,8 @@
             var item_pos = $($(this).attr('href')).offset();
             var side_top = my_top;
             $('<div class="side_nav"><a href="'+$(this).attr('href')+'">'+$(this).text()+'</a></div>').css('top', side_top).animate({
-                left: -($(this).width() - 10)
+                left: -($(this).width() - 10),
+                opacity: 0.35
             }, 200).appendTo('body');
             my_top+=100;
             //alert(my_top);
@@ -314,12 +557,14 @@
 
         $('.side_nav').on('mouseenter', function(){
             $(this).animate({
-                left: 0
+                left: 0,
+                opacity: 1
             }, 200)
         });
         $('.side_nav').on('mouseleave', function(){
             $(this).animate({
-                left: -($(this).width() - 10)
+                left: -($(this).width() - 10),
+                opacity: 0.35
             }, 200)
         });
 	    //$('body').show_ov('.called_from_js');

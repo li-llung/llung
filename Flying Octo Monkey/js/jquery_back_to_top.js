@@ -17,7 +17,7 @@
  * snapto: full css selector for item you want to snap the back to top with. (string)
  * snap_adjust: full css selector for item you want to snap the back to top with. (integer)
  *
- * ---------Useage: (with options)---------------------------
+ * ---------Usage: (with options)---------------------------
  *
  $(document).ready(function () {
       $("body").back_to_top({text: 'set from page', faded: 0.60, start: true});

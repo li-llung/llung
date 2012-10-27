@@ -20,10 +20,10 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="58" column="11" selection-start="2910" selection-end="2910" vertical-scroll-proportion="0.63189447">
+            <state line="317" column="53" selection-start="19606" selection-end="19606" vertical-scroll-proportion="-207.26923">
               <folding />
             </state>
           </provider>
@@ -32,7 +32,7 @@
       <file leaf-file-name="framework.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/framework.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="238" column="19" selection-start="4364" selection-end="4364" vertical-scroll-proportion="0.0">
+            <state line="100" column="29" selection-start="1860" selection-end="1866" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -41,10 +41,72 @@
       <file leaf-file-name="jquery_overlay.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/jquery_overlay.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="43" column="28" selection-start="1762" selection-end="1762" vertical-scroll-proportion="0.0">
+            <state line="250" column="22" selection-start="14054" selection-end="14318" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="jquery_back_to_top.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/jquery_back_to_top.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="42" column="40" selection-start="2045" selection-end="2045" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="jquery_overlay_ipad.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/jquery_overlay_ipad.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="98" column="81" selection-start="4259" selection-end="4263" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="jquery_slider.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/jquery_slider.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="12" column="13" selection-start="323" selection-end="323" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="jquery_content_slider.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/js/jquery_content_slider.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="38" column="56" selection-start="1757" selection-end="1757" vertical-scroll-proportion="0.27949598">
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="slider.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/slider.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="40" column="89" selection-start="2373" selection-end="2373" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="slider.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/css/slider.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="15" column="17" selection-start="256" selection-end="256" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -59,8 +121,16 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
+        <option value="$PROJECT_DIR$/js/slider.js" />
         <option value="$PROJECT_DIR$/css/framework.css" />
+        <option value="$PROJECT_DIR$/js/slider.css" />
+        <option value="$PROJECT_DIR$/js/jquery_overlay_ipad.js" />
+        <option value="$PROJECT_DIR$/js/jquery_back_to_top.js" />
+        <option value="$PROJECT_DIR$/js/jquery_slider.js" />
+        <option value="$PROJECT_DIR$/css/slider.css" />
+        <option value="$PROJECT_DIR$/js/jquery_overlay.js" />
         <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/js/jquery_content_slider.js" />
       </list>
     </option>
   </component>
@@ -97,6 +167,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -139,22 +210,53 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="images" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Flying Octo Monkey" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Flying Octo Monkey" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="images" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sample" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Flying Octo Monkey" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Flying Octo Monkey" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="css" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="true" />
-    <property name="options.lastSelected" value="liveEdit" />
+    <property name="options.lastSelected" value="preferences.pluginManager" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../Framework/framework_rework.js" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="PublishConfig">
     <servers>
@@ -181,6 +283,11 @@
       </server>
     </servers>
   </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Repositories\zeromars\Flying Octo Monkey\css" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration default="true" type="JavascriptDebugSession" factoryName="Local">
       <JSDebuggerConfigurationSettings>
@@ -192,6 +299,24 @@
     <list size="0" />
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="false">
+    <option name="USER" value="" />
+    <option name="PASSWORD" value="" />
+    <option name="mySSHConnectionTimeout" value="30000" />
+    <option name="mySSHReadTimeout" value="30000" />
+    <option name="LAST_MERGED_REVISION" />
+    <option name="MERGE_DRY_RUN" value="false" />
+    <option name="MERGE_DIFF_USE_ANCESTRY" value="true" />
+    <option name="UPDATE_LOCK_ON_DEMAND" value="false" />
+    <option name="IGNORE_SPACES_IN_MERGE" value="false" />
+    <option name="DETECT_NESTED_COPIES" value="true" />
+    <option name="CHECK_NESTED_FOR_QUICK_MERGE" value="false" />
+    <option name="IGNORE_SPACES_IN_ANNOTATE" value="true" />
+    <option name="SHOW_MERGE_SOURCES_IN_ANNOTATE" value="true" />
+    <option name="FORCE_UPDATE" value="false" />
+    <option name="IGNORE_EXTERNALS" value="false" />
+    <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="6ab6225d-ba0c-4e1e-a699-90feb310e352" name="Default" comment="" />
@@ -210,7 +335,7 @@
       <window_info id="Heroku" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.0891142" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1307364" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -278,6 +403,22 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/css/framework.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="238" column="19" selection-start="4364" selection-end="4364" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/jquery_overlay.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="43" column="28" selection-start="1762" selection-end="1762" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="93" column="151" selection-start="7914" selection-end="7914" vertical-scroll-proportion="0.0">
@@ -303,38 +444,84 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../Bearded Octo Bear/js/jquery_overlay.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="50" column="25" selection-start="1990" selection-end="1990" vertical-scroll-proportion="-3.5662792">
-          <folding />
-        </state>
+        <state line="50" column="25" selection-start="1990" selection-end="1990" vertical-scroll-proportion="-3.5662792" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../Framework/framework_rework.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/framework.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="100" column="29" selection-start="1860" selection-end="1866" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/jquery_overlay.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="28" selection-start="1762" selection-end="1762" vertical-scroll-proportion="0.0">
+        <state line="250" column="22" selection-start="14054" selection-end="14318" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/framework.css">
+    <entry file="file://$PROJECT_DIR$/js/jquery_back_to_top.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="238" column="19" selection-start="4364" selection-end="4364" vertical-scroll-proportion="0.0">
+        <state line="42" column="40" selection-start="2045" selection-end="2045" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/jquery_slider.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="13" selection-start="323" selection-end="323" vertical-scroll-proportion="0.0">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/jquery_overlay_ipad.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="98" column="81" selection-start="4259" selection-end="4263" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/slider.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="17" selection-start="256" selection-end="256" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/slider.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="40" column="89" selection-start="2373" selection-end="2373" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="58" column="11" selection-start="2910" selection-end="2910" vertical-scroll-proportion="0.63189447">
+        <state line="317" column="53" selection-start="19606" selection-end="19606" vertical-scroll-proportion="-207.26923">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/jquery_content_slider.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="38" column="56" selection-start="1757" selection-end="1757" vertical-scroll-proportion="0.27949598">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
