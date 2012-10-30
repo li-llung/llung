@@ -5,7 +5,6 @@
  *
  * ---------Options:-----------------------------------------
  * delay: time it takes to animate to the next slide (integer)
- * start: auto start (true/false)
  * direction: direction of slider (horizontal/vertical)
  * effect: effect slider has when changing slides (fade/tween)
  * selector: a css selector that is the main class on your slider, Example: '.slider' (css selector)
@@ -39,7 +38,7 @@
                 animate_top = -((slide_number * height) - height);
             if(effect == "fade"){
                 $(element).find('.slide').fadeOut();
-                $(element).find('.slide').eq(slide_number).fadeIn();
+                $(element).find('.slide').eq((slide_number-1)).fadeIn();
             }else{
                 if (direction === 'horizontal') {
                     $(element).animate({
@@ -59,7 +58,7 @@
         content_slider: function(options) {
             var defaults = {
                 delay: 1000,
-                start: true,
+                start: false,
                 direction: 'horizontal',
                 effect: 'tween',
                 selector: '.slider',
@@ -75,7 +74,6 @@
                         width: ov.width(),
                         height: ov.height(),
                         delay: (ov.data('delay') !== undefined) ? ov.data('delay') : o.delay,
-                        start: (ov.data('start') !== undefined) ? ov.data('start') : o.start,
                         direction: (ov.data('direction') !== undefined) ? ov.data('direction') : o.direction,
                         effect: (ov.data('effect') !== undefined) ? ov.data('effect') : o.effect,
                         selector: (ov.data('selector') !== undefined) ? ov.data('selector') : o.selector,
@@ -85,32 +83,30 @@
                         holder = '#slide_holder_' + counter,
                         nav =  '#slide_nav_' + counter;
 
-                    if(config.start){
-                        $("<div/>", {
-                            id: "slide_holder_" + counter,
-                            'class': "slide_holder"
-                        }).prependTo($(this));
-                        if(config.direction === "horizontal"){
-                            $(holder).width(slide_count * config.width);
-                        }
-                        $(this).find('.slide').appendTo(holder);
-                        $("<div/>", {
-                            id: "slide_nav_" + counter,
-                            'class': "slide_nav"
-                        }).appendTo($(this));
-                        for(var i=0;i<slide_count;i++){
-                            $("<a/>", {
-                                href: 'javascript:void(0);',
-                                'class': "slide_nav_item",
-                                text: (i + 1)
-                            }).appendTo(nav);
-                        }
-                        $(nav).find('.slide_nav_item').first().addClass('slide_nav_anchor');
-                        $(this).find('.slide_nav_item').on('click', function(){
-                            $(holder).content_animate_to(Number($(this).text()), config.width, config.height, config.direction, holder, config.delay, config.effect);
-                            $(this).content_anchor(this, config.selector, config.anchor);
-                        });
+                    $("<div/>", {
+                        id: "slide_holder_" + counter,
+                        'class': "slide_holder"
+                    }).prependTo($(this));
+                    if(config.direction === "horizontal"){
+                        $(holder).width(slide_count * config.width);
                     }
+                    $(this).find('.slide').appendTo(holder);
+                    $("<div/>", {
+                        id: "slide_nav_" + counter,
+                        'class': "slide_nav"
+                    }).appendTo($(this));
+                    for(var i=0;i<slide_count;i++){
+                        $("<a/>", {
+                            href: 'javascript:void(0);',
+                            'class': "slide_nav_item",
+                            text: (i + 1)
+                        }).appendTo(nav);
+                    }
+                    $(nav).find('.slide_nav_item').first().addClass('slide_nav_anchor');
+                    $(this).find('.slide_nav_item').on('click', function(){
+                        $(holder).content_animate_to(Number($(this).text()), config.width, config.height, config.direction, holder, config.delay, config.effect);
+                        $(this).content_anchor(this, config.selector, config.anchor);
+                    });
                     counter+=1;
                 });
             });

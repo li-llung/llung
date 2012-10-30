@@ -23,7 +23,7 @@
       <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="317" column="53" selection-start="19606" selection-end="19606" vertical-scroll-proportion="-207.26923">
+            <state line="373" column="45" selection-start="22137" selection-end="22137" vertical-scroll-proportion="-53.615383">
               <folding />
             </state>
           </provider>
@@ -71,19 +71,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="jquery_slider.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="jquery_slider.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/jquery_slider.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="13" selection-start="323" selection-end="323" vertical-scroll-proportion="0.0">
-              <folding />
+            <state line="80" column="37" selection-start="3103" selection-end="3103" vertical-scroll-proportion="0.2600229">
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="jquery_content_slider.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="jquery_content_slider.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/jquery_content_slider.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="38" column="56" selection-start="1757" selection-end="1757" vertical-scroll-proportion="0.27949598">
+            <state line="56" column="10" selection-start="2436" selection-end="2436" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -94,7 +96,7 @@
       <file leaf-file-name="slider.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/slider.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="40" column="89" selection-start="2373" selection-end="2373" vertical-scroll-proportion="0.0">
+            <state line="89" column="19" selection-start="4694" selection-end="4694" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -126,11 +128,11 @@
         <option value="$PROJECT_DIR$/js/slider.css" />
         <option value="$PROJECT_DIR$/js/jquery_overlay_ipad.js" />
         <option value="$PROJECT_DIR$/js/jquery_back_to_top.js" />
-        <option value="$PROJECT_DIR$/js/jquery_slider.js" />
         <option value="$PROJECT_DIR$/css/slider.css" />
         <option value="$PROJECT_DIR$/js/jquery_overlay.js" />
-        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/js/jquery_content_slider.js" />
+        <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/js/jquery_slider.js" />
       </list>
     </option>
   </component>
@@ -326,7 +328,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -335,7 +337,7 @@
       <window_info id="Heroku" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1307364" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26947704" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -477,13 +479,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/jquery_slider.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="13" selection-start="323" selection-end="323" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/jquery_overlay_ipad.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="98" column="81" selection-start="4259" selection-end="4263" vertical-scroll-proportion="0.0">
@@ -500,9 +495,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/js/jquery_content_slider.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="56" column="10" selection-start="2436" selection-end="2436" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/js/slider.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="89" selection-start="2373" selection-end="2373" vertical-scroll-proportion="0.0">
+        <state line="89" column="19" selection-start="4694" selection-end="4694" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
@@ -511,14 +515,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="317" column="53" selection-start="19606" selection-end="19606" vertical-scroll-proportion="-207.26923">
+        <state line="373" column="45" selection-start="22137" selection-end="22137" vertical-scroll-proportion="-53.615383">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/jquery_content_slider.js">
+    <entry file="file://$PROJECT_DIR$/js/jquery_slider.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="56" selection-start="1757" selection-end="1757" vertical-scroll-proportion="0.27949598">
+        <state line="80" column="37" selection-start="3103" selection-end="3103" vertical-scroll-proportion="0.2600229">
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
