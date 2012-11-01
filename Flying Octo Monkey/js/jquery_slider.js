@@ -5,7 +5,6 @@
  *
  * ---------Options:-----------------------------------------
  * delay: time it takes to animate to the next slide (integer)
- * start: auto start (true/false)
  * direction: direction of slider (horizontal/vertical)
  * effect: effect slider has when changing slides (fade/tween)
  * selector: a css selector that is the main class on your slider, Example: '.slider' (css selector)
@@ -54,49 +53,6 @@
                 left: '+=' + config.width
             }, config.delay);
         },
-        is_start: function (elem) {
-            return $(this).hasClass('first');
-        },
-        is_end: function (elem) {
-            return $(this).hasClass('end');
-        },
-        current_slide: function (holder, config){
-            var direction,
-                type;
-            if(config.direction == "horizontal"){
-                direction = 'left';
-                type = config.width;
-            }else if(config.direction == "vertical"){
-                direction = 'top';
-                type = config.height;
-            }
-            var offset = -((parseFloat($(holder).css(direction)) / type));
-            return offset;
-        },
-        start: function (holder, config) {
-            var last_item = $(holder).find('.slide').last(),
-                first_item = $(holder).find('.slide').first();
-            first_item.addClass('first');
-            last_item.addClass('end');
-            $(holder).addClass('go');
-            //alert('moo');
-            //console.log($(this).current_slide(holder, config));
-            $(config.selector).each(function(){
-                if(config.direction == "horizontal" && $(holder).hasClass('go')){
-                    //$(this).forward(holder, config);
-                    //$(this).find(holder).width($(holder).find(".slide").length * config.width).children().clone().appendTo(holder);
-                }else if(config.direction == "vertical" && $(holder).hasClass('go')){
-                    //$(this).down(holder, config);
-                }
-            });
-        },
-        stop_slider: function (slider_interval) {
-            //alert(slider_interval);
-            clearInterval(slider_interval);
-        },
-        resume: function () {
-
-        },
         content_animate_to: function (slide_number, width, height, direction, element, delay, effect) {
             var animate_left = -((slide_number * width) - width),
                 animate_top = -((slide_number * height) - height);
@@ -115,10 +71,31 @@
                 }
             }
         },
-        content_anchor: function (elem, selector, anchor, slider_interval) {
-            $(elem).stop_slider(slider_interval);
+        content_anchor: function (elem, selector, anchor) {
             $(elem).parents(selector).find("a").removeClass(anchor);
             $(elem).addClass(anchor);
+        },
+        setup_controls: function (holder, config, counter){
+            if(config.controls){
+                $("<div/>", {
+                    id: "slide_controls_" + counter,
+                    'class': "slide_controls"
+                }).prependTo($(this));
+                if(config.resume){
+                    $("<a/>", {
+                        href: 'javascript:void(0);',
+                        'class': "slider_resume",
+                        text: 'resume'
+                    }).appendTo('#slide_controls_' + counter);
+                }
+                if(config.stop){
+                    $("<a/>", {
+                        href: 'javascript:void(0);',
+                        'class': "slider_stop",
+                        text: 'stop'
+                    }).appendTo('#slide_controls_' + counter);
+                }
+            }
         },
         content_slider: function(options) {
             var defaults = {
@@ -128,14 +105,17 @@
                 direction: 'horizontal',
                 effect: 'tween',
                 selector: '.slider',
-                anchor: 'slide_nav_anchor'
+                anchor: 'slide_nav_anchor',
+                controls: true,
+                resume: true,
+                stop: true
             };
             options =  $.extend(defaults, options);
             return this.each(function() {
                 var o = options,
-                    counter = 1,
-                    slider_interval = 0;
+                    counter = 1;
                 $(o.selector).each(function(){
+                    var slider_interval;
                     var ov = $(this);
                     var config = {
                         width: ov.width(),
@@ -146,7 +126,13 @@
                         direction: (ov.data('direction') !== undefined) ? ov.data('direction') : o.direction,
                         effect: (ov.data('effect') !== undefined) ? ov.data('effect') : o.effect,
                         selector: (ov.data('selector') !== undefined) ? ov.data('selector') : o.selector,
-                        anchor: (ov.data('anchor') !== undefined) ? ov.data('anchor') : o.anchor
+                        anchor: (ov.data('anchor') !== undefined) ? ov.data('anchor') : o.anchor,
+                        controls: (ov.data('controls') !== undefined) ? ov.data('controls') : true,
+                        resume: (ov.data('resume') !== undefined) ? ov.data('resume') : true,
+                        stop: (ov.data('stop') !== undefined) ? ov.data('stop') : true
+                    };
+                    var stop = function() {
+                        clearInterval(slider_interval);
                     };
                     var slide_count = $(this).find('.slide').length,
                         holder = '#slide_holder_' + counter,
@@ -155,15 +141,15 @@
                     $("<div/>", {
                         id: "slide_holder_" + counter,
                         'class': "slide_holder"
-                    }).prependTo($(this));
+                    }).prependTo(ov);
                     if(config.direction === "horizontal"){
                         $(holder).width(slide_count * config.width);
                     }
-                    $(this).find('.slide').appendTo(holder);
+                    ov.find('.slide').appendTo(holder);
                     $("<div/>", {
                         id: "slide_nav_" + counter,
                         'class': "slide_nav"
-                    }).appendTo($(this));
+                    }).appendTo(ov);
                     for(var i=0;i<slide_count;i++){
                         $("<a/>", {
                             href: 'javascript:void(0);',
@@ -172,13 +158,31 @@
                         }).appendTo(nav);
                     }
                     $(nav).find('.slide_nav_item').first().addClass('slide_nav_anchor');
-                    $(this).find('.slide_nav_item').on('click', function(){
+                    ov.find('.slide_nav_item').on('click', function(){
                         $(holder).content_animate_to(Number($(this).text()), config.width, config.height, config.direction, holder, config.delay, config.effect);
-                        $(this).content_anchor(this, config.selector, config.anchor , slider_interval);
+                        $(this).content_anchor(this, config.selector, config.anchor);
                     });
+
+                    ov.setup_controls(holder, config, counter);
+
                     if(config.start){
-                        slider_interval = setInterval(function(){$(this).start(holder,config)}, config.speed);
+                        $(holder).find(".slide").each(function(index){
+                            $(this).attr('data-slide', (index + 1)).attr('data-set', 1);
+                        });
+                        $(holder).children().clone().appendTo(holder).attr('data-set', 2);
+                        slider_interval = setInterval(function(){
+                            if(config.direction == "horizontal"){
+                                $(holder).forward(holder, config);
+                                $(holder).width($(holder).find(".slide").length * config.width);
+                            }else if(config.direction == "vertical"){
+                                $(holder).down(holder, config);
+                            }
+                        }, 5000);
                     }
+
+                    $(this).find('.slider_stop').on('click', function(){
+                        stop();
+                    });
                     counter+=1;
                 });
             });

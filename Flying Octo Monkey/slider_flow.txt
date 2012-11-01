@@ -1,0 +1,18 @@
+if start
+	set timer
+	slide holder 1 frame forward
+		if end
+			clone holder reset controls to 1
+	move controls one forward
+		if end
+			clone holder reset controls to 1
+if stop
+	clear timer
+resume
+	start timer from current slide
+	advnance 1
+	move controls 1
+if click
+	clear timer
+	advance to clicked number
+	move controls to current number

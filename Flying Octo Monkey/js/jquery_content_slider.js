@@ -66,6 +66,10 @@
             };
             options =  $.extend(defaults, options);
             return this.each(function() {
+                var stop = function() {
+                    if (master_debug == true) { alert('stopping!'); }
+                    clearInterval(slider_interval);
+                }
                 var o = options,
                     counter = 1;
                 $(o.selector).each(function(){
@@ -86,15 +90,15 @@
                     $("<div/>", {
                         id: "slide_holder_" + counter,
                         'class': "slide_holder"
-                    }).prependTo($(this));
+                    }).prependTo(ov);
                     if(config.direction === "horizontal"){
                         $(holder).width(slide_count * config.width);
                     }
-                    $(this).find('.slide').appendTo(holder);
+                    ov.find('.slide').appendTo(holder);
                     $("<div/>", {
                         id: "slide_nav_" + counter,
                         'class': "slide_nav"
-                    }).appendTo($(this));
+                    }).appendTo(ov);
                     for(var i=0;i<slide_count;i++){
                         $("<a/>", {
                             href: 'javascript:void(0);',
@@ -103,7 +107,7 @@
                         }).appendTo(nav);
                     }
                     $(nav).find('.slide_nav_item').first().addClass('slide_nav_anchor');
-                    $(this).find('.slide_nav_item').on('click', function(){
+                    ov.find('.slide_nav_item').on('click', function(){
                         $(holder).content_animate_to(Number($(this).text()), config.width, config.height, config.direction, holder, config.delay, config.effect);
                         $(this).content_anchor(this, config.selector, config.anchor);
                     });
