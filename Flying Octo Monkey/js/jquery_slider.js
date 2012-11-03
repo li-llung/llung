@@ -165,18 +165,29 @@
 
                     ov.setup_controls(holder, config, counter);
 
+                    var slider_count = 1;
+                    var flip = false;
+
                     if(config.start){
                         $(holder).find(".slide").each(function(index){
                             $(this).attr('data-slide', (index + 1)).attr('data-set', 1);
                         });
-                        $(holder).children().clone().appendTo(holder).attr('data-set', 2);
+                        //$(holder).children().clone().appendTo(holder).attr('data-set', 2);
                         slider_interval = setInterval(function(){
+                            if(slider_count === $(holder).find(".slide").length && flip == false){
+                                //$(holder).find('[data-set="1"]').clone().insertAfter($(holder).find('.slide').last());
+                                flip = true;
+                            }else{
+                                //$(holder).find('[data-set="2"]').clone().insertAfter($(holder).find('.slide').last());
+                                flip = false;
+                            }
                             if(config.direction == "horizontal"){
                                 $(holder).forward(holder, config);
                                 $(holder).width($(holder).find(".slide").length * config.width);
                             }else if(config.direction == "vertical"){
                                 $(holder).down(holder, config);
                             }
+                            slider_count += 1;
                         }, 5000);
                     }
 
