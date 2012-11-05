@@ -97,6 +97,18 @@
                 }
             }
         },
+        move_control: function (holder, config){
+            var selected = $(holder).parents(config.selector).find('.slide_nav_anchor'),
+                next = selected.removeClass('slide_nav_anchor').next(),
+                nav = $(holder).parents(config.selector).find('.slide_nav');
+
+            if(selected.is(':last-child')){
+                nav.find("a").first().addClass('slide_nav_anchor');
+            }else{
+                next.addClass('slide_nav_anchor');
+            }
+
+        },
         content_slider: function(options) {
             var defaults = {
                 speed: 5000,
@@ -108,7 +120,8 @@
                 anchor: 'slide_nav_anchor',
                 controls: true,
                 resume: true,
-                stop: true
+                stop: true,
+                loop: 0
             };
             options =  $.extend(defaults, options);
             return this.each(function() {
@@ -129,7 +142,8 @@
                         anchor: (ov.data('anchor') !== undefined) ? ov.data('anchor') : o.anchor,
                         controls: (ov.data('controls') !== undefined) ? ov.data('controls') : true,
                         resume: (ov.data('resume') !== undefined) ? ov.data('resume') : true,
-                        stop: (ov.data('stop') !== undefined) ? ov.data('stop') : true
+                        stop: (ov.data('stop') !== undefined) ? ov.data('stop') : true,
+                        loop: (ov.data('loop') !== undefined) ? ov.data('loop') : 0
                     };
                     var stop = function() {
                         clearInterval(slider_interval);
@@ -167,18 +181,18 @@
 
                     var slider_count = 1;
                     var flip = false;
+                    var total_slides = ($(holder).find(".slide").length * config.loop);
 
                     if(config.start){
                         $(holder).find(".slide").each(function(index){
                             $(this).attr('data-slide', (index + 1)).attr('data-set', 1);
                         });
-                        //$(holder).children().clone().appendTo(holder).attr('data-set', 2);
+                        $(holder).children().clone().appendTo(holder).attr('data-set', 2);
                         slider_interval = setInterval(function(){
                             if(slider_count === $(holder).find(".slide").length && flip == false){
-                                //$(holder).find('[data-set="1"]').clone().insertAfter($(holder).find('.slide').last());
+                                $(holder).find('[data-set="1"]').clone().insertAfter($(holder).find('.slide').last()).attr('data-set', counter);
                                 flip = true;
                             }else{
-                                //$(holder).find('[data-set="2"]').clone().insertAfter($(holder).find('.slide').last());
                                 flip = false;
                             }
                             if(config.direction == "horizontal"){
@@ -187,8 +201,17 @@
                             }else if(config.direction == "vertical"){
                                 $(holder).down(holder, config);
                             }
+
+                            ov.move_control(holder, config);
+
+                            if(config.loop > 0){
+                                if((slider_count+1) === total_slides){
+                                    stop();
+                                }
+                            }
+
                             slider_count += 1;
-                        }, 5000);
+                        }, config.speed);
                     }
 
                     $(this).find('.slider_stop').on('click', function(){
