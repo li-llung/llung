@@ -101,13 +101,11 @@
             var selected = $(holder).parents(config.selector).find('.slide_nav_anchor'),
                 next = selected.removeClass('slide_nav_anchor').next(),
                 nav = $(holder).parents(config.selector).find('.slide_nav');
-
             if(selected.is(':last-child')){
                 nav.find("a").first().addClass('slide_nav_anchor');
             }else{
                 next.addClass('slide_nav_anchor');
             }
-
         },
         content_slider: function(options) {
             var defaults = {
@@ -148,6 +146,31 @@
                     var stop = function() {
                         clearInterval(slider_interval);
                     };
+                    var start = function(holder, config, counter, flip, slider_count, total_slides){
+                        slider_interval = setInterval(function(){
+                            if(slider_count === $(holder).find(".slide").length && flip == false){
+                                $(holder).find('[data-set="1"]').clone().insertAfter($(holder).find('.slide').last()).attr('data-set', counter);
+                                flip = true;
+                            }else{
+                                flip = false;
+                            }
+                            if(config.direction == "horizontal"){
+                                $(holder).forward(holder, config);
+                                $(holder).width($(holder).find(".slide").length * config.width);
+                            }else if(config.direction == "vertical"){
+                                $(holder).down(holder, config);
+                            }
+
+                            ov.move_control(holder, config);
+
+                            if(config.loop > 0){
+                                if((slider_count+1) === total_slides){
+                                    stop();
+                                }
+                            }
+                            slider_count += 1;
+                        }, config.speed);
+                    };
                     var slide_count = $(this).find('.slide').length,
                         holder = '#slide_holder_' + counter,
                         nav =  '#slide_nav_' + counter;
@@ -177,43 +200,25 @@
                         $(this).content_anchor(this, config.selector, config.anchor);
                     });
 
+                    if(config.start){
                     ov.setup_controls(holder, config, counter);
+                    }
 
-                    var slider_count = 1;
-                    var flip = false;
-                    var total_slides = ($(holder).find(".slide").length * config.loop);
+                    var slider_count = 1,
+                        flip = false,
+                        total_slides = ($(holder).find(".slide").length * config.loop);
 
                     if(config.start){
                         $(holder).find(".slide").each(function(index){
                             $(this).attr('data-slide', (index + 1)).attr('data-set', 1);
                         });
                         $(holder).children().clone().appendTo(holder).attr('data-set', 2);
-                        slider_interval = setInterval(function(){
-                            if(slider_count === $(holder).find(".slide").length && flip == false){
-                                $(holder).find('[data-set="1"]').clone().insertAfter($(holder).find('.slide').last()).attr('data-set', counter);
-                                flip = true;
-                            }else{
-                                flip = false;
-                            }
-                            if(config.direction == "horizontal"){
-                                $(holder).forward(holder, config);
-                                $(holder).width($(holder).find(".slide").length * config.width);
-                            }else if(config.direction == "vertical"){
-                                $(holder).down(holder, config);
-                            }
 
-                            ov.move_control(holder, config);
-
-                            if(config.loop > 0){
-                                if((slider_count+1) === total_slides){
-                                    stop();
-                                }
-                            }
-
-                            slider_count += 1;
-                        }, config.speed);
+                        start(holder, config, counter, flip, slider_count, total_slides);
                     }
-
+                    $(this).find('.slider_resume').on('click', function(){
+                        start(holder, config, counter, flip, slider_count, total_slides);
+                    });
                     $(this).find('.slider_stop').on('click', function(){
                         stop();
                     });

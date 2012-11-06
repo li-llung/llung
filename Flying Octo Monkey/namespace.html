@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+    <script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="namespaces.js"></script>
+</head>
+<body>
+<div id="box1" class="box1">
+    box 1
+</div>
+<div id="box2" class="box2">
+    box 2
+</div>
+<div id="box3" class="box3">
+    box 3
+</div>
+<div id="box4" class="box4">
+    box 4
+</div>
+<div id="box5" class="box5">
+    box 5
+</div>
+<div id="box6" class="box6">
+    box 6
+</div>
+<script type="text/javascript">
+    //<![CDATA[
+    $(document).ready(function () {
+        $('#box1').COMPONENT_NAME_1();
+
+        $('.box2').each(function(){
+            lynda.COMPONENT_NAME_2($(this));
+        });
+        $('.box3').each(function(){
+            lynda.COMPONENT_NAME_3($(this));
+        });
+        $('.box4').each(function(){
+            lynda.COMPONENT_NAME_3($(this), {'color': 'orange'});
+        });
+
+        $("#box5").COMPONENT_NAME_4();
+
+        $.Lynda.COMPONENT_NAME_4();
+    });
+    //]]>
+</script>
+</body>
+</html>
