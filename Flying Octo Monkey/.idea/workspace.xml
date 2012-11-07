@@ -20,19 +20,19 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="595" column="24" selection-start="32209" selection-end="32209" vertical-scroll-proportion="-26.846153">
+            <state line="595" column="10" selection-start="32195" selection-end="32195" vertical-scroll-proportion="0.83693045">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="namespaces.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="namespaces.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/namespaces.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="43" selection-start="479" selection-end="479" vertical-scroll-proportion="0.38946164">
+            <state line="20" column="43" selection-start="479" selection-end="479" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -444,13 +444,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="595" column="24" selection-start="32209" selection-end="32209" vertical-scroll-proportion="-26.846153">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/namespace.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="40" column="35" selection-start="901" selection-end="901" vertical-scroll-proportion="-26.153847">
@@ -460,10 +453,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/namespaces.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="43" selection-start="479" selection-end="479" vertical-scroll-proportion="0.38946164">
+        <state line="20" column="43" selection-start="479" selection-end="479" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="595" column="10" selection-start="32195" selection-end="32195" vertical-scroll-proportion="0.83693045">
+          <folding />
         </state>
       </provider>
     </entry>
