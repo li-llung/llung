@@ -103,8 +103,17 @@
                 nav = $(holder).parents(config.selector).find('.slide_nav');
             if(selected.is(':last-child')){
                 nav.find("a").first().addClass('slide_nav_anchor');
+                //nav.find("a").first().attr('data-slide', (Number(selected.attr('data-slide')) + 1));
+                var num_start = Number(selected.attr('data-slide'));
+                nav.find("a").each(function(){
+                    $(this).attr('data-slide', (num_start + 1));
+                    num_start +=1
+                });
+                //console.log(holder + ' selected = ' + selected.text() + ' total ' + (Number(selected.text()) + 1));
             }else{
                 next.addClass('slide_nav_anchor');
+                //console.log(holder + ' selected = ' + selected.text() + ' total ' + (Number(selected.text()) + 1));
+                next.attr('data-slide', (Number(selected.attr('data-slide')) + 1));
             }
         },
         content_slider: function(options) {
@@ -194,9 +203,13 @@
                             text: (i + 1)
                         }).appendTo(nav);
                     }
+                    $(nav).find('.slide_nav_item').each(function(index){
+                        $(this).attr('data-slide', (index + 1));
+                    });
                     $(nav).find('.slide_nav_item').first().addClass('slide_nav_anchor');
                     ov.find('.slide_nav_item').on('click', function(){
-                        $(holder).content_animate_to(Number($(this).text()), config.width, config.height, config.direction, holder, config.delay, config.effect);
+                        stop();
+                        $(holder).content_animate_to(Number($(this).attr('data-slide')), config.width, config.height, config.direction, holder, config.delay, config.effect);
                         $(this).content_anchor(this, config.selector, config.anchor);
                     });
 

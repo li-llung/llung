@@ -143,10 +143,10 @@
                 <a href="javascript: void(0);" class="overlay" data-type="json" data-call="json_call" title="JSON call">JSON call in page</a>
                 <br /><br />
                 <h3>Initialized on page</h3>
-                <a href="javascript: void(0);" class="ini_on_page" data-element="small_meat" title="Initialized on page" data-width="640" data-height="480">Initialized on page</a>
+                <a href="javascript: void(0);" class="ini_on_page" id="ini_on_page" data-element="small_meat" title="Initialized on page" data-width="640" data-height="480">Initialized on page</a>
                 <br /><br />
                 <h3>Called from JS</h3>
-                <a href="javascript: void(0);" onclick="show_overlay(this)" class="called_from_js" data-element="called_from_js" title="Called from page" data-width="800" data-height="600">show</a>
+                <a href="javascript: void(0);" onclick="show_overlay(this)" class="called_from_js" id="called_from_js" data-element="called_from_js" title="Called from page" data-width="800" data-height="600">show</a>
                 <br /><br />
                 <h5>Sample Usage</h5>
                 <div class="box">
@@ -519,6 +519,7 @@
     </div>
     <div id="small_meat" class="overlay_holder">
         <p>Tenderloin pork chop drumstick tail pork belly venison.</p>
+        <a href="javascript: void(0);" onclick="show_overlay('#test')">show test</a>
     </div>
     <div id="called_from_js" class="overlay_holder">
         <p>Called from JS</p>
@@ -590,7 +591,9 @@
                 opacity: 0.35
             }, 200)
         });
-	    //$('body').show_ov('.called_from_js');
+	    //$('body').show_ov('.called_from_js').delay(2000).close_ov('.called_from_js');
+
+        $('#call_from_page').overlay({ show: true }).overlay({ element: 'ini_on_page', show: true });
 	});
     //]]>
 </script>
