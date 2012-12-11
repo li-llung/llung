@@ -4,7 +4,6 @@
  * Copyright 1995–2012 lynda.com, Inc. All rights reserved.
  *
  * ---------Options:-----------------------------------------
- *
  * selector: css selector to find the back to top link (string)
  * css_class: css class applied to the back to top div (string)
  * speed: speed at which animations happen (fast/slow)
@@ -24,7 +23,6 @@
  });
  *
  * ---------License------------------------------------------
- *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -84,6 +82,13 @@
                             $(o.selector).fadeOut();
                         }
                     });
+                    var btt_fade = function(my_fade){
+                        if($(window).scrollTop() > o.threshold){
+                            $(o.selector).fadeTo(o.speed, my_fade);
+                        }else{
+                            $(o.selector).fadeOut();
+                        }
+                    }
                     $(o.selector).live('click', function () {
                         $('body,html').animate({
                             scrollTop: 0
@@ -91,18 +96,10 @@
                         return false;
                     }).hover(
                         function () {
-                            if($(window).scrollTop() > o.threshold){
-                                $(this).fadeTo(o.speed, 1);
-                            }else{
-                                $(this).fadeOut();
-                            }
+                            btt_fade(1);
                         },
                         function () {
-                            if($(window).scrollTop() > o.threshold){
-                                $(this).fadeTo(o.speed, o.faded);
-                            }else{
-                                $(this).fadeOut();
-                            }
+                            btt_fade(o.faded);
                         }
                     );
                 }

@@ -215,6 +215,9 @@ function close_overlay(ov) {
                                 $.ajax({
                                     url: config.href,
                                     success: function (data) {
+                                        if($('#overlay').find(".overlay_content").length){
+                                            $('#overlay').find(".overlay_content").remove();
+                                        }
                                         $('#overlay').append('<div class="overlay_content">' + data + '</div>');
                                         show_overlay(overlay_top, overlay_left, total_width, total_height);
                                     }

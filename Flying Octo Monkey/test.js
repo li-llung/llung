@@ -1,0 +1,1 @@
+$('#selector').lynda().component('method', {color: "red"});

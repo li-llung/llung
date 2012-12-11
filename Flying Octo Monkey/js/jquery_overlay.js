@@ -56,7 +56,32 @@ function close_overlay(ov){
                 rounded: '7px',
                 start: true,
                 show: false,
-                close: false
+                close: false,
+                sticky: false
+            };
+            var is_mobile = function(){
+                return (navigator.platform == 'iPad' || navigator.platform == 'iPhone' || navigator.platform == 'iPod') ? true : false;
+            };
+            this.reposition = function () {
+                return this.each(function() {
+                    if($('.overlay_holder').length){
+                        $('.overlay_holder').each(function(){
+                            $("#modal_bg").css({ 'width': $(window).width(), 'height': $(window).height() });
+                            if (is_mobile()) {
+                                $("#modal_bg").css("top", $(window).scrollTop());
+                            }
+                            var overlay_top = (((Number($(window).height()) - Number($(this).height())) / 2));
+                            var overlay_left = (((Number($('body').width()) - Number($(this).width())) / 2));
+                            overlay_top = (overlay_top < 0) ? 50 : overlay_top;
+                            $(this).css({'left': overlay_left, 'top': overlay_top + $(window).scrollTop()});
+                        });
+                    }
+                });
+            };
+            this.reposition_bg = function () {
+                if ($('.overlay_holder').length) {
+                    $("#modal_bg").css({"top": ($(window).scrollTop()), 'left': $(window).scrollLeft(), "height": ($(window).height() + 30), "width": ($(window).width())});
+                }
             };
             options =  $.extend(defaults, options);
             return this.each(function() {
@@ -95,21 +120,26 @@ function close_overlay(ov){
                             height: (ov.data('height') !== undefined) ? ov.data('height') : o.height,
                             rounded: (ov.data('rounded') !== undefined) ? ov.data('rounded') : o.rounded
                         };
-                        add_bg();
+                        add_bg(), 300;
                         add_content(e, config);
                     };
                     fob.reposition = function () {
                         if($('.overlay_holder').length){
                             $('.overlay_holder').each(function(){
-                                $("#modal_bg").css({ 'width': $(window).width(), 'height': $(window).height() });
-                                if (is_mobile()) {
+                                $("#modal_bg").css({ 'width': '100%', 'height': document.body.clientHeight });
+                                /*if (is_mobile()) {
                                     $("#modal_bg").css("top", $(window).scrollTop());
-                                }
+                                }*/;
                                 var overlay_top = (((Number($(window).height()) - Number($(this).height())) / 2));
                                 var overlay_left = (((Number($('body').width()) - Number($(this).width())) / 2));
                                 overlay_top = (overlay_top < 0) ? 50 : overlay_top;
                                 $(this).css({'left': overlay_left, 'top': overlay_top + $(window).scrollTop()});
                             });
+                        }
+                    };
+                    fob.reposition_bg = function () {
+                        if ($('.overlay_holder').length) {
+                            $("#modal_bg").css({"top": ($(window).scrollTop()), 'left': $(window).scrollLeft(), "height": ($(window).height() + 30), "width": ($(window).width())});
                         }
                     };
                     /*End Public*/
@@ -198,6 +228,9 @@ function close_overlay(ov){
                                 $.ajax({
                                     url: config.href,
                                     success: function (data) {
+                                        if($('#overlay').find(".overlay_content").length){
+                                            $('#overlay').find(".overlay_content").remove();
+                                        }
                                         $('#overlay').append('<div class="overlay_content">' + data + '</div>');
                                         show_overlay(overlay_top, overlay_left, total_width, total_height);
                                     }
@@ -231,8 +264,8 @@ function close_overlay(ov){
                             id: "modal_bg",
                             'class': "modal_bg",
                             css: {
-                                'width': $(window).width(),
-                                'height': $(window).height()
+                                'width': '100%',
+                                'height': document.body.clientHeight
                             }
                         }).appendTo("body");
                         $('#modal_bg').fadeTo('fast', '0.50');
@@ -255,13 +288,16 @@ function close_overlay(ov){
                             return false;
                         });
                     });
-                    $(window).resize(function () {
-                        fob.reposition();
-                    });
-                    $(window).scroll(function () {
-                        fob.reposition();
-                    });
-
+                    if(o.sticky){
+                        $(window).resize(function () {
+                            fob.reposition();
+                        });
+                        $(window).scroll(function () {
+                            fob.reposition();
+                        });
+                    }else{
+                        fob.reposition_bg();
+                    }
                     if(o.show){
                         fob.init($(this));
                     }else if(o.close){

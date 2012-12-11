@@ -1,0 +1,109 @@
+<html>
+<head>
+    <title>Lynda Namespacing and jQuery Chaining</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+    //
+    (function($){
+        window.lynda = function(selector)
+        {
+            return selector || this === window ? $(selector).extend(lynda) : this.extend(lynda);
+        };
+        $.fn.lynda = lynda;
+    })(jQuery);
+    //
+
+    //
+    (function($){
+        lynda.modularize = function($scope)
+        {
+            $($scope.element).each(function(){
+                $scope.returnValue = $scope.element;
+                var optionsObject = typeof($scope.command) === 'object' ? $scope.command : typeof($scope.options) === 'object' ? $scope.options : $scope.callback;
+                var settings = $.extend({}, $scope.defaults, $(this).data(), optionsObject);
+
+                $scope.callback = typeof($scope.command) === 'function' ? $scope.command : typeof($scope.options) === 'function' ? $scope.options : typeof($scope.callback) === 'function' ? $scope.callback : function(){};
+
+                var command = $scope[$scope.command];
+                var commandIsFunction = typeof(command) === 'function';
+                if(!settings.preventInit || !commandIsFunction)
+                {
+                    $scope.init($(this), settings);
+                }
+                if(commandIsFunction)
+                {
+                    command($(this), settings);
+                }
+            });
+        };
+    })(jQuery);
+    //
+
+
+    //MODULE
+    (function($){
+        lynda.component=function(command, options, callback)
+        {
+            var ext = this;
+            var $scope = {element:this, command: command, options:options, callback:callback};
+            //DEFAULTS HERE
+            $scope.defaults = {
+                width:400,
+                height:400
+            };
+
+            ext.someVal = true;
+            ext.someObj = {
+                number: 5
+            };
+            ext.moo = function(){
+                window.console.log('im public');
+                return ext;
+            };
+
+            $scope.init = function(element, settings){
+                //INIT CODE HERE
+                window.console.log("Initializing: " + element);
+                element.width(settings.width);
+                element.height(settings.height);
+                element.css('color', settings.color);
+            };
+            //ADDITIONAL METHODS ATTACH TO $scope
+            $scope.hide = function(element, settings){
+                element.hide();
+            };
+            $scope.show = function(element, settings){
+                window.console.log(ext.someObj.number);
+                ext.moo();
+            };
+            
+            //DO NOT TOUCH
+            lynda.modularize($scope);
+            $scope.callback();
+            return $scope.returnValue;
+        };
+    })(jQuery);
+    //
+
+    </script>
+    <script type="text/javascript" src="js/lynda_back_to_top.js"></script>
+    <link rel="stylesheet" href="css/back_to_top.css" type="text/css" media="screen" />
+    <style>
+        div{
+            width:100%;
+            color:red;
+            background: black;
+        }
+    </style>
+</head>
+<body>
+    <div class="hello" data-color="white" data-height="100">hi</div>
+    <div class="hello" data-color="blue" data-height="200">hi</div>
+    <div>hi</div>
+    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+</body>
+</html>
