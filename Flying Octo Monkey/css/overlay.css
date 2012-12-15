@@ -50,4 +50,8 @@
 	text-indent: 15px;
 	padding: 8px 0px;
 }
+.overlay_caption h1{
+    margin: 0px;
+    padding: 0px;
+}
 /*End Overlay*/

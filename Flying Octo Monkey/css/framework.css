@@ -119,14 +119,27 @@ nav ul{
     list-style-type: none;
     padding: 0px;
 }
+nav ul ul{
+    /*display: none;*/
+    visibility: hidden;
+    position: absolute;
+    top: 34px;
+    left: 0px;
+}
+nav ul ul li{
+    float: none;
+    clear: both;
+    background-color: #000000;
+}
+nav ul ul li a{
+    display: block;
+    padding: 0px 22px 0px 10px;
+}
 nav li{
     float: left;
 }
 nav li a{
     background-color: transparent;
-    background-image: url("../images/carrot_arrow_22x6-ffffff-onblack.gif");
-    background-position: 100% 15px;
-    background-repeat: no-repeat;
     color: #FFFFFF;
     font-size: 14px;
     font-weight: 400;
@@ -135,13 +148,22 @@ nav li a{
     text-decoration: none;
     white-space: nowrap;
 }
+nav li a.drop{
+    background-image: url("../images/carrot_arrow_22x6-ffffff-onblack.gif");
+    background-position: 100% 15px;
+    background-repeat: no-repeat;
+}
 nav li a:hover{
     background-color: #333333;
 }
 header img{
     margin: 0px auto;
 }
-.js , .css, .min{
+.js , .css{
+    position: absolute;
+    top: 0px;
+}
+.min{
     position: absolute;
     top: 5px;
 }
@@ -173,10 +195,10 @@ hr{
 h2{
     /*background-color: #000000;*/
     color: #ffffff;
-    padding: 14px;
+    padding: 7px;
     position: absolute;
-    top: -48px;
-    width: 97.2%;
+    top: -34px;
+    width: 98.6%;
     display: block;
     left: 0px;
     border-bottom: 2px solid #FFBA00;
@@ -218,23 +240,23 @@ li span.option{
     background-color: #f7f7f7;
     padding: 20px;
     border: 20px solid #1e1e1e;
-    border-width: 50px 0px 0px 0px;
+    border-width: 36px 0px 0px 0px;
     position: relative;
 
-    -moz-border-radius: 12px;
+    /*-moz-border-radius: 12px;
     -webkit-border-radius: 12px;
     border-radius: 12px;
     -khtml-border-radius: 12px;
 
     -moz-box-shadow: 3px 3px 5px 6px #ccc;
     -webkit-box-shadow:3px 3px 5px 6px #ccc;
-    box-shadow: 3px 3px 5px 6px #ccc;
+    box-shadow: 3px 3px 5px 6px #ccc;*/
 }
 footer{
     color: #ffffff;
     background-color: #000000;
     padding-top: 20px;
-    min-height: 200px;
+    min-height: 240px;
 }
 footer p{
     text-align: center;
@@ -245,6 +267,13 @@ footer li a{
 }
 footer li a:hover{
     color: #FFBA00;
+}
+.footer{
+    clear: both;
+}
+.footer div{
+    float: left;
+    width: 25%;
 }
 .side_nav{
     position: fixed;
@@ -257,11 +286,13 @@ footer li a:hover{
     border-left: 0px;
     border-bottom-right-radius: 10px;
     border-top-right-radius: 10px;
+    width: 125px;
 }
 .side_nav a{
     color: #ffffff;
     text-decoration: none;
     display: block;
+    text-align: right;
 }
 .side_nav a:hover{
     color: #FFBA00;

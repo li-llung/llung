@@ -19,14 +19,32 @@
 <header>
     <nav>
         <ul>
-            <!--<li><a href="#template">Template</a></li>-->
-            <li><a href="#header_back_to_top">Back to Top</a></li>
-            <li><a href="#header_overlay">Overlay</a></li>
-            <li><a href="#slider">Content Slider</a></li>
-            <li><a href="#buttons">Buttons</a></li>
-            <li><a href="#dynamic_content">Dynamic Content</a></li>
-            <li><a href="#require">Require</a></li>
-            <li><a href="#validate">Validate</a></li>
+            <li><a href="javascript: void(0);" class="drop">Components</a>
+                <ul class="components">
+                    <li><a href="#core">Core</a></li>
+                    <li><a href="#header_back_to_top">Back to Top</a></li>
+                    <li><a href="#header_overlay">Overlay</a></li>
+                    <li><a href="#slider">Content Slider</a></li>
+                    <li><a href="#buttons">Buttons</a></li>
+                    <li><a href="#dynamic_content">Dynamic Content</a></li>
+                    <li><a href="#require">Require</a></li>
+                    <li><a href="#validate">Validate</a></li>
+                </ul>
+            </li>
+            <li><a href="javascript: void(0);" class="drop">Documentation</a>
+                <ul class="components">
+                    <!--<li><a href="#template">Template</a></li>-->
+                    <li><a href="#header_back_to_top">Back to Top</a></li>
+                    <li><a href="#header_overlay">Overlay</a></li>
+                    <li><a href="#slider">Content Slider</a></li>
+                    <li><a href="#buttons">Buttons</a></li>
+                    <li><a href="#dynamic_content">Dynamic Content</a></li>
+                    <li><a href="#require">Require</a></li>
+                    <li><a href="#validate">Validate</a></li>
+                </ul>
+            </li>
+            <li><a href="javascript: void(0);">Support</a></li>
+            <li><a href="javascript: void(0);">Contact UI Team</a></li>
         </ul>
     </nav>
 </header>
@@ -36,7 +54,11 @@
         <p>Bacon ipsum dolor sit amet andouille beef ribs pork loin pork spare ribs hamburger meatloaf prosciutto brisket salami ball tip. Cow drumstick salami brisket tail ham hock. Fatback ham hock ground round swine, shoulder bresaola frankfurter brisket shank pork chop beef ribs bacon chuck ball tip. Flank tongue brisket beef. Ball tip capicola t-bone meatball beef chicken. Bacon strip steak hamburger prosciutto frankfurter, beef shankle meatball pastrami shank pork loin meatloaf.</p>
 
         <p>Turducken sirloin tail pastrami flank leberkas corned beef jerky sausage bacon pork loin t-bone drumstick. Short loin tail t-bone ball tip tongue filet mignon. Boudin andouille venison, spare ribs filet mignon meatloaf rump kielbasa. Shankle short ribs rump shank, jerky spare ribs frankfurter tri-tip t-bone. Kielbasa filet mignon frankfurter, spare ribs sausage swine meatloaf salami tongue hamburger tail doner.</p>
-
+        <br />
+        <h1 id="core">Core</h1>
+        <p>Bacon ipsum dolor sit amet andouille beef ribs pork loin pork spare ribs hamburger meatloaf prosciutto brisket salami ball tip. Cow drumstick salami brisket tail ham hock. Fatback ham hock ground round swine, shoulder bresaola frankfurter brisket shank pork chop beef ribs bacon chuck ball tip. Flank tongue brisket beef. Ball tip capicola t-bone meatball beef chicken. Bacon strip steak hamburger prosciutto frankfurter, beef shankle meatball pastrami shank pork loin meatloaf.</p>
+        <br />
+        <h1>Components</h1>
         <!--
         <div class="component">
             <h2 id="template">Template
@@ -529,16 +551,39 @@
 <footer>
     <div class="inside">
         <p>&copy; 2012 lynda.com</p>
-        <h5>Components</h5>
-        <ul>
-            <li><a href="#header_back_to_top">Back to Top</a></li>
-            <li><a href="#header_overlay">Overlay</a></li>
-            <li><a href="#slider">Content Slider</a></li>
-            <li><a href="#buttons">Buttons</a></li>
-            <li><a href="#dynamic_content">Dynamic Content</a></li>
-            <li><a href="#require">Require</a></li>
-            <li><a href="#validate">Validate</a></li>
-        </ul>
+        <div class="footer">
+            <div>
+                <h5>Components</h5>
+                <ul class="components">
+                    <li><a href="#core">Core</a></li>
+                    <li><a href="#header_back_to_top">Back to Top</a></li>
+                    <li><a href="#header_overlay">Overlay</a></li>
+                    <li><a href="#slider">Content Slider</a></li>
+                    <li><a href="#buttons">Buttons</a></li>
+                    <li><a href="#dynamic_content">Dynamic Content</a></li>
+                    <li><a href="#require">Require</a></li>
+                    <li><a href="#validate">Validate</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5>Documentation</h5>
+                <ul class="components">
+                    <li><a href="#header_back_to_top">Back to Top</a></li>
+                    <li><a href="#header_overlay">Overlay</a></li>
+                    <li><a href="#slider">Content Slider</a></li>
+                    <li><a href="#buttons">Buttons</a></li>
+                    <li><a href="#dynamic_content">Dynamic Content</a></li>
+                    <li><a href="#require">Require</a></li>
+                    <li><a href="#validate">Validate</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5>Support</h5>
+            </div>
+            <div>
+                <h5>Contact UI Team</h5>
+            </div>
+        </div>
     </div>
 </footer>
 <!--<div class="side_nav">
@@ -554,8 +599,18 @@
 		title: 'yay a json title',
 		content: '<p>Tenderloin pork chop drumstick tail pork belly venison. Turkey brisket chuck pork belly, spare ribs sausage ribeye shankle pork loin cow strip steak pork biltong. Biltong rump capicola, tenderloin prosciutto drumstick jowl ribeye turkey venison bacon salami. Brisket short ribs turkey capicola, bresaola shoulder rump shank hamburger meatloaf beef. Pancetta hamburger t-bone, bresaola shank corned beef chicken brisket leberkas filet mignon frankfurter.</p>'
 	}
-    var my_top = 100;
-	$(document).ready(function () {
+    var my_top = 80;
+    jQuery(document).ready(function () {
+        $('nav').find('li').hover(
+            function () {
+                var my_left = $(this).position();
+                $(this).find('ul').css({'visibility': 'visible', 'left': (my_left.left-160)});
+            },
+            function () {
+                $(this).find('ul').css('visibility','hidden');
+            }
+        );
+
         $('.min').click(function(){
             var item = $(this).parents(".component").find(".component_content");
             if(item.css('display') === "block"){
@@ -568,14 +623,15 @@
         });
 	    $('body').overlay({css_class: 'ini_on_page'});
 
-        $('nav a').each(function(){
-            var item_pos = $($(this).attr('href')).offset();
+        $('header .components').find('a').each(function(){
             var side_top = my_top;
+            var numRand = Math.floor(Math.random()*81);
+
             $('<div class="side_nav"><a href="'+$(this).attr('href')+'">'+$(this).text()+'</a></div>').css('top', side_top).animate({
-                left: -($(this).width() - 10),
+                left: -($(this).width() - numRand),
                 opacity: 0.35
             }, 200).appendTo('body');
-            my_top+=100;
+            my_top+=50;
             //alert(my_top);
         });
 
