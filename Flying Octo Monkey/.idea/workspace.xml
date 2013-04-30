@@ -2,16 +2,51 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6ab6225d-ba0c-4e1e-a699-90feb310e352" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Basic Test.html" afterPath="$PROJECT_DIR$/Basic Test.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/framework.css" afterPath="$PROJECT_DIR$/css/framework.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/overlay.css" afterPath="$PROJECT_DIR$/css/overlay.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/cssxfire.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/css/drag.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/jquery-ui-1.10.2.custom.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/jquery_drag.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/lynda_overlay.js" afterPath="$PROJECT_DIR$/js/lynda_overlay.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/jquery_back_to_top.js" afterPath="$PROJECT_DIR$/js/jquery_back_to_top.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/jquery_overlay.js" afterPath="$PROJECT_DIR$/js/jquery_overlay.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/jquery_slider.js" afterPath="$PROJECT_DIR$/js/jquery_slider.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Bearded Octo Bear/js/slider.js" afterPath="$PROJECT_DIR$/../Bearded Octo Bear/js/slider.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Flying Octo Monkey.iws" />
     <ignored path=".idea/workspace.xml" />
+    <file path="/Dummy.txt" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1366819889157" ignored="false" />
+    <file path="/index.html" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1366839583619" ignored="false" />
+    <file path="/drag.css" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1366847975140" ignored="false" />
+    <file path="/jquery_drag.js" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1367000784623" ignored="false" />
+    <file path="/dummy.xml" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1366303658516" ignored="false" />
+    <file path="$root$/LyndaWebSite/Views/LyndaEnterprise/ManageGroups.aspx" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1366671569020" ignored="false" />
+    <file path="$root$/LyndaWebSite/ui/scripts/jquery.nestable.js" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1366671331565" ignored="false" />
+    <file path="$root$/LyndaWebSite/ui/styles/common.css" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1366671569020" ignored="false" />
+    <file path="$root$/LyndaWebSite/ui/styles/user_management.css" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1366671331565" ignored="false" />
+    <file path="$root$/LyndaWebSite/ui/scripts/user-management.js" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1366671571727" ignored="false" />
+    <file path="$root$/LyndaWebSite/App_Data/APISettings.xml" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1366392024811" ignored="false" />
+    <file path="/jquery.nestable.js" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1366414069726" ignored="false" />
+    <file path="/user-management.js" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1366671571727" ignored="false" />
+    <file path="$root$/LyndaWebSite/ui/scripts/manageusersandgroups.js" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1366393905848" ignored="false" />
+    <file path="$root$/LyndaWebSite/Views/LyndaEnterprise/ManageUsersAndGroups.aspx" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1366671569020" ignored="false" />
+    <file path="$root$/LyndaWebSite/Views/LyndaCampus/ReportList.aspx" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1366671569020" ignored="false" />
+    <file path="$root$/LyndaWebSite/ui/scripts/usercollections.js" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1366671569019" ignored="false" />
+    <file path="$root$/LyndaWebSite/Views/LyndaEnterprise/ManageUsers.aspx" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1366671569019" ignored="false" />
+    <file path="$root$/LyndaWebSite/ui/styles/Default18H.css" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1366671331564" ignored="false" />
+    <file path="$root$/LyndaWebSite/ui/styles/ie7.css" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1366671569020" ignored="false" />
+    <file path="$root$/LyndaWebSite/ui/styles/temp_displaycourse.css" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1366671569020" ignored="false" />
+    <file path="$root$/LyndaWebSite/ui/styles/queue.css" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1366671569020" ignored="false" />
+    <file path="$root$/LyndaWebSite/ui/styles/registration.css" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1366671569020" ignored="false" />
+    <file path="$root$/LyndaWebSite/ui/styles/non_member_homepage.css" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1366671569019" ignored="false" />
+    <file path="$root$/LyndaWebSite/ui/styles/addusers.css" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1366671569020" ignored="false" />
+    <file path="$root$/LyndaWebSite/ui/styles/temp_dsep.css" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1366671569020" ignored="false" />
+    <file path="$root$/LyndaWebSite/ui/styles/ContentNMHP.css" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1366671569020" ignored="false" />
+    <file path="$root$/LyndaWebSite/ui/styles/category.css" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1366671569020" ignored="false" />
+    <file path="$root$/LyndaWebSite/ui/styles/course.css" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1366671569020" ignored="false" />
+    <file path="$root$/LyndaWebSite/ui/styles/temp_news.css" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1366671569019" ignored="false" />
+    <file path="$root$/LyndaWebSite/App_Data/UrlRoutes.xml" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1366671569019" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,95 +61,33 @@
     <disable_hints />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="Flying Octo Monkey" />
+  </component>
   <component name="FileEditorManager">
     <leaf>
+      <file leaf-file-name="drag.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/css/drag.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="61" column="1" selection-start="1134" selection-end="1134" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="53" selection-start="943" selection-end="943" vertical-scroll-proportion="28.115385">
+            <state line="253" column="28" selection-start="17074" selection-end="17074" vertical-scroll-proportion="-24.307692">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="jquery_slider.js" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/js/jquery_slider.js">
+      <file leaf-file-name="jquery_drag.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/js/jquery_drag.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="130" column="23" selection-start="5507" selection-end="5507" vertical-scroll-proportion="0.31106243">
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="framework.css" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/css/framework.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="272" column="1" selection-start="4899" selection-end="4899" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="jquery_overlay_ipad.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/jquery_overlay_ipad.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="87" column="75" selection-start="3729" selection-end="3729" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="jquery_content_slider.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/jquery_content_slider.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="2" selection-start="847" selection-end="914" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="lynda_overlay.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/lynda_overlay.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="28" selection-start="839" selection-end="839" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="lynda_back_to_top.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/lynda_back_to_top.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="26" selection-start="484" selection-end="484" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="jquery_back_to_top.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/jquery_back_to_top.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="71" selection-start="993" selection-end="993" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Basic Test.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Basic Test.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="10" selection-start="406" selection-end="406" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="overlay.css" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/css/overlay.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="18" selection-start="72" selection-end="91" vertical-scroll-proportion="0.0">
+            <state line="33" column="30" selection-start="1487" selection-end="1487" vertical-scroll-proportion="0.29209623">
               <folding />
             </state>
           </provider>
@@ -130,12 +103,14 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
+  <component name="GitLogSettings">
+    <option name="myDateState">
+      <MyDateState />
+    </option>
+  </component>
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/css/slider.css" />
-        <option value="$PROJECT_DIR$/js/jquery_slider.js" />
-        <option value="$PROJECT_DIR$/test.js" />
         <option value="$PROJECT_DIR$/namespace.html" />
         <option value="$PROJECT_DIR$/namespaces.js" />
         <option value="$PROJECT_DIR$/js/lynda_template.js" />
@@ -145,19 +120,22 @@
         <option value="$PROJECT_DIR$/js/jquery_overlay.js" />
         <option value="$PROJECT_DIR$/css/overlay.css" />
         <option value="$PROJECT_DIR$/Basic Test.html" />
-        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/css/framework.css" />
         <option value="$PROJECT_DIR$/js/jquery_content_slider.js" />
         <option value="$PROJECT_DIR$/js/lynda_overlay.js" />
+        <option value="$PROJECT_DIR$/js/drag.js" />
+        <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/css/drag.css" />
+        <option value="$PROJECT_DIR$/js/jquery_drag.js" />
       </list>
     </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="1912" />
+    <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1936" />
-    <option name="height" value="1096" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -185,7 +163,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -234,6 +211,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -246,6 +224,9 @@
   </component>
   <component name="PublishConfig">
     <servers>
+      <server id="0f37feb9-af54-4df5-9c81-d3eb200b3499">
+        <serverdata />
+      </server>
       <server id="348324d5-aa03-41c5-891a-fac1630c4b10">
         <serverdata>
           <mappings>
@@ -267,6 +248,9 @@
           </mappings>
         </serverdata>
       </server>
+      <server id="cfd0eca1-f608-461d-9708-c84a76dfde3d">
+        <serverdata />
+      </server>
       <server id="f95a58c5-62d9-4743-82e2-de78dccc66fa">
         <serverdata>
           <mappings>
@@ -282,7 +266,7 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="JavascriptDebugSession" factoryName="Local">
+    <configuration default="true" type="JavascriptDebugSession" factoryName="Local" singleton="true">
       <JSDebuggerConfigurationSettings>
         <option name="engineId" value="embedded" />
         <option name="fileUrl" />
@@ -319,25 +303,26 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1912" y="-8" width="1936" height="1096" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="CSS-X-Fire" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Heroku" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32962137" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.11953042" sideWeight="0.6703786" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.12166489" sideWeight="0.6703663" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32962137" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32963374" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32963374" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -369,13 +354,20 @@
     <option name="SHOW_ONLY_CHANGED_IN_SELECTION_DIFF" value="true" />
     <option name="CHECK_COMMIT_MESSAGE_SPELLING" value="true" />
     <option name="DEFAULT_PATCH_EXTENSION" value="patch" />
-    <option name="SHORT_DIFF_HORISONTALLY" value="true" />
+    <option name="SHORT_DIFF_HORIZONTALLY" value="true" />
     <option name="SHORT_DIFF_EXTRA_LINES" value="2" />
     <option name="SOFT_WRAPS_IN_SHORT_DIFF" value="true" />
     <option name="INCLUDE_TEXT_INTO_PATCH" value="false" />
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
     <option name="SHOW_FILE_HISTORY_DETAILS" value="true" />
     <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
+    <option name="SHOW_DIRTY_RECURSIVELY" value="false" />
+    <option name="LIMIT_HISTORY" value="true" />
+    <option name="MAXIMUM_HISTORY_ROWS" value="1000" />
+    <option name="UPDATE_FILTER_SCOPE_NAME" />
+    <option name="USE_COMMIT_MESSAGE_MARGIN" value="false" />
+    <option name="COMMIT_MESSAGE_MARGIN_SIZE" value="72" />
+    <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
     <option name="LAST_COMMIT_MESSAGE" />
@@ -389,6 +381,7 @@
     <option name="ACTIVE_VCS_NAME" />
     <option name="UPDATE_GROUP_BY_PACKAGES" value="false" />
     <option name="UPDATE_GROUP_BY_CHANGELIST" value="false" />
+    <option name="UPDATE_FILTER_BY_SCOPE" value="false" />
     <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
   </component>
@@ -398,16 +391,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/namespaces.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="172" column="6" selection-start="3835" selection-end="4369" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Basic Component Syntax.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="32" selection-start="772" selection-end="796" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/lynda_template.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="16" column="11" selection-start="475" selection-end="475" vertical-scroll-proportion="0.31887457" />
@@ -420,9 +403,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/jquery_overlay.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="286" column="46" selection-start="16292" selection-end="16292" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="286" column="46" selection-start="16292" selection-end="16292" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/css/framework.css">
@@ -439,32 +420,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/jquery_back_to_top.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="71" selection-start="993" selection-end="993" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/lynda_back_to_top.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="26" selection-start="484" selection-end="484" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="14" column="26" selection-start="484" selection-end="484" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Basic Test.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="10" selection-start="406" selection-end="406" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="10" column="10" selection-start="406" selection-end="406" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/lynda_overlay.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="28" selection-start="839" selection-end="839" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="21" column="28" selection-start="839" selection-end="839" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/slider_flow.txt">
@@ -476,9 +444,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/jquery_overlay_ipad.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="87" column="75" selection-start="3729" selection-end="3729" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="87" column="75" selection-start="3729" selection-end="3729" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/jquery_content_slider.js">
@@ -488,19 +454,36 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
+    <entry file="file://$PROJECT_DIR$/js/jquery_back_to_top.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="53" selection-start="943" selection-end="943" vertical-scroll-proportion="28.115385">
-          <folding />
-        </state>
+        <state line="15" column="71" selection-start="993" selection-end="993" vertical-scroll-proportion="0.019721577" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/jquery_slider.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="130" column="23" selection-start="5507" selection-end="5507" vertical-scroll-proportion="0.31106243">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
+        <state line="222" column="0" selection-start="10476" selection-end="10476" vertical-scroll-proportion="0.43657142">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="253" column="28" selection-start="17074" selection-end="17074" vertical-scroll-proportion="-24.307692">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/drag.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="61" column="1" selection-start="1134" selection-end="1134" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/jquery_drag.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="30" selection-start="1487" selection-end="1487" vertical-scroll-proportion="0.29209623">
+          <folding />
         </state>
       </provider>
     </entry>

@@ -3,6 +3,7 @@
 <head>
 	<title>Flying Octo Monkey</title>
 	<script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery-ui-1.10.2.custom.js"></script>
 	<link rel="stylesheet" href="css/framework.css" type="text/css" media="screen" />
 	
 	<script type="text/javascript" src="js/jquery_overlay.js"></script>
@@ -13,6 +14,11 @@
 
     <script type="text/javascript" src="js/jquery_slider.js"></script>
     <link rel="stylesheet" href="css/slider.css" type="text/css" media="screen" />
+
+    <script type="text/javascript" src="js/jquery_drag.js"></script>
+    <link rel="stylesheet" href="css/drag.css" type="text/css" media="screen" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
 
@@ -20,7 +26,7 @@
     <nav>
         <ul>
             <li><a href="javascript: void(0);" class="drop">Components</a>
-                <ul class="components">
+                <ul class="components" id="components">
                     <li><a href="#core">Core</a></li>
                     <li><a href="#header_back_to_top">Back to Top</a></li>
                     <li><a href="#header_overlay">Overlay</a></li>
@@ -82,6 +88,264 @@
             </div>
         </div>
         -->
+        <div class="component">
+            <h2 id="drag">Drag and Drop
+                <a href="javascript: void(0);" class="min"><img src="images/minus.png" alt=""></a>
+            </h2>
+            <div class="component_content">
+                <h5>Purpose</h5>
+                <p>Bacon ipsum dolor sit amet andouille beef ribs pork loin pork spare ribs hamburger meatloaf prosciutto brisket salami ball tip. Cow drumstick salami brisket tail ham hock. Fatback ham hock ground round swine, shoulder bresaola frankfurter brisket shank pork chop beef ribs bacon chuck ball tip. Flank tongue brisket beef. Ball tip capicola t-bone meatball beef chicken. Bacon strip steak hamburger prosciutto frankfurter, beef shankle meatball pastrami shank pork loin meatloaf.</p>
+
+                <h5>Examples</h5>
+                <div class="activity"></div>
+                <!--
+                <div class="tree_house">
+                    <div class="tree kids">
+                        <div class="tree_item top_level" data-level="1"><span class="down"></span><a href="javascript: void(0);">item 1</a></div>
+                        <div class="tree_item top_level" data-level="1"><span class="down"></span><a href="javascript: void(0);">item 2</a></div>
+                        <div class="tree_item top_level" data-level="1"><span class="down"></span><a href="javascript: void(0);">item 3</a>
+                            <div class="kids">
+                                <div class="tree_item sub_level" data-level="2"><span class="down"></span><a href="javascript: void(0);">item 1</a></div>
+                                <div class="tree_item sub_level" data-level="2"><span class="down"></span><a href="javascript: void(0);">item 2</a></div>
+                                <div class="tree_item sub_level" data-level="2"><span class="down"></span><a href="javascript: void(0);">item 3</a>
+                                    <div class="kids">
+                                        <div class="tree_item sub_sub_level" data-level="3"><span class="down"></span><a href="javascript: void(0);">item 1</a></div>
+                                        <div class="tree_item sub_sub_level" data-level="3"><span class="down"></span><a href="javascript: void(0);">item 2</a></div>
+                                        <div class="tree_item sub_sub_level" data-level="3"><span class="down"></span><a href="javascript: void(0);">item 3</a>
+                                            <div class="kids">
+                                                <div class="tree_item sub_sub_level" data-level="4"><span class="down"></span><a href="javascript: void(0);">item 1</a></div>
+                                                <div class="tree_item sub_sub_level" data-level="4"><span class="down"></span><a href="javascript: void(0);">item 2</a></div>
+                                                <div class="tree_item sub_sub_level" data-level="4"><span class="down"></span><a href="javascript: void(0);">item 3</a></div>
+                                                <div class="tree_item sub_sub_level" data-level="4"><span class="down"></span><a href="javascript: void(0);">item 4</a></div>
+                                                <div class="tree_item sub_sub_level" data-level="4"><span class="down"></span><a href="javascript: void(0);">item 5</a></div>
+                                            </div>
+                                        </div>
+                                        <div class="tree_item sub_sub_level" data-level="3"><span class="down"></span><a href="javascript: void(0);">item 4</a></div>
+                                        <div class="tree_item sub_sub_level" data-level="3"><span class="down"></span><a href="javascript: void(0);">item 5</a></div>
+                                    </div>
+                                </div>
+                                <div class="tree_item sub_level" data-level="2"><span class="down"></span><a href="javascript: void(0);">item 4</a></div>
+                                <div class="tree_item sub_level" data-level="2"><span class="down"></span><a href="javascript: void(0);">item 5</a></div>
+                            </div>
+                        </div>
+                        <div class="tree_item top_level" data-level="1"><span class="down"></span><a href="javascript: void(0);">item 4</a></div>
+                        <div class="tree_item top_level" data-level="1"><span class="down"></span><a href="javascript: void(0);">item 5</a></div>
+                    </div>
+                </div>
+                -->
+                <h4>groups</h4>
+                <div class="drag">
+                    <ul class="connected">
+                        <li class="top_level">
+                            <div><a href="javascript: void(0);">Group 1</a></div>
+                        </li>
+                        <li class="top_level">
+                            <div><a href="javascript: void(0);">Group 2</a></div>
+                        </li>
+                        <li class="magic top_level">
+                            <div><a href="javascript: void(0);"><span class="drop">&nbsp;</span>Group 3</a></div>
+                            <ul class="connected">
+                                <li>
+                                    <div><a href="javascript: void(0);">Group 1</a></div>
+                                </li>
+                                <li>
+                                    <div><a href="javascript: void(0);">Group 2</a></div>
+                                </li>
+                                <li class="magic">
+                                    <div><a href="javascript: void(0);"><span class="drop">&nbsp;</span>Group 3</a></div>
+                                    <ul class="connected">
+                                        <li>
+                                            <div><a href="javascript: void(0);">Group 1</a></div>
+                                        </li>
+                                        <li>
+                                            <div><a href="javascript: void(0);">Group 2</a></div>
+                                        </li>
+                                        <li class="magic">
+                                            <div><a href="javascript: void(0);"><span class="drop">&nbsp;</span>Group 3</a></div>
+                                            <ul class="connected">
+                                                <li>
+                                                    <div><a href="javascript: void(0);">Group 1</a></div>
+                                                </li>
+                                                <li>
+                                                    <div><a href="javascript: void(0);">Group 2</a></div>
+                                                </li>
+                                                <li class="magic">
+                                                    <div><a href="javascript: void(0);"><span class="drop">&nbsp;</span>Group 3</a></div>
+                                                    <ul class="connected">
+                                                        <li>
+                                                            <div><a href="javascript: void(0);">Group 1</a></div>
+                                                        </li>
+                                                        <li>
+                                                            <div><a href="javascript: void(0);">Group 2</a></div>
+                                                        </li>
+                                                        <li>
+                                                            <div><a href="javascript: void(0);">Group 4</a></div>
+                                                        </li>
+                                                        <li>
+                                                            <div><a href="javascript: void(0);">Group 5</a></div>
+                                                        </li>
+                                                        <li>
+                                                            <div><a href="javascript: void(0);">Group 6</a></div>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <div><a href="javascript: void(0);">Group 4</a></div>
+                                                </li>
+                                                <li>
+                                                    <div><a href="javascript: void(0);">Group 5</a></div>
+                                                </li>
+                                                <li>
+                                                    <div><a href="javascript: void(0);">Group 6</a></div>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <div><a href="javascript: void(0);">Group 4</a></div>
+                                        </li>
+                                        <li>
+                                            <div><a href="javascript: void(0);">Group 5</a></div>
+                                        </li>
+                                        <li>
+                                            <div><a href="javascript: void(0);">Group 6</a></div>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <div><a href="javascript: void(0);">Group 4</a></div>
+                                </li>
+                                <li>
+                                    <div><a href="javascript: void(0);">Group 5</a></div>
+                                </li>
+                                <li>
+                                    <div><a href="javascript: void(0);">Group 6</a></div>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="top_level">
+                            <div><a href="javascript: void(0);">Group 4</a></div>
+                        </li>
+                        <li class="top_level">
+                            <div><a href="javascript: void(0);">Group 5</a></div>
+                        </li>
+                        <li class="magic top_level">
+                            <div><a href="javascript: void(0);"><span class="drop">&nbsp;</span>Group 6</a></div>
+                            <ul class="connected">
+                                <li>
+                                    <div><a href="javascript: void(0);">Group 1</a></div>
+                                </li>
+                                <li>
+                                    <div><a href="javascript: void(0);">Group 2</a></div>
+                                </li>
+                                <li>
+                                    <div><a href="javascript: void(0);">Group 4</a></div>
+                                </li>
+                                <li>
+                                    <div><a href="javascript: void(0);">Group 5</a></div>
+                                </li>
+                                <li>
+                                    <div><a href="javascript: void(0);">Group 6</a></div>
+                                </li>
+                                <li>
+                                    <div><a href="javascript: void(0);">Group 7</a></div>
+                                </li>
+                            </ul>
+                        </li>
+                        <!--<li class="top_level">
+                            <div><a href="javascript: void(0);">Group 3</a></div>
+                        </li>
+                        <li class="top_level">
+                            <div><a href="javascript: void(0);">Group 4</a></div>
+                        </li>
+                        <li class="top_level">
+                            <div><a href="javascript: void(0);">Group 5</a></div>
+                        </li>
+                        <li class="top_level">
+                            <div><a href="javascript: void(0);">Group 6</a></div>
+                        </li>-->
+                        <li class="top_level">
+                            <div><a href="javascript: void(0);">Group 7</a></div>
+                        </li>
+                        <li class="top_level">
+                            <div><a href="javascript: void(0);">Group 8</a></div>
+                        </li>
+                        <li class="top_level">
+                            <div><a href="javascript: void(0);">Group 9</a></div>
+                        </li>
+                        <li class="top_level">
+                            <div><a href="javascript: void(0);">Group 10</a></div>
+                        </li>
+                        <li class="top_level">
+                            <div><a href="javascript: void(0);">Group 11</a></div>
+                        </li>
+                        <li class="top_level">
+                            <div><a href="javascript: void(0);">Group 12</a></div>
+                        </li>
+                        <li class="top_level">
+                            <div><a href="javascript: void(0);">Group 13</a></div>
+                        </li>
+                        <li class="top_level">
+                            <div><a href="javascript: void(0);">Group 14</a></div>
+                        </li>
+                        <li class="top_level">
+                            <div><a href="javascript: void(0);">Group 15</a></div>
+                        </li>
+                        <li class="top_level">
+                            <div><a href="javascript: void(0);">Group 16</a></div>
+                        </li>
+                        <li class="top_level">
+                            <div><a href="javascript: void(0);">Group 17</a></div>
+                        </li>
+                        <li class="top_level">
+                            <div><a href="javascript: void(0);">Group 18</a></div>
+                        </li>
+                        <li class="top_level">
+                            <div><a href="javascript: void(0);">Group 19</a></div>
+                        </li>
+                        <li class="top_level">
+                            <div><a href="javascript: void(0);">Group 20</a></div>
+                        </li>
+                    </ul>
+                </div>
+                <h4>users</h4>
+                <ul class="users">
+                    <li class="top_level"><div><a href="javascript: void(0);">user 1</a></div></li>
+                    <li class="top_level"><div><a href="javascript: void(0);">user 2</a></div></li>
+                    <li class="top_level"><div><a href="javascript: void(0);">user 3</a></div></li>
+                    <li class="top_level"><div><a href="javascript: void(0);">user 4</a></div></li>
+                    <li class="top_level"><div><a href="javascript: void(0);">user 5</a></div></li>
+                </ul>
+                <h5>Sample Usage</h5>
+                <p>Bacon ipsum dolor sit amet andouille beef ribs pork loin pork spare ribs hamburger meatloaf prosciutto brisket salami ball tip. Cow drumstick salami brisket tail ham hock. Fatback ham hock ground round swine, shoulder bresaola frankfurter brisket shank pork chop beef ribs bacon chuck ball tip. Flank tongue brisket beef. Ball tip capicola t-bone meatball beef chicken. Bacon strip steak hamburger prosciutto frankfurter, beef shankle meatball pastrami shank pork loin meatloaf.</p>
+                <div class="box">
+<pre><code class="language-javascript">&lt;script type="text/javascript"&gt;
+    //&lt;![CDATA[
+    $(document).ready(function () {
+    });
+    //]]&gt;
+    &lt;/script&gt;</code></pre>
+                </div>
+                <h5>Public Methods</h5>
+                <ul class="option_list">
+                    <li><span>:</span>
+                        <div class="example">
+                            <pre><code class="language-javascript"></code></pre>
+                        </div>
+                    </li>
+                    <li><span>:</span>
+                        <div class="example">
+                            <pre><code class="language-javascript"></code></pre>
+                        </div>
+                    </li>
+                </ul>
+                <p>&nbsp;</p>
+                <h5>Options</h5>
+                <ul class="option_list">
+                    <li><span>:</span>  <span class="option"></span></li>
+                </ul>
+            </div>
+        </div>
+        <br />
         <div class="component">
             <h2 id="header_back_to_top">Back to Top
                 <a href="css/back_to_top.css" class="css"><img src="images/32x32/css_file.png" alt="css file"></a>
@@ -209,7 +473,7 @@
                 <p>a simple content slider that can got horizontally or vertically.</p>
 
                 <h5>Examples</h5>
-                <div class="slider" data-start="true" data-speed="2000">
+                <div class="slider" data-start="false" data-speed="2000">
                     <div class="slide">
                         <img src="images/sample/chevy_camaro_2010.jpg" alt="" />
                     </div>
@@ -329,7 +593,7 @@
                         <img src="images/sample/chevrolet-camaro-concept-picture.jpg" alt="" />
                     </div>
                 </div>
-                <div class="slider" data-direction="vertical" data-start="true" data-speed="2000" data-loop="2">
+                <div class="slider" data-direction="vertical" data-start="false" data-speed="2000" data-loop="2">
                     <div class="slide">
                         <img src="images/sample/lead-boss-302-barrett-jackson.jpg" alt="" />
                     </div>
@@ -623,7 +887,7 @@
         });
 	    $('body').overlay({css_class: 'ini_on_page'});
 
-        $('header .components').find('a').each(function(){
+        $('#components').find('a').each(function(){
             var side_top = my_top;
             var numRand = Math.floor(Math.random()*81);
 

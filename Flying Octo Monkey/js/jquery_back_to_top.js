@@ -52,6 +52,23 @@
                 snapto: false,
                 snap_adjust: 0
             };
+            var is_ios = function(){
+                var ua = navigator.userAgent.toLowerCase();
+                var isiPad = navigator.userAgent.match(/iPad/i) !== null;
+                var isiPhone = navigator.userAgent.match(/iPhone/i) !== null;
+                var isiPod = navigator.userAgent.match(/iPod/i) !== null;
+
+                return (isiPad || isiPhone || isiPod);
+            };
+            var is_mobile = function(){
+                var ua = navigator.userAgent.toLowerCase();
+                var isAndroid = ua.indexOf("android") > -1; //&& ua.indexOf("mobile");
+                var isiPad = navigator.userAgent.match(/iPad/i) !== null;
+                var isiPhone = navigator.userAgent.match(/iPhone/i) !== null;
+                var isiPod = navigator.userAgent.match(/iPod/i) !== null;
+
+                return (isiPad || isiPhone || isiPod || isAndroid);
+            };
             options =  $.extend(defaults, options);
             return this.each(function() {
                 var o = options;
@@ -70,12 +87,17 @@
                     $("<a/>", {
                         id: "top"
                     }).prependTo('body');
+                    if (is_mobile()) {
+                        jQuery(o.selector).css({'position': 'absolute', 'height': '25px'});
+                        o.fixed = false;
+                    }
                     $(window).bind('scroll resize', function () {
                         if($(window).scrollTop() > o.threshold){
                             if(o.fixed){
                                 $(o.selector).fadeIn();
                             }else{
                                 var btt_top = (($(window).scrollTop() + $(window).height()) - $(o.selector).height());
+                                //alert('scrollTop = ' + $(window).scrollTop() + ' and windowHeight = ' + $(window).height() + ' and scrollTop - windowHeight ' + ($(window).scrollTop() + $(window).height()) + ' and element height = ' + $(o.selector).height() + ' final is = ' + (($(window).scrollTop() + $(window).height()) - $(o.selector).height()) + '');
                                 $(o.selector).css('top', btt_top).fadeIn();
                             }
                         }else{
@@ -88,7 +110,7 @@
                         }else{
                             $(o.selector).fadeOut();
                         }
-                    }
+                    };
                     $(o.selector).live('click', function () {
                         $('body,html').animate({
                             scrollTop: 0

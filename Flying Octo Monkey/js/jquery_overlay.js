@@ -42,7 +42,7 @@ function close_overlay(ov){
         close_ov: function(ov){
             $(ov).overlay({close: true});
         },
-        overlay: function(options) {
+        overlay: function(options, callback) {
             var defaults = {
                 href: '',
                 css_class: 'overlay',
@@ -302,6 +302,9 @@ function close_overlay(ov){
                         fob.init($(this));
                     }else if(o.close){
                         close();
+                    }
+                    if (typeof (callback) === 'function') {
+                        callback();
                     }
                     /*End Private*/
                 }

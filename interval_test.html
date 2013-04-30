@@ -1,0 +1,43 @@
+<h1>Interval test</h1>
+
+<a href="javascript: void(0);" id="stop">stop</a>
+<a href="javascript: void(0);" id="resume">resume</a>
+
+
+<a href="javascript: void(0);" onclick="stop()">stop now</a>
+
+<div class="text">some text here</div>
+
+
+
+
+.text, h1{
+  font-size: 18px;
+  color: #1e1e1e;
+  font-weight: bold;
+  font-family: Verdana;
+}
+
+
+
+(function($){
+
+var interval = null;
+  
+function set(){
+  interval = window.setInterval(function(){
+    $('.text').clone().appendTo('body');
+  }, 5000);
+}
+function stop(){
+  window.clearInterval(interval);
+}
+
+$('#stop').click(function(){
+  stop();
+});
+$('#resume').click(function(){
+  set();
+}); 
+  
+})(jQuery);

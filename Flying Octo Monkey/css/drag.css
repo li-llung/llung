@@ -1,0 +1,145 @@
+.drag .drop{
+    display: block;
+    width: 0;
+    height: 0;
+    border-left: 5px solid #585858;
+    border-bottom: 5px solid transparent;
+    border-top: 5px solid transparent;
+    float: left;
+    position: absolute;
+    top: 25%;
+}
+.drag .down{
+    display: block;
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #585858;
+    float: left;
+    position: absolute;
+    top: 40%;
+}
+.activate{
+    font-size: 21px;
+    line-height: 21px;
+    background-color: #FFFFD3;
+    border: 1px solid #1e1e1e;
+}
+.over{
+    /*font-size: 7px;
+    line-height: 7px;*/
+    background-color: orange;
+    border: 1px solid #1e1e1e;
+}
+.activity {
+    border: 1px solid #bada55;
+    background-color: #FFFFD3;
+    padding: 6px;
+    color: #1e1e1e;
+    width: 300px;
+    height: 600px;
+    position: absolute;
+    right: -350px;
+    top: 160px;
+    z-index: 50;
+    overflow-y: auto;
+}
+.drag {
+    margin-bottom: 2em;
+}
+.drag li{
+    margin: 8px 0;
+}
+.drag div{
+    padding: 3px 0 3px 5px;
+}
+.drag ul ul{
+    display: none;
+}
+.drag ul div{
+    padding-left: 35px;
+}
+.drag ul ul div{
+    padding-left: 70px;
+}
+.drag ul ul ul div{
+    padding-left: 105px;
+}
+.drag ul ul ul ul div{
+    padding-left: 140px;
+}
+.drag ul ul ul ul ul div{
+    padding-left: 175px;
+}
+.drag ul ul ul ul ul ul div{
+    padding-left: 210px;
+}
+.drag ul ul ul ul ul ul ul div{
+    padding-left: 245px;
+}
+.drag ul ul ul ul ul ul ul ul div{
+    padding-left: 280px;
+}
+.drag ul ul ul ul ul ul ul ul ul div{
+    padding-left: 315px;
+}
+.drag ul ul ul ul ul ul ul ul ul ul div{
+    padding-left: 350px;
+}
+.drag ul ul ul ul ul ul ul ul ul ul ul div{
+    padding-left: 385px;
+}
+.drag ul ul ul ul ul ul ul ul ul ul ul ul div{
+    padding-left: 420px;
+}
+.drag ul ul ul ul ul ul ul ul ul ul ul ul ul div{
+    padding-left: 455px;
+}
+.drag div:hover{
+    background-color: #cccccc;
+}
+.drag li div{
+    position: relative;
+    height: 14px;
+    line-height: 14px;
+}
+.drag a{
+    color: #585858;
+    font-size: 14px;
+    line-height: 14px;
+    font-weight: bold;
+    font-family: Helvetica,Arial,sans-serif;
+    padding-left: 15px;
+    text-decoration: none;
+}
+.top_level{
+    /*padding-left: 40px;*/
+}
+.sub_level{
+    padding-left: 40px;
+}
+.sub_sub_level{
+    padding-left: 40px;
+}
+.plus{
+    content: " ";
+    padding-left: 10px;
+}
+.ui-state-highlight{
+    font-size: 1px;
+    line-height: 1px;
+    height: 1px;
+    background-color: #FFFFD3;
+    border: 1px solid #bbbbbb;
+}
+.ui-state-hover{
+    font-size: 1px;
+    line-height: 1px;
+    background-color: #FFFFD3;
+    border: 1px solid #1e1e1e;
+}
+.ui-sortable-placeholder{
+    background-color: #FFFFD0;
+    border: 1px solid #FFFDD0;
+}

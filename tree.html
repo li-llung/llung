@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+	<title>Tree</title>
+    <script src="jquery-1.9.1.js"></script>
+    <script src="jquery-ui-1.10.2.custom.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type="text/css">
+        ul{
+          list-style-type: none;
+          margin: 0;
+          max-width: 200px;
+        }
+        li{
+          margin: 0;
+          padding: 0;
+        }
+        a{
+          text-decoration: none;
+          color: #000000;
+          display: block;
+        }
+        a:hover{
+          color: #ffffff;
+        }
+        .fun a span{
+          background-color: #cccccc;
+          display: block;
+          padding: 5px;
+          margin-bottom: 5px;
+        }
+        .fun a:hover span{
+          background-color: #666666;
+          color: #ffffff;
+        }
+        ul ul{
+          margin-left: 40px;
+        }
+        .ui-state-highlight{
+          border: 1px inset yellow;
+        }
+        .drop{
+            border-left: 5px solid yellow;
+            border-top: 5px solid transparent;
+            border-bottom: 5px solid transparent;
+            float: left;
+            height: 1px;
+            width: 10px;
+            line-height: 0;
+            font-size: 0;
+            position: relative;
+            top: 9px;
+            left: 3px;
+        }
+        #message{
+            border: 1px solid #666666;
+            background-color: #1e1e1e;
+            color: #ffffff;
+            padding: 8px;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+<div id="message"></div>
+<div id="users">
+    <ul class="fun connected master">
+      <li><span class="drop">&nbsp;</span><a href="javascript: void(0);"><span>a</span></a>
+        <ul class="connected users">
+        </ul>
+        <ul class="connected groups">
+        </ul>
+        <ul class="connected subs">
+        </ul>
+      </li>
+      <li><span class="drop">&nbsp;</span><a href="javascript: void(0);"><span>b</span></a>
+        <ul class="connected users">
+        </ul>
+        <ul class="connected groups">
+        </ul>
+        <ul class="connected subs">
+        </ul>
+      </li>
+      <li><span class="drop">&nbsp;</span><a href="javascript: void(0);"><span>c</span></a>
+        <ul class="connected users">
+        </ul>
+        <ul class="connected groups">
+        </ul>
+        <ul class="connected subs">
+        </ul>
+      </li>
+      <li><span class="drop">&nbsp;</span><a href="javascript: void(0);"><span>d</span></a>
+        <ul class="connected users">
+        </ul>
+        <ul class="connected groups">
+        </ul>
+        <ul class="connected subs">
+        </ul>
+      </li>
+      <li><span class="drop">&nbsp;</span><a href="javascript: void(0);"><span>e</span></a>
+        <ul class="connected users">
+        </ul>
+        <ul class="connected groups">
+        </ul>
+        <ul class="connected subs">
+        </ul>
+      </li>
+      <li><span class="drop">&nbsp;</span><a href="javascript: void(0);"><span>f</span></a>
+        <ul class="connected users">
+        </ul>
+        <ul class="connected groups">
+        </ul>
+        <ul class="connected subs">
+        </ul>
+      </li>
+      <li><span class="drop">&nbsp;</span><a href="javascript: void(0);"><span>g</span></a>
+        <ul class="connected users">
+        </ul>
+        <ul class="connected groups">
+        </ul>
+        <ul class="connected subs">
+        </ul>
+      </li>
+      <li><span class="drop">&nbsp;</span><a href="javascript: void(0);"><span>h</span></a>
+        <ul class="connected users">
+        </ul>
+        <ul class="connected groups">
+        </ul>
+        <ul class="connected subs">
+        </ul>
+      </li>
+      <li><span class="drop">&nbsp;</span><a href="javascript: void(0);"><span>i</span></a>
+        <ul class="connected users">
+        </ul>
+        <ul class="connected groups">
+        </ul>
+        <ul class="connected subs">
+        </ul>
+      </li>
+    </ul>
+    <ul class="connected" id="user_list">
+      <li class="user"><a href="javascript: void(0);"><span>user a</span></a></li>
+      <li class="user"><a href="javascript: void(0);"><span>user b</span></a></li>
+      <li class="user"><a href="javascript: void(0);"><span>user c</span></a></li>
+      <li class="user"><a href="javascript: void(0);"><span>user d</span></a></li>
+      <li class="user"><a href="javascript: void(0);"><span>user e</span></a></li>
+      <li class="user"><a href="javascript: void(0);"><span>user f</span></a></li>
+      <li class="user"><a href="javascript: void(0);"><span>user g</span></a></li>
+      <li class="user"><a href="javascript: void(0);"><span>user h</span></a></li>
+      <li class="user"><a href="javascript: void(0);"><span>user i</span></a></li>
+      <li class="user"><a href="javascript: void(0);"><span>user j</span></a></li>
+    </ul>
+    <ul class="connected" id="group_list">
+      <li class="group"><a href="javascript: void(0);"><span>group a</span></a></li>
+      <li class="group"><a href="javascript: void(0);"><span>group b</span></a></li>
+      <li class="group"><a href="javascript: void(0);"><span>group c</span></a></li>
+      <li class="group"><a href="javascript: void(0);"><span>group d</span></a></li>
+      <li class="group"><a href="javascript: void(0);"><span>group e</span></a></li>
+      <li class="group"><a href="javascript: void(0);"><span>group f</span></a></li>
+      <li class="group"><a href="javascript: void(0);"><span>group g</span></a></li>
+      <li class="group"><a href="javascript: void(0);"><span>group h</span></a></li>
+      <li class="group"><a href="javascript: void(0);"><span>group i</span></a></li>
+      <li class="group"><a href="javascript: void(0);"><span>group j</span></a></li>
+    </ul>
+</div>
+<script type="text/javascript">
+    //<![CDATA[
+    'use strict';
+    jQuery(document).ready(function () {
+        $('.master').find('a').on('click', function(){
+            $('#message').html('page viewed ' + $(this).text());
+        });
+        $('.master').find('.drop').on('click', function(){
+            $('#message').html('drop viewed ' + $(this).next().text());
+        });
+        jQuery(".master").find("a").droppable({
+          drop: function(event, ui) {
+            $('#message').html($(ui.draggable).first().text() + ' dropped on ' + $(this).first().text());
+            $(ui.draggable).detach();
+            if($(ui.draggable).hasClass('.user')){
+                $(this).parent().find('.users').append('<li class="user">'+$(ui.draggable).html()+'</li>');
+            }else if($(ui.draggable).hasClass('.group')){
+                $(this).parent().find('.groups').append('<li class="group">'+$(ui.draggable).html()+'</li>');
+            }else{
+                $(this).parent().find('.subs').append('<li class="sub">'+$(ui.draggable).html()+'</li>');
+            }
+            console.log($(this).parent());
+            jQuery('#users').find('ul').sortable("refresh");
+          }
+        });
+        jQuery("#users").find('ul').sortable({
+            connectWith: ".connected",
+            placeholder: "ui-state-highlight",
+            hoverClass: "ui-state-highlight",
+            axis: "y",
+            tolerance: "pointer"
+        });
+    });
+    /*
+          jQuery("#users").find('ul').sortable({
+      connectWith: ".connected",
+      placeholder: "ui-state-highlight",
+      hoverClass: "ui-state-highlight",
+      axis: "y"
+    });
+    jQuery("#users").find("a").droppable({
+      drop: function(event, ui) {
+        $('#message').html($(ui.draggable).first().text() + ' dropped on ' + $(this).first().text());
+        $(ui.draggable).removeAttr('style').detach();
+        if($(this).find('ul').length){
+          $('#message').append(', found ' + $(this).find('ul').length);
+          $(this).find('ul').append($(ui.draggable));
+        }else{
+          $('#message').append(' , didnt find any');    
+          $(this).append('<ul class="connected">'+$(ui.draggable) +'</ul>');
+        }
+        jQuery('#users').find('ul').sortable("refresh");
+        //console.log($(this));
+        //console.log($(ui.draggable));
+      }
+    });  
+    */
+    //]]>
+</script>
+</body>
+</html>

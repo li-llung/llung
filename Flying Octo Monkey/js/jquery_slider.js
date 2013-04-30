@@ -107,7 +107,7 @@
                 var num_start = Number(selected.attr('data-slide'));
                 nav.find("a").each(function(){
                     $(this).attr('data-slide', (num_start + 1));
-                    num_start +=1
+                    num_start +=1;
                 });
                 //console.log(holder + ' selected = ' + selected.text() + ' total ' + (Number(selected.text()) + 1));
             }else{
@@ -157,7 +157,7 @@
                     };
                     var start = function(holder, config, counter, flip, slider_count, total_slides){
                         slider_interval = setInterval(function(){
-                            if(slider_count === $(holder).find(".slide").length && flip == false){
+                            if(slider_count === $(holder).find(".slide").length && flip === false){
                                 $(holder).find('[data-set="1"]').clone().insertAfter($(holder).find('.slide').last()).attr('data-set', counter);
                                 flip = true;
                             }else{
