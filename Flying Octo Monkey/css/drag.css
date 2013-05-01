@@ -49,7 +49,7 @@
     margin-bottom: 2em;
 }
 .drag li{
-    margin: 8px 0;
+    margin: 5px 0;
 }
 .drag div{
     padding: 3px 0 3px 5px;
@@ -127,11 +127,23 @@
     padding-left: 10px;
 }
 .ui-state-highlight{
-    font-size: 1px;
-    line-height: 1px;
-    height: 1px;
-    background-color: #FFFFD3;
-    border: 1px solid #bbbbbb;
+    font-size: 14px;
+    line-height: 14px;
+    height: 14px;
+    border: 1px dashed #bbbbbb;
+}
+.ui-state-active{
+    background-color:#e8f2ff;
+    border:1px solid #ddd;
+    border-right:0;
+    color: #474747;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.ui-state-active a:after{
+    content: " +";
 }
 .ui-state-hover{
     font-size: 1px;
@@ -140,6 +152,9 @@
     border: 1px solid #1e1e1e;
 }
 .ui-sortable-placeholder{
+    font-size: 1px;
+    line-height: 1px;
+    height: 1px;
     background-color: #FFFFD0;
     border: 1px solid #FFFDD0;
 }

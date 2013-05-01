@@ -2,24 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6ab6225d-ba0c-4e1e-a699-90feb310e352" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/cssxfire.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/css/drag.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/jquery-ui-1.10.2.custom.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/jquery_drag.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/drag.css" afterPath="$PROJECT_DIR$/css/drag.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/jquery_back_to_top.js" afterPath="$PROJECT_DIR$/js/jquery_back_to_top.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/jquery_overlay.js" afterPath="$PROJECT_DIR$/js/jquery_overlay.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/jquery_slider.js" afterPath="$PROJECT_DIR$/js/jquery_slider.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Bearded Octo Bear/js/slider.js" afterPath="$PROJECT_DIR$/../Bearded Octo Bear/js/slider.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/jquery_drag.js" afterPath="$PROJECT_DIR$/js/jquery_drag.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Flying Octo Monkey.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1366819889157" ignored="false" />
+    <file path="/Dummy.txt" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1367437262932" ignored="false" />
     <file path="/index.html" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1366839583619" ignored="false" />
-    <file path="/drag.css" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1366847975140" ignored="false" />
-    <file path="/jquery_drag.js" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1367000784623" ignored="false" />
+    <file path="/drag.css" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1367364173044" ignored="false" />
+    <file path="/jquery_drag.js" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1367361638158" ignored="false" />
     <file path="/dummy.xml" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1366303658516" ignored="false" />
     <file path="$root$/LyndaWebSite/Views/LyndaEnterprise/ManageGroups.aspx" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1366671569020" ignored="false" />
     <file path="$root$/LyndaWebSite/ui/scripts/jquery.nestable.js" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1366671331565" ignored="false" />
@@ -66,10 +59,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="drag.css" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="drag.css" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/css/drag.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="61" column="1" selection-start="1134" selection-end="1134" vertical-scroll-proportion="0.0">
+            <state line="122" column="23" selection-start="2304" selection-end="2304" vertical-scroll-proportion="0.41580757">
               <folding />
             </state>
           </provider>
@@ -78,17 +71,24 @@
       <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="253" column="28" selection-start="17074" selection-end="17074" vertical-scroll-proportion="-24.307692">
+            <state line="351" column="23" selection-start="22363" selection-end="22363" vertical-scroll-proportion="-3.9230769">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="jquery_drag.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="jquery_drag.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/jquery_drag.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="33" column="30" selection-start="1487" selection-end="1487" vertical-scroll-proportion="0.29209623">
-              <folding />
+            <state line="169" column="7" selection-start="8199" selection-end="8199" vertical-scroll-proportion="0.0">
+              <folding>
+                <marker date="1367440600087" expanded="true" signature="682:7451" placeholder="{&quot;connectWith&quot;: '.connected'...}" />
+                <marker date="1367440600087" expanded="true" signature="1875:2616" placeholder="{...}" />
+                <marker date="1367440600087" expanded="true" signature="2705:2725" placeholder="{...}" />
+                <marker date="1367440600087" expanded="true" signature="2816:3208" placeholder="{...}" />
+                <marker date="1367440600087" expanded="true" signature="3261:7417" placeholder="{...}" />
+                <marker date="1367440600087" expanded="true" signature="5453:7452" placeholder="/*...*/" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -125,8 +125,8 @@
         <option value="$PROJECT_DIR$/js/lynda_overlay.js" />
         <option value="$PROJECT_DIR$/js/drag.js" />
         <option value="$PROJECT_DIR$/index.html" />
-        <option value="$PROJECT_DIR$/css/drag.css" />
         <option value="$PROJECT_DIR$/js/jquery_drag.js" />
+        <option value="$PROJECT_DIR$/css/drag.css" />
       </list>
     </option>
   </component>
@@ -151,7 +151,7 @@
     <option name="STATE" value="0" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
+    <navigator proportions="" version="1" splitterProportion="0.5">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -162,63 +162,14 @@
       <autoscrollFromSource />
       <sortByType />
     </navigator>
-    <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Flying Octo Monkey" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Flying Octo Monkey" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Flying Octo Monkey" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Flying Octo Monkey" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Flying Octo Monkey" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Flying Octo Monkey" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Flying Octo Monkey" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-      <pane id="Scope" />
-    </panes>
+    <panes />
   </component>
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="true" />
-    <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
+    <property name="options.lastSelected" value="reference.settingsdialog.IDE.editor.colors" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="FullScreen" value="false" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
   </component>
@@ -276,7 +227,7 @@
     <list size="0" />
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
-  <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="false">
+  <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="false" SSL_PROTOCOLS="all">
     <option name="USER" value="" />
     <option name="PASSWORD" value="" />
     <option name="mySSHConnectionTimeout" value="30000" />
@@ -286,7 +237,6 @@
     <option name="MERGE_DIFF_USE_ANCESTRY" value="true" />
     <option name="UPDATE_LOCK_ON_DEMAND" value="false" />
     <option name="IGNORE_SPACES_IN_MERGE" value="false" />
-    <option name="DETECT_NESTED_COPIES" value="true" />
     <option name="CHECK_NESTED_FOR_QUICK_MERGE" value="false" />
     <option name="IGNORE_SPACES_IN_ANNOTATE" value="true" />
     <option name="SHOW_MERGE_SOURCES_IN_ANNOTATE" value="true" />
@@ -415,9 +365,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/css/overlay.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="18" selection-start="72" selection-end="91" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="5" column="18" selection-start="72" selection-end="91" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/lynda_back_to_top.js">
@@ -437,9 +385,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/slider_flow.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/jquery_overlay_ipad.js">
@@ -449,9 +395,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/jquery_content_slider.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="2" selection-start="847" selection-end="914" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="19" column="2" selection-start="847" selection-end="914" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/jquery_back_to_top.js">
@@ -461,28 +405,33 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/jquery_slider.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="222" column="0" selection-start="10476" selection-end="10476" vertical-scroll-proportion="0.43657142">
-          <folding />
+        <state line="222" column="0" selection-start="10476" selection-end="10476" vertical-scroll-proportion="0.43657142" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/jquery_drag.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="169" column="7" selection-start="8199" selection-end="8199" vertical-scroll-proportion="0.0">
+          <folding>
+            <marker date="1367440600087" expanded="true" signature="682:7451" placeholder="{&quot;connectWith&quot;: '.connected'...}" />
+            <marker date="1367440600087" expanded="true" signature="1875:2616" placeholder="{...}" />
+            <marker date="1367440600087" expanded="true" signature="2705:2725" placeholder="{...}" />
+            <marker date="1367440600087" expanded="true" signature="2816:3208" placeholder="{...}" />
+            <marker date="1367440600087" expanded="true" signature="3261:7417" placeholder="{...}" />
+            <marker date="1367440600087" expanded="true" signature="5453:7452" placeholder="/*...*/" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="253" column="28" selection-start="17074" selection-end="17074" vertical-scroll-proportion="-24.307692">
+        <state line="351" column="23" selection-start="22363" selection-end="22363" vertical-scroll-proportion="-3.9230769">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/css/drag.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="61" column="1" selection-start="1134" selection-end="1134" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/jquery_drag.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="30" selection-start="1487" selection-end="1487" vertical-scroll-proportion="0.29209623">
+        <state line="122" column="23" selection-start="2304" selection-end="2304" vertical-scroll-proportion="0.41580757">
           <folding />
         </state>
       </provider>
