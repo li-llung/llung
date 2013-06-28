@@ -27,17 +27,17 @@
  $('body').overlay({start: true});
  });
  * ========================================================== */
-function show_overlay(ov){
-    $(ov).show_ov(ov);
+function show_overlay(ov, options){
+    $(ov).show_ov(ov, options);
 }
 function close_overlay(ov){
     $(ov).close_ov(ov);
 }
 (function($){
     $.fn.extend({
-        show_ov: function(ov){
+        show_ov: function(ov, options){
             //alert($(ov).text());
-            $(ov).overlay({css_class: $(ov).attr('class'), show: true});
+            $(ov).overlay(options);
         },
         close_ov: function(ov){
             $(ov).overlay({close: true});
@@ -50,7 +50,7 @@ function close_overlay(ov){
                 type: 'regular',
                 element: 'overlay',
                 data_class: 'my_overlay',
-                call: '',
+                call: {},
                 width: 'user',
                 height: 'user',
                 rounded: '7px',
@@ -111,11 +111,11 @@ function close_overlay(ov){
                         var config = {
                             href: ov.attr('href'),
                             css_class: ov.attr('class'),
-                            title: (ov.attr('title') !== undefined) ? ov.attr('title') : '',
+                            title: (ov.attr('title') !== undefined) ? ov.attr('title') : o.title,
                             type: ov.data('type'),
                             element: (ov.data('element') !== undefined) ? ov.data('element') : o.element,
                             data_class: (ov.data('class') !== undefined) ? ov.data('class') : o.data_class,
-                            call: ov.data('call'),
+                            call: (ov.data('call') !== undefined) ? ov.data('call') : o.call,
                             width: (ov.data('width') !== undefined) ? ov.data('width') : o.width,
                             height: (ov.data('height') !== undefined) ? ov.data('height') : o.height,
                             rounded: (ov.data('rounded') !== undefined) ? ov.data('rounded') : o.rounded

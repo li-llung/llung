@@ -2,31 +2,33 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6ab6225d-ba0c-4e1e-a699-90feb310e352" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/jquery_overlay_remix.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/drag.css" afterPath="$PROJECT_DIR$/css/drag.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/jquery_drag.js" afterPath="$PROJECT_DIR$/js/jquery_drag.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/jquery_overlay.js" afterPath="$PROJECT_DIR$/js/jquery_overlay.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Flying Octo Monkey.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1367437262932" ignored="false" />
+    <file path="/Dummy.txt" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1370877424331" ignored="false" />
     <file path="/index.html" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1366839583619" ignored="false" />
     <file path="/drag.css" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1367364173044" ignored="false" />
     <file path="/jquery_drag.js" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1367361638158" ignored="false" />
     <file path="/dummy.xml" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1366303658516" ignored="false" />
-    <file path="$root$/LyndaWebSite/Views/LyndaEnterprise/ManageGroups.aspx" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1366671569020" ignored="false" />
+    <file path="$root$/LyndaWebSite/Views/LyndaEnterprise/ManageGroups.aspx" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1370644325167" ignored="false" />
     <file path="$root$/LyndaWebSite/ui/scripts/jquery.nestable.js" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1366671331565" ignored="false" />
-    <file path="$root$/LyndaWebSite/ui/styles/common.css" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1366671569020" ignored="false" />
-    <file path="$root$/LyndaWebSite/ui/styles/user_management.css" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1366671331565" ignored="false" />
-    <file path="$root$/LyndaWebSite/ui/scripts/user-management.js" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1366671571727" ignored="false" />
-    <file path="$root$/LyndaWebSite/App_Data/APISettings.xml" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1366392024811" ignored="false" />
+    <file path="$root$/LyndaWebSite/ui/styles/common.css" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1370451765465" ignored="false" />
+    <file path="$root$/LyndaWebSite/ui/styles/user_management.css" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1370644325167" ignored="false" />
+    <file path="$root$/LyndaWebSite/ui/scripts/user-management.js" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1370644325167" ignored="false" />
+    <file path="$root$/LyndaWebSite/App_Data/APISettings.xml" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1370644956974" ignored="false" />
     <file path="/jquery.nestable.js" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1366414069726" ignored="false" />
-    <file path="/user-management.js" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1366671571727" ignored="false" />
-    <file path="$root$/LyndaWebSite/ui/scripts/manageusersandgroups.js" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1366393905848" ignored="false" />
-    <file path="$root$/LyndaWebSite/Views/LyndaEnterprise/ManageUsersAndGroups.aspx" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1366671569020" ignored="false" />
-    <file path="$root$/LyndaWebSite/Views/LyndaCampus/ReportList.aspx" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1366671569020" ignored="false" />
-    <file path="$root$/LyndaWebSite/ui/scripts/usercollections.js" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1366671569019" ignored="false" />
-    <file path="$root$/LyndaWebSite/Views/LyndaEnterprise/ManageUsers.aspx" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1366671569019" ignored="false" />
+    <file path="/user-management.js" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1370637219201" ignored="false" />
+    <file path="$root$/LyndaWebSite/ui/scripts/manageusersandgroups.js" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1370644325167" ignored="false" />
+    <file path="$root$/LyndaWebSite/Views/LyndaEnterprise/ManageUsersAndGroups.aspx" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1370644325167" ignored="false" />
+    <file path="$root$/LyndaWebSite/Views/LyndaCampus/ReportList.aspx" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1370644325167" ignored="false" />
+    <file path="$root$/LyndaWebSite/ui/scripts/usercollections.js" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1370281316644" ignored="false" />
+    <file path="$root$/LyndaWebSite/Views/LyndaEnterprise/ManageUsers.aspx" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1370644325167" ignored="false" />
     <file path="$root$/LyndaWebSite/ui/styles/Default18H.css" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1366671331564" ignored="false" />
     <file path="$root$/LyndaWebSite/ui/styles/ie7.css" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1366671569020" ignored="false" />
     <file path="$root$/LyndaWebSite/ui/styles/temp_displaycourse.css" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1366671569020" ignored="false" />
@@ -36,10 +38,95 @@
     <file path="$root$/LyndaWebSite/ui/styles/addusers.css" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1366671569020" ignored="false" />
     <file path="$root$/LyndaWebSite/ui/styles/temp_dsep.css" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1366671569020" ignored="false" />
     <file path="$root$/LyndaWebSite/ui/styles/ContentNMHP.css" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1366671569020" ignored="false" />
-    <file path="$root$/LyndaWebSite/ui/styles/category.css" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1366671569020" ignored="false" />
+    <file path="$root$/LyndaWebSite/ui/styles/category.css" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1369932482314" ignored="false" />
     <file path="$root$/LyndaWebSite/ui/styles/course.css" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1366671569020" ignored="false" />
     <file path="$root$/LyndaWebSite/ui/styles/temp_news.css" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1366671569019" ignored="false" />
-    <file path="$root$/LyndaWebSite/App_Data/UrlRoutes.xml" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1366671569019" ignored="false" />
+    <file path="$root$/LyndaWebSite/App_Data/UrlRoutes.xml" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1370644325167" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/lib/openapi.jar!/standardSchemas/xhtml1-frameset.xsd" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1368562350099" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/lib/openapi.jar!/standardSchemas/XMLSchema-instance.xsd" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1368562350099" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/lib/openapi.jar!/standardSchemas/catalog.xsd" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1368562350099" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/lib/phpstorm.jar!/resources/relaxng.rng" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1368562350099" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/lib/openapi.jar!/standardSchemas/html5/xhtml5.xsd" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1368562350099" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/lib/openapi.jar!/standardSchemas/xhtml1-transitional.xsd" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1368562350099" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/lib/openapi.jar!/standardSchemas/xhtml1-strict.xsd" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1368562350099" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/lib/openapi.jar!/standardSchemas/XMLSchema.xsd" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1368562350099" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/lib/openapi.jar!/standardSchemas/xinclude.xsd" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1368562350099" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/lib/openapi.jar!/standardSchemas/xslt-1_0.xsd" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1368562350099" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/lib/openapi.jar!/standardSchemas/xslt-2_0.xsd" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1368562350099" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/xpath/lib/xpath.jar!/org/intellij/lang/xpath/xslt/resources/documentation.xsl" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1368562350099" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/xpath/lib/xpath.jar!/org/intellij/lang/xpath/xslt/resources/documentation.xml" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1368562350099" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/xpath/lib/xpath.jar!/org/intellij/lang/xpath/xslt/resources/xslt-schema.xsd" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1368562350099" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/lib/openapi.jar!/standardSchemas/xml.xsd" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1368562350099" ignored="false" />
+    <file path="$PROJECT_DIR$/../../main/UI/Playground/ui/em.min.js" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1368562719612" ignored="false" />
+    <file path="$PROJECT_DIR$/../../main/UI/Playground/em/brand/dist/output.min.js" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1368562719612" ignored="false" />
+    <file path="$PROJECT_DIR$/../../main/UI/Playground/dist/output.min.js" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1368562719612" ignored="false" />
+    <file path="$PROJECT_DIR$/../../main/UI/Playground/em/devices/desktop/dist/output.min.js" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1368564521998" ignored="false" />
+    <file path="/jquery_overlay_remix.js" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1369429355755" ignored="false" />
+    <file path="$root$/LyndaWebSite/Views/LyndaEnterprise/CustomizeAccount.aspx" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1370644325167" ignored="false" />
+    <file path="$root$/LyndaWebSite/ui/scripts/lynda.js" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1369426271068" ignored="false" />
+    <file path="$root$/LyndaWebSite/Views/LyndaEnterprise/UploadGroupUsers.aspx" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1370644325167" ignored="false" />
+    <file path="$root$/LyndaWebSite/ui/scripts/jquery_overlay.js" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1370644325167" ignored="false" />
+    <file path="/ManageGroups.aspx" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1370476276185" ignored="false" />
+    <file path="$root$/LyndaWebSite/Views/LyndaEnterprise/ManageGroupUsers.ascx" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1370644325167" ignored="false" />
+    <file path="/a.dummy" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1369866877028" ignored="false" />
+    <file path="$root$/LyndaWebSite/Views/Shared/Modern.master" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1370644325167" ignored="false" />
+    <file path="$root$/LyndaWebSite/Views/Shared/HeaderEyebrowTest.ascx" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1370644325167" ignored="false" />
+    <file path="/HeaderEyebrowTest.ascx" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1369868508467" ignored="false" />
+    <file path="/Modern.master" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1369867443604" ignored="false" />
+    <file path="$root$/LyndaWebSite/ui/styles/header.css" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1370626368045" ignored="false" />
+    <file path="/header.css" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1369868059728" ignored="false" />
+    <file path="$root$/LyndaWebSite/ui/styles/themes/dark.css" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1370638270754" ignored="false" />
+    <file path="/dark.css" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1370638247215" ignored="false" />
+    <file path="/AdminTab.ascx" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1370638733749" ignored="false" />
+    <file path="$root$/LyndaWebSite/Views/Shared/AdminTab.ascx" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1370644311965" ignored="false" />
+    <file path="$root$/LyndaWebSite/Controllers/OrganizationGroupsController.cs" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1370019009032" ignored="false" />
+    <file path="$root$/LyndaWebSite/Views/LyndaEnterprise/Home.aspx" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1370644325167" ignored="false" />
+    <file path="/Home.aspx" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1370554838038" ignored="false" />
+    <file path="$root$/LyndaWebSite/ui/styles/admin-dashboard.css" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1370451765464" ignored="false" />
+    <file path="/admin-dashboard.css" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1370023165536" ignored="false" />
+    <file path="/ReportList.aspx" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1370476218926" ignored="false" />
+    <file path="/CustomizeAccount.aspx" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1370540907861" ignored="false" />
+    <file path="/ManageUsers.aspx" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1370029735624" ignored="false" />
+    <file path="/ManageUsersAndGroups.aspx" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1370030055327" ignored="false" />
+    <file path="$root$/LyndaWebSite/MasterPageHCF_v1_06092011.master" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1370562362856" ignored="false" />
+    <file path="$root$/LyndaWebSite/Views/Shared/Layout-Simple.master" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1370644325167" ignored="false" />
+    <file path="$root$/LyndaWebSite/Views/Shared/LyndaCampusReportsFilters.ascx" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1370644325167" ignored="false" />
+    <file path="$root$/LyndaWebSite/ui/scripts/course-inline.js" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1370281316644" ignored="false" />
+    <file path="$root$/LyndaWebSite/Controllers/PlaylistController.cs" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1370644325167" ignored="false" />
+    <file path="/ManageGroupUsers.ascx" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1370387412462" ignored="false" />
+    <file path="$root$/LyndaWebSite/Controllers/PageController.cs" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1370289713108" ignored="false" />
+    <file path="$root$/LyndaWebSite/Lynda.Web.Public.UI.csproj" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1370289713108" ignored="false" />
+    <file path="$root$/LyndaWebSite/Views/LyndaEnterprise/AddUsersBulk.aspx" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1370644325167" ignored="false" />
+    <file path="$root$/LyndaWebSite/Views/LyndaEnterprise/AddUsers.aspx" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1370644325167" ignored="false" />
+    <file path="/AddUsers.aspx" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1370637809152" ignored="false" />
+    <file path="/AddUsersBulk.aspx" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1370476664910" ignored="false" />
+    <file path="$root$/LyndaWebSite/Views/LyndaCampus/IndividualUsageDetail.aspx" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1370456761943" ignored="false" />
+    <file path="/IndividualUsageDetail.aspx" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1370304160421" ignored="false" />
+    <file path="$root$/LyndaWebSite/Views/LyndaCampus/MemberUsage.aspx" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1370456789618" ignored="false" />
+    <file path="/MemberUsage.aspx" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1370304188926" ignored="false" />
+    <file path="$root$/LyndaWebSite/Views/LyndaCampus/TotalUsageSummary.aspx" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1370456793059" ignored="false" />
+    <file path="$root$/LyndaWebSite/Views/LyndaCampus/CourseRankingSummary.aspx" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1370456757270" ignored="false" />
+    <file path="$root$/LyndaWebSite/Views/LyndaCampus/CertificateOfCompletion.aspx" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1370456727935" ignored="false" />
+    <file path="$root$/LyndaWebSite/Views/LyndaCampus/ComputerSetup.aspx" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1370456754262" ignored="false" />
+    <file path="$root$/LyndaWebSite/Views/LyndaCampus/IPMovieHistory.aspx" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1370456783281" ignored="false" />
+    <file path="$root$/LyndaWebSite/Views/LyndaCampus/MemberList.aspx" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1370456787835" ignored="false" />
+    <file path="$root$/LyndaWebSite/Views/LyndaCampus/MovieRankingSummary.aspx" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1370456791185" ignored="false" />
+    <file path="$root$/LyndaWebSite/ui/styles/lynda_enterprise.css" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1370386473741" ignored="false" />
+    <file path="$root$/LyndaWebSite/Controllers/LyndaEnterpriseController.cs" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1370386449333" ignored="false" />
+    <file path="$root$/LyndaWebSite/Player/reports/jasmine/coverage.xml" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1370451765464" ignored="false" />
+    <file path="$root$/Configuration/templates/Website/App_Data/APISettings.xml" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1370451765465" ignored="false" />
+    <file path="/HeaderEyebrow.ascx" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1370451868727" ignored="false" />
+    <file path="$root$/LyndaWebSite/Views/Shared/HeaderEyebrow.ascx" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1370644325167" ignored="false" />
+    <file path="/GlossaryOfTerms.aspx" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1370453471913" ignored="false" />
+    <file path="$root$/LyndaWebSite/Views/LyndaCampus/GlossaryOfTerms.aspx" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1370456758648" ignored="false" />
+    <file path="$root$/LyndaWebSite/Controllers/LyndaCampusController.cs" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1370452838190" ignored="false" />
+    <file path="/UrlRoutes.xml" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1370453838843" ignored="false" />
+    <file path="$root$/LyndaWebSite/Views/LyndaEnterprise/ManageUsersAndGroups.aspx.orig" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1370454894501" ignored="false" />
+    <file path="/CertificateOfCompletion.aspx" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1370456727935" ignored="false" />
+    <file path="/user_management.css" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1370555773854" ignored="false" />
+    <file path="$root$/LyndaWebSite/Views/User/LoginModal.aspx" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1370644325167" ignored="false" />
+    <file path="/jquery_overlay.js" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1370637137776" ignored="false" />
+    <file path="$root$/LyndaWebSite/Layout01Redesigned.Master" changelist="6ab6225d-ba0c-4e1e-a699-90feb310e352" time="1370644325167" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,10 +146,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="drag.css" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="drag.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/drag.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="122" column="23" selection-start="2304" selection-end="2304" vertical-scroll-proportion="0.41580757">
+            <state line="130" column="6" selection-start="2430" selection-end="2430" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -71,7 +158,7 @@
       <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="351" column="23" selection-start="22363" selection-end="22363" vertical-scroll-proportion="-3.9230769">
+            <state line="8" column="57" selection-start="392" selection-end="392" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -80,15 +167,26 @@
       <file leaf-file-name="jquery_drag.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/jquery_drag.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="169" column="7" selection-start="8199" selection-end="8199" vertical-scroll-proportion="0.0">
-              <folding>
-                <marker date="1367440600087" expanded="true" signature="682:7451" placeholder="{&quot;connectWith&quot;: '.connected'...}" />
-                <marker date="1367440600087" expanded="true" signature="1875:2616" placeholder="{...}" />
-                <marker date="1367440600087" expanded="true" signature="2705:2725" placeholder="{...}" />
-                <marker date="1367440600087" expanded="true" signature="2816:3208" placeholder="{...}" />
-                <marker date="1367440600087" expanded="true" signature="3261:7417" placeholder="{...}" />
-                <marker date="1367440600087" expanded="true" signature="5453:7452" placeholder="/*...*/" />
-              </folding>
+            <state line="35" column="21" selection-start="1366" selection-end="1366" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="jquery_overlay_remix.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/jquery_overlay_remix.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="7" column="5" selection-start="140" selection-end="140" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="jquery_overlay.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/js/jquery_overlay.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="28" column="64" selection-start="1469" selection-end="1469" vertical-scroll-proportion="-0.25697675">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -111,7 +209,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/namespace.html" />
         <option value="$PROJECT_DIR$/namespaces.js" />
         <option value="$PROJECT_DIR$/js/lynda_template.js" />
         <option value="$PROJECT_DIR$/js/jquery_back_to_top.js" />
@@ -124,9 +221,10 @@
         <option value="$PROJECT_DIR$/js/jquery_content_slider.js" />
         <option value="$PROJECT_DIR$/js/lynda_overlay.js" />
         <option value="$PROJECT_DIR$/js/drag.js" />
-        <option value="$PROJECT_DIR$/index.html" />
-        <option value="$PROJECT_DIR$/js/jquery_drag.js" />
         <option value="$PROJECT_DIR$/css/drag.css" />
+        <option value="$PROJECT_DIR$/js/jquery_drag.js" />
+        <option value="$PROJECT_DIR$/js/jquery_overlay_remix.js" />
+        <option value="$PROJECT_DIR$/index.html" />
       </list>
     </option>
   </component>
@@ -151,7 +249,7 @@
     <option name="STATE" value="0" />
   </component>
   <component name="ProjectView">
-    <navigator proportions="" version="1" splitterProportion="0.5">
+    <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -162,13 +260,25 @@
       <autoscrollFromSource />
       <sortByType />
     </navigator>
-    <panes />
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Flying Octo Monkey" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="true" />
     <property name="options.lastSelected" value="reference.settingsdialog.IDE.editor.colors" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Web" />
     <property name="FullScreen" value="false" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
@@ -263,7 +373,7 @@
       <window_info id="Heroku" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32962137" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.12166489" sideWeight="0.6703663" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.12379936" sideWeight="0.6703663" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32962137" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -341,26 +451,14 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/js/lynda_template.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="11" selection-start="475" selection-end="475" vertical-scroll-proportion="0.31887457" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/namespace.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="4" column="64" selection-start="204" selection-end="204" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/jquery_overlay.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="286" column="46" selection-start="16292" selection-end="16292" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/css/framework.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="272" column="1" selection-start="4899" selection-end="4899" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="272" column="1" selection-start="4899" selection-end="4899" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/css/overlay.css">
@@ -408,30 +506,37 @@
         <state line="222" column="0" selection-start="10476" selection-end="10476" vertical-scroll-proportion="0.43657142" />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/css/drag.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="130" column="6" selection-start="2430" selection-end="2430" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/js/jquery_drag.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="169" column="7" selection-start="8199" selection-end="8199" vertical-scroll-proportion="0.0">
-          <folding>
-            <marker date="1367440600087" expanded="true" signature="682:7451" placeholder="{&quot;connectWith&quot;: '.connected'...}" />
-            <marker date="1367440600087" expanded="true" signature="1875:2616" placeholder="{...}" />
-            <marker date="1367440600087" expanded="true" signature="2705:2725" placeholder="{...}" />
-            <marker date="1367440600087" expanded="true" signature="2816:3208" placeholder="{...}" />
-            <marker date="1367440600087" expanded="true" signature="3261:7417" placeholder="{...}" />
-            <marker date="1367440600087" expanded="true" signature="5453:7452" placeholder="/*...*/" />
-          </folding>
+        <state line="35" column="21" selection-start="1366" selection-end="1366" vertical-scroll-proportion="0.0">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="351" column="23" selection-start="22363" selection-end="22363" vertical-scroll-proportion="-3.9230769">
+        <state line="8" column="57" selection-start="392" selection-end="392" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/drag.css">
+    <entry file="file://$PROJECT_DIR$/js/jquery_overlay_remix.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="122" column="23" selection-start="2304" selection-end="2304" vertical-scroll-proportion="0.41580757">
+        <state line="7" column="5" selection-start="140" selection-end="140" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/jquery_overlay.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="64" selection-start="1469" selection-end="1469" vertical-scroll-proportion="-0.25697675">
           <folding />
         </state>
       </provider>

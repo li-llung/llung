@@ -7,7 +7,8 @@
     border-top: 5px solid transparent;
     float: left;
     position: absolute;
-    top: 25%;
+    /*top: 25%;*/
+    top: 2px;
 }
 .drag .down{
     display: block;
@@ -18,7 +19,8 @@
     border-top: 5px solid #585858;
     float: left;
     position: absolute;
-    top: 40%;
+    /*top: 40%;*/
+    top: 5px;
 }
 .activate{
     font-size: 21px;
@@ -50,6 +52,12 @@
 }
 .drag li{
     margin: 5px 0;
+}
+.drag li:hover{
+    cursor:move;
+    cursor: grab;
+    cursor: -moz-grab;
+    cursor: -webkit-grab;    
 }
 .drag div{
     padding: 3px 0 3px 5px;
@@ -104,13 +112,17 @@
     height: 14px;
     line-height: 14px;
 }
+.drag li div.arrow_holder{
+    float: left;
+    padding: 0;
+    width: 14px;
+}
 .drag a{
     color: #585858;
     font-size: 14px;
     line-height: 14px;
     font-weight: bold;
     font-family: Helvetica,Arial,sans-serif;
-    padding-left: 15px;
     text-decoration: none;
 }
 .top_level{
@@ -131,6 +143,10 @@
     line-height: 14px;
     height: 14px;
     border: 1px dashed #bbbbbb;
+    cursor: move;
+    cursor: grabbing;
+    cursor: -moz-grabbing;
+    cursor: -webkit-grabbing;
 }
 .ui-state-active{
     background-color:#e8f2ff;
@@ -145,6 +161,9 @@
 .ui-state-active a:after{
     content: " +";
 }
+/*.drag .ui-state-active + ul{
+    display: block;
+}*/
 .ui-state-hover{
     font-size: 1px;
     line-height: 1px;
@@ -157,4 +176,22 @@
     height: 1px;
     background-color: #FFFFD0;
     border: 1px solid #FFFDD0;
+}
+.drag .ui-sortable-helper:hover  {
+    cursor: move;
+    cursor: grabbing;
+    cursor: -moz-grabbing;
+    cursor: -webkit-grabbing;
+}
+.treePreview {
+    height:30px;
+    border:1px solid #b3b3b3;
+    line-height: 30px;
+    font-family: Helvetica,Arial,sans-serif;
+    font-size: 12px;
+    background-color: #fff;
+    opacity: 0.7;
+}
+.treePreview div:hover{
+    background-color: transparent;
 }

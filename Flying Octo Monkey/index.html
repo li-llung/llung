@@ -155,7 +155,7 @@
                             <div><a href="javascript: void(0);">Group 6</a></div>
                         </li>
                         <li class="magic top_level">
-                            <div><a href="javascript: void(0);"><span class="drop">&nbsp;</span>Group 7</a></div>
+                            <div><a href="javascript: void(0);">Group 7</a></div>
                             <ul class="connected">
                                 <li>
                                     <div><a href="javascript: void(0);">Group 1</a></div>
@@ -164,7 +164,7 @@
                                     <div><a href="javascript: void(0);">Group 2</a></div>
                                 </li>
                                 <li class="magic">
-                                    <div><a href="javascript: void(0);"><span class="drop">&nbsp;</span>Group 3</a></div>
+                                    <div><a href="javascript: void(0);">Group 3</a></div>
                                     <ul class="connected">
                                         <li>
                                             <div><a href="javascript: void(0);">Group 1</a></div>
@@ -173,7 +173,7 @@
                                             <div><a href="javascript: void(0);">Group 2</a></div>
                                         </li>
                                         <li class="magic">
-                                            <div><a href="javascript: void(0);"><span class="drop">&nbsp;</span>Group 3</a></div>
+                                            <div><a href="javascript: void(0);">Group 3</a></div>
                                             <ul class="connected">
                                                 <li>
                                                     <div><a href="javascript: void(0);">Group 1</a></div>
@@ -182,7 +182,7 @@
                                                     <div><a href="javascript: void(0);">Group 2</a></div>
                                                 </li>
                                                 <li class="magic">
-                                                    <div><a href="javascript: void(0);"><span class="drop">&nbsp;</span>Group 3</a></div>
+                                                    <div><a href="javascript: void(0);">Group 3</a></div>
                                                     <ul class="connected">
                                                         <li>
                                                             <div><a href="javascript: void(0);">Group 1</a></div>
@@ -241,7 +241,7 @@
                             <div><a href="javascript: void(0);">Group 9</a></div>
                         </li>
                         <li class="magic top_level">
-                            <div><a href="javascript: void(0);"><span class="drop">&nbsp;</span>Group 10</a></div>
+                            <div><a href="javascript: void(0);">Group 10</a></div>
                             <ul class="connected">
                                 <li>
                                     <div><a href="javascript: void(0);">Group 1</a></div>
@@ -314,6 +314,11 @@
                     <li class="top_level"><div><a href="javascript: void(0);">user 3</a></div></li>
                     <li class="top_level"><div><a href="javascript: void(0);">user 4</a></div></li>
                     <li class="top_level"><div><a href="javascript: void(0);">user 5</a></div></li>
+                    <li class="top_level"><div><a href="javascript: void(0);">user 6</a></div></li>
+                    <li class="top_level"><div><a href="javascript: void(0);">user 7</a></div></li>
+                    <li class="top_level"><div><a href="javascript: void(0);">user 8</a></div></li>
+                    <li class="top_level"><div><a href="javascript: void(0);">user 9</a></div></li>
+                    <li class="top_level"><div><a href="javascript: void(0);">user 10</a></div></li>
                 </ul>
                 <h5>Sample Usage</h5>
                 <p>Bacon ipsum dolor sit amet andouille beef ribs pork loin pork spare ribs hamburger meatloaf prosciutto brisket salami ball tip. Cow drumstick salami brisket tail ham hock. Fatback ham hock ground round swine, shoulder bresaola frankfurter brisket shank pork chop beef ribs bacon chuck ball tip. Flank tongue brisket beef. Ball tip capicola t-bone meatball beef chicken. Bacon strip steak hamburger prosciutto frankfurter, beef shankle meatball pastrami shank pork loin meatloaf.</p>
@@ -432,7 +437,7 @@
                 <a href="javascript: void(0);" class="ini_on_page" id="ini_on_page" data-element="small_meat" title="Initialized on page" data-width="640" data-height="480">Initialized on page</a>
                 <br /><br />
                 <h3>Called from JS</h3>
-                <a href="javascript: void(0);" onclick="show_overlay(this)" class="called_from_js" id="called_from_js" data-element="called_from_js" title="Called from page" data-width="800" data-height="600">show</a>
+                <a href="javascript: void(0);" onclick="show_overlay(this, {element: 'called_from_js', show: true, type: 'json', call: {title: 'testing 123', content: 'fun'}})" title="called from js">show</a>
                 <br /><br />
                 <h5>Sample Usage</h5>
                 <div class="box">
@@ -805,7 +810,7 @@
     </div>
     <div id="small_meat" class="overlay_holder">
         <p>Tenderloin pork chop drumstick tail pork belly venison.</p>
-        <a href="javascript: void(0);" onclick="show_overlay('#test')">show test</a>
+        <a href="javascript: void(0);" onclick="show_overlay('#test', {element: 'called_from_js', show: true, title: 'called from js'})">show test</a>
     </div>
     <div id="called_from_js" class="overlay_holder">
         <p>Called from JS</p>
