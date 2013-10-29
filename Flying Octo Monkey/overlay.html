@@ -2,9 +2,68 @@
 <html xmlns="http://www.w3.org/1999/html">
 <head>
     <script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
-    <script type="text/javascript" src="js/jquery_overlay_remix.js"></script>
-    <script type="text/javascript" src="js/something.js"></script>
+    <script type="text/javascript" src="js/super_overlay.js"></script>
+	<link rel="stylesheet" href="css/z.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="css/overlay.css" type="text/css" media="screen" />
 </head>
 <body>
+<a href="javascript: void(0);" class="overlay" data-type="image" title="2013-Ford-F-150-SVT-Raptor-Off-Road"><img src="images/2013-Ford-F-150-SVT-Raptor-Off-Road-796x528.jpg" alt="" /></a>
+<a href="javascript: void(0);" class="overlay" data-type="image" title="2014-McLaren-P1"><img src="images/2014-McLaren-P1.jpg" alt="" /></a>
+<a href="javascript: void(0);" class="overlay" data-type="image" title="2015-Porsche-911-GT2"><img src="images/2015-Porsche-911-GT2.jpg" alt="" /></a>
+<a href="javascript: void(0);" class="overlay" data-type="image" title="Range Rover"><img src="images/6a01676870bd66970b017d3be5eb72970c-800wi.jpg" alt="" /></a>
+<a href="javascript: void(0);" class="overlay" data-type="image" title="acura-nsx-concept-1"><img src="images/acura-nsx-concept-1.jpg" alt="" /></a>
+<a href="javascript: void(0);" class="overlay" data-type="image" title="audi"><img src="images/audi.jpg" alt="" /></a>
+<a href="javascript: void(0);" class="overlay" data-type="image" title="camaro-concept-transformers4"><img src="images/camaro-concept-transformers4-628.jpg" alt="" /></a>
+<a href="javascript: void(0);" class="overlay" data-type="image" title="Ferrari-FF-2014-Cadillac-CTS"><img src="images/Ferrari-FF-2014-Cadillac-CTS-and-future-cars-on-Wide-Open-Throttle-image-4.jpg" alt="" /></a>
+<a href="javascript: void(0);" class="overlay" data-type="image" title="ferrari"><img src="images/ferrari.jpg" alt="" /></a>
+<a href="javascript: void(0);" class="overlay" data-type="image" title="gt3_r8_4"><img src="images/gt3_r8_4.jpg" alt="" /></a>
+<a href="javascript: void(0);" class="overlay" data-type="image" title="new-car-technology-2013"><img src="images/new-car-technology-2013.jpg" alt="" /></a>
+<br /><br />
+<h3>Content Overlay</h3>
+<a href="javascript: void(0);" class="overlay" data-element="meat" title="">Hidden Div on page</a> |
+<a href="javascript: void(0);" class="overlay" data-element="test" title="" data-width="200" data-height="200">Hidden Div on page 2</a> |
+<a href="json.txt" class="overlay" data-type="file" title="">Content from local text file</a>
+<br /><br />
+<h3>Ajax</h3>
+<a href="/ajax.php" class="overlay" data-type="ajax" title="">Ajax</a> |
+<a href="/json.php" class="overlay" data-type="ajax" title="">Ajax Json Data</a>
+<br /><br />
+<h3>Content Overlay w/Titles</h3>
+<a href="javascript: void(0);" class="overlay" data-element="meat" data-title="Hidden Div on page">Hidden Div on page</a> |
+<a href="javascript: void(0);" class="overlay" data-element="test" data-title="Hidden Div on page" data-width="200" data-height="200">Hidden Div on page 2</a> |
+<a href="file.txt" class="overlay" data-type="file" data-title="Content from local text file">Content from local text file</a>
+<br /><br />
+<h3>JSON</h3>
+<a href="javascript: void(0);" class="overlay" data-type="json" data-call="json_call" title="JSON call">JSON call in page</a>
+<br /><br />
+<h3>Call me</h3>
+<a href="javascript: $('#call_me').em().overlay('open');" class="overlay" id="call_me" data-element="meat">click me</a>
+<br /><br />
+
+<div id="meat" class="overlay_holder wider">
+    <p>Tenderloin pork chop drumstick tail pork belly venison. Turkey brisket chuck pork belly, spare ribs sausage ribeye shankle pork loin cow strip steak pork biltong. Biltong rump capicola, tenderloin prosciutto drumstick jowl ribeye turkey venison bacon salami. Brisket short ribs turkey capicola, bresaola shoulder rump shank hamburger meatloaf beef. Pancetta hamburger t-bone, bresaola shank corned beef chicken brisket leberkas filet mignon frankfurter.</p>
+
+    <p>Sausage flank drumstick bresaola. Pork bacon frankfurter cow brisket. Shank tail salami fatback. Bacon strip steak ribeye corned beef, sausage boudin capicola meatloaf t-bone. Shoulder pork chop ball tip, biltong prosciutto hamburger speck meatball spare ribs pork belly chicken pork t-bone beef ribs. Leberkas hamburger prosciutto meatloaf, beef ribs kielbasa chuck.</p>
+</div>
+<div id="test" class="overlay_holder">
+    <p>test some more content</p>
+</div>
+<div id="small_meat" class="overlay_holder">
+    <p>Tenderloin pork chop drumstick tail pork belly venison.</p>
+    <a href="javascript: void(0);" onclick="show_overlay('#test')">show test</a>
+</div>
+<div id="called_from_js" class="overlay_holder">
+    <p>Called from JS</p>
+    <a href="javascript: void(0);" onclick="close_overlay(this)">hide</a>
+</div>
+<script type="text/javascript">
+    //<![CDATA[
+    'use strict';
+	var json_call = {
+		title: 'yay a json title',
+		content: '<p>Tenderloin pork chop drumstick tail pork belly venison. Turkey brisket chuck pork belly, spare ribs sausage ribeye shankle pork loin cow strip steak pork biltong. Biltong rump capicola, tenderloin prosciutto drumstick jowl ribeye turkey venison bacon salami. Brisket short ribs turkey capicola, bresaola shoulder rump shank hamburger meatloaf beef. Pancetta hamburger t-bone, bresaola shank corned beef chicken brisket leberkas filet mignon frankfurter.</p>'
+	};
+    //]]>
+</script>
 </body>
 </html>
