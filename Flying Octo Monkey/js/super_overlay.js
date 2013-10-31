@@ -5,7 +5,7 @@
 {
 	var config = {
 		mode: 'fixed', //fixed or responsive or add new to settings=>mode
-		role: 'default', //image , json , file , external , iframe, default or add new to settings=>role
+		role: 'default', //image , gallery , json , file , external , iframe, default or add new to settings=>role
 		trigger: 'overlay', //css selector
 		from: {
 			data: '',
@@ -14,6 +14,7 @@
 		},
 		overlay: {
 			exists: false,
+			target: '',
 			css_class: '',
 			show_header: '',
 			scrollable: '',
@@ -85,7 +86,7 @@
 			},
 			overlay: function(element)
 			{
-
+				build.bg();
 			}
 		},
 		actions = {
@@ -108,7 +109,6 @@
 			});
 			$(document).off('click.init').on('click.init', '.' + options.trigger, function ()
 			{
-				build.bg();
 				build.overlay($(this));
 				return false;
 			});
