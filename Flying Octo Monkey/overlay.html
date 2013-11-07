@@ -1,10 +1,6 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/html">
 <head>
-    <script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
-    <!--<script type="text/javascript" src="js/super_overlay.js"></script>
-    <script type="text/javascript" src="js/super_overlay_remix_strapped.js"></script>-->
-    <script type="text/javascript" src="js/super_overlay_remix.js"></script>
 	<link rel="stylesheet" href="css/z.css" type="text/css" media="screen" />
 	<link rel="stylesheet" href="css/overlay.css" type="text/css" media="screen" />
 </head>
@@ -20,7 +16,7 @@
 <a href="javascript: void(0);" class="overlay" data-type="image" title="ferrari"><img src="images/ferrari.jpg" alt="" /></a>
 <a href="javascript: void(0);" class="overlay" data-type="image" title="gt3_r8_4"><img src="images/gt3_r8_4.jpg" alt="" /></a>
 <a href="javascript: void(0);" class="overlay" data-type="image" title="new-car-technology-2013"><img src="images/new-car-technology-2013.jpg" alt="" /></a>
-<a href="javascript: void(0);" class="overlay" data-type="image" title="Mud Digger" alt="" /><img src="images/129_0906_07_z2B4x4_truck_mudding_spots_usa2Btruck_night_yankee_lake.jpg" alt="" /></a>
+<a href="javascript: void(0);" class="overlay" data-type="image" title="Mud Digger" alt="" id="mud_digger" /><img src="images/129_0906_07_z2B4x4_truck_mudding_spots_usa2Btruck_night_yankee_lake.jpg" alt="" /></a>
 <a href="javascript: void(0);" class="overlay" data-type="image" title="292l1mq.jpg" alt="" /><img src="images/292l1mq.jpg" alt="" /></a>
 <a href="javascript: void(0);" class="overlay" data-type="image" title="mudding-trucks-graphics-and-comments-d6v6bexw.jpg" alt="" /><img src="images/mudding-trucks-graphics-and-comments-d6v6bexw.jpg" alt="" /></a>
 
@@ -40,7 +36,7 @@
 <a href="file.txt" class="overlay" data-type="file" data-title="Content from local text file">Content from local text file</a>
 <br /><br />
 <h3>JSON</h3>
-<a href="javascript: void(0);" class="overlay" data-type="json" data-call="json_call" title="JSON call">JSON call in page</a>
+<a href="javascript: void(0);" class="overlay" data-type="json" data-call="json_call" data-class_bg="red_modal" title="JSON call">JSON call in page</a>
 <br /><br />
 <h3>Call me</h3>
 <a href="javascript: $('#call_me').em().overlay('open');" class="overlay" id="call_me" data-element="meat">click me</a>
@@ -71,4 +67,11 @@
 	};
     //]]>
 </script>
+    <script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="js/modernizr-2-6-2.min.js"></script>
+    <script type="text/javascript" src="js/z.js"></script>
+    <!--<script type="text/javascript" src="js/super_overlay.js"></script>
+    <script type="text/javascript" src="js/super_overlay_remix_strapped.js"></script>-->
+    <script type="text/javascript" src="js/super_overlay_remix.js"></script>
+    <script type="text/javascript" src="js/z_boot.js"></script>
 </html>
