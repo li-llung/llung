@@ -19,7 +19,7 @@
 
 	// initialize z
 	z.prototype.init = function() {
-		console.log('ignition');
+		zem.debug('ignition');
 		// init UI modules
 		this.initUIModules();
 
@@ -65,7 +65,7 @@
 	};
 
 	// public helper - return debuggin object including uiModules object
-	z.prototype.debug = function() {
+	z.prototype.debuggin = function() {
 		return {
 			$dom: this.$dom,
 			isOldie: this.isOldie,
@@ -110,7 +110,7 @@
 
 	// initialize a uiModule
 	z.prototype.initialize = function(ref) {
-		console.log('initing ' + ref);
+		zem.debug('initing ' + ref);
 		if(this.inits[ref] && typeof this.inits[ref] === 'function') {
 			this.inits[ref]();
 		}
@@ -118,19 +118,19 @@
 
 	// store a UI module
 	z.prototype.UIModule = function(data) {
-		console.log('data');
-		console.log(data);
+		zem.debug('data');
+		zem.debug(data);
 		var module = data.module;
 		this.uiModules[module] = data;
 	};
 
 	// loop round and init all UI modules
 	z.prototype.initUIModules = function() {
-		console.log('init ui mods');
-		console.log(this.uiModules);
+		zem.debug('init ui mods');
+		zem.debug(this.uiModules);
 		var x;
 		for(x in this.uiModules) {
-			console.log(x);
+			zem.debug(x);
 			this.uiModules[x].init();
 		}
 	};

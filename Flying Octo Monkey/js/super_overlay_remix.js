@@ -15,31 +15,31 @@
 			}
 		},
 		build = {
-			bg: function(){
-				if ($('#modal_bg').length > 0)
+			bg: function(overlay, elements, options){
+				if ($('#' + options.class_bg).length > 0)
 				{
-					$('#modal_bg').remove();
+					$('#' + options.class_bg).remove();
 				}
 				$('<div/>', {
-					id: "modal_bg",
-					'class': "modal_bg spinner",
+					id: options.class_bg,
+					'class': options.class_bg + " " + options.class_spinner,
 					css: {
 						'width': '100%',
 						'height': document.body.clientHeight
 					}
 				}).appendTo("body");
-				$('#modal_bg').fadeTo('fast', '0.50');
+				$('#' + options.class_bg).fadeTo('fast', '0.50');
 			},
 			overlay: function(overlay, elements, options){
-				build.bg();
-				console.log(options);
-				console.log(options.type);
+				build.bg(overlay, elements, options);
+				zem.debug(options);
+				zem.debug(options.type);
 			}
 		},
 		actions = {
-			dismiss: function(){
-				$('#overlay').fadeOut();
-				$('#modal_bg').hide();
+			dismiss: function(elements, options){
+				$('#' + options.class_overlay).fadeOut();
+				$('#' + options.class_bg).hide();
 			    $("body").trigger("close_overlay");
 			},
 			show: function(){
@@ -53,9 +53,8 @@
             }
 		};
 	function SuperOverlay ( element, options ) {
-		//console.log('--------------superman!---------------');
 		me = this;
-		this.config = {
+		this.defaults = {
 			mode: 'fixed',
 			role: 'default',
 			type: 'default',
@@ -101,101 +100,83 @@
 			httpMethod: ''
 		};
 		me.element = element;
-		me.settings = me.cloneData($.extend( {}, me.config, options ));
-		me._defaults = me.config;
-		me._name = pluginName; 
-		//console.log(element.attr('href'));
-		//console.log(options);
-		//console.log(element.data('type'));
-		//console.log(element.data());
+		me.settings = me.cloneData($.extend( {}, me.defaults, options ));
 		me.updateOptions(me.element, me.settings);
-		//console.log('--------------superman!---------------');
 	}
 	SuperOverlay.prototype = {
 		constructor: SuperOverlay,
 		cloneData: function(item){
 			return JSON.parse(JSON.stringify(item));
 		},
-		testDataAttr: function(element, options, what, value, count){
-			//console.log('element = ' + element + ' and options = ' + options + ' and what = ' + what + ' and lastly value = ' + value + '*****');
+		testDataAttr: function(element, options, what){
 			if(element.data(what) !== undefined){
 		        me.settings[what] = element.data(what);
 				return element.data(what);
 			}else{
-				return this.config[what]
+				return this.defaults[what]
 			}
 		},
 		updateOptions: function (element, options){
-			//console.log('-----------start testing-----------');
-			var x,
-				count = 0;
+			var x;
 			for(x in options) {
-				//console.log(x + '!!');
-				this.testDataAttr (element, options, x, options[x], count);
-				//console.log(this.settings[x] + '@@');
-				count += 1;
+				this.testDataAttr (element, options, x);
 			}
-			//console.log(me.settings);
-			me.init(element, me.settings);
-			//console.log('-----------end testing-----------');
+			me.init(element, options);
 		},
         init: function (element, options) {
-			//console.log('from init');
-			$(document).off('click').on('click', '.modal_bg', function ()
+			$(document).off('click').on('click', '.' + options.class_bg, function ()
 			{
-				me.close(); 
+				me.close(element, options); 
 			});
 			$(document).off('keyup').on('keyup', function (e) {
 	            if (e.keyCode === 27) {
-	               me.close(); 
+	               me.close(element, options); 
 	            }
 	        });		
 			$(element).off('click').on('click', function ()
 			{
-				//console.log('yay me');
-				me.show($(this), options);	
+				me.show($(this), element, options);	
 				return false;
 			});		
         },
-		show: function(overlay, options){
-			console.log('super show');
-			//console.log(me.settings);
-			build.overlay(overlay, me.element, options);			
+		show: function(overlay, element, options){
+			zem.debug('super show');
+			build.overlay(overlay, element, options);			
 		},
-		close: function(){
-			console.log('super close');
-			actions.dismiss();
+		close: function(element, options){
+			zem.debug('super close');
+			actions.dismiss(element, options);
 		},
 		reposition: function(){
-			console.log('super reposition');
+			zem.debug('super reposition');
 			actions.reposition();
 		},
 		update: function(){
-			console.log('super update');
+			zem.debug('super update');
 			actions.update();
 		},
 		gallery: function(){
-			console.log('super gallery');
+			zem.debug('super gallery');
 			build.gallery();
 		},
 		play: function(){
-			console.log('super play');
+			zem.debug('super play');
 			actions.play();
 		},
 		stop: function(){
-			console.log('super stop');
+			zem.debug('super stop');
 			actions.stop();
 		},
 		prev: function(){
-			console.log('super prev');
+			zem.debug('super prev');
 			actions.prev();
 		},
 		next: function(){
-			console.log('super next');
+			zem.debug('super next');
 			actions.next();
 		},
 		jump: function(){
-			console.log('super jump');
+			zem.debug('super jump');
 			actions.jump();
 		}    
     }
@@ -204,7 +185,7 @@
     };
     // add initialisation
 	z.addInitalisation('zoverlay', function() {
-		console.log('zoverlay initialized');
+		zem.debug('zoverlay initialized');
 		$('.overlay').each(function() {
 			var $this = $(this);
 			// this element has already been initialized
@@ -216,16 +197,13 @@
 			new SuperOverlay($this);
 		});
 	});
-
 	// register UI module
 	z.UIModule({
 		module: 'zoverlay',
 		events: [],
 		init: function() {
-			console.log('run zoverlay init');
+			zem.debug('run zoverlay init');
 			z.initialize('zoverlay');
 		}
-	});
-
-	//z.zoverlay = new SuperOverlay(this);
+	});	
 })( jQuery, window, document );
