@@ -32,8 +32,8 @@
 <a href="json.txt" class="overlay" data-type="file" title="">Content from local text file</a>
 <br /><br />
 <h3>Ajax</h3>
-<a href="/ajax.php" class="overlay" data-type="ajax" title="">Ajax</a> |
-<a href="/json.php" class="overlay" data-type="ajax" title="">Ajax Json Data</a>
+<a href="https://api.github.com/users/zeromars/repos?client_id=d5f816034e83e1d3cde5&client_secret=bcdb732a0a29969f59749e626e3d6069cbd976ec" class="overlay" data-type="ajax" data-ajax_content="get_repos" title="">Ajax</a> |
+<a href="https://api.github.com/users/zeromars/repos?client_id=d5f816034e83e1d3cde5&client_secret=bcdb732a0a29969f59749e626e3d6069cbd976ec" class="overlay" data-type="ajax" data-ajax_content="get_repos" title="">Ajax Json Data</a>
 <br /><br />
 <h3>Content Overlay w/Titles</h3>
 <a href="javascript: void(0);" class="overlay" data-element="meat" data-title="Hidden Div on page" data-width="640" data-height="480">Hidden Div on page</a> |
@@ -70,6 +70,21 @@
 		title: 'yay a json title',
 		content: '<p>Tenderloin pork chop drumstick tail pork belly venison. Turkey brisket chuck pork belly, spare ribs sausage ribeye shankle pork loin cow strip steak pork biltong. Biltong rump capicola, tenderloin prosciutto drumstick jowl ribeye turkey venison bacon salami. Brisket short ribs turkey capicola, bresaola shoulder rump shank hamburger meatloaf beef. Pancetta hamburger t-bone, bresaola shank corned beef chicken brisket leberkas filet mignon frankfurter.</p>'
 	};
+    function get_repos(data, options){
+        var repo = '';
+        repo += '<ul class="episode-list repo-list">';
+            $(data).each(function(){
+                console.log($(this));
+                repo += '<li>';
+                    repo += '<a href="'+ $(this)[0]['html_url'] + '" target="_blank"><strong>'+ $(this)[0]['name'] + '</strong></a>';
+                repo += '</li>';                
+            });
+        repo += '</ul>';
+        console.log(data);
+        console.log(repo);
+        $("#" + options.class_overlay).append('<div class="'+options.class_content+'">' + repo + '</div>');
+        return repo;
+    }
     //]]>
 </script>
     <script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>

@@ -5,7 +5,10 @@
 {
 	var pluginName = "zoverlay",
 		version = "1.0",
-		trigger = ".overlay",
+		trigger = ".overlay",		
+		apiKey = "eb88bfe9ce12bbfa5c867df78a1b55dc",
+    	apiClientId = "d5f816034e83e1d3cde5",
+    	apiClientSecret = "bcdb732a0a29969f59749e626e3d6069cbd976ec",
 		me,
 		add = {
 			shadow: function (options)
@@ -64,9 +67,9 @@
 					$('#' + options.class_bar).remove();
 				}
 
-				var overlay_padding = $('#' + options.element).css('padding'),
-                    overlay_height = $('#' + options.element).height(),
-                    overlay_width = $('#' + options.element).width(),
+				var overlay_padding = overlay.css('padding'),
+                    overlay_height = overlay.height(),
+                    overlay_width = overlay.width(),
                     content_html = '';
 				$('<div/>', {
 					id: options.class_overlay,
@@ -94,6 +97,8 @@
 				switch (options.type)
 				{
 					case 'image':
+						console.log(total_width);
+						console.log(total_height);
 						$("#" + options.class_overlay).css({ 'width': 'auto', 'height': 'auto' });
 						var src = overlay.find('img').attr('src'),
                             image_id = overlay.find('img').attr('id'),
@@ -103,7 +108,6 @@
 						    total_height = height;
 						    overlay_top = (((Number($(window).height()) - Number(height)) / 2));
 						    overlay_left = (((Number($('body').width()) - Number(width)) / 2));
-
 						if (width >= ($(document).width() - 100))
 						{
 							total_width = (Number($('body').width()) - 100);
@@ -114,14 +118,17 @@
 							overlay_top = 50;
 							total_width = 'auto';
 						}
-						$('<div id="#'+options.class_images+'" class="'+options.class_content+'"><img src="' + src + '" width="' + total_width + '" height="' + total_height + '" alt="' + options.title + '" style="height: ' + total_height + '' + ((total_height == "auto") ? '' : 'px') + ';width: ' + total_width + '' + ((total_width == "auto") ? '' : 'px') + ';" alt="" /></div>').insertAfter('#' + options.class_bar);
+						//$('<div id="#'+options.class_images+'" class="'+options.class_content+'"><img src="' + src + '" width="' + total_width + '" height="' + total_height + '" alt="' + options.title + '" style="height: ' + total_height + '' + ((total_height == "auto") ? '' : 'px') + ';width: ' + total_width + '' + ((total_width == "auto") ? '' : 'px') + ';" alt="" /></div>').insertAfter('#' + options.class_bar);
+						$('<div id="#'+options.class_images+'" class="'+options.class_content+'"><img src="' + src + '" alt="' + options.title + '" /></div>').insertAfter('#' + options.class_bar);
 						if (options.title !== "")
 						{
 							$('<div class="'+options.class_caption+'"><h1>' + options.title + '</h1></div>').appendTo('.' + options.class_content);
 							$('.' + options.class_caption).fadeTo("slow", 0.60);
 						}
-						$("#" + options.class_overlay).hide().fadeTo("slow", 1).show().css({ 'left': overlay_left }).width((Number(total_width) + overlay_padding));
-						$("#" + options.class_overlay).css('top', overlay_top + $(window).scrollTop());
+						if(options.gallery !== false){
+							$("#" + options.class_overlay).append('<a href="javascript: void(0)" class="prev"></a><a href="javascript: void(0)" class="next"></a>');
+						}
+						actions.show(overlay_top, overlay_left, total_width, total_height, options);
 						break;
 					case 'json':
 						$("#" + options.class_overlay).append('<div class="'+options.class_content+'">' + ((window[options.call].title !== "") ? '<h1>' + window[options.call].title + '</h1>' : '') + '' + window[options.call].content + '</div>');
@@ -138,6 +145,27 @@
 							}
 						});
 						break;
+					case 'ajax':
+						console.log(typeof (options.ajax_content));
+						$.ajax({
+							type: options.httpMethod,
+							url: overlay.attr('href'),
+							dataType: "jsonp",
+							crossDomain: true,
+							success: function (data)
+							{
+								console.log(data);
+								if (typeof (options.ajax_content) === 'function')
+								{
+									options.ajax_content(data['data'], options);
+								} else if (options.ajax_content)
+								{
+									window[options.ajax_content](data['data'], options);
+								}
+								actions.show(overlay_top, overlay_left, total_width, total_height, options);
+							}
+						});
+						break;
 					case 'external':
 						var newObj = {},
                             branch = options.params.split(',');
@@ -148,7 +176,7 @@
 						}
 						$.ajax({
 							type: options.httpMethod,
-							url: options.href,
+							url: overlay.attr('href'),
 							data: newObj,
 							success: function (data)
 							{
@@ -290,6 +318,7 @@
 			show: '',
 			close: '',
 			callback: '',
+			ajax_content: '',
 			width: 'user',
 			height: 'user',
 			max_height: 'user',
@@ -299,7 +328,7 @@
 			data_class: '',
 			call: '',
 			params: '',
-			httpMethod: '',
+			httpMethod: 'post',
 			gallery: false
 		};
 		me.element = element;
