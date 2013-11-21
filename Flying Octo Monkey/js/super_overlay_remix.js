@@ -68,8 +68,10 @@
 				}
 
 				var overlay_padding = overlay.css('padding'),
-                    overlay_height = overlay.height(),
-                    overlay_width = overlay.width(),
+                    //overlay_height = overlay.height(),
+                    //overlay_width = overlay.width(),
+                    overlay_height = options.height,
+                    overlay_width = options.width,
                     content_html = '';
 				$('<div/>', {
 					id: options.class_overlay,
@@ -221,9 +223,9 @@
 				var finalHeight = parseInt(total_height) + parseInt(outerOverlay.paddingHeight);
 				var finalWidth = parseInt(total_width) + parseInt(outerOverlay.paddingWidth);
 				if(options.height !== 'user'){
-					$("#" + options.class_overlay).hide().fadeTo("slow", 1).show().css({ 'left': overlay_left, 'width': finalWidth, 'height': finalHeight, 'min-height': finalHeight });
+					$("#" + options.class_overlay).hide().fadeTo("slow", 1).show().css({ 'left': overlay_left, 'width': finalWidth, 'height': finalHeight, 'min-height': finalHeight, 'min-width': finalWidth });
 				}else{
-					$("#" + options.class_overlay).hide().fadeTo("slow", 1).show().css({ 'left': overlay_left, 'width': finalWidth, 'min-height': finalHeight });
+					$("#" + options.class_overlay).hide().fadeTo("slow", 1).show().css({ 'left': overlay_left, 'width': finalWidth, 'min-height': finalHeight, 'min-width': finalWidth });
 				}				
 				$("#" + options.class_overlay).css('top', overlay_top + $(window).scrollTop());
 				$('.' + options.class_bg).removeClass(options.class_spinner);
