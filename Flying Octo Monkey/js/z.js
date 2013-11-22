@@ -103,6 +103,11 @@
 		return false;
 	};
 
+	// 
+	z.prototype.cloneData = function(item) {
+		return JSON.parse(JSON.stringify(item));
+	};
+
 	// add an initialisation method
 	z.prototype.addInitalisation = function(ref, code) {
 		this.inits[ref] = code;

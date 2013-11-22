@@ -5,7 +5,8 @@
 {
 	var pluginName = "zoverlay",
 		version = "1.0",
-		trigger = ".overlay",		
+		trigger = ".overlay",	
+        counter = 1,	
 		apiKey = "eb88bfe9ce12bbfa5c867df78a1b55dc",
     	apiClientId = "d5f816034e83e1d3cde5",
     	apiClientSecret = "bcdb732a0a29969f59749e626e3d6069cbd976ec",
@@ -20,7 +21,7 @@
 				$('.' + options.class_holder).css({ '-moz-border-radius': options.rounded, '-webkit-border-radius': options.rounded, 'border-radius': options.rounded, '-khtml-border-radius': options.rounded });
 			}
 		},
-		build = {
+		build = {		
 			bg: function(overlay, elements, options){
 				if ($('#' + options.class_bg).length > 0)
 				{
@@ -32,8 +33,117 @@
 				}).appendTo("body");
 				$('#' + options.class_bg).fadeTo('fast', '0.60');
 			},
-			gallery: function(){
+			gallery: function(overlay, element, options){
 				zem.debug('super gallery');
+				var slide_number = $("#" + options.class_overlay).find('.' + options.anchor).text(),
+					src = overlay.find('img').attr('src'),
+                    image_id = overlay.find('img').attr('id'),
+                    width = $('#image_' + image_id).width(),
+                    height = $('#image_' + image_id).height(),
+				    total_width = width,
+				    total_height = height,
+				    overlay_top = (((Number($(window).height()) - Number(height)) / 2)),
+				    overlay_left = (((Number($('body').width()) - Number(width)) / 2)),
+				    slider_width = 0,
+	                slide_offset = 0,
+	                slide_offset_top = 0;
+				var slide_items = $("[data-gallery^="+options.gallery+"]").find('img');
+                var o = options;
+				var gallery = $(".has_gallery");
+				var isFirst = overlay.hasClass('isFirst');
+				var isLast = overlay.hasClass('isLast');
+				console.log(src);
+				console.log(image_id);
+				console.log(width);
+				console.log(height);
+				console.log(total_width);
+				console.log(total_height);
+                $("<div/>", {
+                    'class': options.class_content
+                }).appendTo("#" + options.class_overlay);
+                $("<div/>", {
+                    id: "slide_holder_" + counter,
+                    'class': "slide_holder"
+                }).appendTo($("#" + options.class_overlay).find('.' + options.class_content)).wrap('<div class="slider" style="width: '+width+'px;height: '+height+'px;"></div>');
+				slide_items.each(function(index){
+					var slide_src = $(this).attr('src'),
+	                    slide_image_id = $(this).attr('id'),
+	                    slide_width = $('#image_' + slide_image_id).width(),
+	                    slide_height = $('#image_' + slide_image_id).height();
+					$('<div class="slide" style="height: '+slide_height+'px;width: '+slide_width+'px;"><img src="' + slide_src + '" alt="' + $(this).attr('title') + '" id="slide_'+slide_image_id+'" /></div>').appendTo($("#" + options.class_overlay).find('.slide_holder'));
+					slider_width += slide_width;
+				});
+                var slide_count = $("#" + options.class_overlay).find('.slide').length,
+                    holder = '#slide_holder_' + counter,
+                    nav =  '#slide_nav_' + counter;
+				console.log(slide_count);
+				console.log('slider number = ' + slide_number);
+	            $('#' + options.class_overlay).find('.slide').each(function(index){
+	            	if((index + 1) < slide_number){
+	            		slide_offset += $(this).find('img').width();
+	            		slide_offset_top += $(this).find('img').height();
+	            	}
+	            });
+                if(options.direction === "horizontal"){
+                    $("#" + options.class_overlay).find('.slide_holder').width(slide_count * slider_width);	
+                }
+                $("#" + options.class_overlay).find('.slide').appendTo(holder);
+                $("<div/>", {
+                    id: "slide_nav_" + counter,
+                    'class': "slide_nav"
+                }).appendTo("#" + options.class_overlay);
+                for(var i=0;i<slide_count;i++){
+                    $("<a/>", {
+                        href: 'javascript:void(0);',
+                        'class': "slide_nav_item",
+                        text: (i + 1)
+                    }).appendTo(nav);
+                }
+				if(options.gallery !== false){
+					$("#" + options.class_overlay).append('<a href="javascript: void(0)" class="prev"></a><a href="javascript: void(0)" class="next"></a>');
+				}
+                $(nav).find('.slide_nav_item').first().addClass('slide_nav_anchor');
+				$("#" + options.class_overlay).on('click', '.slide_nav_item', function ()
+				{
+					$('.' + options.class_next).hide();
+					$('.' + options.class_prev).hide();
+		            actions.content_animate_to($(this), "#" + options.class_overlay, options, width, height, image_id);
+		            actions.content_anchor($(this), "#" + options.class_overlay, options);
+		        });
+				$("#" + options.class_overlay).on('click', '.' + options.class_next, function ()
+				{
+					$('.' + options.class_next).hide();
+					actions.next_slide(element, options); 
+				});
+				$("#" + options.class_overlay).on('click', '.' + options.class_prev, function ()
+				{
+					$('.' + options.class_prev).hide();
+					actions.prev_slide(element, options); 
+				});
+				if(isFirst){
+					gallery.find('.prev').hide();	
+				}				
+				if(isLast){
+					gallery.find('.next').hide();	
+				}
+				/*if (width >= ($(document).width() - 100))
+				{
+					total_width = (Number($('body').width()) - 100);
+					total_height = 'auto';
+					overlay_top = 50;
+				} else if (height >= ($(window).height() - 100))
+				{
+					overlay_top = 50;
+					total_width = 'auto';
+				}*/			
+				if (options.title !== "")
+				{
+					$('<div class="'+options.class_caption+'"><h1>' + options.title + '</h1></div>').appendTo('.' + options.class_content);
+					$('.' + options.class_caption).fadeTo("slow", 0.60);
+				}	
+				$("#" + options.class_overlay).find('.slide_holder').css('left', '-' + slide_offset + 'px');
+				actions.show(overlay_top, overlay_left, total_width, total_height, options);
+                counter+=1;
 			},
 			overlay: function(overlay, elements, options){
 				if ($('#' + options.class_frame).length)
@@ -72,10 +182,11 @@
                     //overlay_width = overlay.width(),
                     overlay_height = options.height,
                     overlay_width = options.width,
-                    content_html = '';
+                    content_html = '',
+                    has_gallery = (options.gallery !== false) ? 'has_gallery': 'no_gallery';
 				$('<div/>', {
 					id: options.class_overlay,
-					'class': options.class_holder + ' ' + options.data_class
+					'class': options.class_holder + ' ' + options.data_class + ' ' + has_gallery
 				}).prependTo('body');
 				var total_width = ((options.width == 'user') ? overlay_width : options.width),
                     total_height = ((options.height == 'user') ? overlay_height : options.height),
@@ -101,36 +212,40 @@
 					case 'image':
 						console.log(total_width);
 						console.log(total_height);
-						$("#" + options.class_overlay).css({ 'width': 'auto', 'height': 'auto' });
-						var src = overlay.find('img').attr('src'),
-                            image_id = overlay.find('img').attr('id'),
-                            width = $('#image_' + image_id).width(),
-                            height = $('#image_' + image_id).height();
-						    total_width = width;
-						    total_height = height;
-						    overlay_top = (((Number($(window).height()) - Number(height)) / 2));
-						    overlay_left = (((Number($('body').width()) - Number(width)) / 2));
-						if (width >= ($(document).width() - 100))
-						{
-							total_width = (Number($('body').width()) - 100);
-							total_height = 'auto';
-							overlay_top = 50;
-						} else if (height >= ($(window).height() - 100))
-						{
-							overlay_top = 50;
-							total_width = 'auto';
-						}
-						//$('<div id="#'+options.class_images+'" class="'+options.class_content+'"><img src="' + src + '" width="' + total_width + '" height="' + total_height + '" alt="' + options.title + '" style="height: ' + total_height + '' + ((total_height == "auto") ? '' : 'px') + ';width: ' + total_width + '' + ((total_width == "auto") ? '' : 'px') + ';" alt="" /></div>').insertAfter('#' + options.class_bar);
-						$('<div id="#'+options.class_images+'" class="'+options.class_content+'"><img src="' + src + '" alt="' + options.title + '" /></div>').insertAfter('#' + options.class_bar);
-						if (options.title !== "")
-						{
-							$('<div class="'+options.class_caption+'"><h1>' + options.title + '</h1></div>').appendTo('.' + options.class_content);
-							$('.' + options.class_caption).fadeTo("slow", 0.60);
-						}
 						if(options.gallery !== false){
-							$("#" + options.class_overlay).append('<a href="javascript: void(0)" class="prev"></a><a href="javascript: void(0)" class="next"></a>');
+							build.gallery(overlay, elements, options);
+						}else{
+							$("#" + options.class_overlay).css({ 'width': 'auto', 'height': 'auto' });
+							var src = overlay.find('img').attr('src'),
+	                            image_id = overlay.find('img').attr('id'),
+	                            width = $('#image_' + image_id).width(),
+	                            height = $('#image_' + image_id).height();
+							    total_width = width;
+							    total_height = height;
+							    overlay_top = (((Number($(window).height()) - Number(height)) / 2));
+							    overlay_left = (((Number($('body').width()) - Number(width)) / 2));
+							if (width >= ($(document).width() - 100))
+							{
+								total_width = (Number($('body').width()) - 100);
+								total_height = 'auto';
+								overlay_top = 50;
+							} else if (height >= ($(window).height() - 100))
+							{
+								overlay_top = 50;
+								total_width = 'auto';
+							}
+							//$('<div id="#'+options.class_images+'" class="'+options.class_content+'"><img src="' + src + '" width="' + total_width + '" height="' + total_height + '" alt="' + options.title + '" style="height: ' + total_height + '' + ((total_height == "auto") ? '' : 'px') + ';width: ' + total_width + '' + ((total_width == "auto") ? '' : 'px') + ';" alt="" /></div>').insertAfter('#' + options.class_bar);
+							$('<div id="#'+options.class_images+'" class="'+options.class_content+'"><img src="' + src + '" alt="' + options.title + '" /></div>').insertAfter('#' + options.class_bar);
+							if (options.title !== "")
+							{
+								$('<div class="'+options.class_caption+'"><h1>' + options.title + '</h1></div>').appendTo('.' + options.class_content);
+								$('.' + options.class_caption).fadeTo("slow", 0.60);
+							}
+							if(options.gallery !== false){
+								$("#" + options.class_overlay).append('<a href="javascript: void(0)" class="prev"></a><a href="javascript: void(0)" class="next"></a>');
+							}
+							actions.show(overlay_top, overlay_left, total_width, total_height, options);							
 						}
-						actions.show(overlay_top, overlay_left, total_width, total_height, options);
 						break;
 					case 'json':
 						$("#" + options.class_overlay).append('<div class="'+options.class_content+'">' + ((window[options.call].title !== "") ? '<h1>' + window[options.call].title + '</h1>' : '') + '' + window[options.call].content + '</div>');
@@ -216,17 +331,30 @@
 			    $("body").trigger("close_overlay");
 			},
 			show: function(overlay_top, overlay_left, total_width, total_height, options){
+				console.log('showing ' + overlay_top + '/' + overlay_left + '/' + total_width + '/' + total_height + '/' + options);
 				var outerOverlay = {
 					paddingHeight: parseInt($('.' + options.class_content).css('padding-top')) + parseInt($('.' + options.class_content).css('padding-bottom')),
 					paddingWidth: parseInt($('.' + options.class_content).css('padding-left')) + parseInt($('.' + options.class_content).css('padding-right'))
 				};
 				var finalHeight = parseInt(total_height) + parseInt(outerOverlay.paddingHeight);
 				var finalWidth = parseInt(total_width) + parseInt(outerOverlay.paddingWidth);
-				if(options.height !== 'user'){
-					$("#" + options.class_overlay).hide().fadeTo("slow", 1).show().css({ 'left': overlay_left, 'width': finalWidth, 'height': finalHeight, 'min-height': finalHeight, 'min-width': finalWidth });
+				if(options.gallery !== false){
+						$("#" + options.class_overlay).hide().fadeTo("slow", 1).show().css({ 'left': overlay_left, 'width': finalWidth, 'height': finalHeight });
 				}else{
-					$("#" + options.class_overlay).hide().fadeTo("slow", 1).show().css({ 'left': overlay_left, 'width': finalWidth, 'min-height': finalHeight, 'min-width': finalWidth });
-				}				
+					if(options.height !== 'user'){
+						console.log('here');
+						$("#" + options.class_overlay).hide().fadeTo("slow", 1).show().css({ 'left': overlay_left, 'width': finalWidth, 'height': finalHeight, 'min-height': finalHeight, 'min-width': finalWidth });
+					}else{
+						console.log('there');
+						console.log(outerOverlay);
+						console.log(parseInt(total_height));
+						console.log(parseInt(total_width));
+						console.log(total_height);
+						console.log(total_width);
+						console.log('left' + overlay_left + 'width' + finalWidth + 'min-height' + finalHeight + 'min-width' + finalWidth);
+						$("#" + options.class_overlay).hide().fadeTo("slow", 1).show().css({ 'left': overlay_left, 'width': finalWidth, 'min-height': finalHeight, 'min-width': finalWidth });
+					}					
+				}		
 				$("#" + options.class_overlay).css('top', overlay_top + $(window).scrollTop());
 				$('.' + options.class_bg).removeClass(options.class_spinner);
     			$("body").trigger("show_overlay");
@@ -273,15 +401,205 @@
 			stop: function(){
 				zem.debug('super stop');
 			},
-			prev: function(){
+			prev_slide: function(element, options){
 				zem.debug('super prev');
+				var outerOverlay = {
+						paddingHeight: parseInt($('#' + options.class_overlay).css('padding-top')) + parseInt($('#' + options.class_overlay).css('padding-bottom')),
+						paddingWidth: parseInt($('#' + options.class_overlay).css('padding-left')) + parseInt($('#' + options.class_overlay).css('padding-right'))
+					},
+					slide_anchor = Number($(element).index()),
+	            	slide_number = Number($('#' + options.class_overlay).find('.' + options.anchor).prev().text()),
+	               	next_slide = $('#' + options.class_overlay).find('.' + options.anchor).next().text(),
+	                prev_slide = $('#' + options.class_overlay).find('.' + options.anchor).prev().text(),
+	                current_slide = Number($('#' + options.class_overlay).find('.' + options.anchor).prev().text()),
+	            	width = ($('#' + options.class_overlay).find('.slide').eq((current_slide - 1)).width()),
+	            	height = ($('#' + options.class_overlay).find('.slide').eq((current_slide - 1)).height()),
+	            	animate_left = -((slide_number * $('#slide_od_' + current_slide).width()) - $('#slide_od_' + current_slide).width()),
+	                animate_top = -((slide_number * $('#slide_od_' + current_slide).height()) - $('#slide_od_' + current_slide).height()),
+	                slide_offset = 0,
+	                slide_offset_top = 0;
+	            console.log($('#slide_od_' + current_slide));
+	            console.log($('#slide_od_' + current_slide).width());
+	            console.log($('#slide_od_' + current_slide).height());
+	            console.log(slide_number);
+	            console.log(current_slide);
+	            console.log(next_slide);
+	            console.log(prev_slide);
+	            console.log(width);
+	            console.log(height);
+	            console.log(animate_left);
+	            console.log(animate_top);
+	            console.log(outerOverlay);
+	            $('#' + options.class_overlay).find('.slide').each(function(index){
+	            	if((index + 1) < slide_number){
+	            		slide_offset += $(this).find('img').width();
+	            		slide_offset_top += $(this).find('img').height();
+	            	}
+	            });
+	            $('#' + options.class_overlay).find('.slide_holder').animate({
+                    left: animate_left
+                }, options.delay);
+                $("#" + options.class_overlay).animate({
+                    width: width,
+                    height: height
+                }, options.delay, function() {
+					actions.reposition(options);
+				});
+                $("#" + options.class_overlay).find('.slider').animate({
+                    width: width,
+                    height: height
+                }, options.delay);
+                $("#" + options.class_overlay).find('.slide_holder').animate({
+                    left: '-' + slide_offset
+                }, options.delay);	   
+		        actions.content_anchor($('#' + options.class_overlay).find('.' + options.anchor).prev('.slide_nav_item'), "#" + options.class_overlay, options);
 			},
-			next: function(){
+			next_slide: function(element, options){
 				zem.debug('super next');
+				var outerOverlay = {
+						paddingHeight: parseInt($('#' + options.class_overlay).css('padding-top')) + parseInt($('#' + options.class_overlay).css('padding-bottom')),
+						paddingWidth: parseInt($('#' + options.class_overlay).css('padding-left')) + parseInt($('#' + options.class_overlay).css('padding-right'))
+					},
+					slide_anchor = Number($(element).index()),
+	            	slide_number = Number($('#' + options.class_overlay).find('.' + options.anchor).next().text()),
+	               	next_slide = $('#' + options.class_overlay).find('.' + options.anchor).next().text(),
+	                prev_slide = $('#' + options.class_overlay).find('.' + options.anchor).prev().text(),
+	                current_slide = Number($('#' + options.class_overlay).find('.' + options.anchor).next().text()),
+	            	width = ($('#' + options.class_overlay).find('.slide').eq((current_slide - 1)).width()),
+	            	height = ($('#' + options.class_overlay).find('.slide').eq((current_slide - 1)).height()),
+	            	animate_left = -((slide_number * $('#slide_od_' + current_slide).width()) - $('#slide_od_' + current_slide).width()),
+	                animate_top = -((slide_number * $('#slide_od_' + current_slide).height()) - $('#slide_od_' + current_slide).height()),
+	                slide_offset = 0,
+	                slide_offset_top = 0;
+	            console.log($('#slide_od_' + current_slide));
+	            console.log($('#slide_od_' + current_slide).width());
+	            console.log($('#slide_od_' + current_slide).height());
+	            console.log(slide_number);
+	            console.log(current_slide);
+	            console.log(next_slide);
+	            console.log(prev_slide);
+	            console.log(width);
+	            console.log(height);
+	            console.log(animate_left);
+	            console.log(animate_top);
+	            console.log(outerOverlay);
+	            $('#' + options.class_overlay).find('.slide').each(function(index){
+	            	if((index + 1) < slide_number){
+	            		slide_offset += $(this).find('img').width();
+	            		slide_offset_top += $(this).find('img').height();
+	            	}
+	            });
+	            $('#' + options.class_overlay).find('.slide_holder').animate({
+                    left: animate_left
+                }, options.delay);
+                $("#" + options.class_overlay).animate({
+                    width: width,
+                    height: height
+                }, options.delay, function() {
+					actions.reposition(options);
+				});
+                $("#" + options.class_overlay).find('.slider').animate({
+                    width: width,
+                    height: height
+                }, options.delay);
+                $("#" + options.class_overlay).find('.slide_holder').animate({
+                    left: '-' + slide_offset
+                }, options.delay);
+		        actions.content_anchor($('#' + options.class_overlay).find('.' + options.anchor).next('.slide_nav_item'), "#" + options.class_overlay, options);
 			},
 			jump: function(){
 				zem.debug('super jump');
-			}    
+			},
+	        content_animate_to: function (slider, element, options, slide_width, slide_height, slide_id) {
+	            var outerOverlay = {
+						paddingHeight: parseInt($('#' + options.class_overlay).css('padding-top')) + parseInt($('#' + options.class_overlay).css('padding-bottom')),
+						paddingWidth: parseInt($('#' + options.class_overlay).css('padding-left')) + parseInt($('#' + options.class_overlay).css('padding-right'))
+					},
+					slide_anchor = Number(slider.index()),
+	            	slide_number = Number(slider.text()),
+	               	next_slide = slider.next().text(),
+	                prev_slide = slider.prev().text(),
+	                current_slide = Number(slider.text()),
+	            	width = ($(element).find('.slide').eq((current_slide - 1)).width()),
+	            	height = ($(element).find('.slide').eq((current_slide - 1)).height()),
+	            	animate_left = -((slide_number * $('#slide_od_' + current_slide).width()) - $('#slide_od_' + current_slide).width()),
+	                animate_top = -((slide_number * $('#slide_od_' + current_slide).height()) - $('#slide_od_' + current_slide).height()),
+	                slide_offset = 0,
+	                slide_offset_top = 0;
+	            $(element).find('.slide').each(function(index){
+	            	if((index + 1) < slide_number){
+	            		slide_offset += $(this).find('img').width();
+	            		slide_offset_top += $(this).find('img').height();
+	            	}
+	            });
+	            console.log($('#slide_od_' + current_slide));
+	            console.log($('#slide_od_' + current_slide).width());
+	            console.log($('#slide_od_' + current_slide).height());
+	            console.log(slide_number);
+	            console.log(current_slide);
+	            console.log(next_slide);
+	            console.log(prev_slide);
+	            console.log(width);
+	            console.log(height);
+	            console.log(animate_left);
+	            console.log(animate_top);
+	            console.log(outerOverlay);
+	            if(options.effect == "fade"){
+	                $(element).find('.slide').fadeOut();
+	                $(element).find('.slide').eq((slide_number-1)).fadeIn();
+	            }else{
+	                if (options.direction === 'horizontal') {
+	                    $(element).find('.slide_holder').animate({
+	                        left: animate_left
+	                    }, options.delay);
+	                    $("#" + options.class_overlay).animate({
+	                        width: width,
+	                        height: height
+	                    }, options.delay, function() {
+							actions.reposition(options);
+						});
+	                    $("#" + options.class_overlay).find('.slider').animate({
+	                        width: width,
+	                        height: height
+	                    }, options.delay);
+	                    $("#" + options.class_overlay).find('.slide_holder').animate({
+	                        left: '-' + slide_offset
+	                    }, options.delay);	            		
+	                } else {
+	                    $(element).find('.slide_holder').animate({
+	                        top: animate_top
+	                    }, options.delay);
+	                    $("#" + options.class_overlay).animate({
+	                        width: width,
+	                        height: height
+	                    }, options.delay, function() {
+							actions.reposition(options);
+						});
+	                    $("#" + options.class_overlay).find('.slider').animate({
+	                        width: width,
+	                        height: height
+	                    }, options.delay);
+	                    $("#" + options.class_overlay).find('.slide_holder').animate({
+	                        top: '-' + slide_offset_top
+	                    }, options.delay);	       
+	                }
+	            }
+	        },
+	        content_anchor: function (slider, element, options) {
+	        	console.log(slider);	   
+	            slider.parents('.slide_nav').find("a").removeClass(options.anchor);
+	            slider.addClass(options.anchor);
+                if(!$('#' + options.class_overlay).find('.' + options.anchor).prev('.slide_nav_item').length){
+                	$('.' + options.class_prev).hide();
+                }else{
+                	$('.' + options.class_prev).show();
+                }
+                if(!$('#' + options.class_overlay).find('.' + options.anchor).next('.slide_nav_item').length){
+                	$('.' + options.class_next).hide();
+                }else{
+                	$('.' + options.class_next).show();
+                }
+	        }  
 		};
 	function SuperOverlay ( element, options ) {
 		me = this;
@@ -300,6 +618,8 @@
 			class_close: 'overlay_close',
 			class_rendered: 'rendered',
 			class_caption: 'overlay_caption',
+			class_prev: 'prev',
+			class_next: 'next',
 			element: '',
 			href: '',
 			title: '',
@@ -331,18 +651,21 @@
 			call: '',
 			params: '',
 			httpMethod: 'post',
-			gallery: false
+			gallery: false,
+            delay: 1000,
+            start: false,
+            direction: 'horizontal',
+            effect: 'tween',
+            selector: '.slider',
+            anchor: 'slide_nav_anchor'
 		};
 		me.element = element;
-		me.settings = me.cloneData($.extend( {}, me.defaults, options ));
+		me.settings = z.cloneData($.extend( {}, me.defaults, options ));
 		me.updateOptions(me.element, me.settings);
 
 	}
 	SuperOverlay.prototype = {
 		constructor: SuperOverlay,
-		cloneData: function(item){
-			return JSON.parse(JSON.stringify(item));
-		},
 		testDataAttr: function(element, options, what){
 			if(element.data(what) !== undefined){
 		        me.settings[what] = element.data(what);
@@ -371,7 +694,13 @@
 				return true;
 			}
 			// mark element as initialized
+			console.log('-------------------------------------------');
 			$(document).data(options.class_bg, true);
+			if(options.gallery !== false){
+				var gallery = $("[data-gallery^="+options.gallery+"]");
+				gallery.first().addClass('isFirst');
+				gallery.last().addClass('isLast');
+			}
 			$(document).on('click', '.' + options.class_bg, function ()
 			{
 				me.close(element, options); 
@@ -430,13 +759,13 @@
 			zem.debug('super stop');
 			actions.stop();
 		},
-		prev: function(){
+		prev_slide: function(element, options){
 			zem.debug('super prev');
-			actions.prev();
+			actions.prev_slide(element, options);
 		},
-		next: function(){
+		next_slide: function(element, options){
 			zem.debug('super next');
-			actions.next();
+			actions.next_slide(element, options);
 		},
 		jump: function(){
 			zem.debug('super jump');

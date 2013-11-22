@@ -101,15 +101,11 @@
             anchor: 'slide_nav_anchor'
 		};
 		me.element = element;
-		me.settings = me.cloneData($.extend( {}, me.defaults, options ));
+		me.settings = z.cloneData($.extend( {}, me.defaults, options ));
 		me.updateOptions(me.element, me.settings);
-
 	}
 	SuperSlider.prototype = {
 		constructor: SuperSlider,
-		cloneData: function(item){
-			return JSON.parse(JSON.stringify(item));
-		},
 		testDataAttr: function(element, options, what){
 			if(element.data(what) !== undefined){
 		        me.settings[what] = element.data(what);

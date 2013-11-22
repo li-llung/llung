@@ -39,8 +39,8 @@
 }
 .overlay_close{
 	position:  absolute;
-	right: 12px;
-	top: 12px;
+	right: -12px;
+	top: -12px;
 	z-index: 2007;
     background-image: url('../images/btn_close_22x22_black.png');
     background-repeat: no-repeat;
@@ -105,5 +105,11 @@
     background-repeat: no-repeat;
     width: 24px;
     height: 24px;
+}
+.has_gallery .isFirst .prev{
+	display: none;
+}
+.has_gallery .isLast .next{
+	display: none;	
 }
 /*End Overlay*/
