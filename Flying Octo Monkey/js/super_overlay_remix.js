@@ -35,7 +35,7 @@
 			},
 			gallery: function(overlay, element, options){
 				zem.debug('super gallery');
-				var slide_number = $("#" + options.class_overlay).find('.' + options.anchor).text(),
+				var slide_number = overlay.attr('id').split('_')[2],
 					src = overlay.find('img').attr('src'),
                     image_id = overlay.find('img').attr('id'),
                     width = $('#image_' + image_id).width(),
@@ -79,9 +79,12 @@
 				console.log(slide_count);
 				console.log('slider number = ' + slide_number);
 	            $('#' + options.class_overlay).find('.slide').each(function(index){
+	            	console.log(index);
 	            	if((index + 1) < slide_number){
-	            		slide_offset += $(this).find('img').width();
-	            		slide_offset_top += $(this).find('img').height();
+	            		console.log('yay ' + index);
+	            		slide_offset += $(this).width();
+	            		slide_offset_top += $(this).height();
+	            		console.log('adding + ' + slide_offset);
 	            	}
 	            });
                 if(options.direction === "horizontal"){
@@ -142,6 +145,7 @@
 					$('.' + options.class_caption).fadeTo("slow", 0.60);
 				}	
 				$("#" + options.class_overlay).find('.slide_holder').css('left', '-' + slide_offset + 'px');
+				actions.content_anchor($("#" + options.class_overlay).find('.slide_nav_item').eq(slide_number-1), "#" + options.class_overlay, options);
 				actions.show(overlay_top, overlay_left, total_width, total_height, options);
                 counter+=1;
 			},
@@ -700,6 +704,16 @@
 				var gallery = $("[data-gallery^="+options.gallery+"]");
 				gallery.first().addClass('isFirst');
 				gallery.last().addClass('isLast');
+				console.log('-----------------------------------------------------woot ' + gallery.length);
+				var j = 1;
+				if (gallery.length)
+				{
+					gallery.each(function ()
+					{
+						$(this).attr('id', 'set_' + options.gallery + '_' + j);
+						j++;
+					});
+				}
 			}
 			$(document).on('click', '.' + options.class_bg, function ()
 			{
