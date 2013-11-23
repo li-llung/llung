@@ -385,7 +385,11 @@
 						var overlay_top = (((Number($(window).height()) - Number($('#' + options.class_overlay).height())) / 2));
 						var overlay_left = (((Number($('body').width()) - Number($('#' + options.class_overlay).width())) / 2));
 						overlay_top = (overlay_top < 0) ? 50 : overlay_top;
-						$('#' + options.class_overlay).css({ 'left': overlay_left, 'top': overlay_top + $(window).scrollTop() });
+						//$('#' + options.class_overlay).css({ 'left': overlay_left, 'top': overlay_top + $(window).scrollTop() });
+						$('#' + options.class_overlay).animate({
+	                        left: overlay_left,
+	                        top: (overlay_top + $(window).scrollTop())
+	                    }, options.delay);
 					});
 				}
             },
@@ -445,10 +449,11 @@
 	            		slide_offset_top += $(this).find('img').height();
 	            	}
 	            });
-                if (options.direction === 'horizontal') {
-                    $(element).find('.slide_holder').animate({
-                        left: animate_left
-                    }, options.delay);
+                
+	            if(options.effect == "fade"){
+	                $('#' + options.class_overlay).find('.slide').fadeOut();
+	                $('#' + options.class_overlay).find('.slide').eq((current_slide - 1)).fadeIn();
+	                $('#' + options.class_overlay).find('.slide_holder').css('top', 0);
                     $("#" + options.class_overlay).animate({
                         width: width,
                         height: height
@@ -459,27 +464,49 @@
                         width: width,
                         height: height
                     }, options.delay);
-                    $("#" + options.class_overlay).find('.slide_holder').animate({
-                        left: '-' + slide_offset
-                    }, options.delay);	            		
-                } else {
-                    $(element).find('.slide_holder').animate({
-                        top: animate_top
-                    }, options.delay);
-                    $("#" + options.class_overlay).animate({
-                        width: width,
-                        height: height
-                    }, options.delay, function() {
-						actions.reposition(options);
-					});
-                    $("#" + options.class_overlay).find('.slider').animate({
-                        width: width,
-                        height: height
-                    }, options.delay);
-                    $("#" + options.class_overlay).find('.slide_holder').animate({
-                        top: '-' + slide_offset_top
-                    }, options.delay);	       
-                }
+	            }else{
+		            $('#' + options.class_overlay).find('.slide').each(function(index){
+		            	if((index + 1) < slide_number){
+		            		slide_offset += $(this).find('img').width();
+		            		slide_offset_top += $(this).find('img').height();
+		            	}
+		            });
+	                if (options.direction === 'horizontal') {
+	                    $(element).find('.slide_holder').animate({
+	                        left: animate_left
+	                    }, options.delay);
+	                    $("#" + options.class_overlay).animate({
+	                        width: width,
+	                        height: height
+	                    }, options.delay, function() {
+							actions.reposition(options);
+						});
+	                    $("#" + options.class_overlay).find('.slider').animate({
+	                        width: width,
+	                        height: height
+	                    }, options.delay);
+	                    $("#" + options.class_overlay).find('.slide_holder').animate({
+	                        left: '-' + slide_offset
+	                    }, options.delay);	            		
+	                } else {
+	                    $(element).find('.slide_holder').animate({
+	                        top: animate_top
+	                    }, options.delay);
+	                    $("#" + options.class_overlay).animate({
+	                        width: width,
+	                        height: height
+	                    }, options.delay, function() {
+							actions.reposition(options);
+						});
+	                    $("#" + options.class_overlay).find('.slider').animate({
+	                        width: width,
+	                        height: height
+	                    }, options.delay);
+	                    $("#" + options.class_overlay).find('.slide_holder').animate({
+	                        top: '-' + slide_offset_top
+	                    }, options.delay);	       
+	                }
+	            }
                 console.log('############################' + title);
 				if (title !== "")
 				{
@@ -518,16 +545,10 @@
 	            console.log(animate_left);
 	            console.log(animate_top);
 	            console.log(outerOverlay);
-	            $('#' + options.class_overlay).find('.slide').each(function(index){
-	            	if((index + 1) < slide_number){
-	            		slide_offset += $(this).find('img').width();
-	            		slide_offset_top += $(this).find('img').height();
-	            	}
-	            });
-                if (options.direction === 'horizontal') {
-                    $(element).find('.slide_holder').animate({
-                        left: animate_left
-                    }, options.delay);
+	            if(options.effect == "fade"){
+	                $('#' + options.class_overlay).find('.slide').fadeOut();
+	                $('#' + options.class_overlay).find('.slide').eq((current_slide - 1)).fadeIn();
+	                $('#' + options.class_overlay).find('.slide_holder').css('top', 0);
                     $("#" + options.class_overlay).animate({
                         width: width,
                         height: height
@@ -538,27 +559,49 @@
                         width: width,
                         height: height
                     }, options.delay);
-                    $("#" + options.class_overlay).find('.slide_holder').animate({
-                        left: '-' + slide_offset
-                    }, options.delay);	            		
-                } else {
-                    $(element).find('.slide_holder').animate({
-                        top: animate_top
-                    }, options.delay);
-                    $("#" + options.class_overlay).animate({
-                        width: width,
-                        height: height
-                    }, options.delay, function() {
-						actions.reposition(options);
-					});
-                    $("#" + options.class_overlay).find('.slider').animate({
-                        width: width,
-                        height: height
-                    }, options.delay);
-                    $("#" + options.class_overlay).find('.slide_holder').animate({
-                        top: '-' + slide_offset_top
-                    }, options.delay);	       
-                }
+	            }else{
+		            $('#' + options.class_overlay).find('.slide').each(function(index){
+		            	if((index + 1) < slide_number){
+		            		slide_offset += $(this).find('img').width();
+		            		slide_offset_top += $(this).find('img').height();
+		            	}
+		            });
+	                if (options.direction === 'horizontal') {
+	                    $(element).find('.slide_holder').animate({
+	                        left: animate_left
+	                    }, options.delay);
+	                    $("#" + options.class_overlay).animate({
+	                        width: width,
+	                        height: height
+	                    }, options.delay, function() {
+							actions.reposition(options);
+						});
+	                    $("#" + options.class_overlay).find('.slider').animate({
+	                        width: width,
+	                        height: height
+	                    }, options.delay);
+	                    $("#" + options.class_overlay).find('.slide_holder').animate({
+	                        left: '-' + slide_offset
+	                    }, options.delay);	            		
+	                } else {
+	                    $(element).find('.slide_holder').animate({
+	                        top: animate_top
+	                    }, options.delay);
+	                    $("#" + options.class_overlay).animate({
+	                        width: width,
+	                        height: height
+	                    }, options.delay, function() {
+							actions.reposition(options);
+						});
+	                    $("#" + options.class_overlay).find('.slider').animate({
+	                        width: width,
+	                        height: height
+	                    }, options.delay);
+	                    $("#" + options.class_overlay).find('.slide_holder').animate({
+	                        top: '-' + slide_offset_top
+	                    }, options.delay);	       
+	                }
+	            }
                 console.log('############################' + title);
 				if (title !== "")
 				{
@@ -608,6 +651,16 @@
 	            if(options.effect == "fade"){
 	                $(element).find('.slide').fadeOut();
 	                $(element).find('.slide').eq((slide_number-1)).fadeIn();
+                    $("#" + options.class_overlay).animate({
+                        width: width,
+                        height: height
+                    }, options.delay, function() {
+						actions.reposition(options);
+					});
+                    $("#" + options.class_overlay).find('.slider').animate({
+                        width: width,
+                        height: height
+                    }, options.delay);
 	            }else{
 	                if (options.direction === 'horizontal') {
 	                    $(element).find('.slide_holder').animate({
@@ -689,7 +742,7 @@
 			class_next: 'next',
 			element: '',
 			href: '',
-			title: (($(element).attr('title') !== "") ? $(element).attr('title') : ""),
+			title: (($(element).attr('title') === undefined) ? "" : $(element).attr('title')),
 			exists: false,
 			data_target: '',
 			css_class: '',
