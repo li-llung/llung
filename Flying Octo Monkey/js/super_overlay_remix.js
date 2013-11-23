@@ -144,7 +144,11 @@
 					$('<div class="'+options.class_caption+'"><h1>' + options.title + '</h1></div>').appendTo('.' + options.class_content);
 					$('.' + options.class_caption).fadeTo("slow", 0.60);
 				}	
-				$("#" + options.class_overlay).find('.slide_holder').css('left', '-' + slide_offset + 'px');
+                if (options.direction === 'horizontal') {
+					$("#" + options.class_overlay).find('.slide_holder').css('left', '-' + slide_offset + 'px');
+				}else{
+					$("#" + options.class_overlay).find('.slide_holder').css('top', '-' + slide_offset_top + 'px');
+				}
 				actions.content_anchor($("#" + options.class_overlay).find('.slide_nav_item').eq(slide_number-1), "#" + options.class_overlay, options);
 				actions.show(overlay_top, overlay_left, total_width, total_height, options);
                 counter+=1;
@@ -418,6 +422,7 @@
 	                current_slide = Number($('#' + options.class_overlay).find('.' + options.anchor).prev().text()),
 	            	width = ($('#' + options.class_overlay).find('.slide').eq((current_slide - 1)).width()),
 	            	height = ($('#' + options.class_overlay).find('.slide').eq((current_slide - 1)).height()),
+	            	title = ($('#set_' + options.gallery + '_' + (current_slide)).attr('title')),
 	            	animate_left = -((slide_number * $('#slide_od_' + current_slide).width()) - $('#slide_od_' + current_slide).width()),
 	                animate_top = -((slide_number * $('#slide_od_' + current_slide).height()) - $('#slide_od_' + current_slide).height()),
 	                slide_offset = 0,
@@ -440,22 +445,47 @@
 	            		slide_offset_top += $(this).find('img').height();
 	            	}
 	            });
-	            $('#' + options.class_overlay).find('.slide_holder').animate({
-                    left: animate_left
-                }, options.delay);
-                $("#" + options.class_overlay).animate({
-                    width: width,
-                    height: height
-                }, options.delay, function() {
-					actions.reposition(options);
-				});
-                $("#" + options.class_overlay).find('.slider').animate({
-                    width: width,
-                    height: height
-                }, options.delay);
-                $("#" + options.class_overlay).find('.slide_holder').animate({
-                    left: '-' + slide_offset
-                }, options.delay);	   
+                if (options.direction === 'horizontal') {
+                    $(element).find('.slide_holder').animate({
+                        left: animate_left
+                    }, options.delay);
+                    $("#" + options.class_overlay).animate({
+                        width: width,
+                        height: height
+                    }, options.delay, function() {
+						actions.reposition(options);
+					});
+                    $("#" + options.class_overlay).find('.slider').animate({
+                        width: width,
+                        height: height
+                    }, options.delay);
+                    $("#" + options.class_overlay).find('.slide_holder').animate({
+                        left: '-' + slide_offset
+                    }, options.delay);	            		
+                } else {
+                    $(element).find('.slide_holder').animate({
+                        top: animate_top
+                    }, options.delay);
+                    $("#" + options.class_overlay).animate({
+                        width: width,
+                        height: height
+                    }, options.delay, function() {
+						actions.reposition(options);
+					});
+                    $("#" + options.class_overlay).find('.slider').animate({
+                        width: width,
+                        height: height
+                    }, options.delay);
+                    $("#" + options.class_overlay).find('.slide_holder').animate({
+                        top: '-' + slide_offset_top
+                    }, options.delay);	       
+                }
+                console.log('############################' + title);
+				if (title !== "")
+				{
+					$('.'+options.class_caption).find('h1').text(title);
+					$('.' + options.class_caption).fadeTo("slow", 0.60);
+				}	
 		        actions.content_anchor($('#' + options.class_overlay).find('.' + options.anchor).prev('.slide_nav_item'), "#" + options.class_overlay, options);
 			},
 			next_slide: function(element, options){
@@ -471,6 +501,7 @@
 	                current_slide = Number($('#' + options.class_overlay).find('.' + options.anchor).next().text()),
 	            	width = ($('#' + options.class_overlay).find('.slide').eq((current_slide - 1)).width()),
 	            	height = ($('#' + options.class_overlay).find('.slide').eq((current_slide - 1)).height()),
+	            	title = ($('#set_' + options.gallery + '_' + (current_slide)).attr('title')),
 	            	animate_left = -((slide_number * $('#slide_od_' + current_slide).width()) - $('#slide_od_' + current_slide).width()),
 	                animate_top = -((slide_number * $('#slide_od_' + current_slide).height()) - $('#slide_od_' + current_slide).height()),
 	                slide_offset = 0,
@@ -493,22 +524,47 @@
 	            		slide_offset_top += $(this).find('img').height();
 	            	}
 	            });
-	            $('#' + options.class_overlay).find('.slide_holder').animate({
-                    left: animate_left
-                }, options.delay);
-                $("#" + options.class_overlay).animate({
-                    width: width,
-                    height: height
-                }, options.delay, function() {
-					actions.reposition(options);
-				});
-                $("#" + options.class_overlay).find('.slider').animate({
-                    width: width,
-                    height: height
-                }, options.delay);
-                $("#" + options.class_overlay).find('.slide_holder').animate({
-                    left: '-' + slide_offset
-                }, options.delay);
+                if (options.direction === 'horizontal') {
+                    $(element).find('.slide_holder').animate({
+                        left: animate_left
+                    }, options.delay);
+                    $("#" + options.class_overlay).animate({
+                        width: width,
+                        height: height
+                    }, options.delay, function() {
+						actions.reposition(options);
+					});
+                    $("#" + options.class_overlay).find('.slider').animate({
+                        width: width,
+                        height: height
+                    }, options.delay);
+                    $("#" + options.class_overlay).find('.slide_holder').animate({
+                        left: '-' + slide_offset
+                    }, options.delay);	            		
+                } else {
+                    $(element).find('.slide_holder').animate({
+                        top: animate_top
+                    }, options.delay);
+                    $("#" + options.class_overlay).animate({
+                        width: width,
+                        height: height
+                    }, options.delay, function() {
+						actions.reposition(options);
+					});
+                    $("#" + options.class_overlay).find('.slider').animate({
+                        width: width,
+                        height: height
+                    }, options.delay);
+                    $("#" + options.class_overlay).find('.slide_holder').animate({
+                        top: '-' + slide_offset_top
+                    }, options.delay);	       
+                }
+                console.log('############################' + title);
+				if (title !== "")
+				{
+					$('.'+options.class_caption).find('h1').text(title);
+					$('.' + options.class_caption).fadeTo("slow", 0.60);
+				}	
 		        actions.content_anchor($('#' + options.class_overlay).find('.' + options.anchor).next('.slide_nav_item'), "#" + options.class_overlay, options);
 			},
 			jump: function(){
@@ -526,6 +582,7 @@
 	                current_slide = Number(slider.text()),
 	            	width = ($(element).find('.slide').eq((current_slide - 1)).width()),
 	            	height = ($(element).find('.slide').eq((current_slide - 1)).height()),
+	            	title = ($('#set_' + options.gallery + '_' + (current_slide)).attr('title')),
 	            	animate_left = -((slide_number * $('#slide_od_' + current_slide).width()) - $('#slide_od_' + current_slide).width()),
 	                animate_top = -((slide_number * $('#slide_od_' + current_slide).height()) - $('#slide_od_' + current_slide).height()),
 	                slide_offset = 0,
@@ -587,7 +644,13 @@
 	                        top: '-' + slide_offset_top
 	                    }, options.delay);	       
 	                }
-	            }
+	            }	
+                console.log('############################' + title);
+				if (title !== "")
+				{
+					$('.'+options.class_caption).find('h1').text(title);
+					$('.' + options.class_caption).fadeTo("slow", 0.60);
+				}	
 	        },
 	        content_anchor: function (slider, element, options) {
 	        	console.log(slider);	   
@@ -626,7 +689,7 @@
 			class_next: 'next',
 			element: '',
 			href: '',
-			title: '',
+			title: (($(element).attr('title') !== "") ? $(element).attr('title') : ""),
 			exists: false,
 			data_target: '',
 			css_class: '',
@@ -693,17 +756,16 @@
 				me.show($(this), element, options);	
 				return false;
 			});	
-			// this element has already been initialized
-			if($(document).data(options.class_bg)) {
-				return true;
-			}
+			console.log('-------------------------------------------' + options.gallery);
 			// mark element as initialized
-			console.log('-------------------------------------------');
-			$(document).data(options.class_bg, true);
+			console.log('-------------------top------------------------');
 			if(options.gallery !== false){
 				var gallery = $("[data-gallery^="+options.gallery+"]");
 				gallery.first().addClass('isFirst');
 				gallery.last().addClass('isLast');
+				console.log('-------------------------------------------');
+				console.log(gallery);
+				console.log('-------------------------------------------');
 				console.log('-----------------------------------------------------woot ' + gallery.length);
 				var j = 1;
 				if (gallery.length)
@@ -715,6 +777,12 @@
 					});
 				}
 			}
+			console.log('-------------------bot------------------------');
+			// this element has already been initialized
+			if($(document).data(options.class_bg)) {
+				return true;
+			}
+			$(document).data(options.class_bg, true);
 			$(document).on('click', '.' + options.class_bg, function ()
 			{
 				me.close(element, options); 
