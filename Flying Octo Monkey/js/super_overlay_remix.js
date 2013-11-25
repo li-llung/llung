@@ -7,9 +7,6 @@
 		version = "1.0",
 		trigger = ".overlay",	
         counter = 1,	
-		apiKey = "eb88bfe9ce12bbfa5c867df78a1b55dc",
-    	apiClientId = "d5f816034e83e1d3cde5",
-    	apiClientSecret = "bcdb732a0a29969f59749e626e3d6069cbd976ec",
 		me,
 		add = {
 			shadow: function (options)
@@ -52,12 +49,6 @@
 				var gallery = $(".has_gallery");
 				var isFirst = overlay.hasClass('isFirst');
 				var isLast = overlay.hasClass('isLast');
-				console.log(src);
-				console.log(image_id);
-				console.log(width);
-				console.log(height);
-				console.log(total_width);
-				console.log(total_height);
                 $("<div/>", {
                     'class': options.class_content
                 }).appendTo("#" + options.class_overlay);
@@ -76,15 +67,10 @@
                 var slide_count = $("#" + options.class_overlay).find('.slide').length,
                     holder = '#slide_holder_' + counter,
                     nav =  '#slide_nav_' + counter;
-				console.log(slide_count);
-				console.log('slider number = ' + slide_number);
 	            $('#' + options.class_overlay).find('.slide').each(function(index){
-	            	console.log(index);
 	            	if((index + 1) < slide_number){
-	            		console.log('yay ' + index);
 	            		slide_offset += $(this).width();
 	            		slide_offset_top += $(this).height();
-	            		console.log('adding + ' + slide_offset);
 	            	}
 	            });
                 if(options.direction === "horizontal"){
@@ -218,8 +204,6 @@
 				switch (options.type)
 				{
 					case 'image':
-						console.log(total_width);
-						console.log(total_height);
 						if(options.gallery !== false){
 							build.gallery(overlay, elements, options);
 						}else{
@@ -271,7 +255,6 @@
 						});
 						break;
 					case 'ajax':
-						console.log(typeof (options.ajax_content));
 						$.ajax({
 							type: options.httpMethod,
 							url: overlay.attr('href'),
@@ -279,7 +262,6 @@
 							crossDomain: true,
 							success: function (data)
 							{
-								console.log(data);
 								if (typeof (options.ajax_content) === 'function')
 								{
 									options.ajax_content(data['data'], options);
@@ -333,13 +315,11 @@
 		},
 		actions = {
 			dismiss: function(elements, options){
-				console.log(options.class_bg);
 				$('#' + options.class_overlay).fadeOut();
 				$('#' + options.class_bg).hide();
 			    $("body").trigger("close_overlay");
 			},
 			show: function(overlay_top, overlay_left, total_width, total_height, options){
-				console.log('showing ' + overlay_top + '/' + overlay_left + '/' + total_width + '/' + total_height + '/' + options);
 				var outerOverlay = {
 					paddingHeight: parseInt($('.' + options.class_content).css('padding-top')) + parseInt($('.' + options.class_content).css('padding-bottom')),
 					paddingWidth: parseInt($('.' + options.class_content).css('padding-left')) + parseInt($('.' + options.class_content).css('padding-right'))
@@ -350,16 +330,8 @@
 						$("#" + options.class_overlay).hide().fadeTo("slow", 1).show().css({ 'left': overlay_left, 'width': finalWidth, 'height': finalHeight });
 				}else{
 					if(options.height !== 'user'){
-						console.log('here');
 						$("#" + options.class_overlay).hide().fadeTo("slow", 1).show().css({ 'left': overlay_left, 'width': finalWidth, 'height': finalHeight, 'min-height': finalHeight, 'min-width': finalWidth });
 					}else{
-						console.log('there');
-						console.log(outerOverlay);
-						console.log(parseInt(total_height));
-						console.log(parseInt(total_width));
-						console.log(total_height);
-						console.log(total_width);
-						console.log('left' + overlay_left + 'width' + finalWidth + 'min-height' + finalHeight + 'min-width' + finalWidth);
 						$("#" + options.class_overlay).hide().fadeTo("slow", 1).show().css({ 'left': overlay_left, 'width': finalWidth, 'min-height': finalHeight, 'min-width': finalWidth });
 					}					
 				}		
@@ -385,11 +357,14 @@
 						var overlay_top = (((Number($(window).height()) - Number($('#' + options.class_overlay).height())) / 2));
 						var overlay_left = (((Number($('body').width()) - Number($('#' + options.class_overlay).width())) / 2));
 						overlay_top = (overlay_top < 0) ? 50 : overlay_top;
-						//$('#' + options.class_overlay).css({ 'left': overlay_left, 'top': overlay_top + $(window).scrollTop() });
-						$('#' + options.class_overlay).animate({
-	                        left: overlay_left,
-	                        top: (overlay_top + $(window).scrollTop())
-	                    }, options.delay);
+						if(options.gallery !== false){
+							$('#' + options.class_overlay).animate({
+		                        left: overlay_left,
+		                        top: (overlay_top + $(window).scrollTop())
+		                    }, options.delay);
+						}else{
+							$('#' + options.class_overlay).css({ 'left': overlay_left, 'top': overlay_top + $(window).scrollTop() });	
+						}
 					});
 				}
             },
@@ -431,25 +406,12 @@
 	                animate_top = -((slide_number * $('#slide_od_' + current_slide).height()) - $('#slide_od_' + current_slide).height()),
 	                slide_offset = 0,
 	                slide_offset_top = 0;
-	            console.log($('#slide_od_' + current_slide));
-	            console.log($('#slide_od_' + current_slide).width());
-	            console.log($('#slide_od_' + current_slide).height());
-	            console.log(slide_number);
-	            console.log(current_slide);
-	            console.log(next_slide);
-	            console.log(prev_slide);
-	            console.log(width);
-	            console.log(height);
-	            console.log(animate_left);
-	            console.log(animate_top);
-	            console.log(outerOverlay);
 	            $('#' + options.class_overlay).find('.slide').each(function(index){
-	            	if((index + 1) < slide_number){
+	            	if((index + 1) < slide_number){	      
 	            		slide_offset += $(this).find('img').width();
 	            		slide_offset_top += $(this).find('img').height();
 	            	}
 	            });
-                
 	            if(options.effect == "fade"){
 	                $('#' + options.class_overlay).find('.slide').fadeOut();
 	                $('#' + options.class_overlay).find('.slide').eq((current_slide - 1)).fadeIn();
@@ -465,16 +427,7 @@
                         height: height
                     }, options.delay);
 	            }else{
-		            $('#' + options.class_overlay).find('.slide').each(function(index){
-		            	if((index + 1) < slide_number){
-		            		slide_offset += $(this).find('img').width();
-		            		slide_offset_top += $(this).find('img').height();
-		            	}
-		            });
 	                if (options.direction === 'horizontal') {
-	                    $(element).find('.slide_holder').animate({
-	                        left: animate_left
-	                    }, options.delay);
 	                    $("#" + options.class_overlay).animate({
 	                        width: width,
 	                        height: height
@@ -484,14 +437,11 @@
 	                    $("#" + options.class_overlay).find('.slider').animate({
 	                        width: width,
 	                        height: height
-	                    }, options.delay);
+	                    }, options.delay);                   
 	                    $("#" + options.class_overlay).find('.slide_holder').animate({
-	                        left: '-' + slide_offset
-	                    }, options.delay);	            		
+	                        left: '-' + slide_offset + 'px'
+	                    }, options.delay);
 	                } else {
-	                    $(element).find('.slide_holder').animate({
-	                        top: animate_top
-	                    }, options.delay);
 	                    $("#" + options.class_overlay).animate({
 	                        width: width,
 	                        height: height
@@ -503,11 +453,10 @@
 	                        height: height
 	                    }, options.delay);
 	                    $("#" + options.class_overlay).find('.slide_holder').animate({
-	                        top: '-' + slide_offset_top
+	                        top: '-' + slide_offset_top + 'px'
 	                    }, options.delay);	       
 	                }
 	            }
-                console.log('############################' + title);
 				if (title !== "")
 				{
 					$('.'+options.class_caption).find('h1').text(title);
@@ -533,18 +482,6 @@
 	                animate_top = -((slide_number * $('#slide_od_' + current_slide).height()) - $('#slide_od_' + current_slide).height()),
 	                slide_offset = 0,
 	                slide_offset_top = 0;
-	            console.log($('#slide_od_' + current_slide));
-	            console.log($('#slide_od_' + current_slide).width());
-	            console.log($('#slide_od_' + current_slide).height());
-	            console.log(slide_number);
-	            console.log(current_slide);
-	            console.log(next_slide);
-	            console.log(prev_slide);
-	            console.log(width);
-	            console.log(height);
-	            console.log(animate_left);
-	            console.log(animate_top);
-	            console.log(outerOverlay);
 	            if(options.effect == "fade"){
 	                $('#' + options.class_overlay).find('.slide').fadeOut();
 	                $('#' + options.class_overlay).find('.slide').eq((current_slide - 1)).fadeIn();
@@ -602,7 +539,6 @@
 	                    }, options.delay);	       
 	                }
 	            }
-                console.log('############################' + title);
 				if (title !== "")
 				{
 					$('.'+options.class_caption).find('h1').text(title);
@@ -636,18 +572,6 @@
 	            		slide_offset_top += $(this).find('img').height();
 	            	}
 	            });
-	            console.log($('#slide_od_' + current_slide));
-	            console.log($('#slide_od_' + current_slide).width());
-	            console.log($('#slide_od_' + current_slide).height());
-	            console.log(slide_number);
-	            console.log(current_slide);
-	            console.log(next_slide);
-	            console.log(prev_slide);
-	            console.log(width);
-	            console.log(height);
-	            console.log(animate_left);
-	            console.log(animate_top);
-	            console.log(outerOverlay);
 	            if(options.effect == "fade"){
 	                $(element).find('.slide').fadeOut();
 	                $(element).find('.slide').eq((slide_number-1)).fadeIn();
@@ -698,7 +622,6 @@
 	                    }, options.delay);	       
 	                }
 	            }	
-                console.log('############################' + title);
 				if (title !== "")
 				{
 					$('.'+options.class_caption).find('h1').text(title);
@@ -706,7 +629,6 @@
 				}	
 	        },
 	        content_anchor: function (slider, element, options) {
-	        	console.log(slider);	   
 	            slider.parents('.slide_nav').find("a").removeClass(options.anchor);
 	            slider.addClass(options.anchor);
                 if(!$('#' + options.class_overlay).find('.' + options.anchor).prev('.slide_nav_item').length){
@@ -802,24 +724,16 @@
 			me.init(element, options);
 		},
         init: function (element, options) {
-        	console.log(options.class_bg);	
 			$(element).on('click', function ()
 			{
-				console.log(options.class_bg);
 				me.show($(this), element, options);	
 				return false;
 			});	
-			console.log('-------------------------------------------' + options.gallery);
 			// mark element as initialized
-			console.log('-------------------top------------------------');
 			if(options.gallery !== false){
 				var gallery = $("[data-gallery^="+options.gallery+"]");
 				gallery.first().addClass('isFirst');
 				gallery.last().addClass('isLast');
-				console.log('-------------------------------------------');
-				console.log(gallery);
-				console.log('-------------------------------------------');
-				console.log('-----------------------------------------------------woot ' + gallery.length);
 				var j = 1;
 				if (gallery.length)
 				{
@@ -830,7 +744,6 @@
 					});
 				}
 			}
-			console.log('-------------------bot------------------------');
 			// this element has already been initialized
 			if($(document).data(options.class_bg)) {
 				return true;
@@ -870,8 +783,6 @@
 		},
 		close: function(element, options){
 			zem.debug('super close');
-			console.log('yarp');
-			console.log(options.class_bg);
 			actions.dismiss(element, options);
 		},
 		reposition: function(){

@@ -122,7 +122,6 @@
 			me.init(element, options);
 		},
         init: function (element, options) {
-        	console.log(options.selector);	
 			me.start($(this), element, options);	
 			// this element has already been initialized
 			if($(document).data(options.selector)) {
