@@ -390,14 +390,8 @@
 			},
 			prev_slide: function(element, options){
 				zem.debug('super prev');
-				var outerOverlay = {
-						paddingHeight: parseInt($('#' + options.class_overlay).css('padding-top')) + parseInt($('#' + options.class_overlay).css('padding-bottom')),
-						paddingWidth: parseInt($('#' + options.class_overlay).css('padding-left')) + parseInt($('#' + options.class_overlay).css('padding-right'))
-					},
-					slide_anchor = Number($(element).index()),
+				var slide_anchor = Number($(element).index()),
 	            	slide_number = Number($('#' + options.class_overlay).find('.' + options.anchor).prev().text()),
-	               	next_slide = $('#' + options.class_overlay).find('.' + options.anchor).next().text(),
-	                prev_slide = $('#' + options.class_overlay).find('.' + options.anchor).prev().text(),
 	                current_slide = Number($('#' + options.class_overlay).find('.' + options.anchor).prev().text()),
 	            	width = ($('#' + options.class_overlay).find('.slide').eq((current_slide - 1)).width()),
 	            	height = ($('#' + options.class_overlay).find('.slide').eq((current_slide - 1)).height()),
@@ -466,14 +460,8 @@
 			},
 			next_slide: function(element, options){
 				zem.debug('super next');
-				var outerOverlay = {
-						paddingHeight: parseInt($('#' + options.class_overlay).css('padding-top')) + parseInt($('#' + options.class_overlay).css('padding-bottom')),
-						paddingWidth: parseInt($('#' + options.class_overlay).css('padding-left')) + parseInt($('#' + options.class_overlay).css('padding-right'))
-					},
-					slide_anchor = Number($(element).index()),
+				var slide_anchor = Number($(element).index()),
 	            	slide_number = Number($('#' + options.class_overlay).find('.' + options.anchor).next().text()),
-	               	next_slide = $('#' + options.class_overlay).find('.' + options.anchor).next().text(),
-	                prev_slide = $('#' + options.class_overlay).find('.' + options.anchor).prev().text(),
 	                current_slide = Number($('#' + options.class_overlay).find('.' + options.anchor).next().text()),
 	            	width = ($('#' + options.class_overlay).find('.slide').eq((current_slide - 1)).width()),
 	            	height = ($('#' + options.class_overlay).find('.slide').eq((current_slide - 1)).height()),
@@ -550,14 +538,8 @@
 				zem.debug('super jump');
 			},
 	        content_animate_to: function (slider, element, options, slide_width, slide_height, slide_id) {
-	            var outerOverlay = {
-						paddingHeight: parseInt($('#' + options.class_overlay).css('padding-top')) + parseInt($('#' + options.class_overlay).css('padding-bottom')),
-						paddingWidth: parseInt($('#' + options.class_overlay).css('padding-left')) + parseInt($('#' + options.class_overlay).css('padding-right'))
-					},
-					slide_anchor = Number(slider.index()),
+	            var slide_anchor = Number(slider.index()),
 	            	slide_number = Number(slider.text()),
-	               	next_slide = slider.next().text(),
-	                prev_slide = slider.prev().text(),
 	                current_slide = Number(slider.text()),
 	            	width = ($(element).find('.slide').eq((current_slide - 1)).width()),
 	            	height = ($(element).find('.slide').eq((current_slide - 1)).height()),
