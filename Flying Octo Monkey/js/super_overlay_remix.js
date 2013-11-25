@@ -199,7 +199,7 @@
 				$('<div/>', {
 					id: options.class_bar,
 					'class': options.class_bar,
-					html: !options.hideX ? '<a href="javascript: void(0);" class="'+options.class_close+'"></a>' : ''
+					html: options.show_x ? '<a href="javascript: void(0);" class="'+options.class_close+'"></a>' : ''
 				}).prependTo("#" + options.class_overlay);
 				switch (options.type)
 				{
@@ -249,7 +249,7 @@
 							url: overlay.attr('href'),
 							success: function (data)
 							{
-								$("#" + options.class_overlay).html(((options.title !== "") ? '<h1>' + options.title + '</h1>' : '') + '<div class="'+options.class_content+'">' + data + '</div>');
+								$("#" + options.class_overlay).html(((options.title !== "" && options.show_header) ? '<h1>' + options.title + '</h1>' : '') + '<div class="'+options.class_content+'">' + data + '</div>');
 								actions.show(overlay_top, overlay_left, total_width, total_height, options);
 							}
 						});
@@ -300,7 +300,7 @@
 						});
 						break;
 					default:
-						$("#" + options.class_overlay).append('<div class="'+options.class_content+'">' + ((options.title !== "") ? '<h1>' + options.title + '</h1>' : '') + '' + '</div>');
+						$("#" + options.class_overlay).append('<div class="'+options.class_content+'">' + ((options.title !== "" && options.show_header) ? '<h1>' + options.title + '</h1>' : '') + '' + '</div>');
                         $('#' + options.element).clone().appendTo('.'+options.class_content);
                         $('.' + options.class_content).find('.hidden').show().css('position', 'relative').css('margin','0');
 						if (total_height < options.max_height)
@@ -309,8 +309,31 @@
 						}
 						actions.show(overlay_top, overlay_left, total_width, total_height, options);
 				}
-				add.rounded(options);
-				add.shadow(options);
+				if(options.rounded !== false){
+					add.rounded(options);
+				}
+				if(options.shadow_size !== false && options.shadow_color !== false){
+					add.shadow(options);
+				}
+				$(document).on('keyup', function (e) {
+		            if (e.keyCode === 27) { 
+		               actions.dismiss(overlay, options); 
+		            }
+		        });		
+				$(window).resize(function ()
+				{
+					actions.reposition(options);
+				});
+				if (options.sticky)
+				{
+					$(window).scroll(function ()
+					{
+						actions.reposition(options);
+					});
+				} else
+				{
+					//actions.reposition_bg(options);
+				}
 			}
 		},
 		actions = {
@@ -361,7 +384,7 @@
 							$('#' + options.class_overlay).animate({
 		                        left: overlay_left,
 		                        top: (overlay_top + $(window).scrollTop())
-		                    }, options.delay);
+		                    }, options.delay);		                    
 						}else{
 							$('#' + options.class_overlay).css({ 'left': overlay_left, 'top': overlay_top + $(window).scrollTop() });	
 						}
@@ -628,8 +651,9 @@
 	function SuperOverlay ( element, options ) {
 		me = this;
 		this.defaults = {
-			mode: 'fixed',
-			role: 'default',
+			mode: 'fixed', //fixed , responsive
+			responsive_unit: '%',
+			role: 'default', //image , ajax , json , file, external , default
 			type: 'default',
 			class_bg: 'modal_bg',
 			class_frame: 'overlay_frame',
@@ -644,36 +668,34 @@
 			class_caption: 'overlay_caption',
 			class_prev: 'prev',
 			class_next: 'next',
-			element: '',
-			href: '',
 			title: (($(element).attr('title') === undefined) ? "" : $(element).attr('title')),
-			exists: false,
-			data_target: '',
-			css_class: '',
-			show_header: '',
-			scrollable: '',
+			show_header: true,
 			sticky: false,
 			rounded: '7px',
 			shadow_color: '#666666',
 			shadow_size: '5px 5px 5px',
-			show_x : '',
+			show_x : true,
 			escapable: true,
-			focus_first: '',
-			overrides: '',
-			start: '',
-			show: '',
-			close: '',
-			callback: '',
-			ajax_content: '',
 			width: 'user',
 			height: 'user',
 			max_height: 'user',
-			unit: '%',
 			pass_data: '',
 			overlay_data: '',
 			data_class: '',
 			call: '',
+			callback: '',
+			ajax_content: '',
 			params: '',
+			exists: false,
+			element: '',
+			href: '',
+			data_target: '',
+			css_class: '',
+			scrollable: '',
+			focus_first: '',
+			callback_start: '',
+			callback_show: '',
+			callback_close: '',
 			httpMethod: 'post',
 			gallery: false,
             delay: 1000,
@@ -739,25 +761,6 @@
 			{
 				me.close(element, options); 
 			});
-			$(document).on('keyup', function (e) {
-	            if (e.keyCode === 27) {
-	               me.close(element, options); 
-	            }
-	        });		
-			if (options.sticky)
-			{
-				$(window).resize(function ()
-				{
-					actions.reposition(options);
-				});
-				$(window).scroll(function ()
-				{
-					actions.reposition(options);
-				});
-			} else
-			{
-				actions.reposition_bg(options);
-			}
         },
 		show: function(overlay, element, options){
 			zem.debug('super show');
