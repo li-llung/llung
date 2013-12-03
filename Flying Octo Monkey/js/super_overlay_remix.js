@@ -49,6 +49,7 @@
 				var gallery = $(".has_gallery");
 				var isFirst = overlay.hasClass('isFirst');
 				var isLast = overlay.hasClass('isLast');
+				zem.debug(slide_number);
                 $("<div/>", {
                     'class': options.class_content
                 }).appendTo("#" + options.class_overlay);
@@ -729,21 +730,28 @@
 				me.show($(this), element, options);	
 				return false;
 			});	
-			// mark element as initialized
 			if(options.gallery !== false){
-				var gallery = $("[data-gallery^="+options.gallery+"]");
-				gallery.first().addClass('isFirst');
-				gallery.last().addClass('isLast');
-				var j = 1;
-				if (gallery.length)
-				{
-					gallery.each(function ()
+				zem.debug('current gallery is: ' + options.gallery);
+				if($(document).data(options.gallery)) {
+					return true;
+				}else{
+					var gallery = $("[data-gallery^="+options.gallery+"]");
+					gallery.first().addClass('isFirst');
+					gallery.last().addClass('isLast');
+					var j = 1;
+					if (gallery.length)
 					{
-						$(this).attr('id', 'set_' + options.gallery + '_' + j);
-						j++;
-					});
+						gallery.each(function ()
+						{
+							zem.debug('set_' + options.gallery + '_' + j);
+							$(this).attr('id', 'set_' + options.gallery + '_' + j);
+							j++;
+						});
+					}
+					$(document).data(options.gallery, true);					
 				}
 			}
+			// mark element as initialized
 			// this element has already been initialized
 			if($(document).data(options.class_bg)) {
 				return true;
