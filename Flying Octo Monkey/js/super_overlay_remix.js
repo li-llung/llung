@@ -204,7 +204,7 @@
 				switch (options.type)
 				{
 					case 'image':
-						if(options.gallery !== false){
+						if(options.gallery !== false && options.gallery !== ""){
 							build.gallery(overlay, elements, options);
 						}else{
 							$("#" + options.class_overlay).css({ 'width': 'auto', 'height': 'auto' });
@@ -232,9 +232,6 @@
 							{
 								$('<div class="'+options.class_caption+'"><h1>' + options.title + '</h1></div>').appendTo('.' + options.class_content);
 								$('.' + options.class_caption).fadeTo("slow", 0.60);
-							}
-							if(options.gallery !== false){
-								$("#" + options.class_overlay).append('<a href="javascript: void(0)" class="prev"></a><a href="javascript: void(0)" class="next"></a>');
 							}
 							actions.show(overlay_top, overlay_left, total_width, total_height, options);							
 						}
@@ -301,7 +298,7 @@
 						break;
 					default:
 						$("#" + options.class_overlay).append('<div class="'+options.class_content+'">' + ((options.title !== "" && options.show_header) ? '<h1>' + options.title + '</h1>' : '') + '' + '</div>');
-                        $('#' + options.element).clone().appendTo('.'+options.class_content);
+                        $('#' + options.element).clone(true, true).appendTo('.'+options.class_content).clone().appendTo('body');
                         $('.' + options.class_content).find('.hidden').show().css('position', 'relative').css('margin','0');
 						if (total_height < options.max_height)
 						{
@@ -368,7 +365,12 @@
 				{
 					window[options.callback](options.overlay_data);
 				}
-
+				if(options.focus_first){
+					$("#" + options.class_overlay).find('input').first().trigger('focus');
+				}
+				if(options.force_scroll){
+					$("#" + options.class_overlay).find('.' + options.class_content).css('overflow-y','scroll').css('overflow-x','hidden').height(total_height);
+				}
 				actions.reposition(options);
             },
             reposition: function (options) {
@@ -679,23 +681,17 @@
 			width: 'user',
 			height: 'user',
 			max_height: 'user',
-			pass_data: '',
-			overlay_data: '',
-			data_class: '',
-			call: '',
-			callback: '',
-			ajax_content: '',
-			params: '',
+			pass_data: false,
+			overlay_data: {},
+			data_class: 'rendered',
+			call: false,
+			callback: false,
+			ajax_content: false,
+			params: {},
 			exists: false,
-			element: '',
-			href: '',
-			data_target: '',
-			css_class: '',
-			scrollable: '',
-			focus_first: '',
-			callback_start: '',
-			callback_show: '',
-			callback_close: '',
+			element: false,
+			force_scroll: false,
+			focus_first: false,
 			httpMethod: 'post',
 			gallery: false,
             delay: 1000,
