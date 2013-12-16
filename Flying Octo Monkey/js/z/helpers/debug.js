@@ -5,8 +5,8 @@ var zem = zem || {};
 (function($, zem){
     'use strict';
     zem.settings = {
-        status: false,
-        show_output: false,
+        status: true,
+        show_output: true,
         output: '<div id="output" class="output" style="background-color: #fbfbd5;border: solid 1px #ffdc7f;padding:10px;position: absolute;top: 50px;left: 50px;z-index:99999;"></div>'
     };
     zem.log = function (message) {

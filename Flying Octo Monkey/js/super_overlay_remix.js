@@ -7,15 +7,21 @@
 		version = "1.0",
 		trigger = ".overlay",	
         counter = 1,	
+        flip = false,
+        slider_interval,
 		me,
 		add = {
 			shadow: function (options)
 			{
-				$('.' + options.class_holder).css({ '-moz-box-shadow': '' + options.shadow_size + ' ' + options.shadow_color + '', '-webkit-box-shadow': '' + options.shadow_size + ' ' + options.shadow_color + '', 'box-shadow': '' + options.shadow_size + ' ' + options.shadow_color + '' });
+				if(options.shadow_size !== false && options.shadow_color !== false){
+					$('.' + options.class_holder).css({ '-moz-box-shadow': '' + options.shadow_size + ' ' + options.shadow_color + '', '-webkit-box-shadow': '' + options.shadow_size + ' ' + options.shadow_color + '', 'box-shadow': '' + options.shadow_size + ' ' + options.shadow_color + '' });
+				}
 			},
 			rounded: function (options)
 			{
-				$('.' + options.class_holder).css({ '-moz-border-radius': options.rounded, '-webkit-border-radius': options.rounded, 'border-radius': options.rounded, '-khtml-border-radius': options.rounded });
+				if(options.rounded !== false){
+					$('.' + options.class_holder).css({ '-moz-border-radius': options.rounded, '-webkit-border-radius': options.rounded, 'border-radius': options.rounded, '-khtml-border-radius': options.rounded });
+				}
 			}
 		},
 		build = {		
@@ -74,7 +80,7 @@
 	            		slide_offset_top += $(this).height();
 	            	}
 	            });
-                if(options.direction === "horizontal"){
+                if(options.slide_direction === "horizontal"){
                     $("#" + options.class_overlay).find('.slide_holder').width(slide_count * slider_width);	
                 }
                 $("#" + options.class_overlay).find('.slide').appendTo(holder);
@@ -97,7 +103,7 @@
 				{
 					$('.' + options.class_next).hide();
 					$('.' + options.class_prev).hide();
-		            actions.content_animate_to($(this), "#" + options.class_overlay, options, width, height, image_id);
+		            actions.jump_to($(this), "#" + options.class_overlay, options, width, height, image_id);
 		            actions.content_anchor($(this), "#" + options.class_overlay, options);
 		        });
 				$("#" + options.class_overlay).on('click', '.' + options.class_next, function ()
@@ -131,7 +137,7 @@
 					$('<div class="'+options.class_caption+'"><h1>' + options.title + '</h1></div>').appendTo('.' + options.class_content);
 					$('.' + options.class_caption).fadeTo("slow", 0.60);
 				}	
-                if (options.direction === 'horizontal') {
+                if (options.slide_direction === 'horizontal') {
 					$("#" + options.class_overlay).find('.slide_holder').css('left', '-' + slide_offset + 'px');
 				}else{
 					$("#" + options.class_overlay).find('.slide_holder').css('top', '-' + slide_offset_top + 'px');
@@ -234,12 +240,12 @@
 								$('<div class="'+options.class_caption+'"><h1>' + options.title + '</h1></div>').appendTo('.' + options.class_content);
 								$('.' + options.class_caption).fadeTo("slow", 0.60);
 							}
-							actions.show(overlay_top, overlay_left, total_width, total_height, options);							
+							actions.show(overlay_top, overlay_left, total_width, total_height, options, overlay);							
 						}
 						break;
 					case 'json':
 						$("#" + options.class_overlay).append('<div class="'+options.class_content+'">' + ((window[options.call].title !== "") ? '<h1>' + window[options.call].title + '</h1>' : '') + '' + window[options.call].content + '</div>');
-						actions.show(overlay_top, overlay_left, total_width, total_height, options);
+						actions.show(overlay_top, overlay_left, total_width, total_height, options, overlay);
 						break;
 					case 'file':
 						$.ajax({
@@ -247,8 +253,8 @@
 							url: overlay.attr('href'),
 							success: function (data)
 							{
-								$("#" + options.class_overlay).html(((options.title !== "" && options.show_header) ? '<h1>' + options.title + '</h1>' : '') + '<div class="'+options.class_content+'">' + data + '</div>');
-								actions.show(overlay_top, overlay_left, total_width, total_height, options);
+								$('<div id="#'+options.class_content+'" class="'+options.class_content+'">'+((options.title !== "" && options.show_header) ? '<h1>' + options.title + '</h1>' : '')+'' + data + '</div>').insertAfter('#' + options.class_bar);
+								actions.show(overlay_top, overlay_left, total_width, total_height, options, overlay);
 							}
 						});
 						break;
@@ -267,7 +273,7 @@
 								{
 									window[options.ajax_content](data['data'], options);
 								}
-								actions.show(overlay_top, overlay_left, total_width, total_height, options);
+								actions.show(overlay_top, overlay_left, total_width, total_height, options, overlay);
 							}
 						});
 						break;
@@ -293,7 +299,7 @@
 									$("#" + options.class_overlay).find('.' + options.class_content).remove();
 								}
 								$("#" + options.class_overlay).append('<div class="'+options.class_content+'">' + data + '</div>');
-								actions.show(overlay_top, overlay_left, total_width, total_height, options);
+								actions.show(overlay_top, overlay_left, total_width, total_height, options, overlay);
 							}
 						});
 						break;
@@ -305,7 +311,7 @@
 						{
 							total_height = 'auto';
 						}
-						actions.show(overlay_top, overlay_left, total_width, total_height, options);
+						actions.show(overlay_top, overlay_left, total_width, total_height, options, overlay);
 				}
 				if(options.rounded !== false){
 					add.rounded(options);
@@ -340,7 +346,7 @@
 				$('#' + options.class_bg).hide();
 			    $("body").trigger("close_overlay");
 			},
-			show: function(overlay_top, overlay_left, total_width, total_height, options){
+			show: function(overlay_top, overlay_left, total_width, total_height, options, element){
 				var outerOverlay = {
 					paddingHeight: parseInt($('.' + options.class_content).css('padding-top')) + parseInt($('.' + options.class_content).css('padding-bottom')),
 					paddingWidth: parseInt($('.' + options.class_content).css('padding-left')) + parseInt($('.' + options.class_content).css('padding-right'))
@@ -372,6 +378,13 @@
 				if(options.force_scroll){
 					$("#" + options.class_overlay).find('.' + options.class_content).css('overflow-y','scroll').css('overflow-x','hidden').height(total_height);
 				}
+				if(options.slide_start){
+					$("#" + options.class_overlay).find(".slide").each(function(index){
+	                    $(this).attr('data-slide', (index + 1)).attr('data-set', 1);
+	                });
+	                $("#" + options.class_overlay).children().clone().appendTo("#" + options.class_overlay).attr('data-set', 2);
+					actions.play(element, options);
+				}
 				actions.reposition(options);
             },
             reposition: function (options) {
@@ -387,7 +400,7 @@
 							$('#' + options.class_overlay).animate({
 		                        left: overlay_left,
 		                        top: (overlay_top + $(window).scrollTop())
-		                    }, options.delay);		                    
+		                    }, options.slide_delay);		                    
 						}else{
 							$('#' + options.class_overlay).css({ 'left': overlay_left, 'top': overlay_top + $(window).scrollTop() });	
 						}
@@ -405,165 +418,10 @@
 					});
 				}
             },
-			update: function(){
-				zem.debug('super update');
+			refresh: function(element, options){
+				zem.debug('super refresh');
 			},
-			play: function(){
-				zem.debug('super play');
-			},
-			stop: function(){
-				zem.debug('super stop');
-			},
-			prev_slide: function(element, options){
-				zem.debug('super prev');
-				var slide_anchor = Number($(element).index()),
-	            	slide_number = Number($('#' + options.class_overlay).find('.' + options.anchor).prev().text()),
-	                current_slide = Number($('#' + options.class_overlay).find('.' + options.anchor).prev().text()),
-	            	width = ($('#' + options.class_overlay).find('.slide').eq((current_slide - 1)).width()),
-	            	height = ($('#' + options.class_overlay).find('.slide').eq((current_slide - 1)).height()),
-	            	title = ($('#set_' + options.gallery + '_' + (current_slide)).attr('title')),
-	            	animate_left = -((slide_number * $('#slide_od_' + current_slide).width()) - $('#slide_od_' + current_slide).width()),
-	                animate_top = -((slide_number * $('#slide_od_' + current_slide).height()) - $('#slide_od_' + current_slide).height()),
-	                slide_offset = 0,
-	                slide_offset_top = 0;
-	            $('#' + options.class_overlay).find('.slide').each(function(index){
-	            	if((index + 1) < slide_number){	      
-	            		slide_offset += $(this).find('img').width();
-	            		slide_offset_top += $(this).find('img').height();
-	            	}
-	            });
-	            if(options.effect == "fade"){
-	                $('#' + options.class_overlay).find('.slide').fadeOut();
-	                $('#' + options.class_overlay).find('.slide').eq((current_slide - 1)).fadeIn();
-	                $('#' + options.class_overlay).find('.slide_holder').css('top', 0);
-                    $("#" + options.class_overlay).animate({
-                        width: width,
-                        height: height
-                    }, options.delay, function() {
-						actions.reposition(options);
-					});
-                    $("#" + options.class_overlay).find('.slider').animate({
-                        width: width,
-                        height: height
-                    }, options.delay);
-	            }else{
-	                if (options.direction === 'horizontal') {
-	                    $("#" + options.class_overlay).animate({
-	                        width: width,
-	                        height: height
-	                    }, options.delay, function() {
-							actions.reposition(options);
-						});
-	                    $("#" + options.class_overlay).find('.slider').animate({
-	                        width: width,
-	                        height: height
-	                    }, options.delay);                   
-	                    $("#" + options.class_overlay).find('.slide_holder').animate({
-	                        left: '-' + slide_offset + 'px'
-	                    }, options.delay);
-	                } else {
-	                    $("#" + options.class_overlay).animate({
-	                        width: width,
-	                        height: height
-	                    }, options.delay, function() {
-							actions.reposition(options);
-						});
-	                    $("#" + options.class_overlay).find('.slider').animate({
-	                        width: width,
-	                        height: height
-	                    }, options.delay);
-	                    $("#" + options.class_overlay).find('.slide_holder').animate({
-	                        top: '-' + slide_offset_top + 'px'
-	                    }, options.delay);	       
-	                }
-	            }
-				if (title !== "")
-				{
-					$('.'+options.class_caption).find('h1').text(title);
-					$('.' + options.class_caption).fadeTo("slow", 0.60);
-				}	
-		        actions.content_anchor($('#' + options.class_overlay).find('.' + options.anchor).prev('.slide_nav_item'), "#" + options.class_overlay, options);
-			},
-			next_slide: function(element, options){
-				zem.debug('super next');
-				var slide_anchor = Number($(element).index()),
-	            	slide_number = Number($('#' + options.class_overlay).find('.' + options.anchor).next().text()),
-	                current_slide = Number($('#' + options.class_overlay).find('.' + options.anchor).next().text()),
-	            	width = ($('#' + options.class_overlay).find('.slide').eq((current_slide - 1)).width()),
-	            	height = ($('#' + options.class_overlay).find('.slide').eq((current_slide - 1)).height()),
-	            	title = ($('#set_' + options.gallery + '_' + (current_slide)).attr('title')),
-	            	animate_left = -((slide_number * $('#slide_od_' + current_slide).width()) - $('#slide_od_' + current_slide).width()),
-	                animate_top = -((slide_number * $('#slide_od_' + current_slide).height()) - $('#slide_od_' + current_slide).height()),
-	                slide_offset = 0,
-	                slide_offset_top = 0;
-	            if(options.effect == "fade"){
-	                $('#' + options.class_overlay).find('.slide').fadeOut();
-	                $('#' + options.class_overlay).find('.slide').eq((current_slide - 1)).fadeIn();
-	                $('#' + options.class_overlay).find('.slide_holder').css('top', 0);
-                    $("#" + options.class_overlay).animate({
-                        width: width,
-                        height: height
-                    }, options.delay, function() {
-						actions.reposition(options);
-					});
-                    $("#" + options.class_overlay).find('.slider').animate({
-                        width: width,
-                        height: height
-                    }, options.delay);
-	            }else{
-		            $('#' + options.class_overlay).find('.slide').each(function(index){
-		            	if((index + 1) < slide_number){
-		            		slide_offset += $(this).find('img').width();
-		            		slide_offset_top += $(this).find('img').height();
-		            	}
-		            });
-	                if (options.direction === 'horizontal') {
-	                    $(element).find('.slide_holder').animate({
-	                        left: animate_left
-	                    }, options.delay);
-	                    $("#" + options.class_overlay).animate({
-	                        width: width,
-	                        height: height
-	                    }, options.delay, function() {
-							actions.reposition(options);
-						});
-	                    $("#" + options.class_overlay).find('.slider').animate({
-	                        width: width,
-	                        height: height
-	                    }, options.delay);
-	                    $("#" + options.class_overlay).find('.slide_holder').animate({
-	                        left: '-' + slide_offset
-	                    }, options.delay);	            		
-	                } else {
-	                    $(element).find('.slide_holder').animate({
-	                        top: animate_top
-	                    }, options.delay);
-	                    $("#" + options.class_overlay).animate({
-	                        width: width,
-	                        height: height
-	                    }, options.delay, function() {
-							actions.reposition(options);
-						});
-	                    $("#" + options.class_overlay).find('.slider').animate({
-	                        width: width,
-	                        height: height
-	                    }, options.delay);
-	                    $("#" + options.class_overlay).find('.slide_holder').animate({
-	                        top: '-' + slide_offset_top
-	                    }, options.delay);	       
-	                }
-	            }
-				if (title !== "")
-				{
-					$('.'+options.class_caption).find('h1').text(title);
-					$('.' + options.class_caption).fadeTo("slow", 0.60);
-				}	
-		        actions.content_anchor($('#' + options.class_overlay).find('.' + options.anchor).next('.slide_nav_item'), "#" + options.class_overlay, options);
-			},
-			jump: function(){
-				zem.debug('super jump');
-			},
-	        content_animate_to: function (slider, element, options, slide_width, slide_height, slide_id) {
+	        up: function (element, options) {
 	            var slide_anchor = Number(slider.index()),
 	            	slide_number = Number(slider.text()),
 	                current_slide = Number(slider.text()),
@@ -580,54 +438,384 @@
 	            		slide_offset_top += $(this).find('img').height();
 	            	}
 	            });
-	            if(options.effect == "fade"){
-	                $(element).find('.slide').fadeOut();
-	                $(element).find('.slide').eq((slide_number-1)).fadeIn();
+	            $("#" + options.class_overlay).find('.slide_holder').animate({
+	                top: '-' + slide_offset_top
+	            }, options.slide_delay);
+	        },
+	        down: function (element, options) {
+	            var slide_anchor = Number(slider.index()),
+	            	slide_number = Number(slider.text()),
+	                current_slide = Number(slider.text()),
+	            	width = ($(element).find('.slide').eq((current_slide - 1)).width()),
+	            	height = ($(element).find('.slide').eq((current_slide - 1)).height()),
+	            	title = ($('#set_' + options.gallery + '_' + (current_slide)).attr('title')),
+	            	animate_left = -((slide_number * $('#slide_od_' + current_slide).width()) - $('#slide_od_' + current_slide).width()),
+	                animate_top = -((slide_number * $('#slide_od_' + current_slide).height()) - $('#slide_od_' + current_slide).height()),
+	                slide_offset = 0,
+	                slide_offset_top = 0;
+	            $(element).find('.slide').each(function(index){
+	            	if((index + 1) < slide_number){
+	            		slide_offset += $(this).find('img').width();
+	            		slide_offset_top += $(this).find('img').height();
+	            	}
+	            });
+	            $("#" + options.class_overlay).find('.slide_holder').animate({
+	                top: '-' + slide_offset_top
+	            }, options.slide_delay);
+	        },
+	        forward: function (element, options) {
+	        	zem.debug('super forward');
+				var slide_anchor = Number($(element).index()),
+	            	slide_number = Number($('#' + options.class_overlay).find('.' + options.slide_anchor).prev().text()),
+	                current_slide = Number($('#' + options.class_overlay).find('.' + options.slide_anchor).prev().text()),
+	            	width = ($('#' + options.class_overlay).find('.slide').eq((current_slide - 1)).width()),
+	            	height = ($('#' + options.class_overlay).find('.slide').eq((current_slide - 1)).height()),
+	            	title = ($('#set_' + options.gallery + '_' + (current_slide)).attr('title')),
+	            	animate_left = -((slide_number * $('#slide_od_' + current_slide).width()) - $('#slide_od_' + current_slide).width()),
+	                animate_top = -((slide_number * $('#slide_od_' + current_slide).height()) - $('#slide_od_' + current_slide).height()),
+	                slide_offset = 0,
+	                slide_offset_top = 0;
+	            $('#' + options.class_overlay).find('.slide').each(function(index){
+	            	if((index + 1) < slide_number){	      
+	            		slide_offset += $(this).find('img').width();
+	            		slide_offset_top += $(this).find('img').height();
+	            	}
+	            });
+	            if(options.slide_effect == "fade"){
+	                $('#' + options.class_overlay).find('.slide').fadeOut();
+	                $('#' + options.class_overlay).find('.slide').eq((current_slide - 1)).fadeIn();
+	                $('#' + options.class_overlay).find('.slide_holder').css('top', 0);
                     $("#" + options.class_overlay).animate({
                         width: width,
                         height: height
-                    }, options.delay, function() {
+                    }, options.slide_delay, function() {
 						actions.reposition(options);
 					});
                     $("#" + options.class_overlay).find('.slider').animate({
                         width: width,
                         height: height
-                    }, options.delay);
+                    }, options.slide_delay);
 	            }else{
-	                if (options.direction === 'horizontal') {
-	                    $(element).find('.slide_holder').animate({
-	                        left: animate_left
-	                    }, options.delay);
+	                if (options.slide_direction === 'horizontal') {
 	                    $("#" + options.class_overlay).animate({
 	                        width: width,
 	                        height: height
-	                    }, options.delay, function() {
+	                    }, options.slide_delay, function() {
 							actions.reposition(options);
 						});
 	                    $("#" + options.class_overlay).find('.slider').animate({
 	                        width: width,
 	                        height: height
-	                    }, options.delay);
+	                    }, options.slide_delay);                   
+	                    $("#" + options.class_overlay).find('.slide_holder').animate({
+	                        left: '-' + slide_offset + 'px'
+	                    }, options.slide_delay);
+	                } else {
+	                    $("#" + options.class_overlay).animate({
+	                        width: width,
+	                        height: height
+	                    }, options.slide_delay, function() {
+							actions.reposition(options);
+						});
+	                    $("#" + options.class_overlay).find('.slider').animate({
+	                        width: width,
+	                        height: height
+	                    }, options.slide_delay);
+	                    $("#" + options.class_overlay).find('.slide_holder').animate({
+	                        top: '-' + slide_offset_top + 'px'
+	                    }, options.slide_delay);	       
+	                }
+	            }
+				if (title !== "")
+				{
+					$('.'+options.class_caption).find('h1').text(title);
+					$('.' + options.class_caption).fadeTo("slow", 0.60);
+				}	
+	        },
+	        back: function (element, options) {
+	            var slide_anchor = Number(slider.index()),
+	            	slide_number = Number(slider.text()),
+	                current_slide = Number(slider.text()),
+	            	width = ($(element).find('.slide').eq((current_slide - 1)).width()),
+	            	height = ($(element).find('.slide').eq((current_slide - 1)).height()),
+	            	title = ($('#set_' + options.gallery + '_' + (current_slide)).attr('title')),
+	            	animate_left = -((slide_number * $('#slide_od_' + current_slide).width()) - $('#slide_od_' + current_slide).width()),
+	                animate_top = -((slide_number * $('#slide_od_' + current_slide).height()) - $('#slide_od_' + current_slide).height()),
+	                slide_offset = 0,
+	                slide_offset_top = 0;
+	            $(element).find('.slide').each(function(index){
+	            	if((index + 1) < slide_number){
+	            		slide_offset += $(this).find('img').width();
+	            		slide_offset_top += $(this).find('img').height();
+	            	}
+	            });
+	            $("#" + options.class_overlay).find('.slide_holder').animate({
+	                left: '-' + slide_offset
+	            }, options.slide_delay);
+	        },
+	        move_control: function (element, options){
+	            var selected = $('#' + options.class_overlay).find('.' + options.slide_anchor),
+	                next = selected.removeClass('slide_nav_anchor').next(),
+	                nav = $(element).parents(options.selector).find('.slide_nav');
+	            if(selected.is(':last-child')){
+	                nav.find("a").first().addClass('slide_nav_anchor');
+	                //nav.find("a").first().attr('data-slide', (Number(selected.attr('data-slide')) + 1));
+	                var num_start = Number(selected.attr('data-slide'));
+	                nav.find("a").each(function(){
+	                    $(this).attr('data-slide', (num_start + 1));
+	                    num_start +=1;
+	                });
+	                //console.log(holder + ' selected = ' + selected.text() + ' total ' + (Number(selected.text()) + 1));
+	            }else{
+	                next.addClass('slide_nav_anchor');
+	                //console.log(holder + ' selected = ' + selected.text() + ' total ' + (Number(selected.text()) + 1));
+	                next.attr('data-slide', (Number(selected.attr('data-slide')) + 1));
+	            }
+	        },
+			play: function(element, options){
+				var slider_count = 1;
+				zem.debug('super play');
+                slider_interval = setInterval(function(){
+                    zem.debug('yay im sliding');
+                    if(slider_count === $(element).find(".slide").length && flip === false){
+                        $(element).find('[data-set="1"]').clone().insertAfter($(element).find('.slide').last()).attr('data-set', counter);
+                        flip = true;
+                    }else{
+                        flip = false;
+                    }
+                    actions.move_control(element, options);
+                    if(options.slide_direction == "horizontal"){
+                        actions.forward(element, options);
+                        $(element).width($(element).find(".slide").length * options.width);
+                    }else if(options.slide_direction == "vertical"){
+                        actions.down(element, options);
+                    }
+
+
+                    if(options.loop > 0){
+                        if((slider_count+1) === total_slides){
+                            actions.stop(element, options);
+                        }
+                    }
+                    slider_count += 1;
+                }, options.slide_speed);
+			},
+			stop: function(element, options){
+				zem.debug('super stop');
+                clearInterval(slider_interval);
+			},
+			prev_slide: function(element, options){
+				zem.debug('super prev');
+				var slide_anchor = Number($(element).index()),
+	            	slide_number = Number($('#' + options.class_overlay).find('.' + options.slide_anchor).prev().text()),
+	                current_slide = Number($('#' + options.class_overlay).find('.' + options.slide_anchor).prev().text()),
+	            	width = ($('#' + options.class_overlay).find('.slide').eq((current_slide - 1)).width()),
+	            	height = ($('#' + options.class_overlay).find('.slide').eq((current_slide - 1)).height()),
+	            	title = ($('#set_' + options.gallery + '_' + (current_slide)).attr('title')),
+	            	animate_left = -((slide_number * $('#slide_od_' + current_slide).width()) - $('#slide_od_' + current_slide).width()),
+	                animate_top = -((slide_number * $('#slide_od_' + current_slide).height()) - $('#slide_od_' + current_slide).height()),
+	                slide_offset = 0,
+	                slide_offset_top = 0;
+	            $('#' + options.class_overlay).find('.slide').each(function(index){
+	            	if((index + 1) < slide_number){	      
+	            		slide_offset += $(this).find('img').width();
+	            		slide_offset_top += $(this).find('img').height();
+	            	}
+	            });
+	            if(options.slide_effect == "fade"){
+	                $('#' + options.class_overlay).find('.slide').fadeOut();
+	                $('#' + options.class_overlay).find('.slide').eq((current_slide - 1)).fadeIn();
+	                $('#' + options.class_overlay).find('.slide_holder').css('top', 0);
+                    $("#" + options.class_overlay).animate({
+                        width: width,
+                        height: height
+                    }, options.slide_delay, function() {
+						actions.reposition(options);
+					});
+                    $("#" + options.class_overlay).find('.slider').animate({
+                        width: width,
+                        height: height
+                    }, options.slide_delay);
+	            }else{
+	                if (options.slide_direction === 'horizontal') {
+	                    $("#" + options.class_overlay).animate({
+	                        width: width,
+	                        height: height
+	                    }, options.slide_delay, function() {
+							actions.reposition(options);
+						});
+	                    $("#" + options.class_overlay).find('.slider').animate({
+	                        width: width,
+	                        height: height
+	                    }, options.slide_delay);                   
+	                    $("#" + options.class_overlay).find('.slide_holder').animate({
+	                        left: '-' + slide_offset + 'px'
+	                    }, options.slide_delay);
+	                } else {
+	                    $("#" + options.class_overlay).animate({
+	                        width: width,
+	                        height: height
+	                    }, options.slide_delay, function() {
+							actions.reposition(options);
+						});
+	                    $("#" + options.class_overlay).find('.slider').animate({
+	                        width: width,
+	                        height: height
+	                    }, options.slide_delay);
+	                    $("#" + options.class_overlay).find('.slide_holder').animate({
+	                        top: '-' + slide_offset_top + 'px'
+	                    }, options.slide_delay);	       
+	                }
+	            }
+				if (title !== "")
+				{
+					$('.'+options.class_caption).find('h1').text(title);
+					$('.' + options.class_caption).fadeTo("slow", 0.60);
+				}	
+		        actions.content_anchor($('#' + options.class_overlay).find('.' + options.slide_anchor).prev('.slide_nav_item'), "#" + options.class_overlay, options);
+			},
+			next_slide: function(element, options){
+				zem.debug('super next');
+				var slide_anchor = Number($(element).index()),
+	            	slide_number = Number($('#' + options.class_overlay).find('.' + options.slide_anchor).next().text()),
+	                current_slide = Number($('#' + options.class_overlay).find('.' + options.slide_anchor).next().text()),
+	            	width = ($('#' + options.class_overlay).find('.slide').eq((current_slide - 1)).width()),
+	            	height = ($('#' + options.class_overlay).find('.slide').eq((current_slide - 1)).height()),
+	            	title = ($('#set_' + options.gallery + '_' + (current_slide)).attr('title')),
+	            	animate_left = -((slide_number * $('#slide_od_' + current_slide).width()) - $('#slide_od_' + current_slide).width()),
+	                animate_top = -((slide_number * $('#slide_od_' + current_slide).height()) - $('#slide_od_' + current_slide).height()),
+	                slide_offset = 0,
+	                slide_offset_top = 0;
+	            if(options.slide_effect == "fade"){
+	                $('#' + options.class_overlay).find('.slide').fadeOut();
+	                $('#' + options.class_overlay).find('.slide').eq((current_slide - 1)).fadeIn();
+	                $('#' + options.class_overlay).find('.slide_holder').css('top', 0);
+                    $("#" + options.class_overlay).animate({
+                        width: width,
+                        height: height
+                    }, options.slide_delay, function() {
+						actions.reposition(options);
+					});
+                    $("#" + options.class_overlay).find('.slider').animate({
+                        width: width,
+                        height: height
+                    }, options.slide_delay);
+	            }else{
+		            $('#' + options.class_overlay).find('.slide').each(function(index){
+		            	if((index + 1) < slide_number){
+		            		slide_offset += $(this).find('img').width();
+		            		slide_offset_top += $(this).find('img').height();
+		            	}
+		            });
+	                if (options.slide_direction === 'horizontal') {
+	                    $(element).find('.slide_holder').animate({
+	                        left: animate_left
+	                    }, options.slide_delay);
+	                    $("#" + options.class_overlay).animate({
+	                        width: width,
+	                        height: height
+	                    }, options.slide_delay, function() {
+							actions.reposition(options);
+						});
+	                    $("#" + options.class_overlay).find('.slider').animate({
+	                        width: width,
+	                        height: height
+	                    }, options.slide_delay);
 	                    $("#" + options.class_overlay).find('.slide_holder').animate({
 	                        left: '-' + slide_offset
-	                    }, options.delay);	            		
+	                    }, options.slide_delay);	            		
 	                } else {
 	                    $(element).find('.slide_holder').animate({
 	                        top: animate_top
-	                    }, options.delay);
+	                    }, options.slide_delay);
 	                    $("#" + options.class_overlay).animate({
 	                        width: width,
 	                        height: height
-	                    }, options.delay, function() {
+	                    }, options.slide_delay, function() {
 							actions.reposition(options);
 						});
 	                    $("#" + options.class_overlay).find('.slider').animate({
 	                        width: width,
 	                        height: height
-	                    }, options.delay);
+	                    }, options.slide_delay);
 	                    $("#" + options.class_overlay).find('.slide_holder').animate({
 	                        top: '-' + slide_offset_top
-	                    }, options.delay);	       
+	                    }, options.slide_delay);	       
+	                }
+	            }
+				if (title !== "")
+				{
+					$('.'+options.class_caption).find('h1').text(title);
+					$('.' + options.class_caption).fadeTo("slow", 0.60);
+				}	
+		        actions.content_anchor($('#' + options.class_overlay).find('.' + options.slide_anchor).next('.slide_nav_item'), "#" + options.class_overlay, options);
+			},
+			jump_to: function (slider, element, options, slide_width, slide_height, slide_id) {
+				zem.debug('super jump');
+	            var slide_anchor = Number(slider.index()),
+	            	slide_number = Number(slider.text()),
+	                current_slide = Number(slider.text()),
+	            	width = ($(element).find('.slide').eq((current_slide - 1)).width()),
+	            	height = ($(element).find('.slide').eq((current_slide - 1)).height()),
+	            	title = ($('#set_' + options.gallery + '_' + (current_slide)).attr('title')),
+	            	animate_left = -((slide_number * $('#slide_od_' + current_slide).width()) - $('#slide_od_' + current_slide).width()),
+	                animate_top = -((slide_number * $('#slide_od_' + current_slide).height()) - $('#slide_od_' + current_slide).height()),
+	                slide_offset = 0,
+	                slide_offset_top = 0;
+	            $(element).find('.slide').each(function(index){
+	            	if((index + 1) < slide_number){
+	            		slide_offset += $(this).find('img').width();
+	            		slide_offset_top += $(this).find('img').height();
+	            	}
+	            });
+	            if(options.slide_effect == "fade"){
+	                $(element).find('.slide').fadeOut();
+	                $(element).find('.slide').eq((slide_number-1)).fadeIn();
+                    $("#" + options.class_overlay).animate({
+                        width: width,
+                        height: height
+                    }, options.slide_delay, function() {
+						actions.reposition(options);
+					});
+                    $("#" + options.class_overlay).find('.slider').animate({
+                        width: width,
+                        height: height
+                    }, options.slide_delay);
+	            }else{
+	                if (options.slide_direction === 'horizontal') {
+	                    $(element).find('.slide_holder').animate({
+	                        left: animate_left
+	                    }, options.slide_delay);
+	                    $("#" + options.class_overlay).animate({
+	                        width: width,
+	                        height: height
+	                    }, options.slide_delay, function() {
+							actions.reposition(options);
+						});
+	                    $("#" + options.class_overlay).find('.slider').animate({
+	                        width: width,
+	                        height: height
+	                    }, options.slide_delay);
+	                    $("#" + options.class_overlay).find('.slide_holder').animate({
+	                        left: '-' + slide_offset
+	                    }, options.slide_delay);	            		
+	                } else {
+	                    $(element).find('.slide_holder').animate({
+	                        top: animate_top
+	                    }, options.slide_delay);
+	                    $("#" + options.class_overlay).animate({
+	                        width: width,
+	                        height: height
+	                    }, options.slide_delay, function() {
+							actions.reposition(options);
+						});
+	                    $("#" + options.class_overlay).find('.slider').animate({
+	                        width: width,
+	                        height: height
+	                    }, options.slide_delay);
+	                    $("#" + options.class_overlay).find('.slide_holder').animate({
+	                        top: '-' + slide_offset_top
+	                    }, options.slide_delay);	       
 	                }
 	            }	
 				if (title !== "")
@@ -637,14 +825,14 @@
 				}	
 	        },
 	        content_anchor: function (slider, element, options) {
-	            slider.parents('.slide_nav').find("a").removeClass(options.anchor);
-	            slider.addClass(options.anchor);
-                if(!$('#' + options.class_overlay).find('.' + options.anchor).prev('.slide_nav_item').length){
+	            slider.parents('.slide_nav').find("a").removeClass(options.slide_anchor);
+	            slider.addClass(options.slide_anchor);
+                if(!$('#' + options.class_overlay).find('.' + options.slide_anchor).prev('.slide_nav_item').length){
                 	$('.' + options.class_prev).hide();
                 }else{
                 	$('.' + options.class_prev).show();
                 }
-                if(!$('#' + options.class_overlay).find('.' + options.anchor).next('.slide_nav_item').length){
+                if(!$('#' + options.class_overlay).find('.' + options.slide_anchor).next('.slide_nav_item').length){
                 	$('.' + options.class_next).hide();
                 }else{
                 	$('.' + options.class_next).show();
@@ -654,10 +842,7 @@
 	function SuperOverlay ( element, options ) {
 		me = this;
 		this.defaults = {
-			mode: 'fixed', //fixed , responsive
-			responsive_unit: '%',
-			role: 'default', //image , ajax , json , file, external , default
-			type: 'default',
+			type: 'default', //image , ajax , json , file, external , default
 			class_bg: 'modal_bg',
 			class_frame: 'overlay_frame',
 			class_images: 'overlay_image_content',
@@ -674,9 +859,9 @@
 			title: (($(element).attr('title') === undefined) ? "" : $(element).attr('title')),
 			show_header: true,
 			sticky: false,
-			rounded: '7px',
-			shadow_color: '#666666',
-			shadow_size: '5px 5px 5px',
+			rounded: false, //'7px'
+			shadow_color: false, //'#666666'
+			shadow_size: false, //'5px 5px 5px'
 			show_x : true,
 			escapable: true,
 			width: 'user',
@@ -689,18 +874,23 @@
 			callback: false,
 			ajax_content: false,
 			params: {},
-			exists: false,
 			element: false,
 			force_scroll: false,
 			focus_first: false,
 			httpMethod: 'post',
 			gallery: false,
-            delay: 1000,
-            start: false,
-            direction: 'horizontal',
-            effect: 'tween',
-            selector: '.slider',
-            anchor: 'slide_nav_anchor'
+            slide_delay: 1000,
+            slide_start: false,
+            slide_direction: 'horizontal',
+            slide_effect: 'tween',
+            slide_selector: '.slider',
+            slide_anchor: 'slide_nav_anchor',
+            slide_speed: 5000,
+            slide_controls: true,
+            slide_resume: true,
+            slide_stop: true,
+            slide_loop: 2
+
 		};
 		me.element = element;
 		me.settings = z.cloneData($.extend( {}, me.defaults, options ));
@@ -772,15 +962,16 @@
 		},
 		close: function(element, options){
 			zem.debug('super close');
+			actions.stop(element, options);
 			actions.dismiss(element, options);
 		},
 		reposition: function(){
 			zem.debug('super reposition');
 			actions.reposition();
 		},
-		update: function(){
-			zem.debug('super update');
-			actions.update();
+		refresh: function(){
+			zem.debug('super refresh');
+			actions.refresh();
 		},
 		gallery: function(){
 			zem.debug('super gallery');
@@ -802,9 +993,9 @@
 			zem.debug('super next');
 			actions.next_slide(element, options);
 		},
-		jump: function(){
+		jump_to: function(){
 			zem.debug('super jump');
-			actions.jump();
+			actions.jump_to();
 		}    
     }
     $.fn[ pluginName ] = function ( options ) {
