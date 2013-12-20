@@ -143,7 +143,7 @@
 					$("#" + options.class_overlay).find('.slide_holder').css('top', '-' + slide_offset_top + 'px');
 				}
 				actions.content_anchor($("#" + options.class_overlay).find('.slide_nav_item').eq(slide_number-1), "#" + options.class_overlay, options);
-				actions.show(overlay_top, overlay_left, total_width, total_height, options);
+				actions.show(overlay_top, overlay_left, total_width, total_height, options, element);
                 counter+=1;
 			},
 			overlay: function(overlay, elements, options){
@@ -465,9 +465,9 @@
 	        },
 	        forward: function (element, options) {
 	        	zem.debug('super forward');
-				var slide_anchor = Number($(element).index()),
-	            	slide_number = Number($('#' + options.class_overlay).find('.' + options.slide_anchor).prev().text()),
-	                current_slide = Number($('#' + options.class_overlay).find('.' + options.slide_anchor).prev().text()),
+				var slide_anchor = Number($('#' + options.class_overlay).find('.' + options.slide_anchor).last().index()),
+	            	slide_number = Number($('#' + options.class_overlay).find('.' + options.slide_anchor).last().prev().text()),
+	                current_slide = Number($('#' + options.class_overlay).find('.' + options.slide_anchor).last().prev().text()),
 	            	width = ($('#' + options.class_overlay).find('.slide').eq((current_slide - 1)).width()),
 	            	height = ($('#' + options.class_overlay).find('.slide').eq((current_slide - 1)).height()),
 	            	title = ($('#set_' + options.gallery + '_' + (current_slide)).attr('title')),
@@ -481,6 +481,29 @@
 	            		slide_offset_top += $(this).find('img').height();
 	            	}
 	            });
+	            zem.debug(element);
+	            zem.debug(options);
+	            zem.debug($('#' + options.class_overlay).find('.' + options.slide_anchor).last());
+	            zem.debug($('#' + options.class_overlay).find('.' + options.slide_anchor).last().index());
+	            zem.debug($('#' + options.class_overlay).find('.' + options.slide_anchor).last().prev());
+	            zem.debug($('#' + options.class_overlay).find('.' + options.slide_anchor).last().prev().text());
+	        	zem.debug(slide_anchor); //-1
+	        	zem.debug(slide_number); //11
+	        	zem.debug(current_slide); //11
+	        	zem.debug(width); //null
+	        	zem.debug(height); //null
+	        	zem.debug(title); //undefined
+	        	zem.debug('--break--');
+	        	zem.debug($('#slide_od_' + current_slide).width());	
+	        	zem.debug($('#slide_od_' + current_slide).height());	
+	        	zem.debug($('#slide_od_' + current_slide));	
+	        	zem.debug((slide_number * $('#slide_od_' + current_slide).width()));	
+	        	zem.debug((slide_number * $('#slide_od_' + current_slide).width()) - $('#slide_od_' + current_slide).width());	     	
+	        	zem.debug('--break--');
+	        	zem.debug(animate_left); // 0
+	        	zem.debug(animate_top); //0
+	        	zem.debug(slide_offset); //9706
+	        	zem.debug(slide_offset_top); //6438
 	            if(options.slide_effect == "fade"){
 	                $('#' + options.class_overlay).find('.slide').fadeOut();
 	                $('#' + options.class_overlay).find('.slide').eq((current_slide - 1)).fadeIn();
@@ -553,11 +576,45 @@
 	                left: '-' + slide_offset
 	            }, options.slide_delay);
 	        },
+	        move: function (element, options, direction){
+	        	zem.debug('super move');
+	        	//next slide (up or forward) , previous slide (back or down), beginning , end
+	        	switch (direction)
+				{
+					case 'next':
+						if(options.direction === "vertical"){
+							zem.debug('upward');
+						}else{
+							zem.debug('forward/next');
+						}
+						break;
+					case 'prev':
+						if(options.direction === "vertical"){
+							zem.debug('down');
+						}else{
+							zem.debug('back/previous');
+						}
+						break;
+					case 'begin':
+						zem.debug('go to start');
+						break;
+					case 'end':
+						zem.debug('go to end');
+						break;
+					case default:
+						break;
+				}
+	        }
 	        move_control: function (element, options){
-	            var selected = $('#' + options.class_overlay).find('.' + options.slide_anchor),
+				zem.debug('move control called');
+				zem.debug(element);
+	            var selected = $('#' + options.class_overlay).find('.' + options.slide_anchor).last(),
 	                next = selected.removeClass('slide_nav_anchor').next(),
 	                nav = $(element).parents(options.selector).find('.slide_nav');
+	           	zem.debug('moving control and selected = ' + selected.text());
+				zem.debug(selected);
 	            if(selected.is(':last-child')){
+	                zem.debug('im slow');
 	                nav.find("a").first().addClass('slide_nav_anchor');
 	                //nav.find("a").first().attr('data-slide', (Number(selected.attr('data-slide')) + 1));
 	                var num_start = Number(selected.attr('data-slide'));
@@ -575,15 +632,16 @@
 			play: function(element, options){
 				var slider_count = 1;
 				zem.debug('super play');
+				zem.debug(element);
                 slider_interval = setInterval(function(){
                     zem.debug('yay im sliding');
+                    actions.move_control(element, options);
                     if(slider_count === $(element).find(".slide").length && flip === false){
                         $(element).find('[data-set="1"]').clone().insertAfter($(element).find('.slide').last()).attr('data-set', counter);
                         flip = true;
                     }else{
                         flip = false;
                     }
-                    actions.move_control(element, options);
                     if(options.slide_direction == "horizontal"){
                         actions.forward(element, options);
                         $(element).width($(element).find(".slide").length * options.width);
