@@ -102,6 +102,9 @@
 <h3>Responsive</h3>
 <a href="javascript: void(0);" class="overlay" data-class_holder="responsive_overlay_holder" data-title="Hidden Div on page">I'm responsive</a>
 <br /><br />
+<h3>Dynamic</h3>
+<a href="javascript: void(0);" class="add_overlay">Add Overlay</a><br />
+<br /><br />
 <div class="slider" data-slide_start="false" data-slide_speed="2000">
     <div class="slide">
         <img src="images/sample/chevy_camaro_2010.jpg" alt="" />
@@ -357,9 +360,14 @@
     <p>Called from JS</p>
     <a href="javascript: void(0);" onclick="close_overlay(this)">hide</a>
 </div>
+<img src="images/sample/Audi-A6.jpg" alt="" width="120" height="90" class="rounded" data-round="45px" />
+<img src="images/sample/Audi-A6.jpg" alt="" width="120" height="90" class="shadow" data-shadow="5px 5px 5px" data-shadow-color="#666666" />
+<img src="images/sample/Audi-A6.jpg" alt="" width="120" height="90" class="rotate" data-angle="50deg" />
+<img src="images/sample/Audi-A6.jpg" alt="" width="120" height="90" class="perpective" data-amount="800px" />
     <script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
     <script type="text/javascript" src="js/modernizr-2-6-2.min.js"></script>
     <script type="text/javascript" src="js/z/helpers/debug.js"></script>
+    <script type="text/javascript" src="js/z/helpers/effects.js"></script>
     <script type="text/javascript" src="js/z.js"></script>
 <script type="text/javascript">
     //<![CDATA[
@@ -386,6 +394,25 @@
     $('.meaty').click(function(){
         alert('meat!');
     });
+    $('.add_overlay').click(function(){
+        $('<a/>', {
+            'href': 'javascript: void(0)',
+            'html': 'click me, ',
+            'class': 'overlay'
+        }).insertAfter($(this).next());
+    });
+    $('.rounded').each(function(){
+        zem.effects.round($(this), $(this).data('round'));
+    });
+    $('.shadow').each(function(){
+        zem.effects.shadow($(this), $(this).data('shadow'), $(this).data('shadow-color'));
+    });
+    $('.rotate').each(function(){
+        zem.effects.rotate($(this), $(this).data('angle'));
+    });
+    $('.perpective').each(function(){
+        zem.effects.perspective($(this), $(this).data('amount'));
+    });
     //]]>
 </script>
     <!--
@@ -400,8 +427,8 @@
     <script type="text/javascript" src="js/z/helpers/util.js"></script>
     <script type="text/javascript" src="js/super_overlay.js"></script>
     <script type="text/javascript" src="js/super_overlay_remix_strapped.js"></script>
-    -->
     <script type="text/javascript" src="js/super_slider_remix.js"></script>
+    -->
     <script type="text/javascript" src="js/super_overlay_remix.js"></script>
     <script type="text/javascript" src="js/z_boot.js"></script>
 </html>
