@@ -54,9 +54,9 @@
 <!--End BMW-->
 <!--Start Porsche-->
 <h2>Set - Porsche</h2>
-<a href="javascript: void(0);" class="overlay" data-type="image" title="" data-gallery="porsche"><img src="images/sample/techart-porsche-911-turbo-aerodynamic-kit-ii-1306380085-9.jpg" alt="" /></a>
-<a href="javascript: void(0);" class="overlay" data-type="image" title="" data-gallery="porsche"><img src="images/sample/larger_201005051101320.946909001273032092.jpg" alt="" /></a>
-<a href="javascript: void(0);" class="overlay" data-type="image" title="2015-Porsche-911-GT2" data-gallery="porsche"><img src="images/sample/2015-Porsche-911-GT2.jpg" alt="" /></a>
+<a href="javascript: void(0);" class="overlay" data-type="image" title="porsche-911-turbo-aerodynamic-kit" data-gallery="porsche" data-class_bg="modal_bg_red"><img src="images/sample/techart-porsche-911-turbo-aerodynamic-kit-ii-1306380085-9.jpg" alt="" /></a>
+<a href="javascript: void(0);" class="overlay" data-type="image" title="larger_201005051101320" data-gallery="porsche" data-class_bg="modal_bg_red"><img src="images/sample/larger_201005051101320.946909001273032092.jpg" alt="" /></a>
+<a href="javascript: void(0);" class="overlay" data-type="image" title="2015-Porsche-911-GT2" data-gallery="porsche" data-class_bg="modal_bg_red"><img src="images/sample/2015-Porsche-911-GT2.jpg" alt="" /></a>
 <!--End Porsche-->
 <!--Start Range Rover-->
 <h2>Set - Range Rover</h2>
@@ -363,7 +363,8 @@
 <img src="images/sample/Audi-A6.jpg" alt="" width="120" height="90" class="rounded" data-round="45px" />
 <img src="images/sample/Audi-A6.jpg" alt="" width="120" height="90" class="shadow" data-shadow="5px 5px 5px" data-shadow-color="#666666" />
 <img src="images/sample/Audi-A6.jpg" alt="" width="120" height="90" class="rotate" data-angle="50deg" />
-<img src="images/sample/Audi-A6.jpg" alt="" width="120" height="90" class="perpective" data-amount="800px" />
+<img src="images/sample/Audi-A6.jpg" alt="" width="120" height="90" class="slideme slidemeleft" data-direction="left" data-time="2s" />
+<img src="images/sample/Audi-A6.jpg" alt="" width="120" height="90" class="slideme slidemeup" data-direction="top" data-time="8s" />
     <script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
     <script type="text/javascript" src="js/modernizr-2-6-2.min.js"></script>
     <script type="text/javascript" src="js/z/helpers/debug.js"></script>
@@ -394,12 +395,18 @@
     $('.meaty').click(function(){
         alert('meat!');
     });
+    var num = 0;
     $('.add_overlay').click(function(){
         $('<a/>', {
             'href': 'javascript: void(0)',
             'html': 'click me, ',
+            'title': num,
+            'data-element': "meat",
+            'data-width': "640",
+            'data-height': "480",
             'class': 'overlay'
         }).insertAfter($(this).next());
+        num+=1;
     });
     $('.rounded').each(function(){
         zem.effects.round($(this), $(this).data('round'));
@@ -410,8 +417,8 @@
     $('.rotate').each(function(){
         zem.effects.rotate($(this), $(this).data('angle'));
     });
-    $('.perpective').each(function(){
-        zem.effects.perspective($(this), $(this).data('amount'));
+    $('.slideme').each(function(){
+        zem.effects.slide($(this), $(this).data('direction'), $(this).data('time'));
     });
     //]]>
 </script>

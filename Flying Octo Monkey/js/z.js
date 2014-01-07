@@ -123,7 +123,7 @@
 
 	// store a UI module
 	z.prototype.UIModule = function(data) {
-		zem.debug('data');
+		zem.debug('add ui module');
 		zem.debug(data);
 		var module = data.module;
 		this.uiModules[module] = data;

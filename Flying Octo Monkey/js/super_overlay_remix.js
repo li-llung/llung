@@ -6,26 +6,28 @@
 	var pluginName = "zoverlay",
 		version = "1.0",
 		trigger = ".overlay",	
-        counter = 1,	
-        flip = false,
+        counter = 1,
+        once = false,
         slider_interval,
-		me,
 		add = {
-			shadow: function (options)
+			shadow: function (element, options)
 			{
 				if(options.shadow_size !== false && options.shadow_color !== false){
-					$('.' + options.class_holder).css({ '-moz-box-shadow': '' + options.shadow_size + ' ' + options.shadow_color + '', '-webkit-box-shadow': '' + options.shadow_size + ' ' + options.shadow_color + '', 'box-shadow': '' + options.shadow_size + ' ' + options.shadow_color + '' });
+					zem.debug('super shadow');
+        			zem.effects.shadow($('#' + options.class_overlay), options.shadow_size, options.shadow_color);
 				}
 			},
-			rounded: function (options)
+			rounded: function (element, options)
 			{
-				if(options.rounded !== false){
-					$('.' + options.class_holder).css({ '-moz-border-radius': options.rounded, '-webkit-border-radius': options.rounded, 'border-radius': options.rounded, '-khtml-border-radius': options.rounded });
+				if(options.rounded !== false){					
+					zem.debug('super round');
+					zem.effects.round($('#' + options.class_overlay), options.rounded);
 				}
 			}
 		},
 		build = {		
-			bg: function(overlay, elements, options){
+			bg: function(element, options){
+				zem.debug('super bg');
 				if ($('#' + options.class_bg).length > 0)
 				{
 					$('#' + options.class_bg).remove();
@@ -34,13 +36,14 @@
 					id: options.class_bg,
 					'class': options.class_bg + " " + options.class_spinner
 				}).appendTo("body");
-				$('#' + options.class_bg).fadeTo('fast', '0.60');
+				$('#' + options.class_bg).fadeTo('fast', '0.60').css('top', $(window).scrollTop());
+				actions.setup_events(element, options);
 			},
-			gallery: function(overlay, element, options){
+			gallery: function(element, options){
 				zem.debug('super gallery');
-				var slide_number = overlay.attr('id').split('_')[2],
-					src = overlay.find('img').attr('src'),
-                    image_id = overlay.find('img').attr('id'),
+				var slide_number = $(element).attr('id').split('_')[2],
+					src = $(element).find('img').attr('src'),
+                    image_id = $(element).find('img').attr('id'),
                     width = $('#image_' + image_id).width(),
                     height = $('#image_' + image_id).height(),
 				    total_width = width,
@@ -53,8 +56,8 @@
 				var slide_items = $("[data-gallery^="+options.gallery+"]").find('img');
                 var o = options;
 				var gallery = $(".has_gallery");
-				var isFirst = overlay.hasClass('isFirst');
-				var isLast = overlay.hasClass('isLast');
+				var isFirst = $(element).hasClass('isFirst');
+				var isLast = $(element).hasClass('isLast');
 				zem.debug(slide_number);
                 $("<div/>", {
                     'class': options.class_content
@@ -143,57 +146,48 @@
 					$("#" + options.class_overlay).find('.slide_holder').css('top', '-' + slide_offset_top + 'px');
 				}
 				actions.content_anchor($("#" + options.class_overlay).find('.slide_nav_item').eq(slide_number-1), "#" + options.class_overlay, options);
-				actions.show(overlay_top, overlay_left, total_width, total_height, options, element);
+				actions.show(element, options);
                 counter+=1;
 			},
-			overlay: function(overlay, elements, options){
+			overlay: function(element, options){
+				zem.debug('super overlay');
+				zem.debug(options.title);
+				var overlay_padding = element.css('padding'),
+                    overlay_height = options.height,
+                    overlay_width = options.width,
+                    content_html = '',
+                    has_gallery = (options.gallery !== false) ? 'has_gallery': 'no_gallery';
+				var total_width = ((options.width == 'user') ? overlay_width : options.width),
+                    total_height = ((options.height == 'user') ? overlay_height : options.height),
+                    overlay_top = (((Number($(window).height()) - Number(total_height)) / 2)),
+                    overlay_left = (((Number($('body').width()) - Number(total_width)) / 2));
+				    total_height = ((options.max_height != 'user' && total_height > options.max_height) ? options.max_height : total_height);
+				build.bg(element, options);
 				if ($('#' + options.class_frame).length)
 				{
 					$('#' + options.class_frame).remove();
 				}
-				$('<div/>', {
-					id: options.class_frame,
-					'class': options.class_frame
-				}).appendTo('body');
-				var i = 1;
-				if ($('.' + options.class_overlay).find("img").length)
+				if ($('#' + options.class_overlay).length)
 				{
+					$('#' + options.class_overlay).remove();
+				}
+				if ($(element).find("img").length)
+				{
+					$('<div/>', {
+						id: options.class_frame,
+						'class': options.class_frame
+					}).appendTo('body');
+					var i = 1;
 					$('.' + options.class_overlay).each(function ()
 					{
 						$(this).find("img").attr('id', 'od_' + i).clone().appendTo('#' + options.class_frame).attr('id', 'image_od_' + i).attr('class', '');
 						i++;
 					});
 				}
-				build.bg(overlay, elements, options);
-				zem.debug(options);
-				zem.debug(options.type);
-				zem.debug(options.gallery);
-
-				if ($('#' + options.class_overlay).length)
-				{
-					$('#' + options.class_overlay).remove();
-				}
-				if ($('#' + options.class_bar).length)
-				{
-					$('#' + options.class_bar).remove();
-				}
-
-				var overlay_padding = overlay.css('padding'),
-                    //overlay_height = overlay.height(),
-                    //overlay_width = overlay.width(),
-                    overlay_height = options.height,
-                    overlay_width = options.width,
-                    content_html = '',
-                    has_gallery = (options.gallery !== false) ? 'has_gallery': 'no_gallery';
 				$('<div/>', {
 					id: options.class_overlay,
 					'class': options.class_holder + ' ' + options.data_class + ' ' + has_gallery
 				}).prependTo('body');
-				var total_width = ((options.width == 'user') ? overlay_width : options.width),
-                    total_height = ((options.height == 'user') ? overlay_height : options.height),
-                    overlay_top = (((Number($(window).height()) - Number(total_height)) / 2)),
-                    overlay_left = (((Number($('body').width()) - Number(total_width)) / 2));
-				    total_height = ((options.max_height != 'user' && total_height > options.max_height) ? options.max_height : total_height);
 				if (total_width >= ($(document).width() - 50))
 				{
 					total_width = (Number($('body').width()) - 100);
@@ -203,20 +197,23 @@
 				{
 					overlay_top = 50;
 				}
-				$('<div/>', {
-					id: options.class_bar,
-					'class': options.class_bar,
-					html: options.show_x ? '<a href="javascript: void(0);" class="'+options.class_close+'"></a>' : ''
-				}).prependTo("#" + options.class_overlay);
+				if(options.show_x){
+					$('<div/>', {
+						id: options.class_bar,
+						'class': options.class_bar,
+						html: '<a href="javascript: void(0);" class="'+options.class_close+'"></a>'
+					}).prependTo("#" + options.class_overlay);
+				}
+				zem.debug(options.type);
 				switch (options.type)
 				{
 					case 'image':
 						if(options.gallery !== false && options.gallery !== ""){
-							build.gallery(overlay, elements, options);
+							build.gallery(element, options);
 						}else{
 							$("#" + options.class_overlay).css({ 'width': 'auto', 'height': 'auto' });
-							var src = overlay.find('img').attr('src'),
-	                            image_id = overlay.find('img').attr('id'),
+							var src = $(element).find('img').attr('src'),
+	                            image_id = $(element).find('img').attr('id'),
 	                            width = $('#image_' + image_id).width(),
 	                            height = $('#image_' + image_id).height();
 							    total_width = width;
@@ -233,35 +230,31 @@
 								overlay_top = 50;
 								total_width = 'auto';
 							}
-							//$('<div id="#'+options.class_images+'" class="'+options.class_content+'"><img src="' + src + '" width="' + total_width + '" height="' + total_height + '" alt="' + options.title + '" style="height: ' + total_height + '' + ((total_height == "auto") ? '' : 'px') + ';width: ' + total_width + '' + ((total_width == "auto") ? '' : 'px') + ';" alt="" /></div>').insertAfter('#' + options.class_bar);
 							$('<div id="#'+options.class_images+'" class="'+options.class_content+'"><img src="' + src + '" alt="' + options.title + '" /></div>').insertAfter('#' + options.class_bar);
 							if (options.title !== "")
 							{
 								$('<div class="'+options.class_caption+'"><h1>' + options.title + '</h1></div>').appendTo('.' + options.class_content);
 								$('.' + options.class_caption).fadeTo("slow", 0.60);
 							}
-							actions.show(overlay_top, overlay_left, total_width, total_height, options, overlay);							
 						}
-						break;
+						break;					
 					case 'json':
 						$("#" + options.class_overlay).append('<div class="'+options.class_content+'">' + ((window[options.call].title !== "") ? '<h1>' + window[options.call].title + '</h1>' : '') + '' + window[options.call].content + '</div>');
-						actions.show(overlay_top, overlay_left, total_width, total_height, options, overlay);
 						break;
 					case 'file':
 						$.ajax({
 							dataType: "text",
-							url: overlay.attr('href'),
+							url: $(element).attr('href'),
 							success: function (data)
 							{
 								$('<div id="#'+options.class_content+'" class="'+options.class_content+'">'+((options.title !== "" && options.show_header) ? '<h1>' + options.title + '</h1>' : '')+'' + data + '</div>').insertAfter('#' + options.class_bar);
-								actions.show(overlay_top, overlay_left, total_width, total_height, options, overlay);
 							}
 						});
 						break;
 					case 'ajax':
 						$.ajax({
 							type: options.httpMethod,
-							url: overlay.attr('href'),
+							url: $(element).attr('href'),
 							dataType: "jsonp",
 							crossDomain: true,
 							success: function (data)
@@ -273,7 +266,6 @@
 								{
 									window[options.ajax_content](data['data'], options);
 								}
-								actions.show(overlay_top, overlay_left, total_width, total_height, options, overlay);
 							}
 						});
 						break;
@@ -305,54 +297,64 @@
 						break;
 					default:
 						$("#" + options.class_overlay).append('<div class="'+options.class_content+'">' + ((options.title !== "" && options.show_header) ? '<h1>' + options.title + '</h1>' : '') + '' + '</div>');
-                        $('#' + options.element).clone(true, true).appendTo('.'+options.class_content).clone().appendTo('body');
+                        $('#' + options.element).clone(true, true).appendTo('.'+options.class_content).clone();
                         $('.' + options.class_content).find('.hidden').show().css('position', 'relative').css('margin','0');
 						if (total_height < options.max_height)
 						{
 							total_height = 'auto';
 						}
-						actions.show(overlay_top, overlay_left, total_width, total_height, options, overlay);
 				}
+				actions.show(element, options);
 				if(options.rounded !== false){
-					add.rounded(options);
+					add.rounded(element, options);
 				}
 				if(options.shadow_size !== false && options.shadow_color !== false){
-					add.shadow(options);
+					add.shadow(element, options);
 				}
-				$(document).on('keyup', function (e) {
-		            if (e.keyCode === 27) { 
-		               actions.dismiss(overlay, options); 
-		            }
-		        });		
-				$(window).resize(function ()
-				{
-					actions.reposition(options);
-				});
+			}
+		},
+		actions = {
+			setup_events: function(element, options){
 				if (options.sticky)
 				{
 					$(window).scroll(function ()
 					{
 						actions.reposition(options);
 					});
-				} else
-				{
-					//actions.reposition_bg(options);
 				}
-			}
-		},
-		actions = {
-			dismiss: function(elements, options){
+			},
+			dismiss: function(element, options){
+				zem.debug('super dismiss');
 				$('#' + options.class_overlay).fadeOut();
 				$('#' + options.class_bg).hide();
 			    $("body").trigger("close_overlay");
 			},
-			show: function(overlay_top, overlay_left, total_width, total_height, options, element){
+			show: function(element, options){
+				zem.debug('super show');				
+				var overlay_padding = $(element).css('padding'),
+                    overlay_height = options.height,
+                    overlay_width = options.width,
+                    content_html = '',
+                    has_gallery = (options.gallery !== false) ? 'has_gallery': 'no_gallery';
+				var total_width = ((options.width == 'user') ? overlay_width : options.width),
+                    total_height = ((options.max_height != 'user' && total_height > options.max_height) ? options.max_height : total_height),
+                    overlay_top = (((Number($(window).height()) - Number(total_height)) / 2)),
+                    overlay_left = (((Number($('body').width()) - Number(total_width)) / 2));			
 				var outerOverlay = {
 					paddingHeight: parseInt($('.' + options.class_content).css('padding-top')) + parseInt($('.' + options.class_content).css('padding-bottom')),
 					paddingWidth: parseInt($('.' + options.class_content).css('padding-left')) + parseInt($('.' + options.class_content).css('padding-right'))
 				};
 				var finalHeight = parseInt(total_height) + parseInt(outerOverlay.paddingHeight);
 				var finalWidth = parseInt(total_width) + parseInt(outerOverlay.paddingWidth);
+				if (total_width >= ($(document).width() - 50))
+				{
+					total_width = (Number($('body').width()) - 100);
+					total_height = 'auto';
+					overlay_top = 50;
+				} else if (total_height >= ($(window).height() - 50))
+				{
+					overlay_top = 50;
+				}
 				if(options.gallery !== false){
 						$("#" + options.class_overlay).hide().fadeTo("slow", 1).show().css({ 'left': overlay_left, 'width': finalWidth, 'height': finalHeight });
 				}else{
@@ -388,6 +390,7 @@
 				actions.reposition(options);
             },
             reposition: function (options) {
+				zem.debug('super repo');
 				if ($('.' + options.class_holder).length)
 				{
 					$('.' + options.class_holder).each(function ()
@@ -408,7 +411,8 @@
 				}
             },
             reposition_bg: function (options) {
-				if ($('.' + options.class_holder).length)
+				zem.debug('super repo bg');
+				if ($('#' + options.class_bg).length)
 				{
 					$('#' + options.class_bg).css({
 						"top": ($(window).scrollTop()), 
@@ -477,57 +481,10 @@
 	        move_control: function (element, options){
 				zem.debug('move control called');
 				zem.debug(element);
-	            var selected = $('#' + options.class_overlay).find('.' + options.slide_anchor).last(),
-	                next = selected.removeClass('slide_nav_anchor').next(),
-	                nav = $('#' + options.class_overlay).find('.slide_nav').last();
-	           	zem.debug('moving control and selected = ' + selected.text());
-				zem.debug(selected);
-				zem.debug(nav);
-	            if(selected.is(':last-child')){
-	                zem.debug('im slow');
-	                nav.find("a").first().addClass('slide_nav_anchor');
-	                //nav.find("a").first().attr('data-slide', (Number(selected.attr('data-slide')) + 1));
-	                var num_start = Number(selected.attr('data-slide'));
-	                nav.find("a").each(function(){
-	                    $(this).attr('data-slide', (num_start + 1));
-	                    num_start +=1;
-	                });
-	                //console.log(holder + ' selected = ' + selected.text() + ' total ' + (Number(selected.text()) + 1));
-	            }else{
-	                next.addClass('slide_nav_anchor');
-	                //console.log(holder + ' selected = ' + selected.text() + ' total ' + (Number(selected.text()) + 1));
-	                next.attr('data-slide', (Number(selected.attr('data-slide')) + 1));
-	            }
 	        },
 			play: function(element, options){
-				var slider_count = 1;
 				zem.debug('super play');
 				zem.debug(element);
-                slider_interval = setInterval(function(){
-                    zem.debug('yay im sliding');
-                    actions.move_control(element, options);
-                    if(slider_count === $(element).find(".slide").length && flip === false){
-                        $(element).find('[data-set="1"]').clone().insertAfter($(element).find('.slide').last()).attr('data-set', counter);
-                        flip = true;
-                    }else{
-                        flip = false;
-                    }
-                    if(options.slide_direction == "horizontal"){
-                        //actions.forward(element, options);
-                        $(element).width($(element).find(".slide").length * options.width);
-                    }else if(options.slide_direction == "vertical"){
-                        //actions.down(element, options);
-                    }
-                    actions.move(element, options, 'next');
-
-
-                    if(options.loop > 0){
-                        if((slider_count+1) === total_slides){
-                            actions.stop(element, options);
-                        }
-                    }
-                    slider_count += 1;
-                }, options.slide_speed);
 			},
 			stop: function(element, options){
 				zem.debug('super stop');
@@ -535,241 +492,22 @@
 			},
 			prev_slide: function(element, options){
 				zem.debug('super prev');
-				var slide_anchor = Number($(element).index()),
-	            	slide_number = Number($('#' + options.class_overlay).find('.' + options.slide_anchor).prev().text()),
-	                current_slide = Number($('#' + options.class_overlay).find('.' + options.slide_anchor).prev().text()),
-	            	width = ($('#' + options.class_overlay).find('.slide').eq((current_slide - 1)).width()),
-	            	height = ($('#' + options.class_overlay).find('.slide').eq((current_slide - 1)).height()),
-	            	title = ($('#set_' + options.gallery + '_' + (current_slide)).attr('title')),
-	            	animate_left = -((slide_number * $('#slide_od_' + current_slide).width()) - $('#slide_od_' + current_slide).width()),
-	                animate_top = -((slide_number * $('#slide_od_' + current_slide).height()) - $('#slide_od_' + current_slide).height()),
-	                slide_offset = 0,
-	                slide_offset_top = 0;
-	            $('#' + options.class_overlay).find('.slide').each(function(index){
-	            	if((index + 1) < slide_number){	      
-	            		slide_offset += $(this).find('img').width();
-	            		slide_offset_top += $(this).find('img').height();
-	            	}
-	            });
-	            if(options.slide_effect == "fade"){
-	                $('#' + options.class_overlay).find('.slide').fadeOut();
-	                $('#' + options.class_overlay).find('.slide').eq((current_slide - 1)).fadeIn();
-	                $('#' + options.class_overlay).find('.slide_holder').css('top', 0);
-                    $("#" + options.class_overlay).animate({
-                        width: width,
-                        height: height
-                    }, options.slide_delay, function() {
-						actions.reposition(options);
-					});
-                    $("#" + options.class_overlay).find('.slider').animate({
-                        width: width,
-                        height: height
-                    }, options.slide_delay);
-	            }else{
-	                if (options.slide_direction === 'horizontal') {
-	                    $("#" + options.class_overlay).animate({
-	                        width: width,
-	                        height: height
-	                    }, options.slide_delay, function() {
-							actions.reposition(options);
-						});
-	                    $("#" + options.class_overlay).find('.slider').animate({
-	                        width: width,
-	                        height: height
-	                    }, options.slide_delay);                   
-	                    $("#" + options.class_overlay).find('.slide_holder').animate({
-	                        left: '-' + slide_offset + 'px'
-	                    }, options.slide_delay);
-	                } else {
-	                    $("#" + options.class_overlay).animate({
-	                        width: width,
-	                        height: height
-	                    }, options.slide_delay, function() {
-							actions.reposition(options);
-						});
-	                    $("#" + options.class_overlay).find('.slider').animate({
-	                        width: width,
-	                        height: height
-	                    }, options.slide_delay);
-	                    $("#" + options.class_overlay).find('.slide_holder').animate({
-	                        top: '-' + slide_offset_top + 'px'
-	                    }, options.slide_delay);	       
-	                }
-	            }
-				if (title !== "")
-				{
-					$('.'+options.class_caption).find('h1').text(title);
-					$('.' + options.class_caption).fadeTo("slow", 0.60);
-				}	
-		        actions.content_anchor($('#' + options.class_overlay).find('.' + options.slide_anchor).prev('.slide_nav_item'), "#" + options.class_overlay, options);
 			},
 			next_slide: function(element, options){
 				zem.debug('super next');
-				var slide_anchor = Number($(element).index()),
-	            	slide_number = Number($('#' + options.class_overlay).find('.' + options.slide_anchor).next().text()),
-	                current_slide = Number($('#' + options.class_overlay).find('.' + options.slide_anchor).next().text()),
-	            	width = ($('#' + options.class_overlay).find('.slide').eq((current_slide - 1)).width()),
-	            	height = ($('#' + options.class_overlay).find('.slide').eq((current_slide - 1)).height()),
-	            	title = ($('#set_' + options.gallery + '_' + (current_slide)).attr('title')),
-	            	animate_left = -((slide_number * $('#slide_od_' + current_slide).width()) - $('#slide_od_' + current_slide).width()),
-	                animate_top = -((slide_number * $('#slide_od_' + current_slide).height()) - $('#slide_od_' + current_slide).height()),
-	                slide_offset = 0,
-	                slide_offset_top = 0;
-	            if(options.slide_effect == "fade"){
-	                $('#' + options.class_overlay).find('.slide').fadeOut();
-	                $('#' + options.class_overlay).find('.slide').eq((current_slide - 1)).fadeIn();
-	                $('#' + options.class_overlay).find('.slide_holder').css('top', 0);
-                    $("#" + options.class_overlay).animate({
-                        width: width,
-                        height: height
-                    }, options.slide_delay, function() {
-						actions.reposition(options);
-					});
-                    $("#" + options.class_overlay).find('.slider').animate({
-                        width: width,
-                        height: height
-                    }, options.slide_delay);
-	            }else{
-		            $('#' + options.class_overlay).find('.slide').each(function(index){
-		            	if((index + 1) < slide_number){
-		            		slide_offset += $(this).find('img').width();
-		            		slide_offset_top += $(this).find('img').height();
-		            	}
-		            });
-	                if (options.slide_direction === 'horizontal') {
-	                    $(element).find('.slide_holder').animate({
-	                        left: animate_left
-	                    }, options.slide_delay);
-	                    $("#" + options.class_overlay).animate({
-	                        width: width,
-	                        height: height
-	                    }, options.slide_delay, function() {
-							actions.reposition(options);
-						});
-	                    $("#" + options.class_overlay).find('.slider').animate({
-	                        width: width,
-	                        height: height
-	                    }, options.slide_delay);
-	                    $("#" + options.class_overlay).find('.slide_holder').animate({
-	                        left: '-' + slide_offset
-	                    }, options.slide_delay);	            		
-	                } else {
-	                    $(element).find('.slide_holder').animate({
-	                        top: animate_top
-	                    }, options.slide_delay);
-	                    $("#" + options.class_overlay).animate({
-	                        width: width,
-	                        height: height
-	                    }, options.slide_delay, function() {
-							actions.reposition(options);
-						});
-	                    $("#" + options.class_overlay).find('.slider').animate({
-	                        width: width,
-	                        height: height
-	                    }, options.slide_delay);
-	                    $("#" + options.class_overlay).find('.slide_holder').animate({
-	                        top: '-' + slide_offset_top
-	                    }, options.slide_delay);	       
-	                }
-	            }
-				if (title !== "")
-				{
-					$('.'+options.class_caption).find('h1').text(title);
-					$('.' + options.class_caption).fadeTo("slow", 0.60);
-				}	
-		        actions.content_anchor($('#' + options.class_overlay).find('.' + options.slide_anchor).next('.slide_nav_item'), "#" + options.class_overlay, options);
 			},
-			jump_to: function (slider, element, options, slide_width, slide_height, slide_id) {
+			jump_to: function (element, options) {
 				zem.debug('super jump');
-	            var slide_anchor = Number(slider.index()),
-	            	slide_number = Number(slider.text()),
-	                current_slide = Number(slider.text()),
-	            	width = ($(element).find('.slide').eq((current_slide - 1)).width()),
-	            	height = ($(element).find('.slide').eq((current_slide - 1)).height()),
-	            	title = ($('#set_' + options.gallery + '_' + (current_slide)).attr('title')),
-	            	animate_left = -((slide_number * $('#slide_od_' + current_slide).width()) - $('#slide_od_' + current_slide).width()),
-	                animate_top = -((slide_number * $('#slide_od_' + current_slide).height()) - $('#slide_od_' + current_slide).height()),
-	                slide_offset = 0,
-	                slide_offset_top = 0;
-	            $(element).find('.slide').each(function(index){
-	            	if((index + 1) < slide_number){
-	            		slide_offset += $(this).find('img').width();
-	            		slide_offset_top += $(this).find('img').height();
-	            	}
-	            });
-	            if(options.slide_effect == "fade"){
-	                $(element).find('.slide').fadeOut();
-	                $(element).find('.slide').eq((slide_number-1)).fadeIn();
-                    $("#" + options.class_overlay).animate({
-                        width: width,
-                        height: height
-                    }, options.slide_delay, function() {
-						actions.reposition(options);
-					});
-                    $("#" + options.class_overlay).find('.slider').animate({
-                        width: width,
-                        height: height
-                    }, options.slide_delay);
-	            }else{
-	                if (options.slide_direction === 'horizontal') {
-	                    $(element).find('.slide_holder').animate({
-	                        left: animate_left
-	                    }, options.slide_delay);
-	                    $("#" + options.class_overlay).animate({
-	                        width: width,
-	                        height: height
-	                    }, options.slide_delay, function() {
-							actions.reposition(options);
-						});
-	                    $("#" + options.class_overlay).find('.slider').animate({
-	                        width: width,
-	                        height: height
-	                    }, options.slide_delay);
-	                    $("#" + options.class_overlay).find('.slide_holder').animate({
-	                        left: '-' + slide_offset
-	                    }, options.slide_delay);	            		
-	                } else {
-	                    $(element).find('.slide_holder').animate({
-	                        top: animate_top
-	                    }, options.slide_delay);
-	                    $("#" + options.class_overlay).animate({
-	                        width: width,
-	                        height: height
-	                    }, options.slide_delay, function() {
-							actions.reposition(options);
-						});
-	                    $("#" + options.class_overlay).find('.slider').animate({
-	                        width: width,
-	                        height: height
-	                    }, options.slide_delay);
-	                    $("#" + options.class_overlay).find('.slide_holder').animate({
-	                        top: '-' + slide_offset_top
-	                    }, options.slide_delay);	       
-	                }
-	            }	
-				if (title !== "")
-				{
-					$('.'+options.class_caption).find('h1').text(title);
-					$('.' + options.class_caption).fadeTo("slow", 0.60);
-				}	
 	        },
-	        content_anchor: function (slider, element, options) {
-	            slider.parents('.slide_nav').find("a").removeClass(options.slide_anchor);
-	            slider.addClass(options.slide_anchor);
-                if(!$('#' + options.class_overlay).find('.' + options.slide_anchor).prev('.slide_nav_item').length){
-                	$('.' + options.class_prev).hide();
-                }else{
-                	$('.' + options.class_prev).show();
-                }
-                if(!$('#' + options.class_overlay).find('.' + options.slide_anchor).next('.slide_nav_item').length){
-                	$('.' + options.class_next).hide();
-                }else{
-                	$('.' + options.class_next).show();
-                }
+	        content_anchor: function (element, options) {
 	        }  
 		};
 	function SuperOverlay ( element, options ) {
-		me = this;
+		var scope = this,
+			doTrigger = false;
+		if(options === 'trigger'){
+			doTrigger = true;
+		}
 		this.defaults = {
 			type: 'default', //image , ajax , json , file, external , default
 			class_bg: 'modal_bg',
@@ -818,37 +556,48 @@
             slide_controls: true,
             slide_resume: true,
             slide_stop: true,
-            slide_loop: 2
-
+            slide_loop: 2,            
+	        session: {
+	        	element: false,
+	        	width: 0,
+	        	height: 0,
+	        	total_height: 0,
+	        	total_width: 0,
+	        	overlay_top: 0,
+	        	overlay_left: 0,
+	        	overlay_width: 0,
+	        	overlay_padding: 0
+	        }
 		};
-		me.element = element;
-		me.settings = z.cloneData($.extend( {}, me.defaults, options ));
-		me.updateOptions(me.element, me.settings);
-
+		scope.element = element;
+		scope.settings = z.cloneData($.extend( {}, scope.defaults, options ));
+		scope.updateOptions(scope.element, scope.settings, doTrigger);
 	}
 	SuperOverlay.prototype = {
 		constructor: SuperOverlay,
 		testDataAttr: function(element, options, what){
 			if(element.data(what) !== undefined){
-		        me.settings[what] = element.data(what);
+		        this.settings[what] = element.data(what);
 				return element.data(what);
 			}else{
 				return this.defaults[what]
 			}
 		},
-		updateOptions: function (element, options){
+		updateOptions: function (element, options, doTrigger){
 			var x;
 			for(x in options) {
 				this.testDataAttr (element, options, x);
 			}
-			me.init(element, options);
+			if(doTrigger){				
+				this.show(element, options);				
+			}else{
+				this.init(element, options);				
+			}
 		},
         init: function (element, options) {
-			$(element).on('click', function ()
-			{
-				me.show($(this), element, options);	
-				return false;
-			});	
+        	var scope = this;
+			// mark element as initialized
+			// this element has already been initialized
 			if(options.gallery !== false){
 				zem.debug('current gallery is: ' + options.gallery);
 				if($(document).data(options.gallery)) {
@@ -870,62 +619,40 @@
 					$(document).data(options.gallery, true);					
 				}
 			}
-			// mark element as initialized
-			// this element has already been initialized
 			if($(document).data(options.class_bg)) {
 				return true;
 			}
 			$(document).data(options.class_bg, true);
 			$(document).on('click', '.' + options.class_bg, function ()
 			{
-				me.close(element, options); 
+				scope.close(element, options); 
 			});
 			$(document).on('click', '.' + options.class_close, function ()
 			{
-				me.close(element, options); 
+				scope.close(element, options); 
 			});
+			if(once === false){
+				$(document).on('keyup', function (e) {
+		            if (e.keyCode === 27) { 
+		               actions.dismiss(element, options); 
+		            }
+		        });		
+				$(window).resize(function ()
+				{
+					actions.reposition(options);
+				});
+			}
+			once = true;
         },
-		show: function(overlay, element, options){
+		show: function(element, options){
 			zem.debug('super proto show');
-			build.overlay(overlay, element, options);			
+			build.overlay(element, options);			
 		},
 		close: function(element, options){
 			zem.debug('super proto close');
 			actions.stop(element, options);
 			actions.dismiss(element, options);
-		},
-		reposition: function(){
-			zem.debug('super proto reposition');
-			actions.reposition();
-		},
-		refresh: function(){
-			zem.debug('super proto refresh');
-			actions.refresh();
-		},
-		gallery: function(){
-			zem.debug('super proto gallery');
-			build.gallery();
-		},
-		play: function(){
-			zem.debug('super proto play');
-			actions.play();
-		},
-		stop: function(){
-			zem.debug('super proto stop');
-			actions.stop();
-		},
-		prev_slide: function(element, options){
-			zem.debug('super proto prev');
-			actions.prev_slide(element, options);
-		},
-		next_slide: function(element, options){
-			zem.debug('super proto next');
-			actions.next_slide(element, options);
-		},
-		jump_to: function(){
-			zem.debug('super proto jump');
-			actions.jump_to();
-		}    
+		}
     }
     $.fn[ pluginName ] = function ( options ) {
 	    new SuperOverlay($(this), options);
@@ -942,6 +669,12 @@
 			// mark element as initialized
 			$this.data(pluginName, true);
 			new SuperOverlay($this);
+		});
+		$(document).on('click', trigger, function ()
+		{
+			zem.debug('super init show');
+			new SuperOverlay($(this), 'trigger');
+			return false;
 		});
 	});
 	// register UI module

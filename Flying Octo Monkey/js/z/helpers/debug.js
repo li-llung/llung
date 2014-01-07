@@ -15,7 +15,7 @@ var zem = zem || {};
     zem.debug = function (message) {
         if (zem.settings.status) {
             console.log(message);
-            if(zem.settings.show_output){
+            if(zem.settings.show_output && !$('.output').length){
                 $('body').prepend(zem.settings.output);
             }
         }

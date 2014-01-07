@@ -13,7 +13,12 @@ var zem = zem || {};
             });
         },
         round: function(element, rounded){
-            $(element).css({ '-moz-border-radius': rounded, '-webkit-border-radius': rounded, 'border-radius': rounded, '-khtml-border-radius': rounded });
+            $(element).css({
+                '-moz-border-radius': rounded, 
+                '-webkit-border-radius': rounded, 
+                'border-radius': rounded, 
+                '-khtml-border-radius': rounded 
+            });
         },
         rotate: function(element, angle){
             $(element).css({ 
@@ -22,11 +27,12 @@ var zem = zem || {};
                 'transform': 'rotate('+angle+')'
             });
         },
-        perspective: function(element, amount){
+        slide: function(element, direction, time){
             $(element).css({ 
-                '-moz-perspective': amount, 
-                '-webkit-perspective': amount, 
-                'perspective': amount
+                '-moz-transition': direction + ' '+time+', -moz-transform ' + time,
+                '-webkit-transition': direction + ' '+time+', -webkit-transform ' + time,
+                '-o-transition': direction + ' '+time+', -o-transform ' + time,
+                'transition': direction + ' '+time+', transform ' + time
             });
         }
     };
