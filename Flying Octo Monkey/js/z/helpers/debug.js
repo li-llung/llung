@@ -20,4 +20,15 @@ var zem = zem || {};
             }
         }
     };
+    zem.debug_all = function (messages) {
+        if (zem.settings.status) {
+            var item;
+            for(item in arguments) {
+                console.log(arguments[item]);
+            }
+            if(zem.settings.show_output && !$('.output').length){
+                $('body').prepend(zem.settings.output);
+            }
+        }
+    };
 })(jQuery, zem);

@@ -104,10 +104,34 @@
 	};
 
 	// 
+	z.prototype.cla = function(item) {
+		return item.slice(1);
+	};
+	// 
+	z.prototype.sel = function(item) {
+		return item.slice(1);
+	};
+	// 
 	z.prototype.cloneData = function(item) {
 		return JSON.parse(JSON.stringify(item));
 	};
-
+	// 
+	z.prototype.testDataAttr = function(element, options, what){
+		if(element.data(what) !== undefined){
+	        options[what] = element.data(what);
+			return element.data(what);
+		}else{
+			return options[what]
+		}
+	};
+	// 
+	z.prototype.updateOptions = function(element, options){
+		var x;
+		for(x in options) {
+			this.testDataAttr (element, options, x);
+		}
+		//this.init(element, options);	
+	};
 	// add an initialisation method
 	z.prototype.addInitalisation = function(ref, code) {
 		this.inits[ref] = code;
