@@ -98,16 +98,18 @@
 			scope.shell(element, options);
 			scope.populate(element, options);
 			scope.bling(element, options);
-			scope.clean(element, options);
 			scope.raise(element, options);
 			scope.afterraise(element, options);
+			scope.clean(element, options);
 		},		
 		populate: function (element, options)
 		{
 			zem.debug('super proto populate');
 			var scope = this;
+			var hasGallery = $(element).hasClass('gallery');
 			$(options.class_content).html('');
 			$(options.class_images).html('');
+			$(options.slide_holder).html('');
 			var i = 1;
 			/*
 			$(trigger).each(function ()
@@ -127,14 +129,54 @@
 					'class': 'overlay_frame'
 				}).appendTo('body');
 			}
-			$("[data-gallery^="+options.gallery+"]").find('img').each(function(){
-				$(this).clone().appendTo(options.class_frame).attr('id', 'image_od_' + i);
-				$(this).clone().appendTo(options.slide_selector);
-				i++;
-			});
+			if(hasGallery){
+				var slide_number = $(element).attr('id').split('_')[2],
+					slide_offset = 0,
+					slide_offset_top = 0;
+				$("[data-gallery^="+options.gallery+"]").find('img').each(function(index){
+					$(this).clone().appendTo(options.class_frame).attr('id', 'image_od_' + i);
+					$(this).clone().appendTo(options.slide_holder);
+					if((index + 1) < slide_number){
+	            		slide_offset += $('#image_od_' + i).width();
+	            		slide_offset_top += $('#image_od_' + i).height();
+						zem.debug($('#image_od_' + i).width());
+						zem.debug($('#image_od_' + i).height());
+					}
+					i++;
+				});
+				zem.debug(slide_offset);
+				zem.debug(slide_offset_top);
+				$(options.class_rendered).find(options.slide_holder).css('left', '-' + slide_offset + 'px');
+				$(options.slide_selector).css(
+					{
+						'width': $('#image_od_' + slide_number).width(),
+						'height': $('#image_od_' + slide_number).height()
+					}
+				);				
+				var slider_width = 0;
+				var slide_items = $("[data-gallery^="+options.gallery+"]");
+                var slide_count = slide_items.length;
+                var i = 1;
+				slide_items.each(function(index){
+					slider_width += $('#image_od_' + i).width();
+					zem.debug('my width = ' + $('#image_od_' + i).width());
+					i++;
+				});
+				zem.debug('slider width ' + slider_width);
+                if(options.slide_direction === "horizontal"){
+                    $(options.class_rendered).find(options.slide_holder).width(slide_count * slider_width);	
+                }
+			}else{
+				$(element).find('img').each(function(){
+					$(this).clone().appendTo(options.class_frame).attr('id', 'image_od_' + i);
+					$(element).find('img').attr('id', 'od_' + i)
+					i++;
+				});	
+			}
 			if(options.title !== "" && options.show_header){
 				$('<h1>' + options.title + '</h1>').appendTo(options.class_content);
 			}
+			//zem.debug(options.type);
 			switch (options.type)
 			{
 				case 'image':
@@ -152,7 +194,11 @@
 						$('<div class="'+z.cla(options.class_caption)+'"><h1>' + options.title + '</h1></div>').appendTo(options.slide_holder);
 						$(options.class_caption).fadeTo("slow", 0.60);
 					}
-					$('<img src="' + src + '" alt="' + options.title + '" height="auto" width="auto" /></div>').appendTo(options.class_images);
+					zem.debug('gallery is ' + hasGallery);
+					if(!hasGallery){
+						$('<img src="' + src + '" alt="' + options.title + '" height="auto" width="auto" /></div>').appendTo(options.class_images);
+						$(options.class_rendered).find(options.slide_holder).width(width).height(height);
+					}
 					break;					
 				case 'json':
 					$(options.class_rendered).append('<div class="'+z.cla(options.class_content)+'">' + ((window[options.call].title !== "") ? '<h1>' + window[options.call].title + '</h1>' : '') + '' + window[options.call].content + '</div>');
@@ -288,36 +334,41 @@
 						html: '<a href="javascript: void(0);" class="'+z.cla(options.class_close)+'"></a>'
 					}).prependTo(options.class_rendered);
 				}
-				if(options.type==="image"){
+				if($(element).hasClass('gallery')){
 					$('<div/>', {
 						id: z.cla(options.slide_selector),
 						'class': z.cla(options.slide_selector),
 						'html': '<div class="slide_holder"></div>'
 					}).insertAfter(options.class_bar);
-				}else{
 					$('<div/>', {
-						id: z.cla(options.class_content),
-						'class': z.cla(options.class_content),
-						'html': ''
-					}).insertAfter(options.class_bar);					
+						id: z.cla(options.class_prev),
+						'class': z.cla(options.class_prev),
+						'html': '',
+						'href': 'javascript: void(0)'
+					}).appendTo(options.class_rendered);
+					$('<div/>', {
+						id: z.cla(options.class_next),
+						'class': z.cla(options.class_next),
+						'html': '',
+						'href': 'javascript: void(0)'
+					}).appendTo(options.class_rendered);
+				}else{
+					$(options.class_prev).remove();
+					$(options.class_next).remove();
+					if(options.type==="image"){
+						$('<div/>', {
+							id: z.cla(options.class_images),
+							'class': z.cla(options.class_images),
+							'html': ''
+						}).insertAfter(options.class_bar);
+					}else{	
+						$('<div/>', {
+							id: z.cla(options.class_content),
+							'class': z.cla(options.class_content),
+							'html': ''
+						}).insertAfter(options.class_bar);				
+					}
 				}
-			}
-			if($(element).hasClass('gallery')){
-				$('<div/>', {
-					id: z.cla(options.class_prev),
-					'class': z.cla(options.class_prev),
-					'html': '',
-					'href': 'javascript: void(0)'
-				}).appendTo(options.class_rendered);
-				$('<div/>', {
-					id: z.cla(options.class_next),
-					'class': z.cla(options.class_next),
-					'html': '',
-					'href': 'javascript: void(0)'
-				}).appendTo(options.class_rendered);
-			}else{
-				$(options.class_prev).remove();
-				$(options.class_next).remove();
 			}
 		},
 		clean: function(element, options){
@@ -428,18 +479,17 @@
 					}else{
 						zem.debug('forward/next');
 						var slide_number = $(element).attr('id').split('_')[2],
-			                current_slide = $(element).attr('id').split('_')[2],
-			            	width = ($(options.class_frame).find('#image_od_' + (parseInt(current_slide) + 1)).width()),
-			            	height = ($(options.class_frame).find('#image_od_' + (parseInt(current_slide) + 1)).height()),
-			            	title = ($('#set_' + options.gallery + '_' + (current_slide)).attr('title')),
+			            	width = ($(options.class_frame).find('#image_od_' + (parseInt(slide_number) + 1)).width()),
+			            	height = ($(options.class_frame).find('#image_od_' + (parseInt(slide_number) + 1)).height()),
+			            	title = ($('#set_' + options.gallery + '_' + (slide_number)).attr('title')),
 			            	animate_left = -((slide_number * width) - width),
 			                animate_top = -((slide_number * height) - height),
 			                slide_offset = 0,
 			                slide_offset_top = 0;
-			            zem.debug_all(slide_number, current_slide, width, height, title, animate_left, animate_top, slide_offset, slide_offset_top);
+			            zem.debug_all(slide_number, width, height, title, animate_left, animate_top, slide_offset, slide_offset_top);
 			            if(options.slide_effect == "fade"){
 			                $(options.class_rendered).find('.slide').fadeOut();
-			                $(options.class_rendered).find('.slide').eq((current_slide - 1)).fadeIn();
+			                $(options.class_rendered).find('.slide').eq((slide_number - 1)).fadeIn();
 			                $(options.class_rendered).find('.slide_holder').css('top', 0);
 		                    $(options.class_rendered).animate({
 		                        width: width,
@@ -472,7 +522,7 @@
 			                    }, options.slide_delay);
 			                    $(options.class_rendered).find('.slide_holder').animate({
 			                        left: '-=' + width  + 'px'
-			                    }, options.slide_delay);	            		
+			                    }, options.slide_delay);
 			                } else {
 			                    $(element).find('.slide_holder').animate({
 			                        top: animate_top
@@ -522,7 +572,7 @@
 			}
         },
 		play: function(element, options){
-			var slider_count = 1
+			/*var slider_count = 1
 				scope = this;
 			zem.debug('super play');
 			zem.debug(element);
@@ -550,7 +600,7 @@
 	                }
 	            }
 	            slider_count += 1;
-	        }, options.slide_speed);
+	        }, options.slide_speed);*/
 		},
 		stop: function(){
 			zem.debug('super stop');
