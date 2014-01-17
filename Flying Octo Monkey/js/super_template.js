@@ -8,6 +8,8 @@
 		version = "1.0";
 	function SuperOverlay ( element, options ) {
 		var scope = this;
+		this.$el = element;
+		this.$options = options;
 		this.defaults = {
             slide_loop: 2
 		};
@@ -19,10 +21,10 @@
 		constructor: SuperOverlay,
         init: function (element, options) {
         	var scope = this;        
-			if($(document).data(z.cla(options.trigger))) {
-				return true;
-			}
-			$(document).data(z.cla(options.trigger), true);
+					if($(document).data(z.cla(options.trigger))) {
+						return true;
+					}
+					$(document).data(z.cla(options.trigger), true);
         }
     }
     var local = SuperOverlay.prototype;

@@ -11,7 +11,31 @@
         slider_interval;
 	function SuperOverlay ( element, options ) {
 		var scope = this,
-			doTrigger = false;
+				doTrigger = false;
+		scope.el = element,
+		this.scope = this;
+		scope.config = {
+				height: $(element).height(),
+				width: $(element).width(),
+				title: $(element).attr('title'),
+				href: $(element).attr('href'),
+				hasGallery: $(element).hasClass('gallery'),
+				img: $(element).find('img'),
+				img_width: $(element).find('img').width(),
+				img_height: $(element).find('img').height(),
+				get_id: function(){
+					return $(element).find('img').attr('id');
+				},
+				get_slide: function(){
+					return $(element).find('img').attr('id').split('_')[2];
+				}
+				is_last: function(){
+					return $(element).hasClass('isLast');
+				},
+				is_first: function(){
+					return $(element).hasClass('isFirst');
+				}
+		};
 		if(options === 'trigger'){
 			doTrigger = true;
 		}
@@ -94,6 +118,9 @@
 		show: function(element, options){
 			zem.debug('super proto show');
 			var scope = this;
+			zem.debug('----------');
+			zem.debug(scope.el);
+			zem.debug('----------');
 			scope.bg(element, options);
 			scope.shell(element, options);
 			scope.populate(element, options);
@@ -420,6 +447,9 @@
 		},
 		rounded: function (element, options)
 		{
+			zem.debug('----234523452345------');
+			zem.debug(this.scope.el);
+			zem.debug('----234523452345------');
 			if(options.rounded !== false){					
 				zem.debug('super round');
 				zem.effects.round($(options.class_rendered), options.rounded);
