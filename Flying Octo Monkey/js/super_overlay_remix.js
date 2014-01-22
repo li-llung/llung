@@ -12,23 +12,24 @@
 	function SuperOverlay ( element, options ) {
 		var scope = this,
 				doTrigger = false;
-		scope.el = element,
+		scope.el = element;
+		scope.$el = $(element);
 		this.scope = this;
 		scope.config = {
-				height: $(element).height(),
-				width: $(element).width(),
-				title: $(element).attr('title'),
-				href: $(element).attr('href'),
-				hasGallery: $(element).hasClass('gallery'),
-				img: $(element).find('img'),
-				img_width: $(element).find('img').width(),
-				img_height: $(element).find('img').height(),
+				height: scope.$el.height(),
+				width: scope.$el.width(),
+				title: scope.$el.attr('title'),
+				href: scope.$el.attr('href'),
+				hasGallery: scope.$el.hasClass('gallery'),
+				img: scope.$el.find('img'),
+				img_width: scope.$el.find('img').width(),
+				img_height: scope.$el.find('img').height(),
 				get_id: function(){
-					return $(element).find('img').attr('id');
+					return $(element).attr('id');
 				},
 				get_slide: function(){
-					return $(element).find('img').attr('id').split('_')[2];
-				}
+					return $(element).attr('id').split('_')[2];
+				},
 				is_last: function(){
 					return $(element).hasClass('isLast');
 				},
@@ -119,7 +120,11 @@
 			zem.debug('super proto show');
 			var scope = this;
 			zem.debug('----------');
-			zem.debug(scope.el);
+			zem.debug(scope.config);
+			zem.debug(scope.config.is_first());
+			zem.debug(scope.config.is_last());
+			zem.debug(scope.config.get_id());
+			zem.debug(scope.config.get_slide());
 			zem.debug('----------');
 			scope.bg(element, options);
 			scope.shell(element, options);
