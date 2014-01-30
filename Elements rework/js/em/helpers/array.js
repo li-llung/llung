@@ -1,12 +1,12 @@
 /*
 //  array.js
 */
-var em = em || {};
-(function($, em){
+var Em = Em || {};
+(function($, Em){
     'use strict';
-    em.arrayhelper = {
+    Em.arrayhelper = {
         fill: function(howmany, start_at){
-            var something = new Array();
+            var something = [];
             for(var i = start_at; i<= howmany; i++){
                 something.push(i);
             }
@@ -19,4 +19,4 @@ var em = em || {};
             return Math.min.apply( Math, array );
         }
     };
-})(jQuery, em);
+})(jQuery, Em);

@@ -1,9 +1,9 @@
 /*
 //  array.js
 */
-(function($, em){
+(function($, Em){
     'use strict';
-    em.effects = {
+    Em.effects = {
         shadow: function(element, shadow_size, shadow_color){
             $(element).css({ 
                 '-moz-box-shadow': '' + shadow_size + ' ' + shadow_color + '', 
@@ -35,4 +35,4 @@
             });
         }
     };
-})(jQuery, em);
+})(jQuery, Em);

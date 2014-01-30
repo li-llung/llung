@@ -12,7 +12,21 @@ module.exports = function(grunt) {
         files: {
           'css/em.css': 'css/less/em.less',
           'css/overlay.css': 'css/less/overlay.less',
-          'css/sldier.css': 'css/less/slider.less'
+          'css/slider.css': 'css/less/slider.less'
+        }
+      }
+    },
+    jshint: {
+      // define the files to lint
+      files: ['gruntfile.js', 'js/em/core/**/*.js', 'js/em/helpers/**/*.js', 'js/em/modules/**/*.js'],
+      // configure JSHint (documented at http://www.jshint.com/docs/)
+      options: {
+          // more options here if you want to override JSHint defaults
+        globals: {
+          jQuery: true,
+          validthis: true,
+          console: true,
+          module: true
         }
       }
     },
@@ -40,10 +54,11 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-less');
 
   // Default task(s).
-  grunt.registerTask('default', ['uglify', 'less']);
+  grunt.registerTask('default', ['uglify', 'less', 'jshint']);
 
 };

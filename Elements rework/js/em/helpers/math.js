@@ -1,10 +1,10 @@
 /*
 //  math.js
 */
-var em = em || {};
-(function($, em){
+var Em = Em || {};
+(function($, Em){
     'use strict';
-    em.math = {
+    Em.math = {
         magnitude: function (val) {
             return Math.floor(Math.log(val) / Math.LN10);
         },
@@ -25,12 +25,12 @@ var em = em || {};
             return valueToCap;
         },
         decimals: function (num){
-            if (num%1!=0){
-                return num.toString().split(".")[1].length
+            if (num%1!==0){
+                return num.toString().split(".")[1].length;
             }
             else{
                 return 0;
             }
         }        
     };    
-})(jQuery, em);
+})(jQuery, Em);

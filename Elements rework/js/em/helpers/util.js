@@ -1,8 +1,8 @@
 /*
 //  util.js
 */
-var em = em || {};
-(function($, em){
+var Em = Em || {};
+(function($, Em){
     'use strict';
     if (!String.prototype.format) {
         String.prototype.format = function () {
@@ -11,8 +11,8 @@ var em = em || {};
                 return typeof args[number] !== 'undefined' ? args[number] : match;
             });
         };
-    };
-    em.util = {
+    }
+    Em.util = {
         button: {
             disable: function(control){
                 $(control).addClass('group_btn_disabled').attr('disabled', 'disabled');
@@ -33,4 +33,4 @@ var em = em || {};
             window.location = where;
         }
     };
-})(jQuery, em);
+})(jQuery, Em);

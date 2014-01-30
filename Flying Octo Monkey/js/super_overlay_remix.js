@@ -4,11 +4,11 @@
 ;(function ( $, window, document, undefined )
 {
 	var pluginName = "zoverlay",
-		version = "1.0",
-        counter = 1,	
-        flip = false,
-		trigger = ".overlay",
-        slider_interval;
+			version = "1.0",
+      counter = 1,	
+      flip = false,
+			trigger = ".overlay",
+      slider_interval;
 	function SuperOverlay ( element, options ) {
 		var scope = this,
 				doTrigger = false;
@@ -62,6 +62,7 @@
 			shadow_color: false, //'#666666'
 			shadow_size: false, //'5px 5px 5px'
 			show_x : true,
+			to_top: false,
 			escapable: true,
 			width: 'user',
 			height: 'user',
@@ -78,18 +79,18 @@
 			focus_first: false,
 			httpMethod: 'post',
 			gallery: false,
-            slide_delay: 1000,
-            slide_start: false,
-            slide_direction: 'horizontal',
-            slide_effect: 'tween',
-            slide_selector: '.slider',
-            slide_holder: '.slide_holder',
-            slide_anchor: '.slide_nav_anchor',
-            slide_speed: 5000,
-            slide_controls: true,
-            slide_resume: true,
-            slide_stop: true,
-            slide_loop: 2
+      slide_delay: 1000,
+      slide_start: false,
+      slide_direction: 'horizontal',
+      slide_effect: 'tween',
+      slide_selector: '.slider',
+      slide_holder: '.slide_holder',
+      slide_anchor: '.slide_nav_anchor',
+      slide_speed: 5000,
+      slide_controls: true,
+      slide_resume: true,
+      slide_stop: true,
+      slide_loop: 2
 		};
 		scope.settings = z.cloneData($.extend( {}, scope.defaults, options ));
 		z.updateOptions(element, scope.settings);
@@ -124,7 +125,9 @@
 			zem.debug(scope.config.is_first());
 			zem.debug(scope.config.is_last());
 			zem.debug(scope.config.get_id());
-			zem.debug(scope.config.get_slide());
+			if($(element).hasClass('gallery')){
+				zem.debug(scope.config.get_slide());
+			}
 			zem.debug('----------');
 			scope.bg(element, options);
 			scope.shell(element, options);
@@ -469,7 +472,11 @@
 					'class': z.cla(options.class_bg) + " " + z.cla(options.class_spinner)
 				}).appendTo("body");				
 			}
-			$(options.class_bg).fadeTo('fast', '0.60').css('top', $(window).scrollTop());
+			if(options.to_top){
+				window.scrollTo(0,0);
+			}
+			$(options.class_bg).fadeTo('fast', '0.60');
+			//.css('top', $(window).scrollTop())
 		},
 		reposition: function(options){
 			zem.debug('super proto repo');

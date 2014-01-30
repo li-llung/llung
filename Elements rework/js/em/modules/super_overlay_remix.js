@@ -5,10 +5,10 @@
 {
 	var pluginName = "zoverlay",
 		version = "1.0",
-        counter = 1,	
-        flip = false,
+		counter = 1,	
+		flip = false,
 		trigger = ".overlay",
-        slider_interval;
+		slider_interval;
 	function SuperOverlay ( element, options ) {
 		var scope = this,
 				doTrigger = false;
@@ -78,21 +78,21 @@
 			focus_first: false,
 			httpMethod: 'post',
 			gallery: false,
-            slide_delay: 1000,
-            slide_start: false,
-            slide_direction: 'horizontal',
-            slide_effect: 'tween',
-            slide_selector: '.slider',
-            slide_holder: '.slide_holder',
-            slide_anchor: '.slide_nav_anchor',
-            slide_speed: 5000,
-            slide_controls: true,
-            slide_resume: true,
-            slide_stop: true,
-            slide_loop: 2
+			slide_delay: 1000,
+			slide_start: false,
+			slide_direction: 'horizontal',
+			slide_effect: 'tween',
+			slide_selector: '.slider',
+			slide_holder: '.slide_holder',
+			slide_anchor: '.slide_nav_anchor',
+			slide_speed: 5000,
+			slide_controls: true,
+			slide_resume: true,
+			slide_stop: true,
+			slide_loop: 2
 		};
-		scope.settings = em.cloneData($.extend( {}, scope.defaults, options ));
-		em.updateOptions(element, scope.settings);
+		scope.settings = Em.cloneData($.extend( {}, scope.defaults, options ));
+		Em.updateOptions(element, scope.settings);
 		if(doTrigger){				
 			this.show(element, scope.settings);				
 		}else{
@@ -101,8 +101,8 @@
 	}
 	SuperOverlay.prototype = {
 		constructor: SuperOverlay,
-        init: function (element, options) {
-        	var scope = this;        
+		init: function (element, options) {
+			var scope = this;		 
 			if($(document).data(options.class_bg)) {
 				return true;
 			}
@@ -115,17 +115,17 @@
 			{
 				scope.close(element, options); 
 			});
-        },
+		},
 		show: function(element, options){
-			em.debug('super proto show');
+			Em.debug('super proto show');
 			var scope = this;
-			em.debug('----------');
-			em.debug(scope.config);
-			em.debug(scope.config.is_first());
-			em.debug(scope.config.is_last());
-			em.debug(scope.config.get_id());
-			em.debug(scope.config.get_slide());
-			em.debug('----------');
+			Em.debug('----------');
+			Em.debug(scope.config);
+			Em.debug(scope.config.is_first());
+			Em.debug(scope.config.is_last());
+			Em.debug(scope.config.get_id());
+			Em.debug(scope.config.get_slide());
+			Em.debug('----------');
 			scope.bg(element, options);
 			scope.shell(element, options);
 			scope.populate(element, options);
@@ -136,7 +136,7 @@
 		},		
 		populate: function (element, options)
 		{
-			em.debug('super proto populate');
+			Em.debug('super proto populate');
 			var scope = this;
 			var hasGallery = $(element).hasClass('gallery');
 			$(options.class_content).html('');
@@ -169,15 +169,15 @@
 					$(this).clone().appendTo(options.class_frame).attr('id', 'image_od_' + i);
 					$(this).clone().appendTo(options.slide_holder);
 					if((index + 1) < slide_number){
-	            		slide_offset += $('#image_od_' + i).width();
-	            		slide_offset_top += $('#image_od_' + i).height();
-						em.debug($('#image_od_' + i).width());
-						em.debug($('#image_od_' + i).height());
+						slide_offset += $('#image_od_' + i).width();
+						slide_offset_top += $('#image_od_' + i).height();
+						Em.debug($('#image_od_' + i).width());
+						Em.debug($('#image_od_' + i).height());
 					}
 					i++;
 				});
-				em.debug(slide_offset);
-				em.debug(slide_offset_top);
+				Em.debug(slide_offset);
+				Em.debug(slide_offset_top);
 				$(options.class_rendered).find(options.slide_holder).css('left', '-' + slide_offset + 'px');
 				$(options.slide_selector).css(
 					{
@@ -187,53 +187,53 @@
 				);				
 				var slider_width = 0;
 				var slide_items = $("[data-gallery^="+options.gallery+"]");
-                var slide_count = slide_items.length;
-                var i = 1;
+				var slide_count = slide_items.length;
+				var j = 1;
 				slide_items.each(function(index){
-					slider_width += $('#image_od_' + i).width();
-					em.debug('my width = ' + $('#image_od_' + i).width());
-					i++;
+					slider_width += $('#image_od_' + j).width();
+					Em.debug('my width = ' + $('#image_od_' + j).width());
+					j++;
 				});
-				em.debug('slider width ' + slider_width);
-                if(options.slide_direction === "horizontal"){
-                    $(options.class_rendered).find(options.slide_holder).width(slide_count * slider_width);	
-                }
+				Em.debug('slider width ' + slider_width);
+				if(options.slide_direction === "horizontal"){
+					$(options.class_rendered).find(options.slide_holder).width(slide_count * slider_width);	
+				}
 			}else{
 				$(element).find('img').each(function(){
 					$(this).clone().appendTo(options.class_frame).attr('id', 'image_od_' + i);
-					$(element).find('img').attr('id', 'od_' + i)
+					$(element).find('img').attr('id', 'od_' + i);
 					i++;
 				});	
 			}
 			if(options.title !== "" && options.show_header){
 				$('<h1>' + options.title + '</h1>').appendTo(options.class_content);
 			}
-			//em.debug(options.type);
+			//Em.debug(options.type);
 			switch (options.type)
 			{
 				case 'image':
 					$(options.class_rendered).css({ 'width': 'auto', 'height': 'auto' });
 					var src = $(element).find('img').attr('src'),
-                        image_id = $(element).find('img').attr('id'),
-                        width = $('#image_' + image_id).width(),
-                        height = $('#image_' + image_id).height(),
-					    total_width = width,
-					    total_height = height,
-					    overlay_top = (((Number($(window).height()) - Number(height)) / 2)),
-					    overlay_left = (((Number($('body').width()) - Number(width)) / 2));
+						image_id = $(element).find('img').attr('id'),
+						width = $('#image_' + image_id).width(),
+						height = $('#image_' + image_id).height(),
+						total_width = width,
+						total_height = height,
+						overlay_top = (((Number($(window).height()) - Number(height)) / 2)),
+						overlay_left = (((Number($('body').width()) - Number(width)) / 2));
 					if (options.title !== "")
 					{
-						$('<div class="'+em.cla(options.class_caption)+'"><h1>' + options.title + '</h1></div>').appendTo(options.slide_holder);
+						$('<div class="'+Em.cla(options.class_caption)+'"><h1>' + options.title + '</h1></div>').appendTo(options.slide_holder);
 						$(options.class_caption).fadeTo("slow", 0.60);
 					}
-					em.debug('gallery is ' + hasGallery);
+					Em.debug('gallery is ' + hasGallery);
 					if(!hasGallery){
 						$('<img src="' + src + '" alt="' + options.title + '" height="auto" width="auto" /></div>').appendTo(options.class_images);
 						$(options.class_rendered).find(options.slide_holder).width(width).height(height);
 					}
 					break;					
 				case 'json':
-					$(options.class_rendered).append('<div class="'+em.cla(options.class_content)+'">' + ((window[options.call].title !== "") ? '<h1>' + window[options.call].title + '</h1>' : '') + '' + window[options.call].content + '</div>');
+					$(options.class_rendered).append('<div class="'+Em.cla(options.class_content)+'">' + ((window[options.call].title !== "") ? '<h1>' + window[options.call].title + '</h1>' : '') + '' + window[options.call].content + '</div>');
 					break;
 				case 'file':
 					$.ajax({
@@ -254,21 +254,21 @@
 						{
 							if (typeof (options.ajax_content) === 'function')
 							{
-								options.ajax_content(data['data'], options);
+								options.ajax_content(data.data, options);
 							} else if (options.ajax_content)
 							{
-								window[options.ajax_content](data['data'], options);
+								window[options.ajax_content](data.data, options);
 							}
 						}
 					});
 					break;
 				case 'external':
 					var newObj = {},
-                        branch = options.params.split(',');
-					for (var i = 0; i < branch.length; i++)
+						branch = options.params.split(',');
+					for (var k = 0; k < branch.length; k++)
 					{
-						var item = branch[i].split(':');
-						newObj[item[0]] = item[1];
+						var item = branch[k].split(':');
+						newObj[item[0]] = item[k];
 					}
 					$.ajax({
 						type: options.httpMethod,
@@ -276,20 +276,20 @@
 						data: newObj,
 						success: function (data)
 						{
-                            if(options.pass_data){
-                                options.overlay_data = data;
-                            }
+							if(options.pass_data){
+								options.overlay_data = data;
+							}
 						}
 					});
 					break;
 				default:
-                    $("#" + options.element).clone(true, true).appendTo(options.class_content).clone();
-                    $(options.class_content).find('.hidden').show().css('position', 'relative').css('margin','0');
+					$("#" + options.element).clone(true, true).appendTo(options.class_content).clone();
+					$(options.class_content).find('.hidden').show().css('position', 'relative').css('margin','0');
 			}
 		},	
 		afterraise: function (element, options)
 		{
-			em.debug('super proto after');
+			Em.debug('super proto after');
 			var scope = this;
 			if (typeof (callback) === 'function')
 			{
@@ -306,10 +306,10 @@
 			}
 			if(options.slide_start){
 				$(options.class_rendered).find(".slide").each(function(index){
-                    $(this).attr('data-slide', (index + 1)).attr('data-set', 1);
-                });
-                //$(options.class_rendered).children().clone().appendTo(options.class_rendered).attr('data-set', 2);
-                scope.play(element, options);
+					$(this).attr('data-slide', (index + 1)).attr('data-set', 1);
+				});
+				//$(options.class_rendered).children().clone().appendTo(options.class_rendered).attr('data-set', 2);
+				scope.play(element, options);
 			}
 			$(options.class_rendered).on('click', options.class_next, function ()
 			{
@@ -342,7 +342,7 @@
 		},
 		bling: function (element, options)
 		{
-			em.debug('super proto bling');
+			Em.debug('super proto bling');
 			var scope = this;
 			if(options.rounded !== false){
 				scope.rounded(element, options);
@@ -352,51 +352,51 @@
 			}	
 		},
 		shell: function(element, options){
-			em.debug('super proto build shell');
+			Em.debug('super proto build shell');
 			var scope = this;
 			if (!$(options.class_rendered).length){
 				$('<div/>', {
-					id: em.cla(options.class_rendered),
-					'class': em.cla(options.class_holder) + ' ' + options.data_class
+					id: Em.cla(options.class_rendered),
+					'class': Em.cla(options.class_holder) + ' ' + options.data_class
 				}).prependTo('body');				
 				if(options.show_x){
 					$('<div/>', {
-						id: em.cla(options.class_bar),
-						'class': em.cla(options.class_bar),
-						html: '<a href="javascript: void(0);" class="'+em.cla(options.class_close)+'"></a>'
+						id: Em.cla(options.class_bar),
+						'class': Em.cla(options.class_bar),
+						html: '<a href="javascript: void(0);" class="'+Em.cla(options.class_close)+'"></a>'
 					}).prependTo(options.class_rendered);
 				}
 				if($(element).hasClass('gallery')){
 					$('<div/>', {
-						id: em.cla(options.slide_selector),
-						'class': em.cla(options.slide_selector),
+						id: Em.cla(options.slide_selector),
+						'class': Em.cla(options.slide_selector),
 						'html': '<div class="slide_holder"></div>'
 					}).insertAfter(options.class_bar);
 					$('<div/>', {
-						id: em.cla(options.class_prev),
-						'class': em.cla(options.class_prev),
+						id: Em.cla(options.class_prev),
+						'class': Em.cla(options.class_prev),
 						'html': '',
-						'href': 'javascript: void(0)'
+						'href': '#nogo'
 					}).appendTo(options.class_rendered);
 					$('<div/>', {
-						id: em.cla(options.class_next),
-						'class': em.cla(options.class_next),
+						id: Em.cla(options.class_next),
+						'class': Em.cla(options.class_next),
 						'html': '',
-						'href': 'javascript: void(0)'
+						'href': '#nogo'
 					}).appendTo(options.class_rendered);
 				}else{
 					$(options.class_prev).remove();
 					$(options.class_next).remove();
 					if(options.type==="image"){
 						$('<div/>', {
-							id: em.cla(options.class_images),
-							'class': em.cla(options.class_images),
+							id: Em.cla(options.class_images),
+							'class': Em.cla(options.class_images),
 							'html': ''
 						}).insertAfter(options.class_bar);
 					}else{	
 						$('<div/>', {
-							id: em.cla(options.class_content),
-							'class': em.cla(options.class_content),
+							id: Em.cla(options.class_content),
+							'class': Em.cla(options.class_content),
 							'html': ''
 						}).insertAfter(options.class_bar);				
 					}
@@ -404,7 +404,7 @@
 			}
 		},
 		clean: function(element, options){
-			em.debug('super proto clean house');
+			Em.debug('super proto clean house');
 			var scope = this;
 			if ($(options.class_rendered).length)
 			{
@@ -414,14 +414,13 @@
 			$("body").trigger("show_overlay");
 		},
 		raise: function(element, options){
-			em.debug('super proto open');
+			Em.debug('super proto open');
 			var scope = this;
 			var total_width = ((options.width == 'user') ? 'auto' : options.width),
-                total_height = ((options.height == 'user') ? 'auto' : options.height),
-                overlay_top = (((Number($(window).height()) - Number(total_height)) / 2)),
-                overlay_left = (((Number($('body').width()) - Number(total_width)) / 2));
-			    total_height = ((options.max_height != 'user' && total_height > options.max_height) ? options.max_height : total_height)
-			    outerOverlay = {
+				total_height = ((options.max_height != 'user' && total_height > options.max_height) ? options.max_height : total_height),
+				overlay_top = (((Number($(window).height()) - Number(total_height)) / 2)),
+				overlay_left = (((Number($('body').width()) - Number(total_width)) / 2)),
+				outerOverlay = {
 					paddingHeight: parseInt($(options.class_content).css('padding-top')) + parseInt($(options.class_content).css('padding-bottom')),
 					paddingWidth: parseInt($(options.class_content).css('padding-left')) + parseInt($(options.class_content).css('padding-right'))
 				},
@@ -436,43 +435,43 @@
 			$(options.class_rendered).css('top', overlay_top + $(window).scrollTop());
 		},
 		close: function(){
-			em.debug('super proto close');
+			Em.debug('super proto close');
 			this.stop();
-			$(this.settings['class_rendered']).fadeOut();
-			$(this.settings['class_bg']).hide();
+			$(this.settings.class_rendered).fadeOut();
+			$(this.settings.class_bg).hide();
 			$(window).unbind('scroll'); 
-		    $("body").trigger("close_overlay");
+			$("body").trigger("close_overlay");
 		},
 		shadow: function (element, options)
 		{
 			if(options.shadow_size !== false && options.shadow_color !== false){
-				em.debug('super shadow');
-    			em.effects.shadow($(options.class_rendered), options.shadow_size, options.shadow_color);
+				Em.debug('super shadow');
+				Em.effects.shadow($(options.class_rendered), options.shadow_size, options.shadow_color);
 			}
 		},
 		rounded: function (element, options)
 		{
-			em.debug('----234523452345------');
-			em.debug(this.scope.el);
-			em.debug('----234523452345------');
+			Em.debug('----234523452345------');
+			Em.debug(this.scope.el);
+			Em.debug('----234523452345------');
 			if(options.rounded !== false){					
-				em.debug('super round');
-				em.effects.round($(options.class_rendered), options.rounded);
+				Em.debug('super round');
+				Em.effects.round($(options.class_rendered), options.rounded);
 			}
 		},
 		bg: function(element, options){			
-			em.debug('super bg');
+			Em.debug('super bg');
 			if (!$(options.class_bg).length)
 			{
 				$('<div/>', {
-					id: em.cla(options.class_bg),
-					'class': em.cla(options.class_bg) + " " + em.cla(options.class_spinner)
+					id: Em.cla(options.class_bg),
+					'class': Em.cla(options.class_bg) + " " + Em.cla(options.class_spinner)
 				}).appendTo("body");				
 			}
 			$(options.class_bg).fadeTo('fast', '0.60').css('top', $(window).scrollTop());
 		},
 		reposition: function(options){
-			em.debug('super proto repo');
+			Em.debug('super proto repo');
 			if ($(options.class_holder).length)
 			{
 				var overlay_top = (((Number($(window).height()) - Number($(options.class_rendered).height())) / 2));
@@ -480,16 +479,16 @@
 				overlay_top = (overlay_top < 0) ? 50 : overlay_top;
 				if(options.gallery !== false){
 					$(options.class_rendered).animate({
-                        left: overlay_left,
-                        top: (overlay_top + $(window).scrollTop())
-                    }, options.slide_delay);		                    
+						left: overlay_left,
+						top: (overlay_top + $(window).scrollTop())
+					}, options.slide_delay);							
 				}else{
 					$(options.class_rendered).css({ 'left': overlay_left, 'top': overlay_top + $(window).scrollTop() });	
 				}			
 			}
 		},
 		reposition_bg: function(options){
-			em.debug('super proto repo bg');
+			Em.debug('super proto repo bg');
 			if ($(options.class_bg).length)
 			{
 				$(options.class_bg).css({
@@ -500,158 +499,158 @@
 				});
 			}
 		},
-        move: function (element, options, direction){
-        	em.debug('super move');
-        	var scope = this;
-        	//next slide (up or forward) , previous slide (back or down), beginning , end
+		move: function (element, options, direction){
+			Em.debug('super move');
+			var scope = this;
+			//next slide (up or forward) , previous slide (back or down), beginning , end
 			scope.stop();
-        	switch (direction)
+			switch (direction)
 			{
 				case 'next':
 					if(options.direction === "vertical"){
-						em.debug('upward');
+						Em.debug('upward');
 						//actions.up(element, options);
 					}else{
-						em.debug('forward/next');
+						Em.debug('forward/next');
 						var slide_number = $(element).attr('id').split('_')[2],
-			            	width = ($(options.class_frame).find('#image_od_' + (parseInt(slide_number) + 1)).width()),
-			            	height = ($(options.class_frame).find('#image_od_' + (parseInt(slide_number) + 1)).height()),
-			            	title = ($('#set_' + options.gallery + '_' + (slide_number)).attr('title')),
-			            	animate_left = -((slide_number * width) - width),
-			                animate_top = -((slide_number * height) - height),
-			                slide_offset = 0,
-			                slide_offset_top = 0;
-			            em.debug_all(slide_number, width, height, title, animate_left, animate_top, slide_offset, slide_offset_top);
-			            if(options.slide_effect == "fade"){
-			                $(options.class_rendered).find('.slide').fadeOut();
-			                $(options.class_rendered).find('.slide').eq((slide_number - 1)).fadeIn();
-			                $(options.class_rendered).find('.slide_holder').css('top', 0);
-		                    $(options.class_rendered).animate({
-		                        width: width,
-		                        height: height
-		                    }, options.slide_delay, function() {
+							width = ($(options.class_frame).find('#image_od_' + (parseInt(slide_number) + 1)).width()),
+							height = ($(options.class_frame).find('#image_od_' + (parseInt(slide_number) + 1)).height()),
+							title = ($('#set_' + options.gallery + '_' + (slide_number)).attr('title')),
+							animate_left = -((slide_number * width) - width),
+							animate_top = -((slide_number * height) - height),
+							slide_offset = 0,
+							slide_offset_top = 0;
+						Em.debug_all(slide_number, width, height, title, animate_left, animate_top, slide_offset, slide_offset_top);
+						if(options.slide_effect == "fade"){
+							$(options.class_rendered).find('.slide').fadeOut();
+							$(options.class_rendered).find('.slide').eq((slide_number - 1)).fadeIn();
+							$(options.class_rendered).find('.slide_holder').css('top', 0);
+							$(options.class_rendered).animate({
+								width: width,
+								height: height
+							}, options.slide_delay, function() {
 								scope.reposition(options);
 							});
-		                    $(options.class_rendered).find('.slider').animate({
-		                        width: width,
-		                        height: height
-		                    }, options.slide_delay);
-			            }else{
-				            $(options.class_frame).find("img").each(function(index){
-				            	slide_offset += $(this).find('img').width();
-				            	slide_offset_top += $(this).find('img').height();
-				            });
-			                if (options.slide_direction === 'horizontal') {
-			                    $(element).find('.slide_holder').animate({
-			                        left: '-=' + width + 'px'
-			                    }, options.slide_delay);
-			                    $(options.class_rendered).animate({
-			                        width: width,
-			                        height: height
-			                    }, options.slide_delay, function() {
+							$(options.class_rendered).find('.slider').animate({
+								width: width,
+								height: height
+							}, options.slide_delay);
+						}else{
+							$(options.class_frame).find("img").each(function(index){
+								slide_offset += $(this).find('img').width();
+								slide_offset_top += $(this).find('img').height();
+							});
+							if (options.slide_direction === 'horizontal') {
+								$(element).find('.slide_holder').animate({
+									left: '-=' + width + 'px'
+								}, options.slide_delay);
+								$(options.class_rendered).animate({
+									width: width,
+									height: height
+								}, options.slide_delay, function() {
 									scope.reposition(options);
 								});
-			                    $(options.class_rendered).find('.slider').animate({
-			                        width: width,
-			                        height: height
-			                    }, options.slide_delay);
-			                    $(options.class_rendered).find('.slide_holder').animate({
-			                        left: '-=' + width  + 'px'
-			                    }, options.slide_delay);
-			                } else {
-			                    $(element).find('.slide_holder').animate({
-			                        top: animate_top
-			                    }, options.slide_delay);
-			                    $(options.class_rendered).animate({
-			                        width: width,
-			                        height: height
-			                    }, options.slide_delay, function() {
+								$(options.class_rendered).find('.slider').animate({
+									width: width,
+									height: height
+								}, options.slide_delay);
+								$(options.class_rendered).find('.slide_holder').animate({
+									left: '-=' + width	+ 'px'
+								}, options.slide_delay);
+							} else {
+								$(element).find('.slide_holder').animate({
+									top: animate_top
+								}, options.slide_delay);
+								$(options.class_rendered).animate({
+									width: width,
+									height: height
+								}, options.slide_delay, function() {
 									scope.reposition(options);
 								});
-			                    $(options.class_rendered).find('.slider').animate({
-			                        width: width,
-			                        height: height
-			                    }, options.slide_delay);
-			                    $(options.class_rendered).find('.slide_holder').animate({
-			                        top: '-' + slide_offset_top
-			                    }, options.slide_delay);	       
-			                }
-			            }
+								$(options.class_rendered).find('.slider').animate({
+									width: width,
+									height: height
+								}, options.slide_delay);
+								$(options.class_rendered).find('.slide_holder').animate({
+									top: '-' + slide_offset_top
+								}, options.slide_delay);
+							}
+						}
 						if (options.title !== "")
 						{
 							$(options.class_caption).find('h1').text(options.title);
 							$(options.class_caption).fadeTo("slow", 0.60);
 						}	
-				        //scope.anchor($('#' + options.class_rendered).find('.' + options.slide_anchor).next('.slide_nav_item'), "#" + options.class_overlay, options);
+						//scope.anchor($('#' + options.class_rendered).find('.' + options.slide_anchor).next('.slide_nav_item'), "#" + options.class_overlay, options);
 					}
 					break;
 				case 'prev':
 					if(options.direction === "vertical"){
-						em.debug('down');
+						Em.debug('down');
 						//actions.down(element, options);
 					}else{
-						em.debug('back/previous');
+						Em.debug('back/previous');
 						//actions.back(element, options);
 					}
 					break;
 				case 'begin':
-					em.debug('go to start');
+					Em.debug('go to start');
 					//actions.begin(element, options);
 					break;
 				case 'end':
-					em.debug('go to end');
+					Em.debug('go to end');
 					//actions.end(element, options);
 					break;
 				default:
-					em.debug('default');
+					Em.debug('default');
 			}
-        },
+		},
 		play: function(element, options){
 			/*var slider_count = 1
 				scope = this;
-			em.debug('super play');
-			em.debug(element);
-	        slider_interval = setInterval(function(){
-	            em.debug('yay im sliding');
-	            //actions.move_control(element, options);
-	            if(slider_count === $(element).find(".slide").length && flip === false){
-	                $(element).find('[data-set="1"]').clone().insertAfter($(element).find('.slide').last()).attr('data-set', counter);
-	                flip = true;
-	            }else{
-	                flip = false;
-	            }
-	            if(options.slide_direction == "horizontal"){
-	                //actions.forward(element, options);
-	                $(element).width($(element).find(".slide").length * options.width);
-	            }else if(options.slide_direction == "vertical"){
-	                //actions.down(element, options);
-	            }
-	            scope.move(element, options, 'next');
+			Em.debug('super play');
+			Em.debug(element);
+			slider_interval = setInterval(function(){
+				Em.debug('yay im sliding');
+				//actions.move_control(element, options);
+				if(slider_count === $(element).find(".slide").length && flip === false){
+					$(element).find('[data-set="1"]').clone().insertAfter($(element).find('.slide').last()).attr('data-set', counter);
+					flip = true;
+				}else{
+					flip = false;
+				}
+				if(options.slide_direction == "horizontal"){
+					//actions.forward(element, options);
+					$(element).width($(element).find(".slide").length * options.width);
+				}else if(options.slide_direction == "vertical"){
+					//actions.down(element, options);
+				}
+				scope.move(element, options, 'next');
 
 
-	            if(options.loop > 0){
-	                if((slider_count+1) === total_slides){
-	                    scope.stop();
-	                }
-	            }
-	            slider_count += 1;
-	        }, options.slide_speed);*/
+				if(options.loop > 0){
+					if((slider_count+1) === total_slides){
+						scope.stop();
+					}
+				}
+				slider_count += 1;
+			}, options.slide_speed);*/
 		},
 		stop: function(){
-			em.debug('super stop');
-            clearInterval(slider_interval);
+			Em.debug('super stop');
+			clearInterval(slider_interval);
 		},
 		jump_to: function (element, options) {
-			em.debug('super jump');
-        },
-        anchor: function (slider, element, options) {
-			em.debug('super anchor');
-        }  
-    }
-    var local = SuperOverlay.prototype;
-    // add initialisation
-	em.addInitalisation(pluginName, function() {
-		em.debug(pluginName + ' initialized');
+			Em.debug('super jump');
+		},
+		anchor: function (slider, element, options) {
+			Em.debug('super anchor');
+		}  
+	};
+	var local = SuperOverlay.prototype;
+	// add initialisation
+	Em.addInitalisation(pluginName, function() {
+		Em.debug(pluginName + ' initialized');
 		$(trigger).each(function() {
 			var $this = $(this);
 			// this element has already been initialized
@@ -685,31 +684,31 @@
 		});
 		$(document).on('click', trigger, function ()
 		{
-			em.debug('super init show');
+			Em.debug('super init show');
 			new SuperOverlay($(this), 'trigger');
 			return false;
 		});
 		$(document).on('keyup', function (e) {
-            if (e.keyCode === 27) { 
-            	em.debug('super proto esc');
-            	local.close();
-               //actions.dismiss(element, options); 
-            }
-        });		
+			if (e.keyCode === 27) { 
+				Em.debug('super proto esc');
+				local.close();
+				//actions.dismiss(element, options); 
+			}
+		});		
 		$(window).resize(function ()
 		{
-			em.debug('super proto resize');
-            //local.close();
+			Em.debug('super proto resize');
+			//local.close();
 			//actions.reposition(options);
 		});
 	});
 	// register UI module
-	em.UIModule({
+	Em.UIModule({
 		module: pluginName,
 		events: [],
 		init: function() {
-			em.debug('run '+pluginName+' init');
-			em.initialize(pluginName);
+			Em.debug('run '+pluginName+' init');
+			Em.initialize(pluginName);
 		}
 	});	
 })( jQuery, window, document );

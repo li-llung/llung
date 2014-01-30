@@ -3,50 +3,45 @@
 * ========================================================== */
 ;(function ( $, window, document, undefined )
 {
-	var pluginName = "zoverlay",
-		trigger = ".overlay",
-		version = "1.0";
-	function SuperOverlay ( element, options ) {
+	var pluginName = "ztemplate",
+			trigger = ".ztemplate",
+			version = "1.0";
+	function SuperTemplate ( element, options ) {
 		var scope = this;
-		this.$el = element;
-		this.$options = options;
-		this.defaults = {
-            slide_loop: 2
-		};
+				scope.el = element;
+				scope.$el = $(element);
+				scope.$options = options;
+				scope.defaults = {
+					options_1: true
+				};
 		scope.settings = z.cloneData($.extend( {}, scope.defaults, options ));
 		z.updateOptions(element, scope.settings);
-		this.init(element, scope.settings);
+		scope.init(element, scope.settings);
 	}
-	SuperOverlay.prototype = {
-		constructor: SuperOverlay,
-        init: function (element, options) {
-        	var scope = this;        
-					if($(document).data(z.cla(options.trigger))) {
-						return true;
-					}
-					$(document).data(z.cla(options.trigger), true);
-        }
-    }
-    var local = SuperOverlay.prototype;
-    // add initialisation
+	SuperTemplate.prototype = {
+		constructor: SuperTemplate,
+      init: function (element, options) {
+      	var scope = this;        
+				if($(document).data(pluginName)) {
+					return true;
+				}
+				$(document).data(pluginName, true);
+				zem.debug(scope.el);
+				zem.debug(scope.$el);
+				zem.debug(scope.$options);
+				zem.debug(scope.defaults);
+				zem.debug(scope.settings);
+      }
+  }
+  // add initialisation
 	z.addInitalisation(pluginName, function() {
 		zem.debug(pluginName + ' initialized');
-		$(trigger).each(function() {
-			var $this = $(this);
-			// this element has already been initialized
-			if($this.data(pluginName)) {
-				return true;
-			}
-			// mark element as initialized
-			$this.data(pluginName, true);
-			new SuperOverlay($this);
-		});
 		$(document).on('click', trigger, function ()
 		{
 			zem.debug('super init show');
-			new SuperOverlay($(this), 'trigger');
+			new SuperTemplate($(this));
 			return false;
-		});
+		});		
 	});
 	// register UI module
 	z.UIModule({
