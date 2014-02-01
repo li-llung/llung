@@ -1,8 +1,8 @@
 /*
 //  util.js
 */
-var Em = Em || {};
-(function($, Em){
+var em = em || {};
+(function($, em){
     'use strict';
     if (!String.prototype.format) {
         String.prototype.format = function () {
@@ -12,7 +12,7 @@ var Em = Em || {};
             });
         };
     }
-    Em.util = {
+    em.util = {
         button: {
             disable: function(control){
                 $(control).addClass('group_btn_disabled').attr('disabled', 'disabled');
@@ -33,4 +33,4 @@ var Em = Em || {};
             window.location = where;
         }
     };
-})(jQuery, Em);
+})(jQuery, em);

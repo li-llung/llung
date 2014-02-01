@@ -6,10 +6,10 @@
 //
 //  Dependent on Util.js being before it.
 */
-var Em = Em || {};
-(function($, Em){
+var em = em || {};
+(function($, em){
 	'use strict';
-	Em.messages = {
+	em.messages = {
         templates: {
             base: '<div class="{0} alt messages"><h3>{1}</h3><ul id="{2}">{3}</ul><div class="clear">&nbsp;</div></div>',
             base_no_header: '<div class="{0} alt messages"><ul id="{1}">{2}</ul><div class="clear">&nbsp;</div></div>',
@@ -17,22 +17,22 @@ var Em = Em || {};
         },
         error: function (where, error) {
 			$(where).find(".issueAlert").remove();
-            $(where).prepend(Em.messages.templates.base.format('issueAlert', 'Please correct the following items:', 'issueAlert', error));
+            $(where).prepend(em.messages.templates.base.format('issueAlert', 'Please correct the following items:', 'issueAlert', error));
         },
         success: function (where, message, header_text) {
             var message_text = (message === undefined) ? '' : message;
-            $(where).prepend(Em.messages.templates.base.format('successAlert', header_text, 'successAlert', message_text));
+            $(where).prepend(em.messages.templates.base.format('successAlert', header_text, 'successAlert', message_text));
         },
         success_no_header: function (where, message) {
             var message_text = (message === undefined) ? '' : message;
-            $(where).prepend(Em.messages.templates.base_no_header.format('successAlert', 'successAlert', message_text));
+            $(where).prepend(em.messages.templates.base_no_header.format('successAlert', 'successAlert', message_text));
         },
         warning: function (where, message) {
             var message_text = (message === undefined) ? '' : message;
-            $(where).prepend(Em.messages.templates.warning.format(message_text));
+            $(where).prepend(em.messages.templates.warning.format(message_text));
         },
         clear: function(){
             $('.messages').remove();
         }
 	};
-})(jQuery, Em);
+})(jQuery, em);

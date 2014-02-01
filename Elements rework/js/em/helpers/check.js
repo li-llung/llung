@@ -1,13 +1,13 @@
 /*
 //  check.js
 */
-var Em = Em || {};
-(function($, Em){
+var em = em || {};
+(function($, em){
     'use strict';
-    Em.check = {
+    em.check = {
         right: function(what){
             var doc = $(document).width();
             return ((($(what).width() + $(what).offset().left) + 5) >= doc);
         }     
     };
-})(jQuery, Em);
+})(jQuery, em);

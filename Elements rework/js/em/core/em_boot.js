@@ -1,12 +1,12 @@
 
-(function($, Em){
+(function($, em){
   'use strict';
 	
-	window.Em.init();
+	window.em.init();
 
-	// if AMD return Em object to define
+	// if AMD return em object to define
 	if(typeof define == "function" && define.amd) {
-		define(window.Em);
+		define(window.em);
 	}
 
-})(jQuery, Em);
+})(jQuery, em);

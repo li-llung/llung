@@ -6,6 +6,43 @@
     <link rel="stylesheet" href="css/slider.css" type="text/css" media="screen" />
 </head>
 <body>
+<h3>Content Overlay</h3>
+<a href="javascript: void(0);" class="overlay" data-element="meat" title="" data-width="640" data-height="480">Hidden Div on page</a> |
+<a href="javascript: void(0);" class="overlay" data-element="test" title="" data-width="200" data-height="200" data-rounded="7px" data-shadow_size="5px 5px 5px" data-shadow_color="#666666" data-class_bg=".modal_bg_red">Hidden Div on page 2</a> |
+<a href="json.txt" class="overlay" data-type="file" title="">Content from local text file</a>
+<br /><br />
+<h3>Ajax</h3>
+<a href="https://api.github.com/users/zeromars/repos?client_id=d5f816034e83e1d3cde5&client_secret=bcdb732a0a29969f59749e626e3d6069cbd976ec" class="overlay" data-type="ajax" data-ajax_content="get_repos" title="">Ajax</a> |
+<a href="https://api.github.com/users/zeromars/repos?client_id=d5f816034e83e1d3cde5&client_secret=bcdb732a0a29969f59749e626e3d6069cbd976ec" class="overlay" data-type="ajax" data-ajax_content="get_repos" title="">Ajax Json Data</a>
+<br /><br />
+<h3>Content Overlay w/Titles</h3>
+<a href="javascript: void(0);" class="overlay" data-element="meat" data-title="Hidden Div on page" data-width="640" data-height="480">Hidden Div on page</a> |
+<a href="javascript: void(0);" class="overlay" data-element="test" data-title="Hidden Div on page" data-width="200" data-height="200" data-data_class=".round_me">Hidden Div on page 2</a> |
+<a href="slider_flow.txt" class="overlay" data-type="file" data-title="Content from local text file">Content from local text file</a>
+<br /><br />
+<h3>JSON</h3>
+<a href="javascript: void(0);" class="overlay" data-type="json" data-call="json_call" title="JSON call">JSON call in page</a>
+<br /><br />
+<h3>Form</h3>
+<a href="javascript: void(0);" class="overlay" data-element="form" data-title="Im a form" data-width="640" data-height="480" data-focus_first="true">First element focused</a>
+<a href="javascript: void(0);" class="overlay" data-element="form" data-title="Im a form" data-width="640" data-height="480">First element not focused</a>
+<br /><br />
+<h3>Force Scroll</h3>
+<a href="javascript: void(0);" class="overlay" data-element="mega_meat" data-title="Im a form" data-width="640" data-height="480" data-force_scroll="true">Force Scroll</a>
+<br /><br />
+<h3>Call me</h3>
+<a href="javascript: $('#call_me').em().overlay('open');" class="overlay" id="call_me" data-element="meat" data-width="640" data-height="480">click me</a>
+<br /><br />
+<h3>Responsive</h3>
+<a href="javascript: void(0);" class="overlay" data-class_holder=".responsive_overlay_holder" data-title="Hidden Div on page">I'm responsive</a>
+<br /><br />
+<h3>Dynamic</h3>
+<a href="javascript: void(0);" class="add_overlay">Add Overlay</a><br />
+<br /><br />
+<h3>Mega Padding!</h3>
+<a href="javascript: void(0);" class="overlay" data-class_holder=".mega_pad" data-title="Hidden Div on page">I'm Mega!</a>
+<br /><br />
+
 <!--Start Audi-->
 <h2>Set - Audi</h2>
 <a href="javascript: void(0);" class="overlay" data-type="image" title="" data-gallery="audi" data-slide_start="true"><img src="images/sample/Audi-A6.jpg" alt="" /></a>
@@ -71,42 +108,6 @@
 <a href="javascript: void(0);" class="overlay" data-type="image" title="muddy_muddy_xmas.jpg" data-class_bg=".modal_bg_mud" data-gallery="mud"><img src="images/sample/muddy_muddy_xmas.jpg" alt="" /></a>
 <a href="javascript: void(0);" class="overlay" data-type="image" title="Mud-Bogging-in-OhioC-Pete.jpg" data-class_bg=".modal_bg_mud" data-gallery="mud"><img src="images/sample/Mud-Bogging-in-OhioC-Pete.jpg" alt="" /></a>
 <!--End Mud Diggers-->
-<br /><br />
-<h3>Content Overlay</h3>
-<a href="javascript: void(0);" class="overlay" data-element="meat" title="" data-width="640" data-height="480">Hidden Div on page</a> |
-<a href="javascript: void(0);" class="overlay" data-element="test" title="" data-width="200" data-height="200" data-rounded="7px" data-shadow_size="5px 5px 5px" data-shadow_color="#666666">Hidden Div on page 2</a> |
-<a href="json.txt" class="overlay" data-type="file" title="">Content from local text file</a>
-<br /><br />
-<h3>Ajax</h3>
-<a href="https://api.github.com/users/zeromars/repos?client_id=d5f816034e83e1d3cde5&client_secret=bcdb732a0a29969f59749e626e3d6069cbd976ec" class="overlay" data-type="ajax" data-ajax_content="get_repos" title="">Ajax</a> |
-<a href="https://api.github.com/users/zeromars/repos?client_id=d5f816034e83e1d3cde5&client_secret=bcdb732a0a29969f59749e626e3d6069cbd976ec" class="overlay" data-type="ajax" data-ajax_content="get_repos" title="">Ajax Json Data</a>
-<br /><br />
-<h3>Content Overlay w/Titles</h3>
-<a href="javascript: void(0);" class="overlay" data-element="meat" data-title="Hidden Div on page" data-width="640" data-height="480">Hidden Div on page</a> |
-<a href="javascript: void(0);" class="overlay" data-element="test" data-title="Hidden Div on page" data-width="200" data-height="200" data-data_class=".round_me">Hidden Div on page 2</a> |
-<a href="slider_flow.txt" class="overlay" data-type="file" data-title="Content from local text file">Content from local text file</a>
-<br /><br />
-<h3>JSON</h3>
-<a href="javascript: void(0);" class="overlay" data-type="json" data-call="json_call" title="JSON call">JSON call in page</a>
-<br /><br />
-<h3>Form</h3>
-<a href="javascript: void(0);" class="overlay" data-element="form" data-title="Im a form" data-width="640" data-height="480" data-focus_first="true">First element focused</a>
-<a href="javascript: void(0);" class="overlay" data-element="form" data-title="Im a form" data-width="640" data-height="480">First element not focused</a>
-<br /><br />
-<h3>Force Scroll</h3>
-<a href="javascript: void(0);" class="overlay" data-element="mega_meat" data-title="Im a form" data-width="640" data-height="480" data-force_scroll="true">Force Scroll</a>
-<br /><br />
-<h3>Call me</h3>
-<a href="javascript: $('#call_me').em().overlay('open');" class="overlay" id="call_me" data-element="meat" data-width="640" data-height="480">click me</a>
-<br /><br />
-<h3>Responsive</h3>
-<a href="javascript: void(0);" class="overlay" data-class_holder=".responsive_overlay_holder" data-title="Hidden Div on page">I'm responsive</a>
-<br /><br />
-<h3>Dynamic</h3>
-<a href="javascript: void(0);" class="add_overlay">Add Overlay</a><br />
-<br /><br />
-<h3>Mega Padding!</h3>
-<a href="javascript: void(0);" class="overlay" data-class_holder=".mega_pad" data-title="Hidden Div on page">I'm Mega!</a>
 <br /><br />
 <div class="slider" data-slide_start="false" data-slide_speed="2000">
     <div class="slide">
@@ -408,16 +409,16 @@
         num+=1;
     });
     $('.rounded').each(function(){
-        Em.effects.round($(this), $(this).data('round'));
+        em.effects.round($(this), $(this).data('round'));
     });
     $('.shadow').each(function(){
-        Em.effects.shadow($(this), $(this).data('shadow'), $(this).data('shadow-color'));
+        em.effects.shadow($(this), $(this).data('shadow'), $(this).data('shadow-color'));
     });
     $('.rotate').each(function(){
-        Em.effects.rotate($(this), $(this).data('angle'));
+        em.effects.rotate($(this), $(this).data('angle'));
     });
     $('.slideme').each(function(){
-        Em.effects.slide($(this), $(this).data('direction'), $(this).data('time'));
+        em.effects.slide($(this), $(this).data('direction'), $(this).data('time'));
     });
     //]]>
 </script>

@@ -1,10 +1,10 @@
 /*
 //  spinner.js
 */
-var Em = Em || {};
-(function($, Em){
+var em = em || {};
+(function($, em){
   'use strict';
-  Em.spinner = {
+  em.spinner = {
     add_spinner: function (what) {
       $(what).append('<div class="box_spinner">&nbsp;</div>');
     },
@@ -12,4 +12,4 @@ var Em = Em || {};
       $('.box_spinner').remove();
     }        
   };
-})(jQuery, Em);
+})(jQuery, em);

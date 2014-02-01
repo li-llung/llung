@@ -1,10 +1,10 @@
 /*
 //  math.js
 */
-var Em = Em || {};
-(function($, Em){
+var em = em || {};
+(function($, em){
     'use strict';
-    Em.math = {
+    em.math = {
         magnitude: function (val) {
             return Math.floor(Math.log(val) / Math.LN10);
         },
@@ -33,4 +33,4 @@ var Em = Em || {};
             }
         }        
     };    
-})(jQuery, Em);
+})(jQuery, em);

@@ -1,10 +1,10 @@
 /*
 //  date.js
 */
-var Em = Em || {};
-(function($, Em){
+var em = em || {};
+(function($, em){
     'use strict';
-    Em.datehelper = {
+    em.datehelper = {
         convert: function(what , type){
             var longMonthNames = ["January","February","March","April","May","June","July","August","September","October","November","December"],
                 shortMonthNames = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],
@@ -17,4 +17,4 @@ var Em = Em || {};
             return convertedMonth;
         }     
     };
-})(jQuery, Em);
+})(jQuery, em);

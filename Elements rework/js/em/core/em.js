@@ -2,7 +2,7 @@
 
 	'use strict';
 
-	function Em() {
+	function Elemets() {
 		var scope = this;
 		scope.$dom = $(document);
 		scope.click = 'click';
@@ -11,8 +11,8 @@
 		scope.inits = {};
 	}
 
-	// initialize Em
-	Em.prototype.init = function() {
+	// initialize em
+	Elemets.prototype.init = function() {
 		this.debug('ignition');
 		// init UI modules
 		this.initUIModules();
@@ -32,22 +32,22 @@
 		});
 	};
 
-	// public helper - set Em ready callback
-	Em.prototype.ready = function(code) {
+	// public helper - set em ready callback
+	Elemets.prototype.ready = function(code) {
 		if(code && typeof code === 'function') {
 			this.onReady = code;
 		}
 	};
 
 	// public helper - set touch callback
-	Em.prototype.touch = function(code) {
+	Elemets.prototype.touch = function(code) {
 		if(code && typeof code === 'function') {
 			this.onTouch = code;
 		}
 	};
 
 	// public helper - return debuggin object including uiModules object
-	Em.prototype.debuggin = function() {
+	Elemets.prototype.debuggin = function() {
 		return {
 			$dom: this.$dom,
 			uiModules: this.uiModules,
@@ -56,7 +56,7 @@
 	};
 
 	// grab attribute value, testing data- gumby- and no prefix
-	Em.prototype.selectAttr = function() {
+	Elemets.prototype.selectAttr = function() {
 		var i = 0;
 
 		// any number of attributes can be passed
@@ -64,15 +64,15 @@
 			// various formats
 			var attr = arguments[i],
 				dataAttr = 'data-'+arguments[i],
-				gumbyAttr = 'Em-'+arguments[i];
+				EmAttr = 'em-'+arguments[i];
 
 			// first test for data-attr
 			if(this.attr(dataAttr)) {
 				return this.attr(dataAttr);
 
-			// next test for Em-attr
-			} else if(this.attr(gumbyAttr)) {
-				return this.attr(gumbyAttr);
+			// next test for em-attr
+			} else if(this.attr(EmAttr)) {
+				return this.attr(EmAttr);
 
 			// finally no prefix
 			} else if(this.attr(attr)) {
@@ -84,70 +84,70 @@
 		return false;
 	};
 
-  Em.settings = {
+  Elemets.settings = {
       status: true,
-      show_output: true,
+      show_output: false,
       output: '<div id="output" class="output" style="background-color: #fbfbd5;border: solid 1px #ffdc7f;padding:10px;position: absolute;top: 50px;left: 50px;z-index:99999;"></div>'
   };
-  Em.prototype.log = function (message) {
+  Elemets.prototype.log = function (message) {
       console.log(message);
   };
-  Em.prototype.debug = function (message) {
-      if (Em.settings.status) {
+  Elemets.prototype.debug = function (message) {
+      if (Elemets.settings.status) {
           console.log(message);
-          if(Em.settings.show_output && !$('.output').length){
-              $('body').prepend(Em.settings.output);
+          if(Elemets.settings.show_output && !$('.output').length){
+              $('body').prepend(Elemets.settings.output);
           }
       }
   };
-  Em.prototype.debug_all = function (messages) {
-      if (Em.settings.status) {
-          var itEm;
-          for(itEm in arguments) {
-              console.log(arguments[itEm]);
+  Elemets.prototype.debug_all = function (messages) {
+      if (Elemets.settings.status) {
+          var item;
+          for(item in arguments) {
+              console.log(arguments[item]);
           }
-          if(Em.settings.show_output && !$('.output').length){
-              $('body').prepend(Em.settings.output);
+          if(Elemets.settings.show_output && !$('.output').length){
+              $('body').prepend(Elemets.settings.output);
           }
       }
   };
 
 	// 
-	Em.prototype.cla = function(itEm) {
-		return itEm.slice(1);
+	Elemets.prototype.cla = function(item) {
+		return item.slice(1);
 	};
 	// 
-	Em.prototype.sel = function(itEm) {
-		return itEm.slice(1);
+	Elemets.prototype.sel = function(item) {
+		return item.slice(1);
 	};
 	// 
-	Em.prototype.cloneData = function(itEm) {
-		return JSON.parse(JSON.stringify(itEm));
+	Elemets.prototype.cloneData = function(item) {
+		return JSON.parse(JSON.stringify(item));
 	};
 	// 
-	Em.prototype.testDataAttr = function(elEment, options, what){
-		if(elEment.data(what) !== undefined){
-			options[what] = elEment.data(what);
-			return elEment.data(what);
+	Elemets.prototype.testDataAttr = function(element, options, what){
+		if(element.data(what) !== undefined){
+			options[what] = element.data(what);
+			return element.data(what);
 		}else{
 			return options[what];
 		}
 	};
 	// 
-	Em.prototype.updateOptions = function(elEment, options){
+	Elemets.prototype.updateOptions = function(element, options){
 		var x;
 		for(x in options) {
-			this.testDataAttr (elEment, options, x);
+			this.testDataAttr (element, options, x);
 		}
-		//this.init(elEment, options);	
+		//this.init(element, options);	
 	};
 	// add an initialisation method
-	Em.prototype.addInitalisation = function(ref, code) {
+	Elemets.prototype.addInitalisation = function(ref, code) {
 		this.inits[ref] = code;
 	};
 
 	// initialize a uiModule
-	Em.prototype.initialize = function(ref) {
+	Elemets.prototype.initialize = function(ref) {
 		this.debug('initing ' + ref);
 		if(this.inits[ref] && typeof this.inits[ref] === 'function') {
 			this.inits[ref]();
@@ -155,7 +155,7 @@
 	};
 
 	// store a UI module
-	Em.prototype.UIModule = function(data) {
+	Elemets.prototype.UIModule = function(data) {
 		this.debug('add ui module');
 		this.debug(data);
 		var module = data.module;
@@ -163,7 +163,7 @@
 	};
 
 	// loop round and init all UI modules
-	Em.prototype.initUIModules = function() {
+	Elemets.prototype.initUIModules = function() {
 		this.debug('init ui mods');
 		this.debug(this.uiModules);
 		var x;
@@ -173,6 +173,6 @@
 		}
 	};
 
-	window.Em = new Em();
+	window.em = new Elemets();
 
 })(jQuery);
