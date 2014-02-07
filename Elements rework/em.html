@@ -4,8 +4,14 @@
     <link rel="stylesheet" href="css/em.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="css/overlay.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="css/slider.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="css/buttons.css" type="text/css" media="screen" />
 </head>
 <body>
+<h3>Legacy Overlay (jquery_overlay.js)</h3>
+<button class="em-button overlay" id="show-exercise-files"  data-element="ov-exercise-files" data-max-height="450" data-width="600" data-rounded="0" data-callback="getExerciseFiles" data-class="ov-exercise-files">
+    <i class="icon icon-download-alt"></i> Exercise files
+</button>
+<br /><br />
 <h3>Content Overlay</h3>
 <a href="javascript: void(0);" class="overlay" data-element="meat" title="" data-width="640" data-height="480">Hidden Div on page</a> |
 <a href="javascript: void(0);" class="overlay" data-element="test" title="" data-width="200" data-height="200" data-rounded="7px" data-shadow_size="5px 5px 5px" data-shadow_color="#666666" data-class_bg=".modal_bg_red">Hidden Div on page 2</a> |
@@ -324,6 +330,9 @@
         <img src="images/sample/Lamborghini_Gallardo_green.jpg" alt="">
     </div>
 </div>
+<div id="ov-exercise-files" class="hidden">
+    <p>ov-exercise-files</p>
+</div>
 <div id="meat" class="hidden">
     <p>Tenderloin pork chop drumstick tail pork belly venison. Turkey brisket chuck pork belly, spare ribs sausage ribeye shankle pork loin cow strip steak pork biltong. Biltong rump capicola, tenderloin prosciutto drumstick jowl ribeye turkey venison bacon salami. Brisket short ribs turkey capicola, bresaola shoulder rump shank hamburger meatloaf beef. Pancetta hamburger t-bone, bresaola shank corned beef chicken brisket leberkas filet mignon frankfurter.</p>
 
@@ -373,6 +382,9 @@
 <script type="text/javascript">
     //<![CDATA[
     'use strict';
+    function getExerciseFiles(){
+        console.log('getExerciseFiles');
+    }
 	var json_call = {
 		title: 'yay a json title',
 		content: '<p>Tenderloin pork chop drumstick tail pork belly venison. Turkey brisket chuck pork belly, spare ribs sausage ribeye shankle pork loin cow strip steak pork biltong. Biltong rump capicola, tenderloin prosciutto drumstick jowl ribeye turkey venison bacon salami. Brisket short ribs turkey capicola, bresaola shoulder rump shank hamburger meatloaf beef. Pancetta hamburger t-bone, bresaola shank corned beef chicken brisket leberkas filet mignon frankfurter.</p>'

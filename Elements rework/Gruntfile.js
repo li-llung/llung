@@ -12,7 +12,8 @@ module.exports = function(grunt) {
         files: {
           'css/em.css': 'css/less/em.less',
           'css/overlay.css': 'css/less/overlay.less',
-          'css/slider.css': 'css/less/slider.less'
+          'css/slider.css': 'css/less/slider.less',
+          'css/buttons.css': 'css/less/buttons.less'
         }
       }
     },
