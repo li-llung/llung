@@ -222,7 +222,8 @@
 						dataType: "text",
 						url: $(element).attr('href'),
 						success: function (data)
-						{						
+						{
+							$(options.class_rendered).append(data);
 						}
 					});
 					break;
