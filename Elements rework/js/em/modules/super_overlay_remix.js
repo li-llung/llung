@@ -64,7 +64,7 @@
 				em.debug('super init show');
 				scope.settings = em.cloneData($.extend( {}, scope.defaults ));
 				em.updateOptions($(this), scope.settings);
-				scope.show($(this), scope.settings);	 
+				scope.init($(this), scope.settings);	 
 				if($(document).data(scope.settings.class_bg)) {
 					return true;
 				}
@@ -97,13 +97,6 @@
 	SuperOverlay.prototype = {
 		constructor: SuperOverlay,
 		init: function (element, options) {
-			var scope = this;		 
-			if($(document).data(options.class_bg)) {
-				return true;
-			}
-			$(document).data(options.class_bg, true);
-		},
-		show: function(element, options){
 			em.debug('super proto show');
 			var scope = this;
 			em.debug(options.class_bg);
@@ -115,7 +108,7 @@
 			scope.raise(element, options);
 			scope.afterraise(element, options);
 			scope.clean(element, options);
-		},		
+		},	
 		populate: function (element, options)
 		{
 			em.debug('super proto populate');
@@ -124,17 +117,6 @@
 			$(options.class_content).html('');
 			$(options.class_images).html('');
 			$(options.slide_holder).html('');
-			var i = 1;
-			/*
-			$(trigger).each(function ()
-			{
-				$(this).find("img").attr('id', 'od_' + i).clone().appendTo('.overlay_frame').attr('id', 'image_od_' + i).attr('class', '').data('gallery', options.gallery);
-				i++;
-			});
-			if ($('.overlay_frame').length)
-			{
-				$('.overlay_frame').remove();
-			}*/
 			if($(options.class_frame).length){
 				$(options.class_frame).html('');
 			}else{
@@ -143,57 +125,90 @@
 					'class': 'overlay_frame'
 				}).appendTo('body');
 			}
-			if(hasGallery){
-				var slide_number = $(element).attr('id').split('_')[2],
-					slide_offset = 0,
-					slide_offset_top = 0;
-				$("[data-gallery^="+options.gallery+"]").find('img').each(function(index){
-					$(this).clone().appendTo(options.class_frame).attr('id', 'image_od_' + i);
-					$(this).clone().appendTo(options.slide_holder);
-					if((index + 1) < slide_number){
-						slide_offset += $('#image_od_' + i).width();
-						slide_offset_top += $('#image_od_' + i).height();
-						em.debug($('#image_od_' + i).width());
-						em.debug($('#image_od_' + i).height());
-					}
-					i++;
-				});
-				em.debug(slide_offset);
-				em.debug(slide_offset_top);
-				$(options.class_rendered).find(options.slide_holder).css('left', '-' + slide_offset + 'px');
-				$(options.slide_selector).css(
-					{
-						'width': $('#image_od_' + slide_number).width(),
-						'height': $('#image_od_' + slide_number).height()
-					}
-				);				
-				var slider_width = 0;
-				var slide_items = $("[data-gallery^="+options.gallery+"]");
-				var slide_count = slide_items.length;
-				var j = 1;
-				slide_items.each(function(index){
-					slider_width += $('#image_od_' + j).width();
-					em.debug('my width = ' + $('#image_od_' + j).width());
-					j++;
-				});
-				em.debug('slider width ' + slider_width);
-				if(options.slide_direction === "horizontal"){
-					$(options.class_rendered).find(options.slide_holder).width(slide_count * slider_width);	
-				}
-			}else{
-				$(element).find('img').each(function(){
-					$(this).clone().appendTo(options.class_frame).attr('id', 'image_od_' + i);
-					$(element).find('img').attr('id', 'od_' + i);
-					i++;
-				});	
-			}
 			if(options.title !== "" && options.show_header){
 				$('<h1>' + options.title + '</h1>').appendTo(options.class_content);
 			}
-			//em.debug(options.type);
+			em.debug('my type = ' + options.type);
+			var i = 1;
 			switch (options.type)
 			{
+				case 'gallery':
+					$("[data-gallery^="+options.gallery+"]").first().addClass('isFirst');
+					$("[data-gallery^="+options.gallery+"]").last().addClass('isLast');
+					$("[data-gallery^="+options.gallery+"]").find('img').each(function(index){
+						$(this).attr('id', 'od_' + index);
+						$(this).clone().appendTo(options.class_frame).attr('id', 'image_od_' + index);
+						$(this).clone().appendTo(options.slide_holder).attr('id', 'holder_od_' + index);
+						i++;
+					});
+					var slide = $('#image_' + $(element).find('img').attr('id'));					
+					var slide_number = (Number($('#holder_' + $(element).find('img').attr('id')).index()) + 1),
+						slide_offset = 0,
+						slide_offset_top = 0;
+						em.debug(slide_number);
+						$(options.class_rendered).data('current-slide', slide_number);
+					$("[data-gallery^="+options.gallery+"]").find('img').each(function(index){
+						if((index + 1) < slide_number){
+							slide_offset += $('#image_od_' + index).width();
+							slide_offset_top += $('#image_od_' + index).height();
+							em.debug($('#image_od_' + index).width());
+							em.debug($('#image_od_' + index).height());
+						}
+						i++;
+					});
+					em.debug(slide);
+					em.debug(slide.width());
+					em.debug(slide.height());
+					var gal_top = (((Number($(window).height()) - Number(slide.height())) / 2)),
+						gal_left = (((Number($('body').width()) - Number(slide.width())) / 2));
+
+					var slider_width = 0;
+					var slide_items = $("[data-gallery^="+options.gallery+"]");
+					var slide_count = slide_items.length;
+					var j = 0;
+					slide_items.each(function(index){
+						slider_width += $('#image_od_' + j).width();
+						em.debug('my width = ' + $('#image_od_' + j).width());
+						j++;
+					});
+					$(options.class_rendered).css(
+						{
+							'width': slide.width(),
+							'height': slide.height(),
+							'left': gal_left + 'px'
+						}
+					);
+					$(options.slide_selector).css(
+						{
+							'width': slide.width(),
+							'height': slide.height()
+						}
+					);
+					$(options.slide_holder).css(
+						{
+							'width': slider_width,
+							'height': slide.height()
+						}
+					);
+					$(options.class_rendered).find(options.slide_holder).css('left', '-' + slide_offset + 'px');
+					if($(element).hasClass('isFirst')){
+						$(options.class_rendered).find(options.class_prev).hide();
+					}
+					if($(element).hasClass('isLast')){
+						$(options.class_rendered).find(options.class_next).hide();
+					}
+					/*
+					if(options.slide_direction === "horizontal"){
+						$(options.class_rendered).find(options.slide_holder).width(slide_count * slider_width);	
+					}
+					*/
+					break;
 				case 'image':
+					$(element).find('img').each(function(){
+						$(this).clone().appendTo(options.class_frame).attr('id', 'image_od_' + i);
+						$(element).find('img').attr('id', 'od_' + i);
+						i++;
+					});	
 					$(options.class_rendered).css({ 'width': 'auto', 'height': 'auto' });
 					var src = $(element).find('img').attr('src'),
 						image_id = $(element).find('img').attr('id'),
@@ -208,11 +223,8 @@
 						$('<div class="'+em.cla(options.class_caption)+'"><h1>' + options.title + '</h1></div>').appendTo(options.slide_holder);
 						$(options.class_caption).fadeTo("slow", 0.60);
 					}
-					em.debug('gallery is ' + hasGallery);
-					if(!hasGallery){
-						$('<img src="' + src + '" alt="' + options.title + '" height="auto" width="auto" /></div>').appendTo(options.class_images);
-						$(options.class_rendered).find(options.slide_holder).width(width).height(height);
-					}
+					$('<img src="' + src + '" alt="' + options.title + '" height="auto" width="auto" /></div>').appendTo(options.class_images);
+					$(options.class_rendered).find(options.slide_holder).width(width).height(height);
 					break;					
 				case 'json':
 					$(options.class_rendered).append('<div class="'+em.cla(options.class_content)+'">' + ((window[options.call].title !== "") ? '<h1>' + window[options.call].title + '</h1>' : '') + '' + window[options.call].content + '</div>');
@@ -476,6 +488,113 @@
 		},
 		move: function (element, options, direction){
 			em.debug('super move');
+			var scope = this;
+			var original_slide = Number($(options.class_rendered).data('current-slide'));
+			var original_width = $('#image_od_' + original_slide).width();
+			var original_height = $('#image_od_' + original_slide).height();
+			var current_slide = Number($(options.class_rendered).data('current-slide'));
+			var real_slide = Number($(options.class_rendered).data('current-slide'));
+			var sign = '-';
+			em.debug('slide was ' + current_slide);
+			if(direction === "prev"){
+				current_slide = (parseInt(current_slide) - 1);
+				sign = "-";
+			}else if(direction === "next"){
+				current_slide = (parseInt(current_slide) + 1);
+				sign = "+";
+			}
+			em.debug('slide now is ' + current_slide);
+			$(options.class_rendered).data('current-slide', current_slide);
+			var slide_width = $('#image_od_' + current_slide).width();
+			var slide_height = $('#image_od_' + current_slide).height();
+			var title = options.title,
+				animate_left = -((current_slide * $('#image_od_' + real_slide).width()) - $('#image_od_' + real_slide).width()),
+				animate_top = -((current_slide * $('#image_od_' + real_slide).height()) - $('#image_od_' + real_slide).height()),
+				slide_offset = 0,
+				slide_offset_top = 0;
+            if(options.slide_effect == "fade"){
+                $(options.class_rendered).find('img').fadeOut();
+                $(options.class_rendered).find('img').eq(current_slide).fadeIn();
+                $(options.class_rendered).find(options.slide_holder).css('top', 0);
+                $(options.class_rendered).animate({
+                    width: slide_width,
+                    height: slide_height
+                }, options.slide_delay, function() {
+					scope.reposition(options);
+				});
+                $(options.class_rendered).find(options.slide_selector).animate({
+                    width: slide_width,
+                    height: slide_height
+                }, options.slide_delay);
+            }else{
+				$(options.class_rendered).find('img').each(function(index){
+					em.debug((index + 1));
+					em.debug(current_slide);
+					if((index + 1) < current_slide){
+						slide_offset += $(this).width();
+						slide_offset_top += $(this).height();
+						em.debug('pushing ' + slide_offset);
+					}
+				});
+                if (options.slide_direction === 'horizontal') {
+					slide_width = $('#image_od_' + real_slide).width();
+					slide_height = $('#image_od_' + real_slide).height();
+                    $(options.class_rendered).find(options.slide_holder).animate({
+                        left: animate_left
+                    }, options.slide_delay);
+                    $(options.class_rendered).animate({
+                        width: slide_width,
+                        height: slide_height
+                    }, options.slide_delay, function() {
+						scope.reposition(options);
+					});
+                    $(options.class_rendered).find(options.slide_selector).animate({
+                        width: slide_width,
+                        height: slide_height
+                    }, options.slide_delay);
+                    $(options.class_rendered).find(options.slide_holder).animate({
+                        left: ((direction === "prev") ? "+=" : "-=") + '' + slide_offset
+                    }, options.slide_delay);	
+                } else {
+                    $(options.class_rendered).find(options.slide_holder).animate({
+                        top: animate_top
+                    }, options.slide_delay);
+                    $(options.class_rendered).animate({
+                        width: slide_width,
+                        height: slide_height
+                    }, options.slide_delay, function() {
+						scope.reposition(options);
+					});
+                    $(options.class_rendered).find(options.slide_selector).animate({
+                        width: slide_width,
+                        height: slide_height
+                    }, options.slide_delay);
+                    $(options.class_rendered).find(options.slide_holder).animate({
+                        top: ((direction === "prev") ? "+=" : "-=") + '' + slide_offset_top
+                    }, options.slide_delay);	
+                }
+            }
+			if($('#image_od_' + current_slide).is( ":first-child" )){
+				$(options.class_prev).hide();
+				$(options.class_next).show();
+			}else{
+				$(options.class_prev).show();
+				$(options.class_next).show();				
+			}
+			if($('#image_od_' + current_slide).is( ":last-child" )){
+				$(options.class_prev).show();
+				$(options.class_next).hide();
+			}
+			if(!$('#image_od_' + current_slide).is( ":first-child" ) && !$('#image_od_' + current_slide).is( ":last-child" )){
+				$(options.class_prev).show();
+				$(options.class_next).show();				
+			}
+			if (title !== "")
+			{
+				$(options.class_caption).find('h1').text(title);
+				$(options.class_caption).fadeTo("slow", 0.60);
+			}
+
 		},
 		play: function(element, options){
 			em.debug('super proto play');
