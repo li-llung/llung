@@ -163,11 +163,13 @@
 						gal_left = (((Number($('body').width()) - Number(slide.width())) / 2));
 
 					var slider_width = 0;
+					var slider_height = 0;
 					var slide_items = $("[data-gallery^="+options.gallery+"]");
 					var slide_count = slide_items.length;
 					var j = 1;
 					slide_items.each(function(index){
 						slider_width += $('#image_od_' + j).width();
+						slider_height += $('#image_od_' + j).height();
 						em.debug('my width = ' + $('#image_od_' + j).width());
 						j++;
 					});
@@ -184,12 +186,21 @@
 							'height': slide.height()
 						}
 					);
-					$(options.slide_holder).css(
-						{
-							'width': slider_width,
-							'height': slide.height()
-						}
-					);
+					if(options.slide_direction==="vertical"){
+						$(options.slide_holder).addClass('vertical').css(
+							{
+								'width': slide.width(),
+								'height': slider_height
+							}
+						);
+					}else{
+						$(options.slide_holder).addClass('horizontal').css(
+							{
+								'width': slider_width,
+								'height': slide.height()
+							}
+						);
+					}
 					//if(options.slide_effect!="fade"){
 						$(options.class_rendered).find(options.slide_holder).css('left', '-' + slide_offset + 'px');
 					//}
@@ -561,9 +572,9 @@
 						slide_offset = 0;
 						slide_offset_top = 0;
         } else {
-            $(options.class_rendered).find(options.slide_holder).animate({
+            /*$(options.class_rendered).find(options.slide_holder).animate({
                 top: animate_top
-            }, options.slide_delay);
+            }, options.slide_delay);*/
             $(options.class_rendered).animate({
                 width: slide_width,
                 height: slide_height
@@ -575,7 +586,8 @@
                 height: slide_height
             }, options.slide_delay);
             $(options.class_rendered).find(options.slide_holder).animate({
-                top: ((direction === "prev") ? "+=" : "-=") + '' + slide_offset_top
+                width: slide_width,
+                top: "-" + slide_offset_top
             }, options.slide_delay);	
         }
       }

@@ -11,7 +11,7 @@
   position: relative;
   z-index: 10;
 }
-.slide_holder img {
+.horizontal img {
   float: left;
 }
 .slide {
