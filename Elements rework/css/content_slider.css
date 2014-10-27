@@ -1,0 +1,121 @@
+.content_slider{
+    display: block;
+    overflow: hidden;
+    height: 379px;
+    width: 920px;
+    position: relative;
+    z-index: 10;
+    margin-bottom: 20px;
+}
+.content_slide_holder{
+    position: relative;
+    z-index: 10;
+}
+.horizontal img{
+    float: left;
+}
+.content_slide{
+    float: left;
+    width: 920px;
+    height: 379px;
+    background-color: #cccccc;
+}
+.content_slide_nav{
+    color: #ffffff;
+    position: absolute;
+    top: 5px;
+    right: 3px;
+    z-index: 15;
+}
+.content_slide_nav.dots{
+    color: #ffffff;
+    position: absolute;
+    top: auto;
+    bottom: 35px;
+    right: 45%;
+    z-index: 15;
+}
+.content_slide_left{
+    position: absolute;
+    top: 50%;
+    left: 0;    
+    color: #ffffff;
+    background-color: #000000;
+    border-radius: 3px;
+    padding: 15px;
+    text-decoration: none;   
+    z-index: 15;
+    display: none;
+}
+.content_slide_right{
+    position: absolute;
+    top: 50%;
+    right: 0; 
+    color: #ffffff;   
+    background-color: #000000;
+    border-radius: 3px;
+    padding: 15px;
+    text-decoration: none;
+    z-index: 15;
+}
+.content_slide_left:hover, .content_slide_right:hover{
+    background-color: #FFBA00;
+    color: #000000;
+}
+.content_slider .nav .content_slide_nav_item{
+    background-color: #000000;
+    float: left;
+    padding: 12px;
+    text-decoration: none;
+    color: #ffffff;
+    margin-right: 2px;
+    border-radius: 3px;
+}
+.content_slider .nav .content_slide_nav_item:hover{
+    background-color: #FFBA00;
+    color: #000000;
+}
+.content_slider .nav .content_slide_nav_anchor{
+    background-color: #FFBA00;
+    color: #000000;
+}
+.content_slider .dots .content_slide_nav_item{
+    background-color: #000000;
+    float: left;
+    padding: 0px;
+    text-decoration: none;
+    color: #ffffff;
+    margin-right: 2px;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    text-align: center;    
+}
+.content_slider .dots .content_slide_nav_item:hover{
+    background-color: #FFBA00;
+    color: #000000;
+}
+.content_slider .dots .content_slide_nav_anchor{
+    background-color: #FFBA00;
+    color: #000000;
+}
+.content_slide_controls{
+    color: #ffffff;
+    position: absolute;
+    bottom: 5px;
+    right: 3px;
+    z-index: 15;
+}
+.content_slide_controls a{
+    background-color: #000000;
+    float: left;
+    padding: 6px;
+    text-decoration: none;
+    color: #ffffff;
+    margin-right: 2px;
+    border-radius: 8px;
+}
+.content_slide_controls a:hover{
+    background-color: #FFBA00;
+    color: #000000;
+}

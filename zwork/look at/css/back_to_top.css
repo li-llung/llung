@@ -1,0 +1,30 @@
+/*Start Back to Top*/
+.back_to_top
+{
+  background-color: #0B6998;
+  bottom: 0;
+  color: #FFFFFF;
+  font-family: "Verdana","Geneva",sans-serif;
+  font-size: 10px;
+  padding: 0;
+  right: 100px;
+  width: 105px;
+  z-index: 100;
+  position: fixed;
+  /*position: absolute;
+  height: 25px;*/
+}
+.back_to_top a
+{
+  color: #FFFFFF;
+  display: block;
+  padding: 3px 0;
+  text-align: center;
+  text-decoration: none;
+  width: 105px;
+}
+.back_to_top a:hover
+{
+  cursor: pointer;
+}
+/*End Back to Top*/

@@ -37,6 +37,7 @@
 			max_height: 'user',
 			pass_data: false,
 			overlay_data: {},
+			template: false,
 			data_class: 'rendered',
 			call: false,
 			callback: false,
@@ -132,6 +133,32 @@
 			var i = 1;
 			switch (options.type)
 			{
+				case 'content_gallery':
+					$("[data-type=content_gallery]").first().addClass('isFirst');
+					$("[data-type=content_gallery]").last().addClass('isLast');
+					$("[data-type=content_gallery]").find('img').each(function(index){
+						$(this).attr('id', 'con_' + (index + 1));
+						i++;
+					});
+					if(options.template){
+						console.log(options.template);
+						$(window[options.template]).each(function(){
+							console.log($(this)[0]);
+						});
+						//$(options.class_rendered).append('<div class="'+em.cla(options.class_content)+'">' + ((window[options.call].title !== "") ? '<h1>' + window[options.call].title + '</h1>' : '') + '' + window[options.call].content + '</div>');
+					}
+					if($(element).hasClass('isFirst')){
+						$(options.class_rendered).find(options.class_prev);
+					}
+					if($(element).hasClass('isLast')){
+						$(options.class_rendered).find(options.class_next).hide();
+					}
+					$(options.class_rendered).data('gal', parseInt($(element).find('img').attr('id').slice(4)));
+					$(options.class_rendered).find(options.class_next).data('gal',parseInt($(element).find('img').attr('id').slice(4)) + 1);
+					$(options.class_rendered).find(options.class_prev).data('gal',parseInt($(element).find('img').attr('id').slice(4)) - 1);
+					$("#" + options.element).clone(true, true).appendTo(options.slide_holder).clone();
+					$(options.slide_holder).find('.hidden').show().css('position', 'relative').css('margin','0');
+					break;
 				case 'gallery':
 					$("[data-gallery^="+options.gallery+"]").first().addClass('isFirst');
 					$("[data-gallery^="+options.gallery+"]").last().addClass('isLast');
@@ -376,7 +403,7 @@
 					html: '<a href="javascript: void(0);" class="'+em.cla(options.class_close)+'"></a>'
 				}).prependTo(options.class_rendered);
 			}
-			if($(element).hasClass('gallery')){
+			if($(element).hasClass('gallery') || $(element).hasClass('content_gallery')){
 				$('<div/>', {
 					id: em.cla(options.slide_selector),
 					'class': em.cla(options.slide_selector),
@@ -420,7 +447,7 @@
 			em.debug('super proto open');
 			var scope = this;
 			var total_width = ((options.width == 'user') ? 'auto' : options.width),
-				total_height = ((options.max_height != 'user' && total_height > options.max_height) ? options.max_height : total_height),
+				total_height = ((options.max_height != 'user' && total_height > options.max_height) ? options.max_height : 'auto'),
 				overlay_top = (((Number($(window).height()) - Number(total_height)) / 2)),
 				overlay_left = (((Number($('body').width()) - Number(total_width)) / 2)),
 				outerOverlay = {
@@ -433,7 +460,7 @@
 			if(options.height !== 'user'){
 				$(options.class_rendered).hide().fadeTo("slow", 1).show().css({ 'left': overlay_left, 'width': finalWidth, 'height': finalHeight, 'min-height': finalHeight, 'min-width': finalWidth });
 			}else{
-				$(options.class_rendered).hide().fadeTo("slow", 1).show().css({ 'left': overlay_left, 'min-height': finalHeight, 'min-width': finalWidth });
+				$(options.class_rendered).hide().fadeTo("slow", 1).show().css({ 'left': overlay_left, 'width': total_width, 'height': total_height, 'min-height': finalHeight, 'min-width': finalWidth });
 			}				
 			$(options.class_rendered).css('top', overlay_top + $(window).scrollTop());
 		},
@@ -468,7 +495,8 @@
 					'class': em.cla(options.class_bg) + " " + em.cla(options.class_spinner)
 				}).appendTo("body");				
 			}
-			$(options.class_bg).fadeTo('fast', '0.60').css('top', $(window).scrollTop());
+			$(options.class_bg).fadeTo('fast', '0.60');
+			//.css('top', $(window).scrollTop())
 		},
 		reposition: function(options){
 			em.debug('super proto repo');
