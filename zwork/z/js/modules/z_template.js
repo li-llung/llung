@@ -4,30 +4,24 @@
 ;(function ( $, window, document, undefined )
 {
 	var pluginName = "zTemplate",
-		version = "1.0",
-		trigger = ".template",
-		me;
-	function zTemplate ( element, options ) {
-		me = this;
+		trigger = ".template";
+	function zTemplate (element) {
+		var me = this;
 		this.defaults = {
             name: 'bob',
             type: 'really'
 		};
 		me.element = element;
-		me.settings = z.cloneData($.extend( {}, me.defaults, options ));
-		z.updateOptions(me.element, me.settings);
-        zem.debug(me.element);
-        zem.debug(me.settings);
-        zem.debug(z.updateOptions(me.element, me.settings));
-        zem.debug(options);
-        zem.debug(z.cloneData($.extend( {}, me.defaults, options )));
+		me.settings = z.cloneData($.extend( {}, me.defaults ));
+		z.updateOptions(me.element, me.settings);        
+        this.init(me.element, me.settings);
 	}
 	zTemplate.prototype = {
 		constructor: zTemplate,
-        init: function (element) {
+        init: function (element, options) {
 			zem.debug('called from init');
             zem.debug(element);
-            var options = this.settings;
+            zem.debug(options);
 			// this element has already been initialized
 			if($(document).data(options.selector)) {
 				return true;
@@ -36,9 +30,6 @@
 			$(document).data(options.selector, true);
         }
     }
-    $.fn[ pluginName ] = function ( options ) {
-	    new zTemplate($(this), options);
-    };
     // add initialisation
 	z.addInitalisation(pluginName, function() {
 		zem.debug(pluginName + ' initialized');

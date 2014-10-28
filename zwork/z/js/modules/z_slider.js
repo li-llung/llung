@@ -18,14 +18,8 @@
                 var slide_count = $(element).find('.slide').length,
                     holder = '#slide_holder_' + counter,
                     nav =  '#slide_nav_' + counter;
-            	zem.debug('slider '+counter+' starting now');
-            	zem.debug($(element));
-            	zem.debug($(element).find('.slide'));
-            	zem.debug(slide_count);
             	zem.debug(o);
             	zem.debug(ov);
-            	zem.debug(holder);
-            	zem.debug(nav);
                 $("<div/>", {
                     id: "slide_holder_" + counter,
                     'class': "slide_holder"
@@ -92,7 +86,7 @@
 	            slider.addClass(options.anchor);
 	        }  
 		};
-	function SuperSlider ( element, options ) {
+	function SuperSlider ( element  ) {
 		me = this;
 		this.defaults = {
             delay: 1000,
@@ -103,27 +97,16 @@
             anchor: 'slide_nav_anchor'
 		};
 		me.element = element;
-		me.settings = z.cloneData($.extend( {}, me.defaults, options ));
-		me.updateOptions(me.element, me.settings);
+		me.settings = z.cloneData($.extend( {}, me.defaults ));
+		z.updateOptions(me.element, me.settings);        
+        this.init(me.element, me.settings);
 	}
 	SuperSlider.prototype = {
 		constructor: SuperSlider,
-		testDataAttr: function(element, options, what){
-			if(element.data(what) !== undefined){
-		        me.settings[what] = element.data(what);
-				return element.data(what);
-			}else{
-				return this.defaults[what]
-			}
-		},
-		updateOptions: function (element, options){
-			var x;
-			for(x in options) {
-				this.testDataAttr (element, options, x);
-			}
-			me.init(element, options);
-		},
         init: function (element, options) {
+			zem.debug('called from init');
+            zem.debug(element);
+            zem.debug(options);
 			me.start($(this), element, options);	
 			// this element has already been initialized
 			if($(document).data(options.selector)) {
@@ -135,7 +118,7 @@
 		start: function(slider, element, options){
 			zem.debug('super start');
 			build.slider(slider, element, options);			
-		} ,
+		},
 		content_animate_to: function(slider, element, options){
 			zem.debug('super animate');
 			actions.content_animate_to(slider, element, options);			
