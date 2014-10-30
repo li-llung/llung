@@ -3,8 +3,9 @@
 * ========================================================== */
 ;(function ( $, window, document, undefined )
 {
-	var pluginName = "ZSlider",
-		trigger = ".slider";
+	'use strict';
+	var pluginName = 'ZSlider',
+		trigger = '.slider';
 	function ZSlider (element) {
 		var me = this;
 		this.defaults = {
@@ -32,7 +33,7 @@
 			// mark element as initialized
 			$(document).data(options.selector, true);
         }
-    }
+    };
     // add initialisation
 	z.addInitalisation(pluginName, function() {
 		zem.debug(pluginName + ' initialized');
@@ -44,7 +45,6 @@
 			}
 			// mark element as initialized
 			$this.data(pluginName, true);
-			//new ZSlider($this);
             new ZSlider($this);
 		});
 	});
