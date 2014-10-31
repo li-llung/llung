@@ -33,6 +33,7 @@
     // add initialisation
 	z.addInitalisation(pluginName, function() {
 		zem.debug(pluginName + ' initialized');
+		zem.debug('------------start ' + pluginName + '----------------------');
 		$(trigger).each(function() {
 			var $this = $(this);
 			// this element has already been initialized
@@ -41,9 +42,9 @@
 			}
 			// mark element as initialized
 			$this.data(pluginName, true);
-			//new zTemplate($this);
             new zTemplate($this);
 		});
+        zem.debug('------------end ' + pluginName + '----------------------');
 	});
 	// register UI module
 	z.UIModule({
