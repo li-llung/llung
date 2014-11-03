@@ -12,7 +12,7 @@
             slide_start: false,
             slide_speed: 1000,
             slide_direction: 'horizontal',
-            slide_loop: '2',
+            slide_loop: 2,
             slide_effect: 'tween'
 		};
 		me.element = element;

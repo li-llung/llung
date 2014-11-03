@@ -3,8 +3,9 @@
 * ========================================================== */
 ;(function ( $, window, document, undefined )
 {
-	var pluginName = "zTemplate",
-		trigger = ".template";
+	'use strict';
+	var pluginName = 'zTemplate',
+		trigger = '.template';
 	function zTemplate (element) {
 		var me = this;
 		this.defaults = {
