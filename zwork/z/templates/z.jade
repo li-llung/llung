@@ -11,6 +11,22 @@ html(lang="en")
         p 'Homestar runner!'
     div.slider
         div.slide
+            img(src="images/Lamborghini_Gallardo_green.jpg", alt="")
+        div.slide
+            img(src="images/imglamborghini gallardo.jpg", alt="")
+        div.slide
+            img(src="images/lamborghini-gallardo-spyder.jpg", alt="")
+        div.slide
+            img(src="images/Lamborghini_Gallardo_Exterior.jpg", alt="")
+    div(class="slider", data-start="true", data-speed="2000", data-loop="2", data-type="nav")
+        div.slide
+            img(src="images/Lamborghini_Gallardo_green.jpg", alt="")
+        div.slide
+            img(src="images/imglamborghini gallardo.jpg", alt="")
+        div.slide
+            img(src="images/lamborghini-gallardo-spyder.jpg", alt="")
+    div(class="slider", data-direction="vertical", data-start="false", data-speed="2000", data-loop="3", data-type="dots")
+        div.slide
             img(src="images/imglamborghini gallardo.jpg", alt="")
         div.slide
             img(src="images/lamborghini-gallardo-spyder.jpg", alt="")
@@ -18,25 +34,7 @@ html(lang="en")
             img(src="images/Lamborghini_Gallardo_Exterior.jpg", alt="")
         div.slide
             img(src="images/Lamborghini_Gallardo_green.jpg", alt="")
-    div(class="slider", data-slide_start="true", data-slide_speed="2000")
-        div.slide
-            img(src="images/imglamborghini gallardo.jpg", alt="")
-        div.slide
-            img(src="images/lamborghini-gallardo-spyder.jpg", alt="")
-        div.slide
-            img(src="images/Lamborghini_Gallardo_Exterior.jpg", alt="")
-        div.slide
-            img(src="images/Lamborghini_Gallardo_green.jpg", alt="")
-    div(class="slider", data-slide_direction="vertical", data-slide_start="false", data-slide_speed="2000", data-slide_loop="3")
-        div.slide
-            img(src="images/imglamborghini gallardo.jpg", alt="")
-        div.slide
-            img(src="images/lamborghini-gallardo-spyder.jpg", alt="")
-        div.slide
-            img(src="images/Lamborghini_Gallardo_Exterior.jpg", alt="")
-        div.slide
-            img(src="images/Lamborghini_Gallardo_green.jpg", alt="")
-    div(class="slider", data-slide_effect="fade")
+    div(class="slider", data-effect="fade", data-type="arrows")
         div.slide
             img(src="images/imglamborghini gallardo.jpg", alt="")
         div.slide

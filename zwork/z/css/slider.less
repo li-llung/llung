@@ -1,8 +1,8 @@
 .slider{
     display: block;
     overflow: hidden;
-    height: 300px;
-    width: 400px;
+    height: 379px;
+    width: 920px;
     position: relative;
     z-index: 10;
     margin-bottom: 20px;
@@ -11,13 +11,13 @@
     position: relative;
     z-index: 10;
 }
-.slide_holder img{
+.horizontal img{
     float: left;
 }
 .slide{
     float: left;
-    width: 400px;
-    height: 300px;
+    width: 920px;
+    height: 379px;
     background-color: #cccccc;
 }
 .slide_nav{
@@ -27,7 +27,42 @@
     right: 3px;
     z-index: 15;
 }
-.slide_nav_item{
+.slide_nav.dots{
+    color: #ffffff;
+    position: absolute;
+    top: auto;
+    bottom: 35px;
+    right: 45%;
+    z-index: 15;
+}
+.slide_left{
+    position: absolute;
+    top: 50%;
+    left: 0;    
+    color: #ffffff;
+    background-color: #000000;
+    border-radius: 3px;
+    padding: 15px;
+    text-decoration: none;   
+    z-index: 15;
+    display: none;
+}
+.slide_right{
+    position: absolute;
+    top: 50%;
+    right: 0; 
+    color: #ffffff;   
+    background-color: #000000;
+    border-radius: 3px;
+    padding: 15px;
+    text-decoration: none;
+    z-index: 15;
+}
+.slide_left:hover, .slide_right:hover{
+    background-color: #FFBA00;
+    color: #000000;
+}
+.slider .nav .slide_nav_item{
     background-color: #000000;
     float: left;
     padding: 12px;
@@ -36,11 +71,31 @@
     margin-right: 2px;
     border-radius: 3px;
 }
-.slide_nav_item:hover{
+.slider .nav .slide_nav_item:hover{
     background-color: #FFBA00;
     color: #000000;
 }
-.slide_nav_anchor{
+.slider .nav .slide_nav_anchor{
+    background-color: #FFBA00;
+    color: #000000;
+}
+.slider .dots .slide_nav_item{
+    background-color: #000000;
+    float: left;
+    padding: 0px;
+    text-decoration: none;
+    color: #ffffff;
+    margin-right: 2px;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    text-align: center;    
+}
+.slider .dots .slide_nav_item:hover{
+    background-color: #FFBA00;
+    color: #000000;
+}
+.slider .dots .slide_nav_anchor{
     background-color: #FFBA00;
     color: #000000;
 }
